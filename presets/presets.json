@@ -1,0 +1,25 @@
+[
+  {
+    "name": "Narrator",
+    "width": 0.35,
+    "dyn_width": 0.2,
+    "low_anchor": 120,
+    "mix": 1.0
+  },
+  {
+    "name": "Chorus Lift",
+    "width": 0.8,
+    "dyn_width": 0.5,
+    "air_freq": 10000,
+    "air_gain_db": 3.0,
+    "mix": 1.0
+  },
+  {
+    "name": "Ambient Glass",
+    "width": 1.0,
+    "dyn_width": 0.7,
+    "air_gain_db": 6.0,
+    "ceiling_db": -1.0,
+    "mix": 1.0
+  }
+]
