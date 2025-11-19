@@ -1,2 +1,2 @@
 #include "MSMatrix.h"
-// TODO: implement MSMatrix
+// All methods are inline in the header.

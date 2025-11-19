@@ -1,2 +1,27 @@
 #pragma once
-// DynWidth — skeleton stub
+
+class DynWidth {
+public:
+  DynWidth();
+
+  void reset();
+
+  // base width 0..1 (~0.6 default)
+  void setBaseWidth(float w);
+
+  // dynamic amount 0..1 (0 = static width, 1 = strong transients)
+  void setDynAmount(float a);
+
+  // Low anchor frequency in Hz (roughly 40..200).
+  void setLowAnchorHz(float hz);
+
+  // mid and side are in-place; transientActivity 0..1.
+  void processSample(float& mid, float& side, float transientActivity);
+
+private:
+  float _baseWidth;
+  float _dynAmt;
+  float _lowAnchorHz;
+  float _lowSideState;
+  float _lowAlpha;
+};
