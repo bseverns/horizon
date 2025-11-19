@@ -60,7 +60,9 @@ void setup() {
   horizon.setMix(0.7f);
 }
 
-void loop() {
+void loop()  #ifdef HORIZON_BUILD_SCOPE
+  // --- SCOPE VERSION ---
+  // The ASCII bar-graph telemetry from the scope sketch:
   // Print telemetry ~10 times a second.
   if (printTimer > 100) {
     float width  = horizon.getBlockWidth();      // 0..1 approx
@@ -81,5 +83,12 @@ void loop() {
 
     printTimer = 0;
   }
+#else
+  // --- MAIN VERSION ---
+  // No Serial printing, just whatever control / UI you want:
+  // - read knobs, buttons, encoders
+  // - map to horizon.setWidth(), setDynWidth(), etc.
+  // - maybe occasional debug prints, but not the full scope.
+
+#endif
 }
-y
