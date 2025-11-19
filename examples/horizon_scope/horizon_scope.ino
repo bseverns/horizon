@@ -1,4 +1,8 @@
-#include <Arduino.h>
+// horizon_scope.ino
+// Simple "scope" sketch for AudioHorizon.
+// Routes stereo input through Horizon and prints per-block telemetry
+// to the Serial monitor so you can *see* width, transients and limiting.
+
 #include <Audio.h>
 #include <Wire.h>
 #include <SPI.h>
@@ -39,9 +43,9 @@ static void printBar(const char* label, float value) {
 }
 
 void setup() {
-  delay(1000);              // let USB enumerate
+  // Give USB/serial some time to enumerate on some hosts.
+  delay(1000);
   Serial.begin(115200);
-  AudioMemory(40);
 
   AudioMemory(40);
 
@@ -60,9 +64,7 @@ void setup() {
   horizon.setMix(0.7f);
 }
 
-void loop()  #ifdef HORIZON_BUILD_SCOPE
-  // --- SCOPE VERSION ---
-  // The ASCII bar-graph telemetry from the scope sketch:
+void loop() {
   // Print telemetry ~10 times a second.
   if (printTimer > 100) {
     float width  = horizon.getBlockWidth();      // 0..1 approx
@@ -73,7 +75,7 @@ void loop()  #ifdef HORIZON_BUILD_SCOPE
     printBar("Width    ", width);
     printBar("Transient", trans);
 
-    // Limiter gain is linear; map it into a 0..1-ish bar:
+    // Limiter gain is linear; map it into a 0..1-ish space for the bar:
     // 1.0  -> no limiting
     // 0.25 -> heavy limiting
     float limBar = gain;
@@ -83,12 +85,4 @@ void loop()  #ifdef HORIZON_BUILD_SCOPE
 
     printTimer = 0;
   }
-#else
-  // --- MAIN VERSION ---
-  // No Serial printing, just whatever control / UI you want:
-  // - read knobs, buttons, encoders
-  // - map to horizon.setWidth(), setDynWidth(), etc.
-  // - maybe occasional debug prints, but not the full scope.
-
-#endif
 }
