@@ -20,6 +20,7 @@ AudioControlSGTL5000     sgtl5000_1;
 
 elapsedMillis            printTimer;
 
+#ifdef HORIZON_BUILD_SCOPE
 static void printBar(const char* label, float value) {
   if (value < 0.0f) value = 0.0f;
   if (value > 1.0f) value = 1.0f;
@@ -37,6 +38,7 @@ static void printBar(const char* label, float value) {
   Serial.print("| ");
   Serial.println(value, 3);
 }
+#endif
 
 void setup() {
   delay(1000);              // let USB enumerate
