@@ -1,4 +1,5 @@
 #pragma once
+#include "Arduino.h"
 #include <Audio.h>
 #include "MSMatrix.h"
 #include "TiltEQ.h"
