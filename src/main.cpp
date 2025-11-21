@@ -60,7 +60,8 @@ void setup() {
   horizon.setMix(0.7f);
 }
 
-void loop()  #ifdef HORIZON_BUILD_SCOPE
+void loop()  {
+#ifdef HORIZON_BUILD_SCOPE
   // --- SCOPE VERSION ---
   // The ASCII bar-graph telemetry from the scope sketch:
   // Print telemetry ~10 times a second.
