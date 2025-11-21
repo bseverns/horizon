@@ -1,4 +1,4 @@
-# HORIZON — Mid/Side Spatial & Dynamics Station (Space)
+# HORIZON — Mid/Side Spatial & Dynamics Station
 
 A mastering‑style “space shaper”: mid/side encode → tone shaping → **dynamic width** via transient detection → soft clip → lookahead limiter → width/mix.
 Makes dense mixes breathe (tails wider, hits focused). Drop it after any instrument.
