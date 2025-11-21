@@ -43,8 +43,6 @@ void setup() {
   Serial.begin(115200);
   AudioMemory(40);
 
-  AudioMemory(40);
-
   sgtl5000_1.enable();
   sgtl5000_1.volume(0.5f);
 
