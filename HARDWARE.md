@@ -128,7 +128,7 @@ Each pot is wired:
 
 The firmware reads these via `analogRead()` and maps them into:
 
-- `setWidth(0.0 .. 1.0+)`
+- `setWidth(0.0 .. 1.0)`
 - `setDynWidth(0.0 .. 1.0)`
 - `setTransientSens(0.0 .. 1.0)`
 - `setDirt(0.0 .. 1.0)` (often squared for finer low-end control)

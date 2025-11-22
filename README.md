@@ -13,6 +13,11 @@ Teensy 4.x + SGTL5000 (Teensy Audio Library), 44.1 kHz / 128‑sample blocks.
 - Feeling adventurous? Jump straight to `examples/preset_morph/preset_morph.ino`
   to hear slow-motion morphs between a cinema-wide wash and a gentle bus chain.
 
+## Control ranges (cheat sheet)
+- Width lives in **0.0..1.0**. Static width is clamped there, and the dynamic width block
+  only breathes inside that window so pots/encoders don’t promise "1.5x" magic that
+  never actually happens.
+
 ## Folders
 - `src/` — core classes (matrix, EQs, detector, limiter, smoothing).
 - `examples/` — minimal wiring sketch.

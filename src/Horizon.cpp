@@ -52,7 +52,7 @@ AudioHorizon::AudioHorizon()
 }
 
 void AudioHorizon::setWidth(float w) {
-  _widthTarget = clampf_hz(w, 0.0f, 1.5f);
+  _widthTarget = clampf_hz(w, 0.0f, 1.0f);
 }
 
 void AudioHorizon::setDynWidth(float a) {
