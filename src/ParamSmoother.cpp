@@ -1,5 +1,6 @@
-// Studio note: parameter hand-hold. This one-pole glide keeps knobs from biting—rapid
-// automation turns into gentle bends so the ear hears performance, not zipper noise.
+// Studio note: parameter hand-hold. Alpha 0..1 sets the one-pole glide (0 = instant,
+// 1 = snail); rapid automation turns into gentle bends so the ear hears performance,
+// not zipper noise. First call seeds the value so there’s no surprise jump.
 #include "ParamSmoother.h"
 
 static inline float clampf_ps(float x, float lo, float hi) {
