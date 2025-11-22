@@ -24,7 +24,10 @@ AudioHorizon::AudioHorizon()
     _lowAnchorHzTarget(100.0f),
     _dirtTarget(0.1f),
     _ceilingDbTarget(-1.0f),
-    _mixTarget(0.6f) {
+    _mixTarget(0.6f),
+    _telemetryWidth(_widthTarget),
+    _telemetryTransient(0.0f),
+    _telemetryLimiterGain(1.0f) {
   _widthSm.setSmoothing(0.1f);
   _dynWidthSm.setSmoothing(0.1f);
   _transientSm.setSmoothing(0.1f);
@@ -138,14 +141,17 @@ void AudioHorizon::update() {
 
     float detectorIn = 0.5f * (fabsf(m) + fabsf(s));
     float activity = _detector.processSample(detectorIn);
+    _telemetryTransient = activity;
 
     _dynWidth.processSample(m, s, activity);
+    _telemetryWidth = _dynWidth.getLastWidth();
 
     float wetL, wetR;
     _ms.decode(m, s, wetL, wetR);
 
     _softSat.processStereo(wetL, wetR);
     _limiter.processStereo(wetL, wetR);
+    _telemetryLimiterGain = _limiter.getGain();
 
     float outLf = dryL + mix * (wetL - dryL);
     float outRf = dryR + mix * (wetR - dryR);
@@ -168,4 +174,16 @@ void AudioHorizon::update() {
   release(inR);
   release(outL);
   release(outR);
+}
+
+float AudioHorizon::getBlockWidth() const {
+  return _telemetryWidth;
+}
+
+float AudioHorizon::getBlockTransient() const {
+  return _telemetryTransient;
+}
+
+float AudioHorizon::getLimiterGain() const {
+  return _telemetryLimiterGain;
 }

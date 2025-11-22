@@ -13,16 +13,19 @@ DynWidth::DynWidth()
     _dynAmt(0.35f),
     _lowAnchorHz(100.0f),
     _lowSideState(0.0f),
-    _lowAlpha(0.0f) {
+    _lowAlpha(0.0f),
+    _lastWidth(0.6f) {
   setLowAnchorHz(_lowAnchorHz);
 }
 
 void DynWidth::reset() {
   _lowSideState = 0.0f;
+  _lastWidth = _baseWidth;
 }
 
 void DynWidth::setBaseWidth(float w) {
   _baseWidth = clampf_dw(w, 0.0f, 1.5f);
+  _lastWidth = _baseWidth;
 }
 
 void DynWidth::setDynAmount(float a) {
@@ -51,6 +54,7 @@ void DynWidth::processSample(float& mid, float& side, float transientActivity) {
   if (narrow < 0.0f) narrow = 0.0f;
 
   float widthNow = narrow * t + widen * (1.0f - t);
+  _lastWidth = widthNow;
 
   // Extra mono-izing for very low frequencies.
   float lowWidthScale = 0.25f;
