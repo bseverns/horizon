@@ -30,6 +30,12 @@ MIT — see `LICENSE`.
 - Build and upload, e.g.:
   - `pio run -e main_teensy41 -t upload`
   - `pio run -e scope_teensy41 -t upload`
+- Linting your editor without dragging in the whole Teensy core? The
+  `patches/cores/teensy4/lint_stubs.h` shim (auto-included via
+  `platformio.ini`) injects no-op definitions for `__disable_irq`,
+  `NVIC_SET_PENDING`, `Serial`, etc., so clangd/IntelliSense stop
+  screaming when the PlatformIO download cache isn't around. Real
+  Teensy builds still use the genuine symbols from the toolchain.
 
 ## Examples
 
