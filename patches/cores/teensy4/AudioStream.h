@@ -20,6 +20,7 @@
 #define AUDIO_BLOCK_SAMPLES 128
 #endif
 
+#ifdef __cplusplus
 typedef struct audio_block_struct {
     uint8_t ref_count;
     uint8_t reserved1;
@@ -42,6 +43,7 @@ class AudioStream {
     unsigned char num_inputs;
     audio_block_t **inputQueue;
 };
+#endif  // __cplusplus
 
 #endif // AudioStream_h
 
@@ -63,3 +65,10 @@ class AudioStream {
 #define NVIC_SET_PENDING(irq) NVIC_SetPendingIRQ(static_cast<IRQn_Type>(irq))
 #endif
 #endif // legacy or host fallback
+
+// Recent Teensy cores publish AUDIO_SAMPLE_RATE_EXACT, but host-only or older
+// builds sometimes forget. Define a fallback that matches the Audio library's
+// expected 44.1 kHz rate so dependent headers compile cleanly.
+#ifndef AUDIO_SAMPLE_RATE_EXACT
+#define AUDIO_SAMPLE_RATE_EXACT 44117.64706f
+#endif
