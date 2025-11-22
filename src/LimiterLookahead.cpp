@@ -1,3 +1,6 @@
+// Studio note: safety ceiling with a musician’s handshake. We chase peaks fast so
+// transients survive, then relax with a slow release so the gain ride feels like
+// a mix engineer leaning on the fader instead of a brick wall clamp.
 #include "LimiterLookahead.h"
 #include <math.h>
 
