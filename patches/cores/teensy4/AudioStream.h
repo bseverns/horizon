@@ -11,7 +11,13 @@
 // find AudioStream symbols during host-only or misconfigured builds.
 // The goal is to keep compilation moving; real firmware should always
 // rely on the upstream header.
-#ifndef AudioStream_h
+//
+// Upstream uses the guard `AudioStream_h_`; older stubs (including this
+// file's first draft) only checked `AudioStream_h`, which meant we could
+// accidentally drop into the fallback even when the real header was
+// present. Gate on both so we only synthesize the stub when nothing from
+// the actual Teensy core has been pulled in.
+#if !defined(AudioStream_h) && !defined(AudioStream_h_)
 #define AudioStream_h
 
 #include <stdint.h>
@@ -33,6 +39,12 @@ class AudioStream {
     AudioStream(unsigned char ninput, audio_block_t **iqueue) : num_inputs(ninput), inputQueue(iqueue) {}
     virtual void update() = 0;
 
+    // PlatformIO's teensy core normally provides update_responsibility so
+    // blocks can ask whether they should trigger the software ISR. When
+    // we're linting on a host without the core, default to "no" so nothing
+    // tries to poke imaginary hardware.
+    static bool update_responsibility;
+
   protected:
     static audio_block_t *allocate(void) { return nullptr; }
     static void release(audio_block_t *) {}
@@ -43,6 +55,22 @@ class AudioStream {
     unsigned char num_inputs;
     audio_block_t **inputQueue;
 };
+
+inline bool AudioStream::update_responsibility = false;
+
+// Wire two AudioStream objects together. In the real runtime this pushes
+// audio blocks along the graph; here it's just a compile-time placeholder
+// so sketches that declare patch cords still build during static analysis.
+class AudioConnection {
+  public:
+    AudioConnection(AudioStream &source, unsigned char, AudioStream &destination, unsigned char)
+      : src(source), dst(destination) {}
+
+    AudioStream &src;
+    AudioStream &dst;
+};
+
+inline void AudioMemory(uint32_t) {}
 #endif  // __cplusplus
 
 #endif // AudioStream_h
