@@ -24,6 +24,11 @@ public:
   void setCeiling(float dB);
   void setMix(float m);
 
+  // Telemetry for scope/debug builds
+  float getBlockWidth() const;
+  float getBlockTransient() const;
+  float getLimiterGain() const;
+
   virtual void update() override;
 
 private:
@@ -61,4 +66,9 @@ private:
   TransientDetector _detector;
   SoftSaturation _softSat;
   LimiterLookahead _limiter;
+
+  // Cached telemetry
+  float _telemetryWidth;
+  float _telemetryTransient;
+  float _telemetryLimiterGain;
 };

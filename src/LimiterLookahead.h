@@ -12,6 +12,8 @@ public:
   // In-place stereo sample processing, -1..1 domain.
   void processStereo(float& l, float& r);
 
+  float getGain() const { return _gain; }
+
 private:
   float _ceiling;
   float _gain;
