@@ -23,6 +23,7 @@ public:
   void setDirt(float amt);
   void setCeiling(float dB);
   void setMix(float m);
+  void setOutputTrim(float dB);
 
   // Telemetry for scope/debug builds
   float getBlockWidth() const;
@@ -45,6 +46,7 @@ private:
   float _dirtTarget;
   float _ceilingDbTarget;
   float _mixTarget;
+  float _outTrimDbTarget;
 
   // Smoothers
   ParamSmoother _widthSm;
@@ -57,6 +59,7 @@ private:
   ParamSmoother _dirtSm;
   ParamSmoother _ceilingSm;
   ParamSmoother _mixSm;
+  ParamSmoother _outTrimSm;
 
   // DSP blocks
   MSMatrix _ms;
