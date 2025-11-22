@@ -1,3 +1,7 @@
+// Studio note: dynamic stereo width that breathes with the groove. We low-pass the
+// side to keep kick and bass glued center, then crossfade between narrow-on-transient
+// and wide-on-sustain states. The smoothing constants make width feel like stagecraft,
+// not a panicked fader grab.
 #include "DynWidth.h"
 #include <math.h>
 
