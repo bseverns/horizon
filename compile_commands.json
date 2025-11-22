@@ -1,0 +1,202 @@
+[
+  {
+    "directory": "/workspace/horizon",
+    "file": "/workspace/horizon/src/AirEQ.cpp",
+    "arguments": [
+      "clang++",
+      "-std=gnu++14",
+      "-DUSB_AUDIO",
+      "-DARDUINO_TEENSY41",
+      "-DHORIZON_BUILD_MAIN",
+      "-I",
+      "patches/cores/teensy4",
+      "-I",
+      "src",
+      "-include",
+      "stdint.h",
+      "-include",
+      "patches/cores/teensy4/lint_stubs.h",
+      "/workspace/horizon/src/AirEQ.cpp"
+    ]
+  },
+  {
+    "directory": "/workspace/horizon",
+    "file": "/workspace/horizon/src/DynWidth.cpp",
+    "arguments": [
+      "clang++",
+      "-std=gnu++14",
+      "-DUSB_AUDIO",
+      "-DARDUINO_TEENSY41",
+      "-DHORIZON_BUILD_MAIN",
+      "-I",
+      "patches/cores/teensy4",
+      "-I",
+      "src",
+      "-include",
+      "stdint.h",
+      "-include",
+      "patches/cores/teensy4/lint_stubs.h",
+      "/workspace/horizon/src/DynWidth.cpp"
+    ]
+  },
+  {
+    "directory": "/workspace/horizon",
+    "file": "/workspace/horizon/src/Horizon.cpp",
+    "arguments": [
+      "clang++",
+      "-std=gnu++14",
+      "-DUSB_AUDIO",
+      "-DARDUINO_TEENSY41",
+      "-DHORIZON_BUILD_MAIN",
+      "-I",
+      "patches/cores/teensy4",
+      "-I",
+      "src",
+      "-include",
+      "stdint.h",
+      "-include",
+      "patches/cores/teensy4/lint_stubs.h",
+      "/workspace/horizon/src/Horizon.cpp"
+    ]
+  },
+  {
+    "directory": "/workspace/horizon",
+    "file": "/workspace/horizon/src/LimiterLookahead.cpp",
+    "arguments": [
+      "clang++",
+      "-std=gnu++14",
+      "-DUSB_AUDIO",
+      "-DARDUINO_TEENSY41",
+      "-DHORIZON_BUILD_MAIN",
+      "-I",
+      "patches/cores/teensy4",
+      "-I",
+      "src",
+      "-include",
+      "stdint.h",
+      "-include",
+      "patches/cores/teensy4/lint_stubs.h",
+      "/workspace/horizon/src/LimiterLookahead.cpp"
+    ]
+  },
+  {
+    "directory": "/workspace/horizon",
+    "file": "/workspace/horizon/src/MSMatrix.cpp",
+    "arguments": [
+      "clang++",
+      "-std=gnu++14",
+      "-DUSB_AUDIO",
+      "-DARDUINO_TEENSY41",
+      "-DHORIZON_BUILD_MAIN",
+      "-I",
+      "patches/cores/teensy4",
+      "-I",
+      "src",
+      "-include",
+      "stdint.h",
+      "-include",
+      "patches/cores/teensy4/lint_stubs.h",
+      "/workspace/horizon/src/MSMatrix.cpp"
+    ]
+  },
+  {
+    "directory": "/workspace/horizon",
+    "file": "/workspace/horizon/src/ParamSmoother.cpp",
+    "arguments": [
+      "clang++",
+      "-std=gnu++14",
+      "-DUSB_AUDIO",
+      "-DARDUINO_TEENSY41",
+      "-DHORIZON_BUILD_MAIN",
+      "-I",
+      "patches/cores/teensy4",
+      "-I",
+      "src",
+      "-include",
+      "stdint.h",
+      "-include",
+      "patches/cores/teensy4/lint_stubs.h",
+      "/workspace/horizon/src/ParamSmoother.cpp"
+    ]
+  },
+  {
+    "directory": "/workspace/horizon",
+    "file": "/workspace/horizon/src/SoftSaturation.cpp",
+    "arguments": [
+      "clang++",
+      "-std=gnu++14",
+      "-DUSB_AUDIO",
+      "-DARDUINO_TEENSY41",
+      "-DHORIZON_BUILD_MAIN",
+      "-I",
+      "patches/cores/teensy4",
+      "-I",
+      "src",
+      "-include",
+      "stdint.h",
+      "-include",
+      "patches/cores/teensy4/lint_stubs.h",
+      "/workspace/horizon/src/SoftSaturation.cpp"
+    ]
+  },
+  {
+    "directory": "/workspace/horizon",
+    "file": "/workspace/horizon/src/TiltEQ.cpp",
+    "arguments": [
+      "clang++",
+      "-std=gnu++14",
+      "-DUSB_AUDIO",
+      "-DARDUINO_TEENSY41",
+      "-DHORIZON_BUILD_MAIN",
+      "-I",
+      "patches/cores/teensy4",
+      "-I",
+      "src",
+      "-include",
+      "stdint.h",
+      "-include",
+      "patches/cores/teensy4/lint_stubs.h",
+      "/workspace/horizon/src/TiltEQ.cpp"
+    ]
+  },
+  {
+    "directory": "/workspace/horizon",
+    "file": "/workspace/horizon/src/TransientDetector.cpp",
+    "arguments": [
+      "clang++",
+      "-std=gnu++14",
+      "-DUSB_AUDIO",
+      "-DARDUINO_TEENSY41",
+      "-DHORIZON_BUILD_MAIN",
+      "-I",
+      "patches/cores/teensy4",
+      "-I",
+      "src",
+      "-include",
+      "stdint.h",
+      "-include",
+      "patches/cores/teensy4/lint_stubs.h",
+      "/workspace/horizon/src/TransientDetector.cpp"
+    ]
+  },
+  {
+    "directory": "/workspace/horizon",
+    "file": "/workspace/horizon/src/main.cpp",
+    "arguments": [
+      "clang++",
+      "-std=gnu++14",
+      "-DUSB_AUDIO",
+      "-DARDUINO_TEENSY41",
+      "-DHORIZON_BUILD_MAIN",
+      "-I",
+      "patches/cores/teensy4",
+      "-I",
+      "src",
+      "-include",
+      "stdint.h",
+      "-include",
+      "patches/cores/teensy4/lint_stubs.h",
+      "/workspace/horizon/src/main.cpp"
+    ]
+  }
+]
