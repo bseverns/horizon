@@ -28,7 +28,7 @@ void DynWidth::reset() {
 }
 
 void DynWidth::setBaseWidth(float w) {
-  _baseWidth = clampf_dw(w, 0.0f, 1.5f);
+  _baseWidth = clampf_dw(w, 0.0f, 1.0f);
   _lastWidth = _baseWidth;
 }
 
@@ -54,7 +54,7 @@ void DynWidth::processSample(float& mid, float& side, float transientActivity) {
   // Static + dynamic width:
   float widen  = _baseWidth + _dynAmt;                // widen in tails
   float narrow = _baseWidth * (1.0f - 0.9f*_dynAmt);  // narrow on hits
-  if (widen  > 1.5f) widen  = 1.5f;
+  if (widen  > 1.0f) widen  = 1.0f;
   if (narrow < 0.0f) narrow = 0.0f;
 
   float widthNow = narrow * t + widen * (1.0f - t);
