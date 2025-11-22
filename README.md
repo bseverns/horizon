@@ -37,6 +37,23 @@ MIT — see `LICENSE`.
   screaming when the PlatformIO download cache isn't around. Real
   Teensy builds still use the genuine symbols from the toolchain.
 
+### Host-side IntelliSense / clangd cheat codes
+
+- Generate a compile database so clangd inherits the Teensy include + forced
+  lint stubs:
+  - Preferred: `pio run -e main_teensy41 -t compiledb` (drops
+    `.pio/build/main_teensy41/compile_commands.json`).
+  - Offline/editor-only fallback: `python tools/gen_compile_commands.py`
+    (writes `compile_commands.json` at the repo root with the same
+    `-I patches/cores/teensy4` + `-include patches/cores/teensy4/lint_stubs.h`
+    flags baked in).
+- Point your editor at that database (VS Code already ships a
+  `.vscode/c_cpp_properties.json` that hooks `compile_commands.json` and forces
+  the lint shim include path).
+- Re-index the workspace. Host-side scanning should stop flagging
+  `F_CPU_ACTUAL`, `IRQ_SOFTWARE`, and `NVIC_SET_PENDING` as undefined because
+  `lint_stubs.h` is now always forced in for non-Teensy toolchains.
+
 ## Examples
 
 - `examples/minimal/minimal.ino` — bare wiring: I2S in → Horizon → I2S out.
