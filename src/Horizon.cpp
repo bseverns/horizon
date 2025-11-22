@@ -5,10 +5,16 @@ static inline float clampf_hz(float x, float lo, float hi) {
   return (x < lo) ? lo : (x > hi ? hi : x);
 }
 
+static inline audio_block_t** clear_input_queue(audio_block_t* (&queue)[2]) {
+  queue[0] = nullptr;
+  queue[1] = nullptr;
+  return queue;
+}
+
 static constexpr float kInv32768 = 1.0f / 32768.0f;
 
 AudioHorizon::AudioHorizon()
-  : AudioStream(2, inputQueueArray),
+  : AudioStream(2, clear_input_queue(inputQueueArray)),
     _widthTarget(0.6f),
     _dynWidthTarget(0.35f),
     _transientSensTarget(0.5f),

@@ -27,7 +27,7 @@ public:
   virtual void update() override;
 
 private:
-  audio_block_t* inputQueueArray[2];
+  audio_block_t* inputQueueArray[2]{nullptr, nullptr};
 
   // Parameter targets
   float _widthTarget;
