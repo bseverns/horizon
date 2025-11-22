@@ -48,8 +48,8 @@ class AudioStream {
   protected:
     static audio_block_t *allocate(void) { return nullptr; }
     static void release(audio_block_t *) {}
-    audio_block_t *receiveReadOnly(uint32_t) { return nullptr; }
-    audio_block_t *receiveWritable(uint32_t) { return nullptr; }
+    audio_block_t *receiveReadOnly(uint32_t channel = 0) { (void)channel; return nullptr; }
+    audio_block_t *receiveWritable(uint32_t channel = 0) { (void)channel; return nullptr; }
     void transmit(audio_block_t *, uint32_t = 0) {}
 
     unsigned char num_inputs;
