@@ -16,8 +16,10 @@
 // file's first draft) only checked `AudioStream_h`, which meant we could
 // accidentally drop into the fallback even when the real header was
 // present. Gate on both so we only synthesize the stub when nothing from
-// the actual Teensy core has been pulled in.
-#if !defined(AudioStream_h) && !defined(AudioStream_h_)
+// the actual Teensy core has been pulled in. In real firmware builds
+// `TEENSYDUINO` is defined, so keep the stub strictly for host-only /
+// linting scenarios.
+#if !defined(TEENSYDUINO) && !defined(AudioStream_h) && !defined(AudioStream_h_)
 #define AudioStream_h
 
 #include <stdint.h>
