@@ -6,6 +6,45 @@
 
 #include_next <AudioStream.h>
 
+// If the real Teensy core isn't on the include path, make a minimal
+// fallback so dependent libraries (like the PJRC Audio toolkit) still
+// find AudioStream symbols during host-only or misconfigured builds.
+// The goal is to keep compilation moving; real firmware should always
+// rely on the upstream header.
+#ifndef AudioStream_h
+#define AudioStream_h
+
+#include <stdint.h>
+
+#ifndef AUDIO_BLOCK_SAMPLES
+#define AUDIO_BLOCK_SAMPLES 128
+#endif
+
+typedef struct audio_block_struct {
+    uint8_t ref_count;
+    uint8_t reserved1;
+    uint16_t memory_pool_index;
+    int16_t data[AUDIO_BLOCK_SAMPLES];
+} audio_block_t;
+
+class AudioStream {
+  public:
+    AudioStream(unsigned char ninput, audio_block_t **iqueue) : num_inputs(ninput), inputQueue(iqueue) {}
+    virtual void update() = 0;
+
+  protected:
+    static audio_block_t *allocate(void) { return nullptr; }
+    static void release(audio_block_t *) {}
+    audio_block_t *receiveReadOnly(uint32_t) { return nullptr; }
+    audio_block_t *receiveWritable(uint32_t) { return nullptr; }
+    void transmit(audio_block_t *, uint32_t = 0) {}
+
+    unsigned char num_inputs;
+    audio_block_t **inputQueue;
+};
+
+#endif // AudioStream_h
+
 // Older Teensy cores (or host-only tooling) sometimes omit these
 // convenience macros. Guard them to avoid trampling the official
 // definitions shipped with recent TeensyDuino releases, which already
