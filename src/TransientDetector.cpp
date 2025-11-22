@@ -1,7 +1,7 @@
-// Studio note: envelope follower tuned for “is this a hit?” The dual attack/release
-// makes the meter jump on stick attacks then chill quickly, which translates to
-// dynamic width and saturation moves that vibe with the drummer instead of fighting
-// them.
+// Studio note: envelope follower tuned for “is this a hit?” Sensitivity 0..1 shifts
+// the threshold (~0.05..0.5), while dual 2 ms / 80 ms attack-release makes the meter
+// jump on stick attacks then chill quickly. That transient pulse drives width and dirt
+// moves that vibe with the drummer instead of fighting them.
 #include "TransientDetector.h"
 #include <math.h>
 
