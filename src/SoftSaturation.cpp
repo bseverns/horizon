@@ -1,3 +1,6 @@
+// Studio note: tanh drive that behaves like a friendly tape machine. We normalize the
+// curve so added dirt thickens harmonics without flattening dynamics—the math keeps
+// the vibe crunchy yet polite.
 #include "SoftSaturation.h"
 #include <math.h>
 

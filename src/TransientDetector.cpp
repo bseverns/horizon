@@ -1,3 +1,7 @@
+// Studio note: envelope follower tuned for “is this a hit?” The dual attack/release
+// makes the meter jump on stick attacks then chill quickly, which translates to
+// dynamic width and saturation moves that vibe with the drummer instead of fighting
+// them.
 #include "TransientDetector.h"
 #include <math.h>
 
