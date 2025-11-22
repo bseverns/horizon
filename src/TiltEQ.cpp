@@ -1,6 +1,7 @@
-// Studio note: fast tilt around 1 kHz to lean mixes warm or airy. Two shelves share a
-// single pole so the phase stays friendly; small dB/oct moves feel like tilting a
-// spotlight rather than carving with a surgical EQ.
+// Studio note: fast tilt around 1 kHz to lean mixes warm or airy. Tilt is set in
+// dB/oct (-6..+6), mapped to a matched shelf pair so the pivot stays honest. Both
+// shelves share one pole to keep phase kind—think changing the angle of a spotlight,
+// not carving with a scalpel.
 #include "TiltEQ.h"
 #include <math.h>
 

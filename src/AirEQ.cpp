@@ -1,6 +1,7 @@
 // Studio note: one-pole split EQ that lets the top octave breathe without harshness.
-// We low-pass once, subtract to get the fizz, then scale the fizz: the single pole
-// keeps phase tame so boosts feel like opening a window instead of poking with a scalpel.
+// Frequency sweeps ~4–16 kHz and gain runs -12..+12 dB; we low-pass once, subtract
+// to get the fizz, then scale the fizz. A single pole keeps the phase tame so boosts
+// feel like opening a window instead of poking with a scalpel.
 #include "AirEQ.h"
 #include <math.h>
 
