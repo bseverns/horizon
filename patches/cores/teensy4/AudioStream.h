@@ -45,6 +45,12 @@ class AudioStream {
     // tries to poke imaginary hardware.
     static bool update_responsibility;
 
+    // Teensy Audio's runtime provides helpers that check/update all nodes in
+    // the audio graph. Host-only builds don't need that machinery, but the
+    // stubs keep dependency headers happy when the real core isn't present.
+    static bool update_setup() { return false; }
+    static void update_all() {}
+
   protected:
     static audio_block_t *allocate(void) { return nullptr; }
     static void release(audio_block_t *) {}
@@ -56,7 +62,10 @@ class AudioStream {
     audio_block_t **inputQueue;
 };
 
-inline bool AudioStream::update_responsibility = false;
+#if defined(__GNUC__)
+__attribute__((weak))
+#endif
+bool AudioStream::update_responsibility = false;
 
 // Wire two AudioStream objects together. In the real runtime this pushes
 // audio blocks along the graph; here it's just a compile-time placeholder
