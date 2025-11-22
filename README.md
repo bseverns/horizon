@@ -10,6 +10,8 @@ Teensy 4.x + SGTL5000 (Teensy Audio Library), 44.1 kHz / 128‑sample blocks.
 - Open `examples/minimal/minimal.ino` in Arduino + TeensyDuino.
 - Select Teensy 4.0/4.1 and upload.
 - Feed stereo program and try presets (see CSV + JSON).
+- Feeling adventurous? Jump straight to `examples/preset_morph/preset_morph.ino`
+  to hear slow-motion morphs between a cinema-wide wash and a gentle bus chain.
 
 ## Folders
 - `src/` — core classes (matrix, EQs, detector, limiter, smoothing).
@@ -59,3 +61,5 @@ MIT — see `LICENSE`.
 
 - `examples/minimal/minimal.ino` — bare wiring: I2S in → Horizon → I2S out.
 - `examples/horizon_scope/horizon_scope.ino` — ASCII "scope" showing block width, transient activity and limiter gain.
+- `examples/preset_morph/preset_morph.ino` — hands-free tour of two contrasting presets:
+  a slow morph to cartoonishly wide stages, then a pillow-soft mastering chain.
