@@ -18,10 +18,14 @@ public:
   // mid and side are in-place; transientActivity 0..1.
   void processSample(float& mid, float& side, float transientActivity);
 
+  float getLastWidth() const { return _lastWidth; }
+
 private:
   float _baseWidth;
   float _dynAmt;
   float _lowAnchorHz;
   float _lowSideState;
   float _lowAlpha;
+
+  float _lastWidth;
 };
