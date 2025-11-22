@@ -25,6 +25,7 @@ AudioHorizon::AudioHorizon()
     _dirtTarget(0.1f),
     _ceilingDbTarget(-1.0f),
     _mixTarget(0.6f),
+    _outTrimDbTarget(0.0f),
     _telemetryWidth(_widthTarget),
     _telemetryTransient(0.0f),
     _telemetryLimiterGain(1.0f) {
@@ -38,6 +39,7 @@ AudioHorizon::AudioHorizon()
   _dirtSm.setSmoothing(0.1f);
   _ceilingSm.setSmoothing(0.1f);
   _mixSm.setSmoothing(0.1f);
+  _outTrimSm.setSmoothing(0.1f);
 
   _dynWidth.setBaseWidth(_widthTarget);
   _dynWidth.setDynAmount(_dynWidthTarget);
@@ -86,6 +88,10 @@ void AudioHorizon::setMix(float m) {
   _mixTarget = clampf_hz(m, 0.0f, 1.0f);
 }
 
+void AudioHorizon::setOutputTrim(float dB) {
+  _outTrimDbTarget = clampf_hz(dB, -12.0f, 6.0f);
+}
+
 void AudioHorizon::update() {
   audio_block_t* inL = receiveReadOnly(0);
   audio_block_t* inR = receiveReadOnly(1);
@@ -116,6 +122,8 @@ void AudioHorizon::update() {
   float dirtAmt    = _dirtSm.process(_dirtTarget);
   float ceilingDb  = _ceilingSm.process(_ceilingDbTarget);
   float mix        = _mixSm.process(_mixTarget);
+  float outTrimDb  = _outTrimSm.process(_outTrimDbTarget);
+  float outTrimLin = powf(10.0f, 0.05f * outTrimDb);
 
   _dynWidth.setBaseWidth(width);
   _dynWidth.setDynAmount(dynAmt);
@@ -152,6 +160,9 @@ void AudioHorizon::update() {
     _softSat.processStereo(wetL, wetR);
     _limiter.processStereo(wetL, wetR);
     _telemetryLimiterGain = _limiter.getGain();
+
+    wetL *= outTrimLin;
+    wetR *= outTrimLin;
 
     float outLf = dryL + mix * (wetL - dryL);
     float outRf = dryR + mix * (wetR - dryR);
