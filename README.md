@@ -31,18 +31,19 @@ MIT — see `LICENSE`.
   - `pio run -e main_teensy41 -t upload`
   - `pio run -e scope_teensy41 -t upload`
 - Linting your editor without dragging in the whole Teensy core? The
-  `patches/cores/teensy4/lint_stubs.h` shim (auto-included via
-  `platformio.ini`) injects no-op definitions for `__disable_irq`,
-  `NVIC_SET_PENDING`, `Serial`, etc., so clangd/IntelliSense stop
-  screaming when the PlatformIO download cache isn't around. Real
-  Teensy builds still use the genuine symbols from the toolchain.
+  `patches/cores/teensy4/lint_stubs.h` shim is now **opt-in** so firmware
+  builds always pull `F_CPU_ACTUAL`, `NVIC_SET_PENDING`, etc. from the real
+  PJRC headers. Flip `HORIZON_LINT_STUBS=1` when generating editor metadata
+  and the shim injects no-op definitions for the usual suspects (`__disable_irq`,
+  `Serial`, ...), keeping clangd/IntelliSense chill even if the PlatformIO
+  download cache is missing.
 
 ### Host-side IntelliSense / clangd cheat codes
 
 - Generate a compile database so clangd inherits the Teensy include + forced
   lint stubs:
-  - Preferred: `pio run -e main_teensy41 -t compiledb` (drops
-    `.pio/build/main_teensy41/compile_commands.json`).
+  - Preferred: `HORIZON_LINT_STUBS=1 pio run -e main_teensy41 -t compiledb`
+    (drops `.pio/build/main_teensy41/compile_commands.json`).
   - Offline/editor-only fallback: `python tools/gen_compile_commands.py`
     (writes `compile_commands.json` at the repo root with the same
     `-I patches/cores/teensy4` + `-include patches/cores/teensy4/lint_stubs.h`
