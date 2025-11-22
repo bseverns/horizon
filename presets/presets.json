@@ -21,5 +21,26 @@
     "air_gain_db": 6.0,
     "ceiling_db": -1.0,
     "mix": 1.0
+  },
+  {
+    "name": "Width Morph Lab",
+    "width": 1.25,
+    "dyn_width": 0.65,
+    "air_freq": 12000,
+    "air_gain_db": 3.5,
+    "low_anchor": 90,
+    "ceiling_db": -1.5,
+    "mix": 0.9
+  },
+  {
+    "name": "Bus Pillow",
+    "width": 0.55,
+    "dyn_width": 0.25,
+    "mid_tilt_db_per_oct": 0.5,
+    "air_freq": 9500,
+    "air_gain_db": 1.5,
+    "low_anchor": 120,
+    "ceiling_db": -2.5,
+    "mix": 0.75
   }
 ]
