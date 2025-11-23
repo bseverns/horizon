@@ -28,7 +28,7 @@ Teensy 4.x + SGTL5000 (Teensy Audio Library), 44.1 kHz / 128‑sample blocks.
 - Width lives in **0.0..1.0**. Static width is clamped there, and the dynamic width block
   only breathes inside that window so pots/encoders don’t promise "1.5x" magic that
   never actually happens.
-- Limiter: ceiling sits in **-12..-0.1 dBFS** (no fake "0 dB" promises—leave a whisper of headroom), release 20..200 ms (adapts shorter on transient hits), lookahead 1..8 ms, detector tilt -3..+3 dB/oct, mix 0..1, link mode = Linked or Mid/Side, bypass is a 5 ms crossfade.
+- Limiter: ceiling clamps to **-12..-0.1 dBFS** across code, CSV, and this cheat sheet (no fake "0 dB" promises—leave a whisper of headroom), release 20..200 ms (adapts shorter on transient hits), lookahead 1..8 ms, detector tilt -3..+3 dB/oct, mix 0..1, link mode = Linked or Mid/Side, bypass is a 5 ms crossfade.
 
 ## Folders
 - `src/` — core classes (matrix, EQs, detector, limiter, smoothing).
