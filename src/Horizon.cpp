@@ -20,7 +20,7 @@ AudioHorizon::AudioHorizon()
     _transientSensTarget(0.5f),
     _midTiltTarget(0.0f),
     _sideAirFreqTarget(10000.0f),
-    _sideAirGainTarget(0.0f),
+    _sideAirGainTarget(2.0f),
     _lowAnchorHzTarget(100.0f),
     _dirtTarget(0.1f),
     _ceilingDbTarget(-1.0f),
@@ -85,8 +85,8 @@ void AudioHorizon::setMidTilt(float dBPerOct) {
 }
 
 void AudioHorizon::setSideAir(float freqHz, float gainDb) {
-  _sideAirFreqTarget = clampf_hz(freqHz, 2000.0f, 20000.0f);
-  _sideAirGainTarget = clampf_hz(gainDb, -12.0f, 12.0f);
+  _sideAirFreqTarget = clampf_hz(freqHz, 4000.0f, 16000.0f);
+  _sideAirGainTarget = clampf_hz(gainDb, -6.0f, 6.0f);
 }
 
 void AudioHorizon::setLowAnchor(float hz) {
