@@ -57,7 +57,12 @@ void setup() {
   horizon.setLowAnchor(100.0f);
   horizon.setDirt(0.15f);
   horizon.setCeiling(-1.0f);
-  horizon.setMix(0.7f);
+  horizon.setLimiterReleaseMs(80.0f);
+  horizon.setLimiterLookaheadMs(5.0f);
+  horizon.setLimiterDetectorTilt(0.0f);
+  horizon.setLimiterLinkMode(LimiterLookahead::LinkMode::Linked);
+  horizon.setLimiterMix(0.8f);
+  horizon.setMix(0.8f);
 }
 
 void loop()  {
@@ -84,12 +89,49 @@ void loop()  {
 
     printTimer = 0;
   }
+  if (printTimer > 500) {
+    // Limiter telemetry (scope build), ~2 Hz so USB stays tame.
+    auto telem = horizon.getLimiterTelemetry();
+    float grDb = horizon.getLimiterGRdB();
+    bool clipped = horizon.getLimiterClipFlagAndClear();
+    uint8_t ledCount = mapGRtoLeds(grDb);
+
+    Serial.print("Limiter GR dB: ");
+    Serial.print(grDb, 2);
+    Serial.print(" | Peak In: ");
+    Serial.print(telem.peak_in, 3);
+    Serial.print(" Out: ");
+    Serial.print(telem.peak_out, 3);
+    Serial.print(" | LEDs: ");
+    Serial.print(ledCount);
+    Serial.print(" | Clip: ");
+    Serial.println(clipped ? "yes" : "no");
+
+    printTimer = 0;
+  }
 #else
   // --- MAIN VERSION ---
-  // No Serial printing, just whatever control / UI you want:
-  // - read knobs, buttons, encoders
-  // - map to horizon.setWidth(), setDynWidth(), etc.
-  // - maybe occasional debug prints, but not the full scope.
+  // Drop telemetry to ~2 Hz so it’s non-invasive when hunting bugs over USB.
+  if (printTimer > 500) {
+    // Limiter telemetry (main build), ~2 Hz debug trickle.
+    auto telem = horizon.getLimiterTelemetry();
+    float grDb = horizon.getLimiterGRdB();
+    bool clipped = horizon.getLimiterClipFlagAndClear();
+    uint8_t ledCount = mapGRtoLeds(grDb);
+
+    Serial.print("GR(dB): ");
+    Serial.print(grDb, 2);
+    Serial.print(" | Pin: ");
+    Serial.print(telem.peak_in, 3);
+    Serial.print(" Pout: ");
+    Serial.print(telem.peak_out, 3);
+    Serial.print(" | LEDs: ");
+    Serial.print(ledCount);
+    Serial.print(" | Clip: ");
+    Serial.println(clipped ? "yes" : "no");
+
+    printTimer = 0;
+  }
 
 #endif
 }
