@@ -22,6 +22,12 @@ public:
   void setLowAnchor(float hz);
   void setDirt(float amt);
   void setCeiling(float dB);
+  void setLimiterReleaseMs(float ms);
+  void setLimiterLookaheadMs(float ms);
+  void setLimiterDetectorTilt(float dBPerOct);
+  void setLimiterLinkMode(LimiterLookahead::LinkMode mode);
+  void setLimiterMix(float m);
+  void setLimiterBypass(bool on);
   void setMix(float m);
   void setOutputTrim(float dB);
 
@@ -29,6 +35,9 @@ public:
   float getBlockWidth() const;
   float getBlockTransient() const;
   float getLimiterGain() const;
+  float getLimiterGRdB() const;
+  LimiterLookahead::Telemetry getLimiterTelemetry() const;
+  bool getLimiterClipFlagAndClear();
 
   virtual void update() override;
 
@@ -45,6 +54,12 @@ private:
   float _lowAnchorHzTarget;
   float _dirtTarget;
   float _ceilingDbTarget;
+  float _limiterReleaseTargetMs;
+  float _limiterLookaheadTargetMs;
+  float _limiterTiltTarget;
+  float _limiterMixTarget;
+  LimiterLookahead::LinkMode _limiterLinkModeTarget;
+  bool _limiterBypassTarget;
   float _mixTarget;
   float _outTrimDbTarget;
 
@@ -58,6 +73,10 @@ private:
   ParamSmoother _lowAnchorSm;
   ParamSmoother _dirtSm;
   ParamSmoother _ceilingSm;
+  ParamSmoother _limiterReleaseSm;
+  ParamSmoother _limiterLookaheadSm;
+  ParamSmoother _limiterTiltSm;
+  ParamSmoother _limiterMixSm;
   ParamSmoother _mixSm;
   ParamSmoother _outTrimSm;
 
@@ -74,4 +93,5 @@ private:
   float _telemetryWidth;
   float _telemetryTransient;
   float _telemetryLimiterGain;
+  LimiterLookahead::Telemetry _limiterTelemetry;
 };
