@@ -12,6 +12,8 @@ static inline audio_block_t** clear_input_queue(audio_block_t* (&queue)[2]) {
 }
 
 static constexpr float kInv32768 = 1.0f / 32768.0f;
+static constexpr float kLimiterCeilingMinDb = -12.0f;
+static constexpr float kLimiterCeilingMaxDb = -0.1f;
 
 AudioHorizon::AudioHorizon()
   : AudioStream(2, clear_input_queue(inputQueueArray)),
@@ -98,7 +100,7 @@ void AudioHorizon::setDirt(float amt) {
 }
 
 void AudioHorizon::setCeiling(float dB) {
-  _ceilingDbTarget = clampf_hz(dB, -12.0f, -0.1f);
+  _ceilingDbTarget = clampf_hz(dB, kLimiterCeilingMinDb, kLimiterCeilingMaxDb);
 }
 
 void AudioHorizon::setLimiterReleaseMs(float ms) {
