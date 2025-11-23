@@ -24,20 +24,31 @@ AudioHorizon::AudioHorizon()
     _lowAnchorHzTarget(100.0f),
     _dirtTarget(0.1f),
     _ceilingDbTarget(-1.0f),
+    _limiterReleaseTargetMs(80.0f),
+    _limiterLookaheadTargetMs(5.8f),
+    _limiterTiltTarget(0.0f),
+    _limiterMixTarget(0.7f),
+    _limiterLinkModeTarget(LimiterLookahead::LinkMode::Linked),
+    _limiterBypassTarget(false),
     _mixTarget(0.6f),
     _outTrimDbTarget(0.0f),
     _telemetryWidth(_widthTarget),
     _telemetryTransient(0.0f),
-    _telemetryLimiterGain(1.0f) {
-  _widthSm.setSmoothing(0.1f);
-  _dynWidthSm.setSmoothing(0.1f);
-  _transientSm.setSmoothing(0.1f);
-  _midTiltSm.setSmoothing(0.1f);
-  _sideAirFreqSm.setSmoothing(0.1f);
-  _sideAirGainSm.setSmoothing(0.1f);
-  _lowAnchorSm.setSmoothing(0.1f);
-  _dirtSm.setSmoothing(0.1f);
-  _ceilingSm.setSmoothing(0.1f);
+    _telemetryLimiterGain(1.0f),
+    _limiterTelemetry{0.0f, 0.0f, 0.0f} {
+  _widthSm.setSmoothing(0.08f);
+  _dynWidthSm.setSmoothing(0.08f);
+  _transientSm.setSmoothing(0.08f);
+  _midTiltSm.setSmoothing(0.08f);
+  _sideAirFreqSm.setSmoothing(0.08f);
+  _sideAirGainSm.setSmoothing(0.08f);
+  _lowAnchorSm.setSmoothing(0.08f);
+  _dirtSm.setSmoothing(0.08f);
+  _ceilingSm.setSmoothing(0.08f);
+  _limiterReleaseSm.setSmoothing(0.08f);
+  _limiterLookaheadSm.setSmoothing(0.08f);
+  _limiterTiltSm.setSmoothing(0.08f);
+  _limiterMixSm.setSmoothing(0.08f);
   _mixSm.setSmoothing(0.1f);
   _outTrimSm.setSmoothing(0.1f);
 
@@ -48,7 +59,13 @@ AudioHorizon::AudioHorizon()
   _midTilt.setTiltDbPerOct(_midTiltTarget);
   _sideAir.setFreqAndGain(_sideAirFreqTarget, _sideAirGainTarget);
   _softSat.setAmount(_dirtTarget);
+  _limiter.setup();
   _limiter.setCeilingDb(_ceilingDbTarget);
+  _limiter.setReleaseMs(_limiterReleaseTargetMs);
+  _limiter.setLookaheadMs(_limiterLookaheadTargetMs);
+  _limiter.setDetectorTiltDbPerOct(_limiterTiltTarget);
+  _limiter.setLinkMode(_limiterLinkModeTarget);
+  _limiter.setMix(_limiterMixTarget);
 }
 
 void AudioHorizon::setWidth(float w) {
@@ -84,8 +101,33 @@ void AudioHorizon::setCeiling(float dB) {
   _ceilingDbTarget = clampf_hz(dB, -18.0f, 0.0f);
 }
 
+void AudioHorizon::setLimiterReleaseMs(float ms) {
+  _limiterReleaseTargetMs = clampf_hz(ms, 20.0f, 200.0f);
+}
+
+void AudioHorizon::setLimiterLookaheadMs(float ms) {
+  _limiterLookaheadTargetMs = clampf_hz(ms, 1.0f, 8.0f);
+}
+
+void AudioHorizon::setLimiterDetectorTilt(float dBPerOct) {
+  _limiterTiltTarget = clampf_hz(dBPerOct, -3.0f, 3.0f);
+}
+
+void AudioHorizon::setLimiterLinkMode(LimiterLookahead::LinkMode mode) {
+  _limiterLinkModeTarget = mode;
+}
+
+void AudioHorizon::setLimiterMix(float m) {
+  _limiterMixTarget = clampf_hz(m, 0.0f, 1.0f);
+}
+
+void AudioHorizon::setLimiterBypass(bool on) {
+  _limiterBypassTarget = on;
+}
+
 void AudioHorizon::setMix(float m) {
   _mixTarget = clampf_hz(m, 0.0f, 1.0f);
+  _limiterMixTarget = _mixTarget;
 }
 
 void AudioHorizon::setOutputTrim(float dB) {
@@ -121,7 +163,10 @@ void AudioHorizon::update() {
   float lowAnchor  = _lowAnchorSm.process(_lowAnchorHzTarget);
   float dirtAmt    = _dirtSm.process(_dirtTarget);
   float ceilingDb  = _ceilingSm.process(_ceilingDbTarget);
-  float mix        = _mixSm.process(_mixTarget);
+  float limRelease = _limiterReleaseSm.process(_limiterReleaseTargetMs);
+  float limLook    = _limiterLookaheadSm.process(_limiterLookaheadTargetMs);
+  float limTilt    = _limiterTiltSm.process(_limiterTiltTarget);
+  float limMix     = _limiterMixSm.process(_limiterMixTarget);
   float outTrimDb  = _outTrimSm.process(_outTrimDbTarget);
   float outTrimLin = powf(10.0f, 0.05f * outTrimDb);
 
@@ -133,13 +178,16 @@ void AudioHorizon::update() {
   _sideAir.setFreqAndGain(airFreq, airGainDb);
   _softSat.setAmount(dirtAmt);
   _limiter.setCeilingDb(ceilingDb);
+  _limiter.setReleaseMs(limRelease);
+  _limiter.setLookaheadMs(limLook);
+  _limiter.setDetectorTiltDbPerOct(limTilt);
+  _limiter.setLinkMode(_limiterLinkModeTarget);
+  _limiter.setMix(limMix);
+  _limiter.setBypass(_limiterBypassTarget);
 
   for (int i = 0; i < AUDIO_BLOCK_SAMPLES; ++i) {
     float l = inL->data[i] * kInv32768;
     float r = inR->data[i] * kInv32768;
-
-    float dryL = l;
-    float dryR = r;
 
     float m, s;
     _ms.encode(l, r, m, s);
@@ -157,15 +205,16 @@ void AudioHorizon::update() {
     float wetL, wetR;
     _ms.decode(m, s, wetL, wetR);
 
-    _softSat.processStereo(wetL, wetR);
     _limiter.processStereo(wetL, wetR);
     _telemetryLimiterGain = _limiter.getGain();
+
+    _softSat.processStereo(wetL, wetR);
 
     wetL *= outTrimLin;
     wetR *= outTrimLin;
 
-    float outLf = dryL + mix * (wetL - dryL);
-    float outRf = dryR + mix * (wetR - dryR);
+    float outLf = wetL;
+    float outRf = wetR;
 
     float scaledL = outLf * 32767.0f;
     float scaledR = outRf * 32767.0f;
@@ -178,6 +227,8 @@ void AudioHorizon::update() {
     outL->data[i] = static_cast<int16_t>(scaledL);
     outR->data[i] = static_cast<int16_t>(scaledR);
   }
+
+  _limiterTelemetry = _limiter.getTelemetry();
 
   transmit(outL, 0);
   transmit(outR, 1);
@@ -197,4 +248,16 @@ float AudioHorizon::getBlockTransient() const {
 
 float AudioHorizon::getLimiterGain() const {
   return _telemetryLimiterGain;
+}
+
+float AudioHorizon::getLimiterGRdB() const {
+  return _limiter.getGRdB();
+}
+
+LimiterLookahead::Telemetry AudioHorizon::getLimiterTelemetry() const {
+  return _limiterTelemetry;
+}
+
+bool AudioHorizon::getLimiterClipFlagAndClear() {
+  return _limiter.getClipFlagAndClear();
 }

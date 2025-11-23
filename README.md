@@ -3,6 +3,17 @@
 A mastering‑style “space shaper”: mid/side encode → tone shaping → **dynamic width** via transient detection → soft clip → lookahead limiter → width/mix.
 Makes dense mixes breathe (tails wider, hits focused). Drop it after any instrument.
 
+## Signal flow (ASCII cheat sheet)
+
+```
+[I2S In] → MS encode
+          → Mid tilt (pivot ~1 kHz) → Side air shelf → DynWidth (transient-following)
+          → MS decode → Lookahead limiter (tilted detector, adaptive release)
+          → SoftSat (mild post safety) → Output trim → [I2S Out]
+```
+
+The limiter runs its own delay line so dry/wet and bypass crossfades stay phase-honest. Detector tilt is detector-only.
+
 ## Platform
 Teensy 4.x + SGTL5000 (Teensy Audio Library), 44.1 kHz / 128‑sample blocks.
 
@@ -17,6 +28,7 @@ Teensy 4.x + SGTL5000 (Teensy Audio Library), 44.1 kHz / 128‑sample blocks.
 - Width lives in **0.0..1.0**. Static width is clamped there, and the dynamic width block
   only breathes inside that window so pots/encoders don’t promise "1.5x" magic that
   never actually happens.
+- Limiter: ceiling -12..-0.1 dBFS, release 20..200 ms (adapts shorter on transient hits), lookahead 1..8 ms, detector tilt -3..+3 dB/oct, mix 0..1, link mode = Linked or Mid/Side, bypass is a 5 ms crossfade.
 
 ## Folders
 - `src/` — core classes (matrix, EQs, detector, limiter, smoothing).
@@ -68,3 +80,13 @@ MIT — see `LICENSE`.
 - `examples/horizon_scope/horizon_scope.ino` — ASCII "scope" showing block width, transient activity and limiter gain.
 - `examples/preset_morph/preset_morph.ino` — hands-free tour of two contrasting presets:
   a slow morph to cartoonishly wide stages, then a pillow-soft mastering chain.
+
+## Limiter telemetry + LED ladder
+
+- Gain reduction (dB) maps to an 8-step ladder at: **−1, −2, −3, −4, −6, −8, −10, −12 dB** (higher index = deeper clamp).
+- Telemetry from `LimiterLookahead::Telemetry` gives per-block peak in/out plus GR dB via `getLimiterGRdB()` for quick logging or UI.
+- Example serial line (0.5 s cadence): `GR(dB): -2.3 | Pin: 0.89 Pout: 0.79 | LEDs: 4 | Clip: no`
+
+## Latency notes
+
+- Audio path latency = **lookahead delay + I2S buffer**. Default ~5–6 ms lookahead keeps the limiter transparent; parallel mix and bypass are already delay-compensated inside the limiter.
