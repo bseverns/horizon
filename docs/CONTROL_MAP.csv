@@ -7,6 +7,6 @@ Side Air F,side_air_kHz,4..16 kHz,log,10 kHz,Side shelf/bell freq
 Side Air G,side_air_gain_dB,-6..+6,linear,+2,Side air gain
 Low Anchor,low_anchor_Hz,60..150,log,100,Mono bass zone
 Dirt,dirt_amount,0-1,linear,0.1,Soft clip pre‑limiter
-Ceiling,ceiling_dB,-12..-0.1,linear,-1,Limiter ceiling
+Ceiling,ceiling_dB,-12..-0.1 dBFS,linear,-1,Limiter ceiling
 Mix,mix,0-100 %,linear,60 %,Wet/dry
 Output,out_trim_dB,-12..+6,linear,0,Post-limiter output trim
