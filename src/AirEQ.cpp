@@ -1,6 +1,6 @@
 // Studio note: one-pole split EQ that lets the top octave breathe without harshness.
-// Frequency sweeps ~4–16 kHz and gain runs -12..+12 dB; we low-pass once, subtract
-// to get the fizz, then scale the fizz. A single pole keeps the phase tame so boosts
+// Frequency sweeps ~4–16 kHz and gain runs -6..+6 dB; we low-pass once, subtract to
+// get the fizz, then scale the fizz. A single pole keeps the phase tame so boosts
 // feel like opening a window instead of poking with a scalpel.
 #include "AirEQ.h"
 #include <math.h>
@@ -24,7 +24,7 @@ void AirEQ::setFreqAndGain(float freqHz, float gainDb) {
   freqHz = clampf_air(freqHz, 4000.0f, 16000.0f);
   float omega = kTwoPiAir * freqHz / kFsAir;
   _alpha = 1.0f - expf(-omega);
-  _highGain = dbToLin(clampf_air(gainDb, -12.0f, 12.0f));
+  _highGain = dbToLin(clampf_air(gainDb, -6.0f, 6.0f));
 }
 
 void AirEQ::reset() {
