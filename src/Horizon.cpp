@@ -98,7 +98,7 @@ void AudioHorizon::setDirt(float amt) {
 }
 
 void AudioHorizon::setCeiling(float dB) {
-  _ceilingDbTarget = clampf_hz(dB, -18.0f, 0.0f);
+  _ceilingDbTarget = clampf_hz(dB, -12.0f, -0.1f);
 }
 
 void AudioHorizon::setLimiterReleaseMs(float ms) {
