@@ -47,6 +47,7 @@ private:
   void updateReleaseCoeff();
   void updateXfade();
   void finalizeBlock();
+  void primeDelayLine();
 
   float _bufferL[kBufferSize];
   float _bufferR[kBufferSize];
