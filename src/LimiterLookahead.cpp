@@ -40,11 +40,7 @@ LimiterLookahead::LimiterLookahead()
     _lastTelemetry{0.0f, 0.0f, 0.0f} {}
 
 void LimiterLookahead::setup() {
-  for (int i = 0; i < kBufferSize; ++i) {
-    _bufferL[i] = 0.0f;
-    _bufferR[i] = 0.0f;
-  }
-  _writeIdx = 0;
+  primeDelayLine();
   _lookaheadSamples = 256;
   _mix = 1.0f;
   _ceilingDb = -1.0f;
@@ -73,6 +69,14 @@ void LimiterLookahead::setup() {
   _safetyClip.setAmount(0.05f);
 
   updateReleaseCoeff();
+}
+
+void LimiterLookahead::primeDelayLine() {
+  for (int i = 0; i < kBufferSize; ++i) {
+    _bufferL[i] = 0.0f;
+    _bufferR[i] = 0.0f;
+  }
+  _writeIdx = 0;
 }
 
 void LimiterLookahead::setCeilingDb(float dB) {
@@ -115,16 +119,14 @@ void LimiterLookahead::setBypass(bool on) {
 }
 
 void LimiterLookahead::reset() {
+  primeDelayLine();
   _env = 1.0f;
   _blockPos = 0;
   _blockPeakIn = _blockPeakOut = 0.0f;
   _blockTransientSum = 0.0f;
   _clipFlag = false;
   _bypassMix = _bypassTarget ? 1.0f : 0.0f;
-  for (int i = 0; i < kBufferSize; ++i) {
-    _bufferL[i] = 0.0f;
-    _bufferR[i] = 0.0f;
-  }
+  _xfadeCountdown = 0;
   _detectorTiltL.reset();
   _detectorTiltR.reset();
   _transientDetector.reset();
