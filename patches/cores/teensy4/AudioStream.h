@@ -36,6 +36,13 @@ typedef struct audio_block_struct {
     int16_t data[AUDIO_BLOCK_SAMPLES];
 } audio_block_t;
 
+// Host-only hook: unit tests can capture transmitted blocks without a
+// full Teensy audio graph. Provide a weak default so firmware builds
+// ignore it.
+class AudioStream;
+void horizon_host_transmit(audio_block_t *, uint32_t, AudioStream *) __attribute__((weak));
+inline void horizon_host_transmit(audio_block_t *, uint32_t, AudioStream *) {}
+
 class AudioStream {
   public:
     AudioStream(unsigned char ninput, audio_block_t **iqueue) : num_inputs(ninput), inputQueue(iqueue) {}
@@ -54,11 +61,37 @@ class AudioStream {
     static void update_all() {}
 
   protected:
-    static audio_block_t *allocate(void) { return nullptr; }
-    static void release(audio_block_t *) {}
-    audio_block_t *receiveReadOnly(uint32_t channel = 0) { (void)channel; return nullptr; }
-    audio_block_t *receiveWritable(uint32_t channel = 0) { (void)channel; return nullptr; }
-    void transmit(audio_block_t *, uint32_t = 0) {}
+    static audio_block_t *allocate(void) {
+        audio_block_t *block = new audio_block_t();
+        block->ref_count = 1;
+        block->reserved1 = 0;
+        block->memory_pool_index = 0;
+        for (int i = 0; i < AUDIO_BLOCK_SAMPLES; ++i) {
+            block->data[i] = 0;
+        }
+        return block;
+    }
+
+    static void release(audio_block_t *block) {
+        if (!block) return;
+        if (block->ref_count > 0) {
+            --block->ref_count;
+        }
+        if (block->ref_count == 0) {
+            delete block;
+        }
+    }
+
+    audio_block_t *receiveReadOnly(uint32_t channel = 0) {
+        if (!inputQueue || channel >= num_inputs) return nullptr;
+        audio_block_t *block = inputQueue[channel];
+        inputQueue[channel] = nullptr;
+        return block;
+    }
+
+    audio_block_t *receiveWritable(uint32_t channel = 0) { return receiveReadOnly(channel); }
+
+    void transmit(audio_block_t *block, uint32_t channel = 0) { horizon_host_transmit(block, channel, this); }
 
     unsigned char num_inputs;
     audio_block_t **inputQueue;
