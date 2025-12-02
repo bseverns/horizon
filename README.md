@@ -88,6 +88,11 @@ MIT — see `LICENSE`.
   implementation compiled alongside the tests even when firmware entry points
   are filtered out. Great for CI, teaching, or proving a refactor didn’t
   sandbag the groove.
+- There’s also a tiny WAV harness (`test/native_dsp/process_wav.cpp`) with a
+  callable `horizon_wav_driver` so you can bounce audio through Horizon on the
+  host. The default `native_dsp` run sticks to the Unity test main to avoid
+  dueling entry points, but you can flip on `HORIZON_WAV_STANDALONE` if you
+  want a quick command-line renderer instead of tests.
 
 ### Host-side IntelliSense / clangd cheat codes
 

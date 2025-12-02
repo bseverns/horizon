@@ -29,6 +29,12 @@ inheritance—so PlatformIO never nags you for hardware hints. CI runs this
 target on every push, right next to full Teensy builds, so regressions have
 nowhere to hide.
 
+Want to bounce a WAV instead of running the Unity suite? `process_wav.cpp`
+ships a `horizon_wav_driver` you can wrap with your own `main` or by toggling
+`HORIZON_WAV_STANDALONE` in the build. That keeps the default test run
+single-entry-point while still giving you a command-line renderer when you need
+one.
+
 ## Why bother?
 - Fast iteration: catch logic regressions without hunting for a spare Teensy.
 - Education: students can trace the DSP math in a debugger that isn't juggling

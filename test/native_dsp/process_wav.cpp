@@ -186,10 +186,7 @@ void horizon_host_transmit(audio_block_t *block, uint32_t channel, AudioStream *
 }
 
 // -----------------------------------------------------------------------------
-// Main entrypoint: pio test -e native_dsp runs this binary.
-// -----------------------------------------------------------------------------
-
-int main(int argc, char **argv) {
+int horizon_wav_driver(int argc, char **argv) {
     const std::string inPath = (argc > 1) ? argv[1] : "input.wav";
     const std::string outPath = (argc > 2) ? argv[2] : "output.wav";
 
@@ -250,4 +247,15 @@ int main(int argc, char **argv) {
     std::printf("[horizon] Rendered %zu frames to %s\n", producedFrames, outPath.c_str());
     return 0;
 }
+
+// -----------------------------------------------------------------------------
+// Optional standalone entrypoint. Define HORIZON_WAV_STANDALONE to build a
+// little command-line renderer instead of the Unity test runner. This keeps
+// PlatformIO's `native_dsp` suite single-main while still letting curious folks
+// bounce audio through the DSP from the shell.
+// -----------------------------------------------------------------------------
+
+#ifdef HORIZON_WAV_STANDALONE
+int main(int argc, char **argv) { return horizon_wav_driver(argc, argv); }
+#endif
 
