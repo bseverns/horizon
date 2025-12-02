@@ -84,7 +84,7 @@ MIT — see `LICENSE`.
   stays lean and never nags for a board definition—perfect for CI runners and
   students poking around on a laptop.
 - The project-level `test_dir = test/native_dsp` forces PlatformIO to scoop up
-  the host bench directly, and `test_build_project_src = yes` keeps the DSP
+  the host bench directly, and `test_build_src = yes` keeps the DSP
   implementation compiled alongside the tests even when firmware entry points
   are filtered out. Great for CI, teaching, or proving a refactor didn’t
   sandbag the groove.
