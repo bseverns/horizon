@@ -6,6 +6,7 @@
 #include <fstream>
 #include <iostream>
 
+#include "Audio.h"
 #include "AirEQ.h"
 #include "DynWidth.h"
 #include "MSMatrix.h"
