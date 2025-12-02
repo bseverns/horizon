@@ -19,12 +19,13 @@ you can poke it without a Teensy on the desk.
 pio test -e native_dsp
 ```
 The env keeps firmware-only pieces (wiring, AudioStream plumbing) out of the
-build so you only compile the pure DSP bits. Tests live in `test/native_dsp`
-and the `platformio.ini` explicitly points the runner there, so the build
-never trips over "nothing to compile" even when we exclude firmware files from
-the native target. It stands alone—no Arduino or board inheritance—so
-PlatformIO never nags you for hardware hints. CI runs this target on every
-push, right next to full Teensy builds, so regressions have nowhere to hide.
+build so you only compile the pure DSP bits. `platformio.ini` pins
+`test_dir = test/native_dsp` and `test_build_project_src = yes`, so the runner
+hoovers up this folder directly and still links the Horizon core even when
+firmware entry points are filtered out. It stands alone—no Arduino or board
+inheritance—so PlatformIO never nags you for hardware hints. CI runs this
+target on every push, right next to full Teensy builds, so regressions have
+nowhere to hide.
 
 ## Why bother?
 - Fast iteration: catch logic regressions without hunting for a spare Teensy.
