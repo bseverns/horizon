@@ -57,6 +57,15 @@ MIT — see `LICENSE`.
   `Serial`, ...), keeping clangd/IntelliSense chill even if the PlatformIO
   download cache is missing.
 
+### Native DSP test bench (no hardware required)
+
+- Want to bash on the DSP math without a Teensy plugged in? Run
+  `pio test -e native_dsp` to spin up a host-only build that links tiny
+  Arduino/Audio stubs and exercises the limiter, smoother, and width logic.
+- The native env dodges firmware-only files (`src/main.cpp`, `Horizon.cpp`)
+  so the compiler only chews on the pure mathy bits. Great for CI, teaching,
+  or proving a refactor didn’t sandbag the groove.
+
 ### Host-side IntelliSense / clangd cheat codes
 
 - Generate a compile database so clangd inherits the Teensy include + forced
