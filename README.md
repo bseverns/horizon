@@ -24,6 +24,24 @@ Teensy 4.x + SGTL5000 (Teensy Audio Library), 44.1 kHz / 128‑sample blocks.
 - Feeling adventurous? Jump straight to `examples/preset_morph/preset_morph.ino`
   to hear slow-motion morphs between a cinema-wide wash and a gentle bus chain.
 
+## Environments & how to ride them
+All builds live in `platformio.ini`, and CI compiles every single one so the party stays honest.
+
+- `main_teensy40` / `main_teensy41` — stage-ready firmware: audio in/out, no Serial spam.
+- `scope_teensy40` / `scope_teensy41` — adds `HORIZON_BUILD_SCOPE` so you can watch width/transient/limiter telemetry scroll by on Serial like an ASCII VU wall.
+- `native_dsp` — host-only test bench that stubs the Teensy runtime so you can beat on the math with `pio test` while your hardware naps in a drawer.
+
+### PlatformIO loops
+- Build/upload a hardware target:
+  - `pio run -e main_teensy41 -t upload` (swap env for 40/41, scope/main as needed).
+- Compile + scope watch:
+  - `pio run -e scope_teensy41 -t upload` then open Serial at 115200 for the block meters.
+- Host-side tests (no Teensy):
+  - `pio test -e native_dsp`
+
+### CI expectations
+The repo ships with a GitHub Actions workflow that installs PlatformIO, compiles all Teensy envs, and runs the `native_dsp` tests. If your change breaks a build flag or sneaks in a platform-specific include, CI will call you on it.
+
 ## Control ranges (cheat sheet)
 - Width lives in **0.0..1.0**. Static width is clamped there, and the dynamic width block
   only breathes inside that window so pots/encoders don’t promise "1.5x" magic that

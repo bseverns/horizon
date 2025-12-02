@@ -19,7 +19,8 @@ you can poke it without a Teensy on the desk.
 pio test -e native_dsp
 ```
 The env keeps firmware-only pieces (wiring, AudioStream plumbing) out of the
-build so you only compile the pure DSP bits.
+build so you only compile the pure DSP bits. CI runs this target on every push,
+right next to full Teensy builds, so regressions have nowhere to hide.
 
 ## Why bother?
 - Fast iteration: catch logic regressions without hunting for a spare Teensy.
