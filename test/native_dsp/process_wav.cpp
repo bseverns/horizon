@@ -171,8 +171,8 @@ static std::vector<float> g_outR;
 class HostHorizon : public AudioHorizon {
   public:
     void queueInput(audio_block_t *left, audio_block_t *right) {
-        inputQueue[0] = left;
-        inputQueue[1] = right;
+        setInput(0, left);
+        setInput(1, right);
     }
 };
 

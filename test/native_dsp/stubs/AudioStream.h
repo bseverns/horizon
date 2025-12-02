@@ -29,6 +29,12 @@ class AudioStream {
         return blk;
     }
 
+    // Host helpers: let tests inject buffers straight into the queue.
+    void setInput(uint32_t channel, audio_block_t *block) {
+        if (!_inputQueue || channel >= _numInputs) return;
+        _inputQueue[channel] = block;
+    }
+
     void transmit(audio_block_t *block, uint32_t channel = 0) {
         if (!block) return;
         if (horizon_host_transmit) {
