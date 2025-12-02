@@ -29,7 +29,7 @@ All builds live in `platformio.ini`, and CI compiles every single one so the par
 
 - `main_teensy40` / `main_teensy41` — stage-ready firmware: audio in/out, no Serial spam.
 - `scope_teensy40` / `scope_teensy41` — adds `HORIZON_BUILD_SCOPE` so you can watch width/transient/limiter telemetry scroll by on Serial like an ASCII VU wall.
-- `native_dsp` — host-only test bench that stubs the Teensy runtime so you can beat on the math with `pio test` while your hardware naps in a drawer; it rides the PlatformIO `native` toolchain straight, no Arduino/board baggage.
+- `native_dsp` — host-only test bench that stubs the Teensy runtime so you can beat on the math with `pio test` while your hardware naps in a drawer; it rides the PlatformIO `native` toolchain straight, no Arduino/board baggage, and its tests live in `test/native_dsp` so PIO always has something to chew even when firmware sources are filtered out.
 
 ### PlatformIO loops
 - Build/upload a hardware target:
