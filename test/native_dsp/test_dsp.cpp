@@ -1,10 +1,38 @@
 #include <unity.h>
 #include <cmath>
+#include <cstdio>
 
 #include "SoftSaturation.h"
 #include "ParamSmoother.h"
 #include "DynWidth.h"
 #include "LimiterLookahead.h"
+#include "HostProcessor.h"
+
+#include <filesystem>
+#include <vector>
+
+namespace {
+
+StereoBuffer makeDemoBuffer(int sampleRate = 44100, float seconds = 1.0f) {
+    const size_t frames = static_cast<size_t>(seconds * sampleRate);
+    StereoBuffer buffer;
+    buffer.sampleRate = sampleRate;
+    buffer.left.resize(frames);
+    buffer.right.resize(frames);
+
+    for (size_t i = 0; i < frames; ++i) {
+        float t = static_cast<float>(i) / static_cast<float>(sampleRate);
+        // A touch of motion: mid-heavy 200 Hz tone plus a slower 3 Hz wobble on the sides.
+        float mid = 0.3f * sinf(2.0f * static_cast<float>(M_PI) * 200.0f * t);
+        float side = 0.15f * sinf(2.0f * static_cast<float>(M_PI) * 3.0f * t);
+        buffer.left[i] = mid + side;
+        buffer.right[i] = mid - side;
+    }
+
+    return buffer;
+}
+
+} // namespace
 
 void test_soft_saturation_pass_through_when_dry() {
     SoftSaturation sat;
@@ -80,6 +108,49 @@ void test_led_mapping_matches_thresholds() {
     TEST_ASSERT_EQUAL_UINT8(8, mapGRtoLeds(-14.0f));
 }
 
+void test_host_processor_renders_variants() {
+    namespace fs = std::filesystem;
+    const fs::path baseDir = fs::weakly_canonical(fs::path(__FILE__).parent_path());
+
+    StereoBuffer input = makeDemoBuffer();
+    TEST_ASSERT_FALSE_MESSAGE(input.left.empty() || input.right.empty(), "host processor demo buffer is empty");
+
+    auto renders = buildDemoRenders(input);
+    HostProcessor processor;
+
+    for (const auto &render : renders) {
+        processor.reset();
+        processor.setParameters(render.params);
+        StereoBuffer out = processor.process(render.audio);
+
+        const fs::path outPath = baseDir / ("sample_" + render.flavor + ".wav");
+        writeStereoWav(outPath, out);
+
+        const char *linkMode = (render.params.limiterLink == LimiterLookahead::LinkMode::MidSide) ? "Mid/Side" : "Linked";
+        printf("[render] flavor=%s -> %s | width=%.2f dyn=%.2f sens=%.2f tilt=%.2f air=%.1fHz/+%.1fdB dirt=%.2f ceiling=%.1fdB rel=%.1fms look=%.1fms detTilt=%.1fdB/oct mix=%.2f link=%s trim=%.1fdB\n",
+               render.flavor.c_str(),
+               outPath.string().c_str(),
+               render.params.width,
+               render.params.dynWidth,
+               render.params.transientSens,
+               render.params.midTiltDbPerOct,
+               render.params.sideAirFreqHz,
+               render.params.sideAirGainDb,
+               render.params.dirtAmount,
+               render.params.ceilingDb,
+               render.params.limiterReleaseMs,
+               render.params.limiterLookaheadMs,
+               render.params.limiterTiltDbPerOct,
+               render.params.limiterMix,
+               linkMode,
+               render.params.outputTrimDb);
+
+        TEST_ASSERT_EQUAL(input.sampleRate, out.sampleRate);
+        TEST_ASSERT_EQUAL_UINT32(input.left.size(), out.left.size());
+        TEST_ASSERT_EQUAL_UINT32(input.right.size(), out.right.size());
+    }
+}
+
 int main(int, char**) {
     UNITY_BEGIN();
     RUN_TEST(test_soft_saturation_pass_through_when_dry);
@@ -88,5 +159,6 @@ int main(int, char**) {
     RUN_TEST(test_dynwidth_tracks_transient_activity);
     RUN_TEST(test_limiter_caps_hot_signal);
     RUN_TEST(test_led_mapping_matches_thresholds);
+    RUN_TEST(test_host_processor_renders_variants);
     return UNITY_END();
 }
