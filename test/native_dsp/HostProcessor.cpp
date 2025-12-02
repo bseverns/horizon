@@ -1,0 +1,367 @@
+#include "HostProcessor.h"
+
+#include <algorithm>
+#include <cmath>
+#include <cstdint>
+#include <fstream>
+#include <iostream>
+
+#include "AirEQ.h"
+#include "DynWidth.h"
+#include "MSMatrix.h"
+#include "ParamSmoother.h"
+#include "SoftSaturation.h"
+#include "TiltEQ.h"
+#include "TransientDetector.h"
+
+namespace {
+
+constexpr float kInv32768 = 1.0f / 32768.0f;
+
+struct WavHeader {
+  char riffId[4];
+  uint32_t riffSize;
+  char waveId[4];
+};
+
+struct FmtChunk {
+  uint16_t audioFormat;
+  uint16_t numChannels;
+  uint32_t sampleRate;
+  uint32_t byteRate;
+  uint16_t blockAlign;
+  uint16_t bitsPerSample;
+};
+
+int16_t readLE16(std::istream &in) {
+  uint8_t bytes[2] = {0};
+  in.read(reinterpret_cast<char *>(bytes), 2);
+  return static_cast<int16_t>(bytes[0] | (bytes[1] << 8));
+}
+
+uint32_t readLE32(std::istream &in) {
+  uint8_t bytes[4] = {0};
+  in.read(reinterpret_cast<char *>(bytes), 4);
+  return static_cast<uint32_t>(bytes[0] | (bytes[1] << 8) | (bytes[2] << 16) | (bytes[3] << 24));
+}
+
+void writeLE16(std::ostream &out, int16_t v) {
+  char bytes[2];
+  bytes[0] = static_cast<char>(v & 0xFF);
+  bytes[1] = static_cast<char>((v >> 8) & 0xFF);
+  out.write(bytes, 2);
+}
+
+void writeLE32(std::ostream &out, uint32_t v) {
+  char bytes[4];
+  bytes[0] = static_cast<char>(v & 0xFF);
+  bytes[1] = static_cast<char>((v >> 8) & 0xFF);
+  bytes[2] = static_cast<char>((v >> 16) & 0xFF);
+  bytes[3] = static_cast<char>((v >> 24) & 0xFF);
+  out.write(bytes, 4);
+}
+
+} // namespace
+
+HostProcessor::HostProcessor() { reset(); }
+
+void HostProcessor::reset() { _params = HorizonParams{}; }
+
+void HostProcessor::setParameters(const HorizonParams &params) { _params = params; }
+
+StereoBuffer HostProcessor::process(const StereoBuffer &input) {
+  StereoBuffer out;
+  out.sampleRate = input.sampleRate;
+  out.left.resize(input.left.size());
+  out.right.resize(input.right.size());
+
+  MSMatrix ms;
+  TiltEQ midTilt;
+  AirEQ sideAir;
+  DynWidth dynWidth;
+  TransientDetector detector;
+  SoftSaturation softSat;
+  LimiterLookahead limiter;
+
+  ParamSmoother widthSm(0.08f);
+  ParamSmoother dynWidthSm(0.08f);
+  ParamSmoother transientSm(0.08f);
+  ParamSmoother midTiltSm(0.08f);
+  ParamSmoother sideAirFreqSm(0.08f);
+  ParamSmoother sideAirGainSm(0.08f);
+  ParamSmoother lowAnchorSm(0.08f);
+  ParamSmoother dirtSm(0.08f);
+  ParamSmoother ceilingSm(0.08f);
+  ParamSmoother limiterReleaseSm(0.08f);
+  ParamSmoother limiterLookaheadSm(0.08f);
+  ParamSmoother limiterTiltSm(0.08f);
+  ParamSmoother limiterMixSm(0.08f);
+  ParamSmoother outTrimSm(0.1f);
+
+  dynWidth.setBaseWidth(_params.width);
+  dynWidth.setDynAmount(_params.dynWidth);
+  dynWidth.setLowAnchorHz(_params.lowAnchorHz);
+  detector.setSensitivity(_params.transientSens);
+  midTilt.setTiltDbPerOct(_params.midTiltDbPerOct);
+  sideAir.setFreqAndGain(_params.sideAirFreqHz, _params.sideAirGainDb);
+  softSat.setAmount(_params.dirtAmount);
+  limiter.setup();
+  limiter.setCeilingDb(_params.ceilingDb);
+  limiter.setReleaseMs(_params.limiterReleaseMs);
+  limiter.setLookaheadMs(_params.limiterLookaheadMs);
+  limiter.setDetectorTiltDbPerOct(_params.limiterTiltDbPerOct);
+  limiter.setLinkMode(_params.limiterLink);
+  limiter.setMix(_params.limiterMix);
+  limiter.setBypass(_params.limiterBypass);
+
+  const size_t total = std::min(input.left.size(), input.right.size());
+  size_t idx = 0;
+  while (idx < total) {
+    const size_t block = std::min<size_t>(AUDIO_BLOCK_SAMPLES, total - idx);
+
+    float width = widthSm.process(_params.width);
+    float dynAmt = dynWidthSm.process(_params.dynWidth);
+    float sens = transientSm.process(_params.transientSens);
+    float midTiltDb = midTiltSm.process(_params.midTiltDbPerOct);
+    float airFreq = sideAirFreqSm.process(_params.sideAirFreqHz);
+    float airGainDb = sideAirGainSm.process(_params.sideAirGainDb);
+    float lowAnchorHz = lowAnchorSm.process(_params.lowAnchorHz);
+    float dirtAmt = dirtSm.process(_params.dirtAmount);
+    float ceilingDb = ceilingSm.process(_params.ceilingDb);
+    float limRelease = limiterReleaseSm.process(_params.limiterReleaseMs);
+    float limLook = limiterLookaheadSm.process(_params.limiterLookaheadMs);
+    float limTilt = limiterTiltSm.process(_params.limiterTiltDbPerOct);
+    float limMix = limiterMixSm.process(_params.limiterMix);
+    float outTrimDb = outTrimSm.process(_params.outputTrimDb);
+    float outTrimLin = powf(10.0f, 0.05f * outTrimDb);
+
+    dynWidth.setBaseWidth(width);
+    dynWidth.setDynAmount(dynAmt);
+    dynWidth.setLowAnchorHz(lowAnchorHz);
+    detector.setSensitivity(sens);
+    midTilt.setTiltDbPerOct(midTiltDb);
+    sideAir.setFreqAndGain(airFreq, airGainDb);
+    softSat.setAmount(dirtAmt);
+    limiter.setCeilingDb(ceilingDb);
+    limiter.setReleaseMs(limRelease);
+    limiter.setLookaheadMs(limLook);
+    limiter.setDetectorTiltDbPerOct(limTilt);
+    limiter.setLinkMode(_params.limiterLink);
+    limiter.setMix(limMix);
+    limiter.setBypass(_params.limiterBypass);
+
+    for (size_t i = 0; i < block; ++i) {
+      float l = input.left[idx + i];
+      float r = input.right[idx + i];
+
+      float m, s;
+      ms.encode(l, r, m, s);
+
+      m = midTilt.processSample(m);
+      s = sideAir.processSample(s);
+
+      float detectorIn = 0.5f * (fabsf(m) + fabsf(s));
+      float activity = detector.processSample(detectorIn);
+
+      dynWidth.processSample(m, s, activity);
+
+      float wetL, wetR;
+      ms.decode(m, s, wetL, wetR);
+
+      limiter.processStereo(wetL, wetR);
+      softSat.processStereo(wetL, wetR);
+
+      wetL *= outTrimLin;
+      wetR *= outTrimLin;
+
+      out.left[idx + i] = wetL;
+      out.right[idx + i] = wetR;
+    }
+
+    idx += block;
+  }
+
+  return out;
+}
+
+StereoBuffer loadStereoWav(const std::filesystem::path &path) {
+  StereoBuffer buffer;
+  std::ifstream in(path, std::ios::binary);
+  if (!in.good()) {
+    std::cerr << "Could not open WAV: " << path << "\n";
+    return buffer;
+  }
+
+  WavHeader header{};
+  in.read(reinterpret_cast<char *>(&header), sizeof(header));
+  if (std::string(header.riffId, 4) != "RIFF" || std::string(header.waveId, 4) != "WAVE") {
+    std::cerr << "Invalid WAV header in: " << path << "\n";
+    return buffer;
+  }
+
+  FmtChunk fmt{};
+  uint32_t dataSize = 0;
+  while (in.good()) {
+    char chunkId[4] = {0};
+    in.read(chunkId, 4);
+    if (!in.good()) break;
+    uint32_t chunkSize = readLE32(in);
+    std::string id(chunkId, 4);
+    if (id == "fmt ") {
+      fmt.audioFormat = readLE16(in);
+      fmt.numChannels = readLE16(in);
+      fmt.sampleRate = readLE32(in);
+      fmt.byteRate = readLE32(in);
+      fmt.blockAlign = readLE16(in);
+      fmt.bitsPerSample = readLE16(in);
+      if (chunkSize > 16) {
+        in.seekg(chunkSize - 16, std::ios::cur);
+      }
+    } else if (id == "data") {
+      dataSize = chunkSize;
+      break;
+    } else {
+      in.seekg(chunkSize, std::ios::cur);
+    }
+  }
+
+  if (fmt.audioFormat != 1 || fmt.numChannels != 2 || fmt.bitsPerSample != 16 || dataSize == 0) {
+    std::cerr << "Unsupported WAV format in: " << path << "\n";
+    return buffer;
+  }
+
+  buffer.sampleRate = static_cast<int>(fmt.sampleRate);
+  const size_t samples = dataSize / (fmt.numChannels * (fmt.bitsPerSample / 8));
+  buffer.left.resize(samples);
+  buffer.right.resize(samples);
+
+  for (size_t i = 0; i < samples; ++i) {
+    int16_t l = readLE16(in);
+    int16_t r = readLE16(in);
+    buffer.left[i] = static_cast<float>(l) * kInv32768;
+    buffer.right[i] = static_cast<float>(r) * kInv32768;
+  }
+
+  return buffer;
+}
+
+void writeStereoWav(const std::filesystem::path &path, const StereoBuffer &buffer) {
+  std::filesystem::create_directories(path.parent_path());
+  std::ofstream out(path, std::ios::binary);
+  if (!out.good()) {
+    std::cerr << "Could not write WAV: " << path << "\n";
+    return;
+  }
+
+  const uint16_t bitsPerSample = 16;
+  const uint16_t numChannels = 2;
+  const uint32_t byteRate = buffer.sampleRate * numChannels * (bitsPerSample / 8);
+  const uint16_t blockAlign = numChannels * (bitsPerSample / 8);
+  const uint32_t dataSize = static_cast<uint32_t>(buffer.left.size() * blockAlign);
+
+  out.write("RIFF", 4);
+  writeLE32(out, 36 + dataSize);
+  out.write("WAVE", 4);
+
+  out.write("fmt ", 4);
+  writeLE32(out, 16);
+  writeLE16(out, 1);
+  writeLE16(out, numChannels);
+  writeLE32(out, static_cast<uint32_t>(buffer.sampleRate));
+  writeLE32(out, byteRate);
+  writeLE16(out, blockAlign);
+  writeLE16(out, bitsPerSample);
+
+  out.write("data", 4);
+  writeLE32(out, dataSize);
+
+  for (size_t i = 0; i < buffer.left.size(); ++i) {
+    float l = std::clamp(buffer.left[i], -1.0f, 1.0f);
+    float r = std::clamp(buffer.right[i], -1.0f, 1.0f);
+    writeLE16(out, static_cast<int16_t>(std::lrintf(l * 32767.0f)));
+    writeLE16(out, static_cast<int16_t>(std::lrintf(r * 32767.0f)));
+  }
+}
+
+std::vector<WavRender> buildDemoRenders(const StereoBuffer &input) {
+  std::vector<WavRender> renders;
+
+  renders.push_back({"light",
+                     {.width = 0.65f,
+                      .dynWidth = 0.25f,
+                      .transientSens = 0.35f,
+                      .midTiltDbPerOct = 0.75f,
+                      .sideAirFreqHz = 9000.0f,
+                      .sideAirGainDb = 1.5f,
+                      .lowAnchorHz = 140.0f,
+                      .dirtAmount = 0.08f,
+                      .ceilingDb = -1.5f,
+                      .limiterReleaseMs = 120.0f,
+                      .limiterLookaheadMs = 5.5f,
+                      .limiterTiltDbPerOct = 0.0f,
+                      .limiterLink = LimiterLookahead::LinkMode::Linked,
+                      .limiterMix = 0.7f,
+                      .limiterBypass = false,
+                      .outputTrimDb = 0.5f},
+                     input});
+
+  renders.push_back({"mid",
+                     {.width = 0.72f,
+                      .dynWidth = 0.4f,
+                      .transientSens = 0.5f,
+                      .midTiltDbPerOct = 0.5f,
+                      .sideAirFreqHz = 11000.0f,
+                      .sideAirGainDb = 2.5f,
+                      .lowAnchorHz = 120.0f,
+                      .dirtAmount = 0.15f,
+                      .ceilingDb = -2.5f,
+                      .limiterReleaseMs = 95.0f,
+                      .limiterLookaheadMs = 6.0f,
+                      .limiterTiltDbPerOct = 0.5f,
+                      .limiterLink = LimiterLookahead::LinkMode::Linked,
+                      .limiterMix = 0.78f,
+                      .limiterBypass = false,
+                      .outputTrimDb = 0.0f},
+                     input});
+
+  renders.push_back({"heavy",
+                     {.width = 0.85f,
+                      .dynWidth = 0.6f,
+                      .transientSens = 0.7f,
+                      .midTiltDbPerOct = -0.5f,
+                      .sideAirFreqHz = 8500.0f,
+                      .sideAirGainDb = 1.0f,
+                      .lowAnchorHz = 110.0f,
+                      .dirtAmount = 0.25f,
+                      .ceilingDb = -5.0f,
+                      .limiterReleaseMs = 70.0f,
+                      .limiterLookaheadMs = 6.5f,
+                      .limiterTiltDbPerOct = 1.5f,
+                      .limiterLink = LimiterLookahead::LinkMode::MidSide,
+                      .limiterMix = 0.85f,
+                      .limiterBypass = false,
+                      .outputTrimDb = -1.5f},
+                     input});
+
+  renders.push_back({"kitchen_sink",
+                     {.width = 0.95f,
+                      .dynWidth = 0.75f,
+                      .transientSens = 0.8f,
+                      .midTiltDbPerOct = 1.5f,
+                      .sideAirFreqHz = 14000.0f,
+                      .sideAirGainDb = 4.0f,
+                      .lowAnchorHz = 90.0f,
+                      .dirtAmount = 0.35f,
+                      .ceilingDb = -6.0f,
+                      .limiterReleaseMs = 55.0f,
+                      .limiterLookaheadMs = 7.5f,
+                      .limiterTiltDbPerOct = 2.5f,
+                      .limiterLink = LimiterLookahead::LinkMode::MidSide,
+                      .limiterMix = 0.9f,
+                      .limiterBypass = false,
+                      .outputTrimDb = 1.0f},
+                     input});
+
+  return renders;
+}
+

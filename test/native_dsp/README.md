@@ -8,7 +8,9 @@ you can poke it without a Teensy on the desk.
 - Tiny Arduino/Audio stubs in `stubs/` that pin `AUDIO_SAMPLE_RATE_EXACT` and
   `AUDIO_BLOCK_SAMPLES` to the familiar 44.1 kHz / 128-sample world.
 - Unity-based smoke tests that push the limiter, smoother, tilt/air/dirt blocks
-  and make sure nothing explodes when fed real signal ranges.
+  and make sure nothing explodes when fed real signal ranges. The host-processor
+  test even synthesizes its own mid/side-rich buffer so you don't need to haul
+  any WAV fixtures around.
 - A repeatable CI-friendly way to say "the math still holds" before you flash
   hardware.
 
