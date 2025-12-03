@@ -4,6 +4,8 @@
 #include "TransientDetector.h"
 #include "SoftSaturation.h"
 
+// See docs/block_notes.md for musician-facing notes on this block.
+
 // Lookahead limiter with detector tilt, adaptive release, and click-free bypass.
 // The limiter owns its own delay line so dry/wet mixes stay time-aligned.
 class LimiterLookahead {
