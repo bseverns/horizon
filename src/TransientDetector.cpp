@@ -9,18 +9,16 @@ static inline float clampf_td(float x, float lo, float hi) {
   return (x < lo) ? lo : (x > hi ? hi : x);
 }
 
-static constexpr float kFsTD = 44100.0f;
+static constexpr float kAttackSec = 0.002f;
+static constexpr float kReleaseSec = 0.080f;
 
 TransientDetector::TransientDetector()
   : _env(0.0f),
     _sensitivity(0.5f),
     _attackCoeff(0.0f),
-    _releaseCoeff(0.0f) {
-  // 2 ms attack, 80 ms release as a starting point.
-  float attackSec  = 0.002f;
-  float releaseSec = 0.080f;
-  _attackCoeff  = 1.0f - expf(-1.0f / (attackSec  * kFsTD));
-  _releaseCoeff = 1.0f - expf(-1.0f / (releaseSec * kFsTD));
+    _releaseCoeff(0.0f),
+    _sampleRate(44100.0f) {
+  setSampleRate(_sampleRate);
 }
 
 void TransientDetector::reset() {
@@ -29,6 +27,15 @@ void TransientDetector::reset() {
 
 void TransientDetector::setSensitivity(float s) {
   _sensitivity = clampf_td(s, 0.0f, 1.0f);
+}
+
+void TransientDetector::setSampleRate(float sampleRate) {
+  if (sampleRate <= 0.0f) {
+    return;
+  }
+  _sampleRate = sampleRate;
+  _attackCoeff  = 1.0f - expf(-1.0f / (kAttackSec  * _sampleRate));
+  _releaseCoeff = 1.0f - expf(-1.0f / (kReleaseSec * _sampleRate));
 }
 
 float TransientDetector::processSample(float x) {

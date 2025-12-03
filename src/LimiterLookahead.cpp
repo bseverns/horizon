@@ -10,7 +10,7 @@ static inline float clampf_lim(float x, float lo, float hi) {
   return (x < lo) ? lo : (x > hi ? hi : x);
 }
 
-static constexpr float kSampleRate = AUDIO_SAMPLE_RATE_EXACT;
+static constexpr float kDefaultSampleRate = AUDIO_SAMPLE_RATE_EXACT;
 static constexpr float kMsToSec = 0.001f;
 
 float LimiterLookahead::dbToLin(float dB) {
@@ -20,12 +20,14 @@ float LimiterLookahead::dbToLin(float dB) {
 LimiterLookahead::LimiterLookahead()
   : _writeIdx(0),
     _lookaheadSamples(256),
+    _lookaheadMs(5.0f),
     _mix(1.0f),
     _ceilingDb(-1.0f),
     _ceilingLin(dbToLin(-1.0f)),
     _releaseMs(80.0f),
     _releaseCoeff(0.0f),
     _env(1.0f),
+    _sampleRate(kDefaultSampleRate),
     _lastTransientAvg(0.0f),
     _linkMode(LinkMode::Linked),
     _clipFlag(false),
@@ -42,6 +44,7 @@ LimiterLookahead::LimiterLookahead()
 void LimiterLookahead::setup() {
   primeDelayLine();
   _lookaheadSamples = 256;
+  _lookaheadMs = 5.0f;
   _mix = 1.0f;
   _ceilingDb = -1.0f;
   _ceilingLin = dbToLin(_ceilingDb);
@@ -52,7 +55,7 @@ void LimiterLookahead::setup() {
   _clipFlag = false;
   _bypassTarget = false;
   _bypassMix = 0.0f;
-  _xfadeSamples = static_cast<int>(kSampleRate * 0.005f + 0.5f);
+  _xfadeSamples = static_cast<int>(_sampleRate * 0.005f + 0.5f);
   if (_xfadeSamples < 1) _xfadeSamples = 1;
   _xfadeCountdown = 0;
   _blockPos = 0;
@@ -64,10 +67,12 @@ void LimiterLookahead::setup() {
   _detectorTiltR.setTiltDbPerOct(0.0f);
   _detectorTiltL.reset();
   _detectorTiltR.reset();
+  _transientDetector.setSampleRate(_sampleRate);
   _transientDetector.setSensitivity(0.6f);
   _transientDetector.reset();
   _safetyClip.setAmount(0.05f);
 
+  updateLookaheadSamples();
   updateReleaseCoeff();
 }
 
@@ -90,11 +95,8 @@ void LimiterLookahead::setReleaseMs(float ms) {
 }
 
 void LimiterLookahead::setLookaheadMs(float ms) {
-  float clamped = clampf_lim(ms, 1.0f, 8.0f);
-  int samples = static_cast<int>(clamped * kMsToSec * kSampleRate + 0.5f);
-  if (samples < 1) samples = 1;
-  if (samples >= kBufferSize) samples = kBufferSize - 1;
-  _lookaheadSamples = samples;
+  _lookaheadMs = clampf_lim(ms, 1.0f, 8.0f);
+  updateLookaheadSamples();
 }
 
 void LimiterLookahead::setDetectorTiltDbPerOct(float db) {
@@ -118,6 +120,18 @@ void LimiterLookahead::setBypass(bool on) {
   }
 }
 
+void LimiterLookahead::setSampleRate(float sampleRate) {
+  if (sampleRate <= 0.0f) {
+    return;
+  }
+  _sampleRate = sampleRate;
+  updateLookaheadSamples();
+  _xfadeSamples = static_cast<int>(_sampleRate * 0.005f + 0.5f);
+  if (_xfadeSamples < 1) _xfadeSamples = 1;
+  _transientDetector.setSampleRate(_sampleRate);
+  updateReleaseCoeff();
+}
+
 void LimiterLookahead::reset() {
   primeDelayLine();
   _env = 1.0f;
@@ -139,9 +153,16 @@ void LimiterLookahead::updateReleaseCoeff() {
   float t = 1.0f - clampf_lim(_lastTransientAvg, 0.0f, 1.0f);
   float releaseMs = fastMs + (slowMs - fastMs) * t;
   float releaseSec = releaseMs * kMsToSec;
-  float alpha = 1.0f - expf(-1.0f / (releaseSec * kSampleRate));
+  float alpha = 1.0f - expf(-1.0f / (releaseSec * _sampleRate));
   if (alpha < 0.0f) alpha = 0.0f;
   _releaseCoeff = alpha;
+}
+
+void LimiterLookahead::updateLookaheadSamples() {
+  int samples = static_cast<int>(_lookaheadMs * kMsToSec * _sampleRate + 0.5f);
+  if (samples < 1) samples = 1;
+  if (samples >= kBufferSize) samples = kBufferSize - 1;
+  _lookaheadSamples = samples;
 }
 
 void LimiterLookahead::updateXfade() {

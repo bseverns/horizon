@@ -7,9 +7,13 @@ namespace {
 constexpr float kLimiterCeilingMinDb = -12.0f;
 constexpr float kLimiterCeilingMaxDb = -0.1f;
 constexpr float kOutputClamp = 1.0f;
+constexpr float kParamSmoothMs = 35.0f;
+constexpr float kMixSmoothMs = 28.0f;
+constexpr double kDefaultSampleRate = 44100.0;
+constexpr int kDefaultBlockSize = 128;
 }
 
-HostHorizonProcessor::HostHorizonProcessor()
+HostHorizonProcessor::HostHorizonProcessor(double sampleRate, int blockSize)
   : _widthTarget(0.6f),
     _dynWidthTarget(0.35f),
     _transientSensTarget(0.5f),
@@ -30,30 +34,22 @@ HostHorizonProcessor::HostHorizonProcessor()
     _telemetryWidth(_widthTarget),
     _telemetryTransient(0.0f),
     _telemetryLimiterGain(1.0f),
-    _limiterTelemetry{0.0f, 0.0f, 0.0f} {
-  _widthSm.setSmoothing(0.08f);
-  _dynWidthSm.setSmoothing(0.08f);
-  _transientSm.setSmoothing(0.08f);
-  _midTiltSm.setSmoothing(0.08f);
-  _sideAirFreqSm.setSmoothing(0.08f);
-  _sideAirGainSm.setSmoothing(0.08f);
-  _lowAnchorSm.setSmoothing(0.08f);
-  _dirtSm.setSmoothing(0.08f);
-  _ceilingSm.setSmoothing(0.08f);
-  _limiterReleaseSm.setSmoothing(0.08f);
-  _limiterLookaheadSm.setSmoothing(0.08f);
-  _limiterTiltSm.setSmoothing(0.08f);
-  _limiterMixSm.setSmoothing(0.08f);
-  _mixSm.setSmoothing(0.1f);
-  _outTrimSm.setSmoothing(0.1f);
+    _limiterTelemetry{0.0f, 0.0f, 0.0f},
+    _sampleRate(sampleRate > 0.0 ? sampleRate : kDefaultSampleRate),
+    _blockSize(blockSize > 0 ? blockSize : kDefaultBlockSize) {
+  refreshSmoothers();
+  resetSmoothersToTargets();
 
+  _dynWidth.setSampleRate(static_cast<float>(_sampleRate));
   _dynWidth.setBaseWidth(_widthTarget);
   _dynWidth.setDynAmount(_dynWidthTarget);
   _dynWidth.setLowAnchorHz(_lowAnchorHzTarget);
+  _detector.setSampleRate(static_cast<float>(_sampleRate));
   _detector.setSensitivity(_transientSensTarget);
   _midTilt.setTiltDbPerOct(_midTiltTarget);
   _sideAir.setFreqAndGain(_sideAirFreqTarget, _sideAirGainTarget);
   _softSat.setAmount(_dirtTarget);
+  _limiter.setSampleRate(static_cast<float>(_sampleRate));
   _limiter.setup();
   _limiter.setCeilingDb(_ceilingDbTarget);
   _limiter.setReleaseMs(_limiterReleaseTargetMs);
@@ -63,8 +59,87 @@ HostHorizonProcessor::HostHorizonProcessor()
   _limiter.setMix(_limiterMixTarget);
 }
 
+void HostHorizonProcessor::prepareToPlay(double sampleRate, int blockSize) {
+  updateForSampleRate(sampleRate, blockSize, true);
+}
+
 float HostHorizonProcessor::clampf(float x, float lo, float hi) const {
   return std::max(lo, std::min(x, hi));
+}
+
+void HostHorizonProcessor::updateForSampleRate(double sampleRate,
+                                               int blockSize,
+                                               bool resetState) {
+  double desiredRate = (sampleRate > 0.0) ? sampleRate : _sampleRate;
+  int desiredBlockSize = (blockSize > 0) ? blockSize : _blockSize;
+
+  bool rateChanged = std::fabs(desiredRate - _sampleRate) > 1e-6;
+  bool blockChanged = desiredBlockSize != _blockSize;
+  if (!rateChanged && !blockChanged) {
+    return;
+  }
+
+  _sampleRate = desiredRate;
+  _blockSize = desiredBlockSize;
+
+  refreshSmoothers();
+  if (resetState) {
+    resetSmoothersToTargets();
+  }
+
+  _dynWidth.setSampleRate(static_cast<float>(_sampleRate));
+  _dynWidth.setLowAnchorHz(_lowAnchorHzTarget);
+  if (resetState) {
+    _dynWidth.reset();
+  }
+
+  _detector.setSampleRate(static_cast<float>(_sampleRate));
+  if (resetState) {
+    _detector.reset();
+  }
+
+  _limiter.setSampleRate(static_cast<float>(_sampleRate));
+  _limiter.setReleaseMs(_limiterReleaseTargetMs);
+  _limiter.setLookaheadMs(_limiterLookaheadTargetMs);
+  if (resetState) {
+    _limiter.reset();
+  }
+}
+
+void HostHorizonProcessor::refreshSmoothers() {
+  _widthSm.setTimeConstantMs(kParamSmoothMs, _sampleRate, _blockSize);
+  _dynWidthSm.setTimeConstantMs(kParamSmoothMs, _sampleRate, _blockSize);
+  _transientSm.setTimeConstantMs(kParamSmoothMs, _sampleRate, _blockSize);
+  _midTiltSm.setTimeConstantMs(kParamSmoothMs, _sampleRate, _blockSize);
+  _sideAirFreqSm.setTimeConstantMs(kParamSmoothMs, _sampleRate, _blockSize);
+  _sideAirGainSm.setTimeConstantMs(kParamSmoothMs, _sampleRate, _blockSize);
+  _lowAnchorSm.setTimeConstantMs(kParamSmoothMs, _sampleRate, _blockSize);
+  _dirtSm.setTimeConstantMs(kParamSmoothMs, _sampleRate, _blockSize);
+  _ceilingSm.setTimeConstantMs(kParamSmoothMs, _sampleRate, _blockSize);
+  _limiterReleaseSm.setTimeConstantMs(kParamSmoothMs, _sampleRate, _blockSize);
+  _limiterLookaheadSm.setTimeConstantMs(kParamSmoothMs, _sampleRate, _blockSize);
+  _limiterTiltSm.setTimeConstantMs(kParamSmoothMs, _sampleRate, _blockSize);
+  _limiterMixSm.setTimeConstantMs(kParamSmoothMs, _sampleRate, _blockSize);
+  _mixSm.setTimeConstantMs(kMixSmoothMs, _sampleRate, _blockSize);
+  _outTrimSm.setTimeConstantMs(kMixSmoothMs, _sampleRate, _blockSize);
+}
+
+void HostHorizonProcessor::resetSmoothersToTargets() {
+  _widthSm.reset(_widthTarget);
+  _dynWidthSm.reset(_dynWidthTarget);
+  _transientSm.reset(_transientSensTarget);
+  _midTiltSm.reset(_midTiltTarget);
+  _sideAirFreqSm.reset(_sideAirFreqTarget);
+  _sideAirGainSm.reset(_sideAirGainTarget);
+  _lowAnchorSm.reset(_lowAnchorHzTarget);
+  _dirtSm.reset(_dirtTarget);
+  _ceilingSm.reset(_ceilingDbTarget);
+  _limiterReleaseSm.reset(_limiterReleaseTargetMs);
+  _limiterLookaheadSm.reset(_limiterLookaheadTargetMs);
+  _limiterTiltSm.reset(_limiterTiltTarget);
+  _limiterMixSm.reset(_limiterMixTarget);
+  _mixSm.reset(_mixTarget);
+  _outTrimSm.reset(_outTrimDbTarget);
 }
 
 void HostHorizonProcessor::setWidth(float w) {
@@ -139,7 +214,7 @@ void HostHorizonProcessor::processBlock(float* inL,
                                         float* outR,
                                         int numFrames,
                                         double sampleRate) {
-  (void)sampleRate;
+  updateForSampleRate(sampleRate, numFrames, false);
 
   if (!inL || !inR || !outL || !outR || numFrames <= 0) {
     return;
