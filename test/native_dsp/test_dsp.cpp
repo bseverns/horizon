@@ -51,6 +51,14 @@ std::filesystem::path findAssetsBaseDir() {
     const fs::path relativeSuiteDir = fs::path("test") / "native_dsp";
     const fs::path fixture = fs::path("assets") / "sample.wav";
 
+    // PlatformIO exposes PROJECT_DIR when running tests from the build tree.
+    if (const char *projectDir = std::getenv("PROJECT_DIR")) {
+        fs::path root = fs::path(projectDir) / relativeSuiteDir;
+        if (fs::exists(root / fixture)) {
+            return fs::weakly_canonical(root);
+        }
+    }
+
     // Allow CI or dev shells to hard-pin the search root when the working
     // directory is surprising (e.g. PlatformIO spawning the test runner from
     // a temp folder).
@@ -190,6 +198,8 @@ void test_host_processor_renders_variants() {
     fs::remove_all(artifactDir);
     fs::create_directories(artifactDir);
 
+    printf("[assets] base dir: %s\n", baseDir.string().c_str());
+
     const fs::path assetPath = baseDir / "assets" / "sample.wav";
     const fs::path baselineLight = baseDir / "sample_light.wav";
 
@@ -207,11 +217,7 @@ void test_host_processor_renders_variants() {
     input.sampleRate = targetSampleRate;
 
     const bool wavLoaded = !(input.left.empty() || input.right.empty());
-    if (!wavLoaded) {
-        printf("[warn] could not load %s; falling back to synthetic demo buffer\n", assetPath.string().c_str());
-        input = makeDemoBuffer();
-    }
-    TEST_ASSERT_FALSE_MESSAGE(input.left.empty() || input.right.empty(), "host processor input buffer is empty");
+    TEST_ASSERT_TRUE_MESSAGE(wavLoaded, "host processor input buffer failed to load");
 
     auto renders = buildDemoRenders(input);
     HostProcessor processor;
