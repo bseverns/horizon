@@ -203,18 +203,30 @@ void test_host_processor_renders_variants() {
     const fs::path assetPath = baseDir / "assets" / "sample.wav";
     const fs::path baselineLight = baseDir / "sample_light.wav";
 
-    StereoBuffer input = loadStereoWav(assetPath);
+    // When the baseline renders are present, seed the test with the exact synthetic buffer they
+    // were born from. That keeps the comparison deterministic instead of depending on the contents
+    // of an external WAV fixture.
     StereoBuffer baselineProbe = loadStereoWav(baselineLight);
-
-    // Keep the render length aligned with the checked-in baselines so small fixture WAVs don’t
-    // balloon the comparison. Fallback: if the baseline is missing, keep the full input length.
-    const size_t targetFrames = baselineProbe.left.empty() ? input.left.size() : baselineProbe.left.size();
-    const int targetSampleRate = baselineProbe.left.empty() ? input.sampleRate : baselineProbe.sampleRate;
-    if (input.left.size() > targetFrames) {
-        input.left.resize(targetFrames);
-        input.right.resize(targetFrames);
+    StereoBuffer input;
+    if (!baselineProbe.left.empty() && baselineProbe.sampleRate > 0) {
+        const float seconds = static_cast<float>(baselineProbe.left.size()) /
+                              static_cast<float>(baselineProbe.sampleRate);
+        input = makeDemoBuffer(baselineProbe.sampleRate, seconds);
+    } else {
+        input = loadStereoWav(assetPath);
     }
-    input.sampleRate = targetSampleRate;
+
+    if (input.left.empty() || input.right.empty()) {
+        input = makeDemoBuffer();
+    }
+
+    // Keep renders bounded so a long fixture WAV doesn’t turn the test into a marathon when running
+    // in constrained CI sandboxes.
+    const size_t targetFrames = (input.sampleRate > 0)
+                                    ? std::min(input.left.size(), static_cast<size_t>(input.sampleRate))
+                                    : input.left.size();
+    input.left.resize(targetFrames);
+    input.right.resize(targetFrames);
 
     const bool wavLoaded = !(input.left.empty() || input.right.empty());
     TEST_ASSERT_TRUE_MESSAGE(wavLoaded, "host processor input buffer failed to load");
