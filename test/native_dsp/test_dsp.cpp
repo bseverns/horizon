@@ -10,6 +10,7 @@
 
 #include <cstdlib>
 #include <filesystem>
+#include <map>
 #include <system_error>
 #include <vector>
 
@@ -32,6 +33,24 @@ StereoBuffer makeDemoBuffer(int sampleRate = 44100, float seconds = 1.0f) {
     }
 
     return buffer;
+}
+
+struct DiffResult {
+    float maxDiff = 0.0f;
+    size_t frames = 0;
+};
+
+DiffResult measureMaxDiff(const StereoBuffer &expected, const StereoBuffer &actual) {
+    const size_t frames = std::min(expected.left.size(), actual.left.size());
+    DiffResult diff{0.0f, frames};
+
+    for (size_t i = 0; i < frames; ++i) {
+        const float l = fabsf(expected.left[i] - actual.left[i]);
+        const float r = fabsf(expected.right[i] - actual.right[i]);
+        diff.maxDiff = fmaxf(diff.maxDiff, fmaxf(l, r));
+    }
+
+    return diff;
 }
 
 std::filesystem::path findAssetsBaseDir() {
@@ -175,6 +194,15 @@ void test_host_processor_renders_variants() {
     namespace fs = std::filesystem;
     const fs::path baseDir = findAssetsBaseDir();
     const fs::path artifactDir = baseDir / "artifacts";
+
+    std::map<std::string, StereoBuffer> baselines;
+    for (const char *flavor : {"light", "mid", "heavy", "kitchen_sink"}) {
+        const fs::path baselinePath = artifactDir / ("sample_" + std::string(flavor) + ".wav");
+        if (fs::exists(baselinePath)) {
+            baselines.emplace(flavor, loadStereoWav(baselinePath));
+        }
+    }
+
     fs::remove_all(artifactDir);
     fs::create_directories(artifactDir);
 
@@ -220,6 +248,26 @@ void test_host_processor_renders_variants() {
         TEST_ASSERT_EQUAL(input.sampleRate, out.sampleRate);
         TEST_ASSERT_EQUAL_UINT32(input.left.size(), out.left.size());
         TEST_ASSERT_EQUAL_UINT32(input.right.size(), out.right.size());
+
+        auto baselineIt = baselines.find(render.flavor);
+        if (baselineIt != baselines.end() && !baselineIt->second.left.empty() && !baselineIt->second.right.empty()) {
+            TEST_ASSERT_EQUAL_MESSAGE(
+                baselineIt->second.sampleRate, out.sampleRate,
+                ("sample rate mismatch for baseline flavor: " + render.flavor).c_str());
+            TEST_ASSERT_EQUAL_UINT32_MESSAGE(static_cast<uint32_t>(baselineIt->second.left.size()),
+                                             static_cast<uint32_t>(out.left.size()),
+                                             ("left channel length mismatch for baseline flavor: " + render.flavor).c_str());
+            TEST_ASSERT_EQUAL_UINT32_MESSAGE(static_cast<uint32_t>(baselineIt->second.right.size()),
+                                             static_cast<uint32_t>(out.right.size()),
+                                             ("right channel length mismatch for baseline flavor: " + render.flavor).c_str());
+
+            DiffResult diff = measureMaxDiff(baselineIt->second, out);
+            printf("[diff] flavor=%s maxDiff=%.6f (tol=1e-3) frames=%zu\n", render.flavor.c_str(), diff.maxDiff, diff.frames);
+            TEST_ASSERT_LESS_OR_EQUAL_FLOAT_MESSAGE(1e-3f, diff.maxDiff,
+                                                    ("render diverges beyond tolerance for flavor: " + render.flavor).c_str());
+        } else {
+            printf("[diff] flavor=%s baseline missing; skipping comparison\n", render.flavor.c_str());
+        }
     }
 
     TEST_ASSERT_TRUE_MESSAGE(wavLoaded, "WAV fixture missing or unsupported; ran with fallback buffer");
