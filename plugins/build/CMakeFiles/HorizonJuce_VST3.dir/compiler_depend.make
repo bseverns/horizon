@@ -76,43 +76,5670 @@ CMakeFiles/HorizonJuce_VST3.dir/_deps/juce-src/modules/juce_audio_plugin_client/
   _deps/juce-src/modules/juce_core/system/juce_CompilerWarnings.h \
   _deps/juce-src/modules/juce_core/system/juce_TargetPlatform.h
 
+CMakeFiles/HorizonJuce_VST3.dir/_deps/juce-src/modules/juce_audio_plugin_client/juce_audio_plugin_client_VST3.mm.o: _deps/juce-src/modules/juce_audio_plugin_client/juce_audio_plugin_client_VST3.mm \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/AppKit.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/AppKitDefines.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/AppKitErrors.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSATSTypesetter.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSAccessibility.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSAccessibilityConstants.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSAccessibilityCustomAction.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSAccessibilityCustomRotor.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSAccessibilityElement.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSAccessibilityProtocols.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSActionCell.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSAffineTransform.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSAlert.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSAlignmentFeedbackFilter.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSAnimation.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSAnimationContext.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSAppearance.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSAppleScriptExtensions.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSApplication.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSApplicationScripting.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSArrayController.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSAttributedString.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSBezierPath.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSBitmapImageRep.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSBox.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSBrowser.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSBrowserCell.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSButton.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSButtonCell.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSButtonTouchBarItem.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSCIImageRep.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSCachedImageRep.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSCandidateListTouchBarItem.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSCell.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSClickGestureRecognizer.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSClipView.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSCollectionView.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSCollectionViewCompositionalLayout.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSCollectionViewFlowLayout.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSCollectionViewGridLayout.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSCollectionViewLayout.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSCollectionViewTransitionLayout.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSColor.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSColorList.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSColorPanel.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSColorPicker.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSColorPickerTouchBarItem.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSColorPicking.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSColorSampler.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSColorSpace.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSColorWell.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSComboBox.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSComboBoxCell.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSControl.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSController.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSCursor.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSCustomImageRep.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSCustomTouchBarItem.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSDataAsset.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSDatePicker.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSDatePickerCell.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSDictionaryController.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSDiffableDataSource.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSDockTile.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSDocument.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSDocumentController.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSDocumentScripting.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSDragging.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSDraggingItem.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSDraggingSession.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSDrawer.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSEPSImageRep.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSErrors.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSEvent.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSFilePromiseProvider.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSFilePromiseReceiver.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSFileWrapperExtensions.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSFont.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSFontAssetRequest.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSFontCollection.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSFontDescriptor.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSFontManager.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSFontPanel.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSForm.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSFormCell.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSGestureRecognizer.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSGlyphGenerator.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSGlyphInfo.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSGradient.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSGraphics.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSGraphicsContext.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSGridView.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSGroupTouchBarItem.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSHapticFeedback.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSHelpManager.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSImage.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSImageCell.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSImageRep.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSImageView.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSInputManager.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSInputServer.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSInterfaceStyle.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSItemProvider.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSKeyValueBinding.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSLayoutAnchor.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSLayoutConstraint.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSLayoutGuide.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSLayoutManager.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSLevelIndicator.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSLevelIndicatorCell.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSMagnificationGestureRecognizer.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSMatrix.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSMediaLibraryBrowserController.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSMenu.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSMenuItem.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSMenuItemCell.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSMenuToolbarItem.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSMovie.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSNib.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSNibDeclarations.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSNibLoading.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSObjectController.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSOpenGL.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSOpenGLLayer.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSOpenGLView.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSOpenPanel.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSOutlineView.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPDFImageRep.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPDFInfo.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPDFPanel.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPICTImageRep.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPageController.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPageLayout.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPanGestureRecognizer.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPanel.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSParagraphStyle.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPasteboard.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPasteboardItem.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPathCell.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPathComponentCell.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPathControl.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPathControlItem.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPersistentDocument.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPickerTouchBarItem.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPopUpButton.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPopUpButtonCell.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPopover.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPopoverTouchBarItem.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPredicateEditor.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPredicateEditorRowTemplate.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPressGestureRecognizer.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPressureConfiguration.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPrintInfo.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPrintOperation.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPrintPanel.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPrinter.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSProgressIndicator.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSResponder.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSRotationGestureRecognizer.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSRuleEditor.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSRulerMarker.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSRulerView.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSRunningApplication.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSavePanel.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSScreen.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSScrollView.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSScroller.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSScrubber.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSScrubberItemView.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSScrubberLayout.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSearchField.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSearchFieldCell.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSecureTextField.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSegmentedCell.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSegmentedControl.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSShadow.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSharingService.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSharingServicePickerToolbarItem.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSharingServicePickerTouchBarItem.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSlider.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSliderAccessory.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSliderCell.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSliderTouchBarItem.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSound.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSpeechRecognizer.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSpeechSynthesizer.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSpellChecker.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSpellProtocol.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSplitView.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSplitViewController.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSplitViewItem.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSStackView.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSStatusBar.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSStatusBarButton.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSStatusItem.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSStepper.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSStepperCell.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSStepperTouchBarItem.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSStoryboard.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSStoryboardSegue.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSStringDrawing.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSwitch.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTabView.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTabViewController.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTabViewItem.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTableCellView.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTableColumn.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTableHeaderCell.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTableHeaderView.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTableRowView.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTableView.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTableViewRowAction.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSText.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTextAlternatives.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTextAttachment.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTextCheckingClient.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTextCheckingController.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTextContainer.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTextField.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTextFieldCell.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTextFinder.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTextInputClient.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTextInputContext.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTextList.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTextStorage.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTextStorageScripting.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTextTable.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTextView.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTitlebarAccessoryViewController.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTokenField.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTokenFieldCell.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSToolbar.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSToolbarItem.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSToolbarItemGroup.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTouch.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTouchBar.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTouchBarItem.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTrackingArea.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTreeController.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTreeNode.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTypesetter.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSUserActivity.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSUserDefaultsController.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSUserInterfaceCompression.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSUserInterfaceItemIdentification.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSUserInterfaceItemSearching.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSUserInterfaceLayout.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSUserInterfaceValidation.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSView.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSViewController.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSVisualEffectView.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSWindow.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSWindowController.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSWindowRestoration.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSWindowScripting.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSWindowTab.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSWindowTabGroup.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSWorkspace.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/ATS.framework/Headers/ATS.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/ATS.framework/Headers/ATSDefines.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/ATS.framework/Headers/ATSFont.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/ATS.framework/Headers/ATSLayoutTypes.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/ATS.framework/Headers/ATSTypes.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/ATS.framework/Headers/SFNTLayoutTypes.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/ATS.framework/Headers/SFNTTypes.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/ATSUI.framework/Headers/ATSUnicode.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/ATSUI.framework/Headers/ATSUnicodeDirectAccess.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/ATSUI.framework/Headers/ATSUnicodeFlattening.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/ATSUI.framework/Headers/ATSUnicodeGlyphs.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/ATSUI.framework/Headers/ATSUnicodeTypes.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/HIServices.framework/Headers/AXActionConstants.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/HIServices.framework/Headers/AXAttributeConstants.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/HIServices.framework/Headers/AXConstants.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/HIServices.framework/Headers/AXError.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/HIServices.framework/Headers/AXNotificationConstants.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/HIServices.framework/Headers/AXRoleConstants.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/HIServices.framework/Headers/AXTextAttributedString.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/HIServices.framework/Headers/AXUIElement.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/HIServices.framework/Headers/AXValue.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/HIServices.framework/Headers/AXValueConstants.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/HIServices.framework/Headers/Accessibility.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/HIServices.framework/Headers/HIServices.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/HIServices.framework/Headers/HIShape.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/HIServices.framework/Headers/Icons.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/HIServices.framework/Headers/InternetConfig.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/HIServices.framework/Headers/Pasteboard.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/HIServices.framework/Headers/Processes.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/HIServices.framework/Headers/TranslationServices.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/HIServices.framework/Headers/UniversalAccess.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/LangAnalysis.framework/Headers/Dictionary.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/LangAnalysis.framework/Headers/LangAnalysis.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/LangAnalysis.framework/Headers/LanguageAnalysis.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/PrintCore.framework/Headers/PMCore.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/PrintCore.framework/Headers/PMDefinitions.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/PrintCore.framework/Headers/PMErrors.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/PrintCore.framework/Headers/PMPrintAETypes.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/PrintCore.framework/Headers/PMPrintSettingsKeys.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/PrintCore.framework/Headers/PrintCore.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/ATSUnicode.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/ColorSyncDeprecated.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/Fonts.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QD.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/Quickdraw.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/SpeechSynthesis.framework/Headers/SpeechSynthesis.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CFNetwork.framework/Headers/CFFTPStream.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CFNetwork.framework/Headers/CFHTTPAuthentication.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CFNetwork.framework/Headers/CFHTTPMessage.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CFNetwork.framework/Headers/CFHTTPStream.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CFNetwork.framework/Headers/CFHost.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CFNetwork.framework/Headers/CFNetDiagnostics.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CFNetwork.framework/Headers/CFNetServices.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CFNetwork.framework/Headers/CFNetwork.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CFNetwork.framework/Headers/CFNetworkDefs.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CFNetwork.framework/Headers/CFNetworkErrors.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CFNetwork.framework/Headers/CFProxySupport.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CFNetwork.framework/Headers/CFSocketStream.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Cocoa.framework/Headers/Cocoa.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ColorSync.framework/Headers/ColorSync.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ColorSync.framework/Headers/ColorSyncBase.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ColorSync.framework/Headers/ColorSyncCMM.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ColorSync.framework/Headers/ColorSyncDevice.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ColorSync.framework/Headers/ColorSyncProfile.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ColorSync.framework/Headers/ColorSyncTransform.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/CoreData.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/CoreDataDefines.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/CoreDataErrors.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSAtomicStore.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSAtomicStoreCacheNode.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSAttributeDescription.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSBatchDeleteRequest.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSBatchInsertRequest.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSBatchUpdateRequest.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSCoreDataCoreSpotlightDelegate.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSDerivedAttributeDescription.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSEntityDescription.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSEntityMapping.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSEntityMigrationPolicy.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSExpressionDescription.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSFetchIndexDescription.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSFetchIndexElementDescription.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSFetchRequest.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSFetchRequestExpression.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSFetchedPropertyDescription.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSFetchedResultsController.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSIncrementalStore.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSIncrementalStoreNode.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSManagedObject.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSManagedObjectContext.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSManagedObjectID.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSManagedObjectModel.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSMappingModel.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSMergePolicy.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSMigrationManager.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSPersistentCloudKitContainer.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSPersistentCloudKitContainerOptions.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSPersistentContainer.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSPersistentHistoryChange.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSPersistentHistoryChangeRequest.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSPersistentHistoryToken.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSPersistentHistoryTransaction.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSPersistentStore.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSPersistentStoreCoordinator.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSPersistentStoreDescription.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSPersistentStoreRequest.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSPersistentStoreResult.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSPropertyDescription.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSPropertyMapping.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSQueryGenerationToken.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSRelationshipDescription.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSSaveChangesRequest.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFArray.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFAttributedString.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFAvailability.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFBag.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFBase.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFBinaryHeap.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFBitVector.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFBundle.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFByteOrder.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFCalendar.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFCharacterSet.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFData.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFDate.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFDateFormatter.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFDictionary.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFError.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFFileDescriptor.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFFileSecurity.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFLocale.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFMachPort.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFMessagePort.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFNotificationCenter.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFNumber.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFNumberFormatter.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFPlugIn.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFPreferences.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFPropertyList.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFRunLoop.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFSet.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFSocket.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFStream.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFString.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFStringEncodingExt.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFStringTokenizer.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFTimeZone.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFTree.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFURL.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFURLAccess.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFURLEnumerator.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFUUID.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFUserNotification.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFUtilities.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFXMLNode.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFXMLParser.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CoreFoundation.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGAffineTransform.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGBase.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGBitmapContext.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGColor.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGColorConversionInfo.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGColorSpace.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGDataConsumer.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGDataProvider.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGDirectDisplay.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGDirectDisplayMetal.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGDirectPalette.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGDisplayConfiguration.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGDisplayFade.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGDisplayStream.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGError.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGEvent.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGEventSource.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGEventTypes.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGFont.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGFunction.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGGradient.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGImage.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGLayer.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGPDFArray.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGPDFContentStream.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGPDFContext.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGPDFDictionary.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGPDFDocument.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGPDFObject.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGPDFOperatorTable.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGPDFPage.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGPDFScanner.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGPDFStream.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGPDFString.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGPSConverter.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGPath.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGPattern.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGRemoteOperation.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGSession.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGShading.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGWindow.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGWindowLevel.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CIColor.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CIImage.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CIVector.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImageDefines.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/AE.framework/Headers/AE.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/AE.framework/Headers/AEDataModel.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/AE.framework/Headers/AEHelpers.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/AE.framework/Headers/AEMach.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/AE.framework/Headers/AEObjects.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/AE.framework/Headers/AEPackObject.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/AE.framework/Headers/AERegistry.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/AE.framework/Headers/AEUserTermTypes.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/AE.framework/Headers/AppleEvents.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/AIFF.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/AVLTree.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/Aliases.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/BackupCore.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/CarbonCore.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/CodeFragments.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/Collections.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/Components.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/DateTimeUtils.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/Debugging.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/DiskSpaceRecovery.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/DriverServices.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/DriverSynchronization.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/Endian.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/Files.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/Finder.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/FixMath.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/Folders.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/Gestalt.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/HFSVolumes.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/IntlResources.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/LowMem.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/MacErrors.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/MacLocales.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/MacMemory.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/MachineExceptions.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/Math64.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/MixedMode.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/Multiprocessing.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/MultiprocessingInfo.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/NumberFormatting.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/OSUtils.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/PEFBinaryFormat.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/PLStringFuncs.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/Resources.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/Script.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/StringCompare.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/TextCommon.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/TextEncodingConverter.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/TextEncodingPlugin.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/TextUtils.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/Threads.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/Timer.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/ToolUtils.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/UTCUtils.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/UnicodeConverter.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/UnicodeUtilities.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/fp.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/DictionaryServices.framework/Headers/DictionaryServices.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/FSEvents.framework/Headers/FSEvents.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Headers/IconsCore.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Headers/LSInfo.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Headers/LSInfoDeprecated.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Headers/LSOpen.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Headers/LSOpenDeprecated.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Headers/LSQuarantine.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Headers/LaunchServices.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Headers/UTCoreTypes.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Headers/UTType.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Headers/MDImporter.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Headers/MDItem.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Headers/MDLabel.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Headers/MDQuery.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Headers/MDSchema.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Headers/Metadata.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/OSServices.framework/Headers/CSIdentity.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/OSServices.framework/Headers/CSIdentityAuthority.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/OSServices.framework/Headers/CSIdentityBase.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/OSServices.framework/Headers/CSIdentityQuery.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/OSServices.framework/Headers/IconStorage.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/OSServices.framework/Headers/KeychainCore.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/OSServices.framework/Headers/OSServices.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/OSServices.framework/Headers/Power.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/OSServices.framework/Headers/SecurityCore.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/OSServices.framework/Headers/WSMethodInvocation.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/OSServices.framework/Headers/WSProtocolHandler.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/OSServices.framework/Headers/WSTypes.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/SearchKit.framework/Headers/SKAnalysis.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/SearchKit.framework/Headers/SKDocument.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/SearchKit.framework/Headers/SKIndex.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/SearchKit.framework/Headers/SKSearch.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/SearchKit.framework/Headers/SKSummary.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/SearchKit.framework/Headers/SearchKit.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/SharedFileList.framework/Headers/LSSharedFileList.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/SharedFileList.framework/Headers/SharedFileList.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Headers/CoreServices.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CTDefines.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CTFont.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CTFontCollection.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CTFontDescriptor.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CTFontManager.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CTFontManagerErrors.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CTFontTraits.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CTFrame.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CTFramesetter.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CTGlyphInfo.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CTLine.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CTParagraphStyle.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CTRubyAnnotation.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CTRun.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CTRunDelegate.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CTStringAttributes.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CTTextTab.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CTTypesetter.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/SFNTLayoutTypes.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/SFNTTypes.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreVideo.framework/Headers/CVBase.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreVideo.framework/Headers/CVBuffer.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreVideo.framework/Headers/CVDisplayLink.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreVideo.framework/Headers/CVHostTime.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreVideo.framework/Headers/CVImageBuffer.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreVideo.framework/Headers/CVMetalTexture.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreVideo.framework/Headers/CVMetalTextureCache.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreVideo.framework/Headers/CVOpenGLBuffer.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreVideo.framework/Headers/CVOpenGLBufferPool.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreVideo.framework/Headers/CVOpenGLTexture.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreVideo.framework/Headers/CVOpenGLTextureCache.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreVideo.framework/Headers/CVPixelBuffer.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreVideo.framework/Headers/CVPixelBufferIOSurface.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreVideo.framework/Headers/CVPixelBufferPool.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreVideo.framework/Headers/CVPixelFormatDescription.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreVideo.framework/Headers/CVReturn.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreVideo.framework/Headers/CoreVideo.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/DiskArbitration.framework/Headers/DADisk.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/DiskArbitration.framework/Headers/DASession.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/FoundationErrors.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/FoundationLegacySwiftCompatibility.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSAffineTransform.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSAppleEventDescriptor.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSAppleEventManager.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSAppleScript.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSArchiver.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSArray.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSAttributedString.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSAutoreleasePool.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSBackgroundActivityScheduler.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSBundle.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSByteCountFormatter.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSByteOrder.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSCache.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSCalendar.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSCalendarDate.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSCharacterSet.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSClassDescription.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSCoder.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSComparisonPredicate.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSCompoundPredicate.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSConnection.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSData.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSDate.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSDateComponentsFormatter.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSDateFormatter.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSDateInterval.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSDateIntervalFormatter.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSDecimal.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSDecimalNumber.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSDictionary.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSDistantObject.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSDistributedLock.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSDistributedNotificationCenter.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSEnergyFormatter.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSEnumerator.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSError.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSException.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSExpression.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSExtensionContext.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSExtensionItem.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSExtensionRequestHandling.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSFileCoordinator.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSFileHandle.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSFileManager.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSFilePresenter.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSFileVersion.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSFileWrapper.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSFormatter.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSGarbageCollector.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSHFSFileTypes.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSHTTPCookie.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSHTTPCookieStorage.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSHashTable.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSHost.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSISO8601DateFormatter.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSIndexPath.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSIndexSet.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSInvocation.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSItemProvider.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSJSONSerialization.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSKeyValueCoding.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSKeyValueObserving.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSKeyedArchiver.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSLengthFormatter.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSLinguisticTagger.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSListFormatter.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSLocale.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSLock.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSMapTable.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSMassFormatter.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSMeasurement.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSMeasurementFormatter.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSMetadata.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSMetadataAttributes.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSMethodSignature.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSNetServices.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSNotification.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSNotificationQueue.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSNull.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSNumberFormatter.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSObjCRuntime.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSObject.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSObjectScripting.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSOperation.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSOrderedCollectionChange.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSOrderedCollectionDifference.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSOrderedSet.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSOrthography.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSPathUtilities.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSPersonNameComponents.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSPersonNameComponentsFormatter.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSPointerArray.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSPointerFunctions.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSPort.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSPortCoder.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSPortMessage.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSPortNameServer.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSPredicate.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSProcessInfo.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSProgress.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSPropertyList.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSProtocolChecker.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSProxy.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSRange.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSRegularExpression.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSRelativeDateTimeFormatter.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSRunLoop.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSScanner.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSScriptClassDescription.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSScriptCoercionHandler.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSScriptCommand.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSScriptCommandDescription.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSScriptExecutionContext.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSScriptKeyValueCoding.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSScriptObjectSpecifiers.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSScriptStandardSuiteCommands.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSScriptSuiteRegistry.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSScriptWhoseTests.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSSet.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSSortDescriptor.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSSpellServer.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSStream.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSString.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSTask.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSTextCheckingResult.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSThread.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSTimeZone.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSTimer.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURL.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURLAuthenticationChallenge.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURLCache.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURLConnection.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURLCredential.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURLCredentialStorage.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURLDownload.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURLError.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURLHandle.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURLProtectionSpace.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURLProtocol.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURLRequest.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURLResponse.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURLSession.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSUUID.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSUbiquitousKeyValueStore.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSUndoManager.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSUnit.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSUserActivity.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSUserDefaults.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSUserNotification.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSUserScriptTask.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSValue.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSValueTransformer.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSXMLDTD.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSXMLDTDNode.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSXMLDocument.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSXMLElement.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSXMLNode.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSXMLNodeOptions.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSXMLParser.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSXPCConnection.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSZone.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/IOKit.framework/Headers/IOKitKeys.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/IOKit.framework/Headers/IOKitLib.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/IOKit.framework/Headers/IOReturn.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/IOKit.framework/Headers/IOSharedLock.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/IOKit.framework/Headers/IOTypes.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/IOKit.framework/Headers/OSMessageNotification.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/IOKit.framework/Headers/graphics/IOGraphicsTypes.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/IOKit.framework/Headers/hidsystem/IOHIDTypes.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/IOKit.framework/Headers/hidsystem/IOLLEvent.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/IOSurface.framework/Headers/IOSurface.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/IOSurface.framework/Headers/IOSurfaceAPI.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/IOSurface.framework/Headers/IOSurfaceBase.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/IOSurface.framework/Headers/IOSurfaceRef.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/IOSurface.framework/Headers/IOSurfaceTypes.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ImageIO.framework/Headers/CGImageAnimation.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ImageIO.framework/Headers/CGImageDestination.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ImageIO.framework/Headers/CGImageMetadata.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ImageIO.framework/Headers/CGImageProperties.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ImageIO.framework/Headers/CGImageSource.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ImageIO.framework/Headers/ImageIO.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ImageIO.framework/Headers/ImageIOBase.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Metal.framework/Headers/MTLDefines.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Metal.framework/Headers/MTLPixelFormat.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework/Headers/CGLCurrent.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework/Headers/CGLDevice.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework/Headers/CGLIOSurface.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework/Headers/CGLRenderers.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework/Headers/CGLTypes.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework/Headers/OpenGL.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework/Headers/OpenGLAvailability.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gltypes.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/CABase.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/CALayer.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/CAMediaTiming.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/CAOpenGLLayer.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/CATransform3D.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/AuthSession.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/Authorization.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/AuthorizationDB.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/AuthorizationTags.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/CMSDecoder.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/CMSEncoder.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/CSCommon.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/CipherSuite.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecACL.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecAccess.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecAccessControl.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecAsn1Types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecBase.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecCertificate.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecCertificateOIDs.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecCode.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecCodeHost.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecCustomTransform.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecDecodeTransform.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecDigestTransform.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecEncodeTransform.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecEncryptTransform.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecIdentity.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecIdentitySearch.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecImportExport.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecItem.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecKey.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecKeychain.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecKeychainItem.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecKeychainSearch.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecPolicy.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecPolicySearch.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecProtocolMetadata.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecProtocolObject.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecProtocolOptions.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecProtocolTypes.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecRandom.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecReadTransform.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecRequirement.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecSharedCredential.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecSignVerifyTransform.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecStaticCode.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecTask.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecTransform.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecTransformReadTransform.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecTrust.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecTrustSettings.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecTrustedApplication.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecureTransport.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/Security.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/certextensions.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/cssm.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/cssmaci.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/cssmapi.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/cssmapple.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/cssmcli.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/cssmconfig.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/cssmcspi.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/cssmdli.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/cssmerr.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/cssmkrapi.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/cssmkrspi.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/cssmspi.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/cssmtpi.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/cssmtype.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/emmspi.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/emmtype.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/mds.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/mds_schema.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/oids.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/oidsalg.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/oidsattr.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/oidsbase.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/oidscert.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/oidscrl.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/x509defs.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/AssertMacros.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/Availability.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/AvailabilityInternal.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/AvailabilityMacros.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/Block.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/ConditionalMacros.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/MacTypes.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/TargetConditionals.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/__wctype.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/_ctermid.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/_ctype.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/_locale.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/_stdio.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/_types/_intmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/_types/_nl_item.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/_types/_uint16_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/_types/_uint32_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/_types/_uint64_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/_types/_uint8_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/_types/_uintmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/_types/_wctrans_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/_types/_wctype_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/_wctype.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/_xlocale.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/alloca.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/assert.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/bsm/audit.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/ctype.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/device/device_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/dispatch/base.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/dispatch/block.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/dispatch/data.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/dispatch/dispatch.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/dispatch/group.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/dispatch/io.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/dispatch/object.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/dispatch/once.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/dispatch/queue.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/dispatch/semaphore.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/dispatch/source.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/dispatch/time.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/dispatch/workloop.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/errno.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/fcntl.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/fenv.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/float.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/gethostuuid.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/hfs/hfs_format.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/hfs/hfs_unistr.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/i386/_limits.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/i386/_mcontext.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/i386/_param.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/i386/_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/i386/eflags.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/i386/endian.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/i386/limits.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/i386/param.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/i386/signal.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/i386/types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/inttypes.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/launch.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/libkern/OSAtomic.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/libkern/OSAtomicDeprecated.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/libkern/OSAtomicQueue.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/libkern/OSByteOrder.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/libkern/OSSpinLockDeprecated.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/libkern/OSTypes.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/libkern/_OSByteOrder.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/libkern/i386/OSByteOrder.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/libkern/i386/_OSByteOrder.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/limits.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/locale.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/boolean.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/clock_priv.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/clock_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/dyld_kernel.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/error.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/exception_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/host_info.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/host_notify.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/host_priv.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/host_security.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/host_special_ports.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/i386/_structs.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/i386/boolean.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/i386/exception.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/i386/fp_reg.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/i386/kern_return.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/i386/processor_info.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/i386/rpc.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/i386/thread_state.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/i386/thread_status.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/i386/vm_param.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/i386/vm_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/kern_return.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/kmod.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/lock_set.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/mach.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/mach_error.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/mach_host.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/mach_init.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/mach_interface.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/mach_port.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/mach_traps.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/mach_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/mach_voucher_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/machine.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/machine/_structs.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/machine/boolean.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/machine/exception.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/machine/kern_return.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/machine/processor_info.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/machine/rpc.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/machine/thread_state.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/machine/thread_status.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/machine/vm_param.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/machine/vm_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/memory_object_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/message.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/mig.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/mig_errors.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/mig_strncpy_zerofill_support.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/ndr.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/notify.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/policy.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/port.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/processor.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/processor_info.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/processor_set.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/rpc.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/semaphore.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/std_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/sync_policy.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/task.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/task_info.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/task_inspect.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/task_policy.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/task_special_ports.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/thread_act.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/thread_info.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/thread_policy.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/thread_special_ports.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/thread_status.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/thread_switch.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/time_value.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/vm_attributes.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/vm_behavior.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/vm_inherit.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/vm_map.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/vm_page_size.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/vm_prot.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/vm_purgable.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/vm_region.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/vm_statistics.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/vm_sync.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/vm_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach_debug/hash_info.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach_debug/ipc_info.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach_debug/lockgroup_info.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach_debug/mach_debug_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach_debug/page_info.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach_debug/vm_info.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach_debug/zone_info.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/machine/_mcontext.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/machine/_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/machine/endian.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/machine/limits.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/machine/param.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/machine/signal.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/machine/types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/malloc/_malloc.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/math.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/nl_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/objc/NSObjCRuntime.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/objc/NSObject.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/objc/message.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/objc/objc-api.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/objc/objc.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/objc/runtime.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/os/availability.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/os/base.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/os/lock.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/os/object.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/pthread.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/pthread/pthread_impl.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/pthread/qos.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/pthread/sched.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/pthread_impl.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/runetype.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sched.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/setjmp.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/signal.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/stdint.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/stdio.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/stdlib.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/string.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/strings.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_endian.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_posix_availability.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_pthread/_pthread_attr_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_pthread/_pthread_cond_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_pthread/_pthread_condattr_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_pthread/_pthread_key_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_pthread/_pthread_mutex_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_pthread/_pthread_mutexattr_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_pthread/_pthread_once_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_pthread/_pthread_rwlock_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_pthread/_pthread_rwlockattr_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_pthread/_pthread_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_pthread/_pthread_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_select.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_symbol_aliasing.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_blkcnt_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_blksize_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_caddr_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_clock_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_ct_rune_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_dev_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_errno_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_fd_clr.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_fd_copy.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_fd_def.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_fd_isset.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_fd_set.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_fd_setsize.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_fd_zero.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_filesec_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_fsblkcnt_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_fsfilcnt_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_fsid_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_fsobj_id_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_gid_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_guid_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_id_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_in_addr_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_in_port_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_ino64_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_ino_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_int16_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_int32_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_int64_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_int8_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_intptr_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_key_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_mach_port_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_mbstate_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_mode_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_nlink_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_null.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_o_dsync.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_o_sync.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_off_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_os_inline.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_pid_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_posix_vdisable.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_rsize_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_rune_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_s_ifmt.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_seek_set.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_sigaltstack.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_sigset_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_size_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_ssize_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_suseconds_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_time_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_timespec.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_timeval.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_timeval64.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_u_char.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_u_int.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_u_int16_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_u_int32_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_u_int64_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_u_int8_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_u_short.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_ucontext.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_uid_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_uintptr_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_useconds_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_uuid_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_va_list.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_wchar_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_wint_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/acl.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/appleapiopts.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/cdefs.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/errno.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/event.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/fcntl.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/kauth.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/lock.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/mman.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/param.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/proc.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/qos.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/queue.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/resource.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/select.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/signal.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/stdio.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/sysctl.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/syslimits.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/time.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/ucred.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/unistd.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/vm.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/wait.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/time.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/unistd.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/uuid/uuid.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/wchar.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/wctype.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/xlocale.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/xlocale/__wctype.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/xlocale/_ctype.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/xlocale/_inttypes.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/xlocale/_stdio.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/xlocale/_stdlib.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/xlocale/_string.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/xlocale/_time.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/xlocale/_wchar.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/xlocale/_wctype.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/xpc/activity.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/xpc/availability.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/xpc/base.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/xpc/connection.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/xpc/debug.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/xpc/endpoint.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/xpc/xpc.h \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/__bit_reference \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/__bsd_locale_defaults.h \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/__config \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/__cxx_version \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/__debug \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/__errc \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/__functional_base \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/__hash_table \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/__locale \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/__mutex_base \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/__node_handle \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/__nullptr \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/__split_buffer \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/__string \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/__threading_support \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/__tree \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/__tuple \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/__undef_macros \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/algorithm \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/array \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/atomic \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/bit \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/bitset \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/cassert \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/cctype \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/cerrno \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/charconv \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/chrono \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/climits \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/cmath \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/codecvt \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/complex \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/condition_variable \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/cstdarg \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/cstddef \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/cstdint \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/cstdio \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/cstdlib \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/cstring \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/ctime \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/ctype.h \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/cwchar \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/cwctype \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/deque \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/errno.h \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/exception \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/fenv.h \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/float.h \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/functional \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/future \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/initializer_list \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/inttypes.h \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/iomanip \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/ios \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/iosfwd \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/iostream \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/istream \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/iterator \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/limits \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/limits.h \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/list \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/locale \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/locale.h \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/map \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/math.h \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/memory \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/mutex \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/new \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/numeric \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/optional \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/ostream \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/queue \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/ratio \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/set \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/setjmp.h \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/sstream \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/stdbool.h \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/stddef.h \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/stdexcept \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/stdint.h \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/stdio.h \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/stdlib.h \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/streambuf \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/string \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/string.h \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/string_view \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/system_error \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/thread \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/tuple \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/type_traits \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/typeindex \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/typeinfo \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/unordered_map \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/unordered_set \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/utility \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/variant \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/vector \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/wchar.h \
+  /Library/Developer/CommandLineTools/usr/include/c++/v1/wctype.h \
+  /Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include/__stddef_max_align_t.h \
+  /Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include/emmintrin.h \
+  /Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include/float.h \
+  /Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include/inttypes.h \
+  /Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include/limits.h \
+  /Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include/mm_malloc.h \
+  /Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include/mmintrin.h \
+  /Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include/stdarg.h \
+  /Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include/stdatomic.h \
+  /Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include/stdbool.h \
+  /Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include/stddef.h \
+  /Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include/stdint.h \
+  /Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include/xmmintrin.h \
+  _deps/juce-src/modules/juce_audio_basics/audio_play_head/juce_AudioPlayHead.h \
+  _deps/juce-src/modules/juce_audio_basics/buffers/juce_AudioChannelSet.h \
+  _deps/juce-src/modules/juce_audio_basics/buffers/juce_AudioDataConverters.h \
+  _deps/juce-src/modules/juce_audio_basics/buffers/juce_AudioProcessLoadMeasurer.h \
+  _deps/juce-src/modules/juce_audio_basics/buffers/juce_AudioSampleBuffer.h \
+  _deps/juce-src/modules/juce_audio_basics/buffers/juce_FloatVectorOperations.h \
+  _deps/juce-src/modules/juce_audio_basics/juce_audio_basics.h \
+  _deps/juce-src/modules/juce_audio_basics/midi/juce_MidiBuffer.h \
+  _deps/juce-src/modules/juce_audio_basics/midi/juce_MidiFile.h \
+  _deps/juce-src/modules/juce_audio_basics/midi/juce_MidiKeyboardState.h \
+  _deps/juce-src/modules/juce_audio_basics/midi/juce_MidiMessage.h \
+  _deps/juce-src/modules/juce_audio_basics/midi/juce_MidiMessageSequence.h \
+  _deps/juce-src/modules/juce_audio_basics/midi/juce_MidiRPN.h \
+  _deps/juce-src/modules/juce_audio_basics/midi/ump/juce_UMPBytesOnGroup.h \
+  _deps/juce-src/modules/juce_audio_basics/midi/ump/juce_UMPDeviceInfo.h \
+  _deps/juce-src/modules/juce_audio_basics/mpe/juce_MPEInstrument.h \
+  _deps/juce-src/modules/juce_audio_basics/mpe/juce_MPEMessages.h \
+  _deps/juce-src/modules/juce_audio_basics/mpe/juce_MPENote.h \
+  _deps/juce-src/modules/juce_audio_basics/mpe/juce_MPESynthesiser.h \
+  _deps/juce-src/modules/juce_audio_basics/mpe/juce_MPESynthesiserBase.h \
+  _deps/juce-src/modules/juce_audio_basics/mpe/juce_MPESynthesiserVoice.h \
+  _deps/juce-src/modules/juce_audio_basics/mpe/juce_MPEUtils.h \
+  _deps/juce-src/modules/juce_audio_basics/mpe/juce_MPEValue.h \
+  _deps/juce-src/modules/juce_audio_basics/mpe/juce_MPEZoneLayout.h \
+  _deps/juce-src/modules/juce_audio_basics/sources/juce_AudioSource.h \
+  _deps/juce-src/modules/juce_audio_basics/sources/juce_BufferingAudioSource.h \
+  _deps/juce-src/modules/juce_audio_basics/sources/juce_ChannelRemappingAudioSource.h \
+  _deps/juce-src/modules/juce_audio_basics/sources/juce_IIRFilterAudioSource.h \
+  _deps/juce-src/modules/juce_audio_basics/sources/juce_MemoryAudioSource.h \
+  _deps/juce-src/modules/juce_audio_basics/sources/juce_MixerAudioSource.h \
+  _deps/juce-src/modules/juce_audio_basics/sources/juce_PositionableAudioSource.h \
+  _deps/juce-src/modules/juce_audio_basics/sources/juce_ResamplingAudioSource.h \
+  _deps/juce-src/modules/juce_audio_basics/sources/juce_ReverbAudioSource.h \
+  _deps/juce-src/modules/juce_audio_basics/sources/juce_ToneGeneratorAudioSource.h \
+  _deps/juce-src/modules/juce_audio_basics/synthesisers/juce_Synthesiser.h \
+  _deps/juce-src/modules/juce_audio_basics/utilities/juce_ADSR.h \
+  _deps/juce-src/modules/juce_audio_basics/utilities/juce_AudioWorkgroup.h \
+  _deps/juce-src/modules/juce_audio_basics/utilities/juce_Decibels.h \
+  _deps/juce-src/modules/juce_audio_basics/utilities/juce_GenericInterpolator.h \
+  _deps/juce-src/modules/juce_audio_basics/utilities/juce_IIRFilter.h \
+  _deps/juce-src/modules/juce_audio_basics/utilities/juce_Interpolators.h \
+  _deps/juce-src/modules/juce_audio_basics/utilities/juce_Reverb.h \
+  _deps/juce-src/modules/juce_audio_basics/utilities/juce_SmoothedValue.h \
+  _deps/juce-src/modules/juce_audio_plugin_client/detail/juce_CheckSettingMacros.h \
+  _deps/juce-src/modules/juce_audio_plugin_client/detail/juce_CreatePluginFilter.h \
+  _deps/juce-src/modules/juce_audio_plugin_client/detail/juce_IncludeModuleHeaders.h \
+  _deps/juce-src/modules/juce_audio_plugin_client/detail/juce_IncludeSystemHeaders.h \
+  _deps/juce-src/modules/juce_audio_plugin_client/detail/juce_LinuxMessageThread.h \
+  _deps/juce-src/modules/juce_audio_plugin_client/detail/juce_PluginUtilities.h \
+  _deps/juce-src/modules/juce_audio_plugin_client/detail/juce_VSTWindowUtilities.h \
+  _deps/juce-src/modules/juce_audio_plugin_client/juce_audio_plugin_client.h \
+  _deps/juce-src/modules/juce_audio_plugin_client/juce_audio_plugin_client_VST3.cpp \
+  _deps/juce-src/modules/juce_audio_processors/format/juce_AudioPluginFormat.h \
+  _deps/juce-src/modules/juce_audio_processors/format/juce_AudioPluginFormatManager.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/base/source/baseiids.cpp \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/base/source/classfactoryhelpers.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/base/source/fbuffer.cpp \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/base/source/fbuffer.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/base/source/fdebug.cpp \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/base/source/fdebug.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/base/source/fobject.cpp \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/base/source/fobject.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/base/source/fstreamer.cpp \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/base/source/fstreamer.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/base/source/fstring.cpp \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/base/source/fstring.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/base/source/updatehandler.cpp \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/base/source/updatehandler.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/base/thread/include/flock.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/base/thread/source/flock.cpp \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/conststringtable.cpp \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/conststringtable.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/coreiids.cpp \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/falignpop.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/falignpush.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/fplatform.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/fstrdefs.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/ftypes.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/funknown.cpp \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/funknown.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/futils.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/fvariant.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/ibstream.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/icloneable.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/ipersistent.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/ipluginbase.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/iplugincompatibility.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/istringresult.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/iupdatehandler.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/smartpointer.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/typesizecheck.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/ustring.cpp \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/ustring.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/gui/iplugview.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/gui/iplugviewcontentscalesupport.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstattributes.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstaudioprocessor.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstautomationstate.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstchannelcontextinfo.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstcomponent.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstcontextmenu.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivsteditcontroller.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstevents.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivsthostapplication.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstinterappaudio.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstmessage.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstmidicontrollers.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstmidilearn.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstnoteexpression.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstparameterchanges.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstparameterfunctionname.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstphysicalui.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstpluginterfacesupport.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstplugview.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstprefetchablesupport.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstprocesscontext.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstrepresentation.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivsttestplugprovider.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstunits.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/vstspeaker.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/vsttypes.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/common/memorystream.cpp \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/common/memorystream.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/common/pluginview.cpp \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/common/pluginview.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/hosting/hostclasses.cpp \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/hosting/hostclasses.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/hosting/pluginterfacesupport.cpp \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/hosting/pluginterfacesupport.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/moduleinfo/json.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/moduleinfo/jsoncxx.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/moduleinfo/moduleinfo.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/moduleinfo/moduleinfoparser.cpp \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/moduleinfo/moduleinfoparser.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/utility/optional.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/utility/stringconvert.cpp \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/utility/stringconvert.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/utility/uid.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/vstbus.cpp \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/vstbus.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/vstcomponent.cpp \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/vstcomponent.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/vstcomponentbase.cpp \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/vstcomponentbase.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/vsteditcontroller.cpp \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/vsteditcontroller.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/vstinitiids.cpp \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/vstparameters.cpp \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/vstparameters.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/vstpresetfile.cpp \
+  _deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/vstpresetfile.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/juce_ARACommon.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/juce_ARAHosting.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/juce_AudioUnitPluginFormat.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/juce_LADSPAPluginFormat.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/juce_LV2PluginFormat.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/juce_LegacyAudioParameter.cpp \
+  _deps/juce-src/modules/juce_audio_processors/format_types/juce_VST3Common.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/juce_VST3Headers.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/juce_VST3PluginFormat.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/juce_VSTMidiEventList.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/juce_VSTPluginFormat.h \
+  _deps/juce-src/modules/juce_audio_processors/format_types/pslextensions/ipslviewembedding.h \
+  _deps/juce-src/modules/juce_audio_processors/juce_audio_processors.h \
+  _deps/juce-src/modules/juce_audio_processors/processors/juce_AudioPluginInstance.h \
+  _deps/juce-src/modules/juce_audio_processors/processors/juce_AudioProcessor.h \
+  _deps/juce-src/modules/juce_audio_processors/processors/juce_AudioProcessorEditor.h \
+  _deps/juce-src/modules/juce_audio_processors/processors/juce_AudioProcessorEditorHostContext.h \
+  _deps/juce-src/modules/juce_audio_processors/processors/juce_AudioProcessorGraph.h \
+  _deps/juce-src/modules/juce_audio_processors/processors/juce_AudioProcessorListener.h \
+  _deps/juce-src/modules/juce_audio_processors/processors/juce_AudioProcessorParameter.h \
+  _deps/juce-src/modules/juce_audio_processors/processors/juce_AudioProcessorParameterGroup.h \
+  _deps/juce-src/modules/juce_audio_processors/processors/juce_GenericAudioProcessorEditor.h \
+  _deps/juce-src/modules/juce_audio_processors/processors/juce_HostedAudioProcessorParameter.h \
+  _deps/juce-src/modules/juce_audio_processors/processors/juce_PluginDescription.h \
+  _deps/juce-src/modules/juce_audio_processors/scanning/juce_KnownPluginList.h \
+  _deps/juce-src/modules/juce_audio_processors/scanning/juce_PluginDirectoryScanner.h \
+  _deps/juce-src/modules/juce_audio_processors/scanning/juce_PluginListComponent.h \
+  _deps/juce-src/modules/juce_audio_processors/utilities/ARA/juce_ARADebug.h \
+  _deps/juce-src/modules/juce_audio_processors/utilities/ARA/juce_ARA_utils.h \
+  _deps/juce-src/modules/juce_audio_processors/utilities/juce_AAXClientExtensions.h \
+  _deps/juce-src/modules/juce_audio_processors/utilities/juce_AudioParameterBool.h \
+  _deps/juce-src/modules/juce_audio_processors/utilities/juce_AudioParameterChoice.h \
+  _deps/juce-src/modules/juce_audio_processors/utilities/juce_AudioParameterFloat.h \
+  _deps/juce-src/modules/juce_audio_processors/utilities/juce_AudioParameterInt.h \
+  _deps/juce-src/modules/juce_audio_processors/utilities/juce_AudioProcessorParameterWithID.h \
+  _deps/juce-src/modules/juce_audio_processors/utilities/juce_AudioProcessorValueTreeState.h \
+  _deps/juce-src/modules/juce_audio_processors/utilities/juce_ExtensionsVisitor.h \
+  _deps/juce-src/modules/juce_audio_processors/utilities/juce_FlagCache.h \
+  _deps/juce-src/modules/juce_audio_processors/utilities/juce_NativeScaleFactorNotifier.h \
+  _deps/juce-src/modules/juce_audio_processors/utilities/juce_ParameterAttachments.h \
+  _deps/juce-src/modules/juce_audio_processors/utilities/juce_PluginHostType.h \
+  _deps/juce-src/modules/juce_audio_processors/utilities/juce_RangedAudioParameter.h \
+  _deps/juce-src/modules/juce_audio_processors/utilities/juce_VST2ClientExtensions.h \
+  _deps/juce-src/modules/juce_audio_processors/utilities/juce_VST3ClientExtensions.h \
+  _deps/juce-src/modules/juce_core/containers/juce_AbstractFifo.h \
+  _deps/juce-src/modules/juce_core/containers/juce_Array.h \
+  _deps/juce-src/modules/juce_core/containers/juce_ArrayAllocationBase.h \
+  _deps/juce-src/modules/juce_core/containers/juce_ArrayBase.h \
+  _deps/juce-src/modules/juce_core/containers/juce_DynamicObject.h \
+  _deps/juce-src/modules/juce_core/containers/juce_ElementComparator.h \
+  _deps/juce-src/modules/juce_core/containers/juce_Enumerate.h \
+  _deps/juce-src/modules/juce_core/containers/juce_FixedSizeFunction.h \
+  _deps/juce-src/modules/juce_core/containers/juce_HashMap.h \
+  _deps/juce-src/modules/juce_core/containers/juce_LinkedListPointer.h \
+  _deps/juce-src/modules/juce_core/containers/juce_ListenerList.h \
+  _deps/juce-src/modules/juce_core/containers/juce_NamedValueSet.h \
+  _deps/juce-src/modules/juce_core/containers/juce_Optional.h \
+  _deps/juce-src/modules/juce_core/containers/juce_OwnedArray.h \
+  _deps/juce-src/modules/juce_core/containers/juce_PropertySet.h \
+  _deps/juce-src/modules/juce_core/containers/juce_ReferenceCountedArray.h \
+  _deps/juce-src/modules/juce_core/containers/juce_ScopedValueSetter.h \
+  _deps/juce-src/modules/juce_core/containers/juce_SingleThreadedAbstractFifo.h \
+  _deps/juce-src/modules/juce_core/containers/juce_SortedSet.h \
+  _deps/juce-src/modules/juce_core/containers/juce_Span.h \
+  _deps/juce-src/modules/juce_core/containers/juce_SparseSet.h \
+  _deps/juce-src/modules/juce_core/containers/juce_Variant.h \
+  _deps/juce-src/modules/juce_core/files/juce_AndroidDocument.h \
+  _deps/juce-src/modules/juce_core/files/juce_DirectoryIterator.h \
+  _deps/juce-src/modules/juce_core/files/juce_File.h \
+  _deps/juce-src/modules/juce_core/files/juce_FileFilter.h \
+  _deps/juce-src/modules/juce_core/files/juce_FileInputStream.h \
+  _deps/juce-src/modules/juce_core/files/juce_FileOutputStream.h \
+  _deps/juce-src/modules/juce_core/files/juce_FileSearchPath.h \
+  _deps/juce-src/modules/juce_core/files/juce_MemoryMappedFile.h \
+  _deps/juce-src/modules/juce_core/files/juce_RangedDirectoryIterator.h \
+  _deps/juce-src/modules/juce_core/files/juce_TemporaryFile.h \
+  _deps/juce-src/modules/juce_core/files/juce_WildcardFileFilter.h \
+  _deps/juce-src/modules/juce_core/javascript/juce_JSON.h \
+  _deps/juce-src/modules/juce_core/javascript/juce_JSONSerialisation.h \
+  _deps/juce-src/modules/juce_core/javascript/juce_JSONUtils.h \
+  _deps/juce-src/modules/juce_core/javascript/juce_Javascript.h \
+  _deps/juce-src/modules/juce_core/juce_core.h \
+  _deps/juce-src/modules/juce_core/logging/juce_FileLogger.h \
+  _deps/juce-src/modules/juce_core/logging/juce_Logger.h \
+  _deps/juce-src/modules/juce_core/maths/juce_BigInteger.h \
+  _deps/juce-src/modules/juce_core/maths/juce_Expression.h \
+  _deps/juce-src/modules/juce_core/maths/juce_MathsFunctions.h \
+  _deps/juce-src/modules/juce_core/maths/juce_NormalisableRange.h \
+  _deps/juce-src/modules/juce_core/maths/juce_Random.h \
+  _deps/juce-src/modules/juce_core/maths/juce_Range.h \
+  _deps/juce-src/modules/juce_core/maths/juce_StatisticsAccumulator.h \
+  _deps/juce-src/modules/juce_core/memory/juce_AllocationHooks.h \
+  _deps/juce-src/modules/juce_core/memory/juce_Atomic.h \
+  _deps/juce-src/modules/juce_core/memory/juce_ByteOrder.h \
+  _deps/juce-src/modules/juce_core/memory/juce_ContainerDeletePolicy.h \
+  _deps/juce-src/modules/juce_core/memory/juce_HeapBlock.h \
+  _deps/juce-src/modules/juce_core/memory/juce_HeavyweightLeakedObjectDetector.h \
+  _deps/juce-src/modules/juce_core/memory/juce_LeakedObjectDetector.h \
+  _deps/juce-src/modules/juce_core/memory/juce_Memory.h \
+  _deps/juce-src/modules/juce_core/memory/juce_MemoryBlock.h \
+  _deps/juce-src/modules/juce_core/memory/juce_OptionalScopedPointer.h \
+  _deps/juce-src/modules/juce_core/memory/juce_ReferenceCountedObject.h \
+  _deps/juce-src/modules/juce_core/memory/juce_Reservoir.h \
+  _deps/juce-src/modules/juce_core/memory/juce_ScopedPointer.h \
+  _deps/juce-src/modules/juce_core/memory/juce_SharedResourcePointer.h \
+  _deps/juce-src/modules/juce_core/memory/juce_Singleton.h \
+  _deps/juce-src/modules/juce_core/memory/juce_WeakReference.h \
+  _deps/juce-src/modules/juce_core/misc/juce_ConsoleApplication.h \
+  _deps/juce-src/modules/juce_core/misc/juce_EnumHelpers.h \
+  _deps/juce-src/modules/juce_core/misc/juce_Functional.h \
+  _deps/juce-src/modules/juce_core/misc/juce_Result.h \
+  _deps/juce-src/modules/juce_core/misc/juce_RuntimePermissions.h \
+  _deps/juce-src/modules/juce_core/misc/juce_ScopeGuard.h \
+  _deps/juce-src/modules/juce_core/misc/juce_Uuid.h \
+  _deps/juce-src/modules/juce_core/misc/juce_WindowsRegistry.h \
+  _deps/juce-src/modules/juce_core/native/juce_CFHelpers_mac.h \
+  _deps/juce-src/modules/juce_core/network/juce_IPAddress.h \
+  _deps/juce-src/modules/juce_core/network/juce_MACAddress.h \
+  _deps/juce-src/modules/juce_core/network/juce_NamedPipe.h \
+  _deps/juce-src/modules/juce_core/network/juce_Socket.h \
+  _deps/juce-src/modules/juce_core/network/juce_URL.h \
+  _deps/juce-src/modules/juce_core/network/juce_WebInputStream.h \
+  _deps/juce-src/modules/juce_core/serialisation/juce_Serialisation.h \
+  _deps/juce-src/modules/juce_core/streams/juce_AndroidDocumentInputSource.h \
+  _deps/juce-src/modules/juce_core/streams/juce_BufferedInputStream.h \
+  _deps/juce-src/modules/juce_core/streams/juce_FileInputSource.h \
+  _deps/juce-src/modules/juce_core/streams/juce_InputSource.h \
+  _deps/juce-src/modules/juce_core/streams/juce_InputStream.h \
+  _deps/juce-src/modules/juce_core/streams/juce_MemoryInputStream.h \
+  _deps/juce-src/modules/juce_core/streams/juce_MemoryOutputStream.h \
+  _deps/juce-src/modules/juce_core/streams/juce_OutputStream.h \
+  _deps/juce-src/modules/juce_core/streams/juce_SubregionStream.h \
+  _deps/juce-src/modules/juce_core/streams/juce_URLInputSource.h \
+  _deps/juce-src/modules/juce_core/system/juce_CompilerSupport.h \
+  _deps/juce-src/modules/juce_core/system/juce_CompilerWarnings.h \
+  _deps/juce-src/modules/juce_core/system/juce_PlatformDefs.h \
+  _deps/juce-src/modules/juce_core/system/juce_StandardHeader.h \
+  _deps/juce-src/modules/juce_core/system/juce_SystemStats.h \
+  _deps/juce-src/modules/juce_core/system/juce_TargetPlatform.h \
+  _deps/juce-src/modules/juce_core/text/juce_Base64.h \
+  _deps/juce-src/modules/juce_core/text/juce_CharPointer_ASCII.h \
+  _deps/juce-src/modules/juce_core/text/juce_CharPointer_UTF16.h \
+  _deps/juce-src/modules/juce_core/text/juce_CharPointer_UTF32.h \
+  _deps/juce-src/modules/juce_core/text/juce_CharPointer_UTF8.h \
+  _deps/juce-src/modules/juce_core/text/juce_CharacterFunctions.h \
+  _deps/juce-src/modules/juce_core/text/juce_Identifier.h \
+  _deps/juce-src/modules/juce_core/text/juce_LocalisedStrings.h \
+  _deps/juce-src/modules/juce_core/text/juce_NewLine.h \
+  _deps/juce-src/modules/juce_core/text/juce_String.h \
+  _deps/juce-src/modules/juce_core/text/juce_StringArray.h \
+  _deps/juce-src/modules/juce_core/text/juce_StringPairArray.h \
+  _deps/juce-src/modules/juce_core/text/juce_StringPool.h \
+  _deps/juce-src/modules/juce_core/text/juce_StringRef.h \
+  _deps/juce-src/modules/juce_core/text/juce_TextDiff.h \
+  _deps/juce-src/modules/juce_core/threads/juce_ChildProcess.h \
+  _deps/juce-src/modules/juce_core/threads/juce_CriticalSection.h \
+  _deps/juce-src/modules/juce_core/threads/juce_DynamicLibrary.h \
+  _deps/juce-src/modules/juce_core/threads/juce_HighResolutionTimer.h \
+  _deps/juce-src/modules/juce_core/threads/juce_InterProcessLock.h \
+  _deps/juce-src/modules/juce_core/threads/juce_Process.h \
+  _deps/juce-src/modules/juce_core/threads/juce_ReadWriteLock.h \
+  _deps/juce-src/modules/juce_core/threads/juce_ScopedLock.h \
+  _deps/juce-src/modules/juce_core/threads/juce_ScopedReadLock.h \
+  _deps/juce-src/modules/juce_core/threads/juce_ScopedWriteLock.h \
+  _deps/juce-src/modules/juce_core/threads/juce_SpinLock.h \
+  _deps/juce-src/modules/juce_core/threads/juce_Thread.h \
+  _deps/juce-src/modules/juce_core/threads/juce_ThreadLocalValue.h \
+  _deps/juce-src/modules/juce_core/threads/juce_ThreadPool.h \
+  _deps/juce-src/modules/juce_core/threads/juce_TimeSliceThread.h \
+  _deps/juce-src/modules/juce_core/threads/juce_WaitableEvent.h \
+  _deps/juce-src/modules/juce_core/time/juce_PerformanceCounter.h \
+  _deps/juce-src/modules/juce_core/time/juce_RelativeTime.h \
+  _deps/juce-src/modules/juce_core/time/juce_Time.h \
+  _deps/juce-src/modules/juce_core/unit_tests/juce_UnitTest.h \
+  _deps/juce-src/modules/juce_core/xml/juce_XmlDocument.h \
+  _deps/juce-src/modules/juce_core/xml/juce_XmlElement.h \
+  _deps/juce-src/modules/juce_core/zip/juce_GZIPCompressorOutputStream.h \
+  _deps/juce-src/modules/juce_core/zip/juce_GZIPDecompressorInputStream.h \
+  _deps/juce-src/modules/juce_core/zip/juce_ZipFile.h \
+  _deps/juce-src/modules/juce_data_structures/app_properties/juce_ApplicationProperties.h \
+  _deps/juce-src/modules/juce_data_structures/app_properties/juce_PropertiesFile.h \
+  _deps/juce-src/modules/juce_data_structures/juce_data_structures.h \
+  _deps/juce-src/modules/juce_data_structures/undomanager/juce_UndoManager.h \
+  _deps/juce-src/modules/juce_data_structures/undomanager/juce_UndoableAction.h \
+  _deps/juce-src/modules/juce_data_structures/values/juce_CachedValue.h \
+  _deps/juce-src/modules/juce_data_structures/values/juce_Value.h \
+  _deps/juce-src/modules/juce_data_structures/values/juce_ValueTree.h \
+  _deps/juce-src/modules/juce_data_structures/values/juce_ValueTreePropertyWithDefault.h \
+  _deps/juce-src/modules/juce_data_structures/values/juce_ValueTreeSynchroniser.h \
+  _deps/juce-src/modules/juce_events/broadcasters/juce_ActionBroadcaster.h \
+  _deps/juce-src/modules/juce_events/broadcasters/juce_ActionListener.h \
+  _deps/juce-src/modules/juce_events/broadcasters/juce_AsyncUpdater.h \
+  _deps/juce-src/modules/juce_events/broadcasters/juce_ChangeBroadcaster.h \
+  _deps/juce-src/modules/juce_events/broadcasters/juce_ChangeListener.h \
+  _deps/juce-src/modules/juce_events/broadcasters/juce_LockingAsyncUpdater.h \
+  _deps/juce-src/modules/juce_events/interprocess/juce_ConnectedChildProcess.h \
+  _deps/juce-src/modules/juce_events/interprocess/juce_InterprocessConnection.h \
+  _deps/juce-src/modules/juce_events/interprocess/juce_InterprocessConnectionServer.h \
+  _deps/juce-src/modules/juce_events/interprocess/juce_NetworkServiceDiscovery.h \
+  _deps/juce-src/modules/juce_events/juce_events.h \
+  _deps/juce-src/modules/juce_events/messages/juce_ApplicationBase.h \
+  _deps/juce-src/modules/juce_events/messages/juce_CallbackMessage.h \
+  _deps/juce-src/modules/juce_events/messages/juce_DeletedAtShutdown.h \
+  _deps/juce-src/modules/juce_events/messages/juce_Initialisation.h \
+  _deps/juce-src/modules/juce_events/messages/juce_Message.h \
+  _deps/juce-src/modules/juce_events/messages/juce_MessageListener.h \
+  _deps/juce-src/modules/juce_events/messages/juce_MessageManager.h \
+  _deps/juce-src/modules/juce_events/messages/juce_MountedVolumeListChangeDetector.h \
+  _deps/juce-src/modules/juce_events/messages/juce_NotificationType.h \
+  _deps/juce-src/modules/juce_events/native/juce_ScopedLowPowerModeDisabler.h \
+  _deps/juce-src/modules/juce_events/timers/juce_MultiTimer.h \
+  _deps/juce-src/modules/juce_events/timers/juce_Timer.h \
+  _deps/juce-src/modules/juce_graphics/colour/juce_Colour.h \
+  _deps/juce-src/modules/juce_graphics/colour/juce_ColourGradient.h \
+  _deps/juce-src/modules/juce_graphics/colour/juce_Colours.h \
+  _deps/juce-src/modules/juce_graphics/colour/juce_FillType.h \
+  _deps/juce-src/modules/juce_graphics/colour/juce_PixelFormats.h \
+  _deps/juce-src/modules/juce_graphics/contexts/juce_GraphicsContext.h \
+  _deps/juce-src/modules/juce_graphics/contexts/juce_LowLevelGraphicsContext.h \
+  _deps/juce-src/modules/juce_graphics/contexts/juce_LowLevelGraphicsPostScriptRenderer.h \
+  _deps/juce-src/modules/juce_graphics/contexts/juce_LowLevelGraphicsSoftwareRenderer.h \
+  _deps/juce-src/modules/juce_graphics/effects/juce_DropShadowEffect.h \
+  _deps/juce-src/modules/juce_graphics/effects/juce_GlowEffect.h \
+  _deps/juce-src/modules/juce_graphics/effects/juce_ImageEffectFilter.h \
+  _deps/juce-src/modules/juce_graphics/fonts/juce_AttributedString.h \
+  _deps/juce-src/modules/juce_graphics/fonts/juce_CustomTypeface.h \
+  _deps/juce-src/modules/juce_graphics/fonts/juce_Font.h \
+  _deps/juce-src/modules/juce_graphics/fonts/juce_GlyphArrangement.h \
+  _deps/juce-src/modules/juce_graphics/fonts/juce_TextLayout.h \
+  _deps/juce-src/modules/juce_graphics/fonts/juce_Typeface.h \
+  _deps/juce-src/modules/juce_graphics/geometry/juce_AffineTransform.h \
+  _deps/juce-src/modules/juce_graphics/geometry/juce_BorderSize.h \
+  _deps/juce-src/modules/juce_graphics/geometry/juce_EdgeTable.h \
+  _deps/juce-src/modules/juce_graphics/geometry/juce_Line.h \
+  _deps/juce-src/modules/juce_graphics/geometry/juce_Parallelogram.h \
+  _deps/juce-src/modules/juce_graphics/geometry/juce_Path.h \
+  _deps/juce-src/modules/juce_graphics/geometry/juce_PathIterator.h \
+  _deps/juce-src/modules/juce_graphics/geometry/juce_PathStrokeType.h \
+  _deps/juce-src/modules/juce_graphics/geometry/juce_Point.h \
+  _deps/juce-src/modules/juce_graphics/geometry/juce_Rectangle.h \
+  _deps/juce-src/modules/juce_graphics/geometry/juce_RectangleList.h \
+  _deps/juce-src/modules/juce_graphics/images/juce_Image.h \
+  _deps/juce-src/modules/juce_graphics/images/juce_ImageCache.h \
+  _deps/juce-src/modules/juce_graphics/images/juce_ImageConvolutionKernel.h \
+  _deps/juce-src/modules/juce_graphics/images/juce_ImageFileFormat.h \
+  _deps/juce-src/modules/juce_graphics/images/juce_ScaledImage.h \
+  _deps/juce-src/modules/juce_graphics/juce_graphics.h \
+  _deps/juce-src/modules/juce_graphics/native/juce_RenderingHelpers.h \
+  _deps/juce-src/modules/juce_graphics/placement/juce_Justification.h \
+  _deps/juce-src/modules/juce_graphics/placement/juce_RectanglePlacement.h \
+  _deps/juce-src/modules/juce_gui_basics/accessibility/enums/juce_AccessibilityActions.h \
+  _deps/juce-src/modules/juce_gui_basics/accessibility/enums/juce_AccessibilityEvent.h \
+  _deps/juce-src/modules/juce_gui_basics/accessibility/enums/juce_AccessibilityRole.h \
+  _deps/juce-src/modules/juce_gui_basics/accessibility/interfaces/juce_AccessibilityCellInterface.h \
+  _deps/juce-src/modules/juce_gui_basics/accessibility/interfaces/juce_AccessibilityTableInterface.h \
+  _deps/juce-src/modules/juce_gui_basics/accessibility/interfaces/juce_AccessibilityTextInterface.h \
+  _deps/juce-src/modules/juce_gui_basics/accessibility/interfaces/juce_AccessibilityValueInterface.h \
+  _deps/juce-src/modules/juce_gui_basics/accessibility/juce_AccessibilityHandler.h \
+  _deps/juce-src/modules/juce_gui_basics/accessibility/juce_AccessibilityState.h \
+  _deps/juce-src/modules/juce_gui_basics/application/juce_Application.h \
+  _deps/juce-src/modules/juce_gui_basics/buttons/juce_ArrowButton.h \
+  _deps/juce-src/modules/juce_gui_basics/buttons/juce_Button.h \
+  _deps/juce-src/modules/juce_gui_basics/buttons/juce_DrawableButton.h \
+  _deps/juce-src/modules/juce_gui_basics/buttons/juce_HyperlinkButton.h \
+  _deps/juce-src/modules/juce_gui_basics/buttons/juce_ImageButton.h \
+  _deps/juce-src/modules/juce_gui_basics/buttons/juce_ShapeButton.h \
+  _deps/juce-src/modules/juce_gui_basics/buttons/juce_TextButton.h \
+  _deps/juce-src/modules/juce_gui_basics/buttons/juce_ToggleButton.h \
+  _deps/juce-src/modules/juce_gui_basics/buttons/juce_ToolbarButton.h \
+  _deps/juce-src/modules/juce_gui_basics/commands/juce_ApplicationCommandID.h \
+  _deps/juce-src/modules/juce_gui_basics/commands/juce_ApplicationCommandInfo.h \
+  _deps/juce-src/modules/juce_gui_basics/commands/juce_ApplicationCommandManager.h \
+  _deps/juce-src/modules/juce_gui_basics/commands/juce_ApplicationCommandTarget.h \
+  _deps/juce-src/modules/juce_gui_basics/commands/juce_KeyPressMappingSet.h \
+  _deps/juce-src/modules/juce_gui_basics/components/juce_CachedComponentImage.h \
+  _deps/juce-src/modules/juce_gui_basics/components/juce_Component.h \
+  _deps/juce-src/modules/juce_gui_basics/components/juce_ComponentListener.h \
+  _deps/juce-src/modules/juce_gui_basics/components/juce_ComponentTraverser.h \
+  _deps/juce-src/modules/juce_gui_basics/components/juce_FocusTraverser.h \
+  _deps/juce-src/modules/juce_gui_basics/components/juce_ModalComponentManager.h \
+  _deps/juce-src/modules/juce_gui_basics/desktop/juce_Desktop.h \
+  _deps/juce-src/modules/juce_gui_basics/desktop/juce_Displays.h \
+  _deps/juce-src/modules/juce_gui_basics/drawables/juce_Drawable.h \
+  _deps/juce-src/modules/juce_gui_basics/drawables/juce_DrawableComposite.h \
+  _deps/juce-src/modules/juce_gui_basics/drawables/juce_DrawableImage.h \
+  _deps/juce-src/modules/juce_gui_basics/drawables/juce_DrawablePath.h \
+  _deps/juce-src/modules/juce_gui_basics/drawables/juce_DrawableRectangle.h \
+  _deps/juce-src/modules/juce_gui_basics/drawables/juce_DrawableShape.h \
+  _deps/juce-src/modules/juce_gui_basics/drawables/juce_DrawableText.h \
+  _deps/juce-src/modules/juce_gui_basics/filebrowser/juce_ContentSharer.h \
+  _deps/juce-src/modules/juce_gui_basics/filebrowser/juce_DirectoryContentsDisplayComponent.h \
+  _deps/juce-src/modules/juce_gui_basics/filebrowser/juce_DirectoryContentsList.h \
+  _deps/juce-src/modules/juce_gui_basics/filebrowser/juce_FileBrowserComponent.h \
+  _deps/juce-src/modules/juce_gui_basics/filebrowser/juce_FileBrowserListener.h \
+  _deps/juce-src/modules/juce_gui_basics/filebrowser/juce_FileChooser.h \
+  _deps/juce-src/modules/juce_gui_basics/filebrowser/juce_FileChooserDialogBox.h \
+  _deps/juce-src/modules/juce_gui_basics/filebrowser/juce_FileListComponent.h \
+  _deps/juce-src/modules/juce_gui_basics/filebrowser/juce_FilePreviewComponent.h \
+  _deps/juce-src/modules/juce_gui_basics/filebrowser/juce_FileSearchPathListComponent.h \
+  _deps/juce-src/modules/juce_gui_basics/filebrowser/juce_FileTreeComponent.h \
+  _deps/juce-src/modules/juce_gui_basics/filebrowser/juce_FilenameComponent.h \
+  _deps/juce-src/modules/juce_gui_basics/filebrowser/juce_ImagePreviewComponent.h \
+  _deps/juce-src/modules/juce_gui_basics/juce_gui_basics.h \
+  _deps/juce-src/modules/juce_gui_basics/keyboard/juce_CaretComponent.h \
+  _deps/juce-src/modules/juce_gui_basics/keyboard/juce_KeyListener.h \
+  _deps/juce-src/modules/juce_gui_basics/keyboard/juce_KeyPress.h \
+  _deps/juce-src/modules/juce_gui_basics/keyboard/juce_KeyboardFocusTraverser.h \
+  _deps/juce-src/modules/juce_gui_basics/keyboard/juce_ModifierKeys.h \
+  _deps/juce-src/modules/juce_gui_basics/keyboard/juce_SystemClipboard.h \
+  _deps/juce-src/modules/juce_gui_basics/keyboard/juce_TextEditorKeyMapper.h \
+  _deps/juce-src/modules/juce_gui_basics/keyboard/juce_TextInputTarget.h \
+  _deps/juce-src/modules/juce_gui_basics/layout/juce_AnimatedPosition.h \
+  _deps/juce-src/modules/juce_gui_basics/layout/juce_AnimatedPositionBehaviours.h \
+  _deps/juce-src/modules/juce_gui_basics/layout/juce_BorderedComponentBoundsConstrainer.h \
+  _deps/juce-src/modules/juce_gui_basics/layout/juce_ComponentAnimator.h \
+  _deps/juce-src/modules/juce_gui_basics/layout/juce_ComponentBoundsConstrainer.h \
+  _deps/juce-src/modules/juce_gui_basics/layout/juce_ComponentBuilder.h \
+  _deps/juce-src/modules/juce_gui_basics/layout/juce_ComponentMovementWatcher.h \
+  _deps/juce-src/modules/juce_gui_basics/layout/juce_ConcertinaPanel.h \
+  _deps/juce-src/modules/juce_gui_basics/layout/juce_FlexBox.h \
+  _deps/juce-src/modules/juce_gui_basics/layout/juce_FlexItem.h \
+  _deps/juce-src/modules/juce_gui_basics/layout/juce_Grid.h \
+  _deps/juce-src/modules/juce_gui_basics/layout/juce_GridItem.h \
+  _deps/juce-src/modules/juce_gui_basics/layout/juce_GroupComponent.h \
+  _deps/juce-src/modules/juce_gui_basics/layout/juce_MultiDocumentPanel.h \
+  _deps/juce-src/modules/juce_gui_basics/layout/juce_ResizableBorderComponent.h \
+  _deps/juce-src/modules/juce_gui_basics/layout/juce_ResizableCornerComponent.h \
+  _deps/juce-src/modules/juce_gui_basics/layout/juce_ResizableEdgeComponent.h \
+  _deps/juce-src/modules/juce_gui_basics/layout/juce_ScrollBar.h \
+  _deps/juce-src/modules/juce_gui_basics/layout/juce_SidePanel.h \
+  _deps/juce-src/modules/juce_gui_basics/layout/juce_StretchableLayoutManager.h \
+  _deps/juce-src/modules/juce_gui_basics/layout/juce_StretchableLayoutResizerBar.h \
+  _deps/juce-src/modules/juce_gui_basics/layout/juce_StretchableObjectResizer.h \
+  _deps/juce-src/modules/juce_gui_basics/layout/juce_TabbedButtonBar.h \
+  _deps/juce-src/modules/juce_gui_basics/layout/juce_TabbedComponent.h \
+  _deps/juce-src/modules/juce_gui_basics/layout/juce_Viewport.h \
+  _deps/juce-src/modules/juce_gui_basics/lookandfeel/juce_LookAndFeel.h \
+  _deps/juce-src/modules/juce_gui_basics/lookandfeel/juce_LookAndFeel_V1.h \
+  _deps/juce-src/modules/juce_gui_basics/lookandfeel/juce_LookAndFeel_V2.h \
+  _deps/juce-src/modules/juce_gui_basics/lookandfeel/juce_LookAndFeel_V3.h \
+  _deps/juce-src/modules/juce_gui_basics/lookandfeel/juce_LookAndFeel_V4.h \
+  _deps/juce-src/modules/juce_gui_basics/menus/juce_BurgerMenuComponent.h \
+  _deps/juce-src/modules/juce_gui_basics/menus/juce_MenuBarComponent.h \
+  _deps/juce-src/modules/juce_gui_basics/menus/juce_MenuBarModel.h \
+  _deps/juce-src/modules/juce_gui_basics/menus/juce_PopupMenu.h \
+  _deps/juce-src/modules/juce_gui_basics/misc/juce_BubbleComponent.h \
+  _deps/juce-src/modules/juce_gui_basics/misc/juce_DropShadower.h \
+  _deps/juce-src/modules/juce_gui_basics/misc/juce_FocusOutline.h \
+  _deps/juce-src/modules/juce_gui_basics/misc/juce_JUCESplashScreen.h \
+  _deps/juce-src/modules/juce_gui_basics/mouse/juce_ComponentDragger.h \
+  _deps/juce-src/modules/juce_gui_basics/mouse/juce_DragAndDropContainer.h \
+  _deps/juce-src/modules/juce_gui_basics/mouse/juce_DragAndDropTarget.h \
+  _deps/juce-src/modules/juce_gui_basics/mouse/juce_FileDragAndDropTarget.h \
+  _deps/juce-src/modules/juce_gui_basics/mouse/juce_LassoComponent.h \
+  _deps/juce-src/modules/juce_gui_basics/mouse/juce_MouseCursor.h \
+  _deps/juce-src/modules/juce_gui_basics/mouse/juce_MouseEvent.h \
+  _deps/juce-src/modules/juce_gui_basics/mouse/juce_MouseInactivityDetector.h \
+  _deps/juce-src/modules/juce_gui_basics/mouse/juce_MouseInputSource.h \
+  _deps/juce-src/modules/juce_gui_basics/mouse/juce_MouseListener.h \
+  _deps/juce-src/modules/juce_gui_basics/mouse/juce_SelectedItemSet.h \
+  _deps/juce-src/modules/juce_gui_basics/mouse/juce_TextDragAndDropTarget.h \
+  _deps/juce-src/modules/juce_gui_basics/mouse/juce_TooltipClient.h \
+  _deps/juce-src/modules/juce_gui_basics/native/juce_ScopedDPIAwarenessDisabler.h \
+  _deps/juce-src/modules/juce_gui_basics/native/juce_WindowsHooks_windows.h \
+  _deps/juce-src/modules/juce_gui_basics/positioning/juce_MarkerList.h \
+  _deps/juce-src/modules/juce_gui_basics/positioning/juce_RelativeCoordinate.h \
+  _deps/juce-src/modules/juce_gui_basics/positioning/juce_RelativeCoordinatePositioner.h \
+  _deps/juce-src/modules/juce_gui_basics/positioning/juce_RelativeParallelogram.h \
+  _deps/juce-src/modules/juce_gui_basics/positioning/juce_RelativePoint.h \
+  _deps/juce-src/modules/juce_gui_basics/positioning/juce_RelativePointPath.h \
+  _deps/juce-src/modules/juce_gui_basics/positioning/juce_RelativeRectangle.h \
+  _deps/juce-src/modules/juce_gui_basics/properties/juce_BooleanPropertyComponent.h \
+  _deps/juce-src/modules/juce_gui_basics/properties/juce_ButtonPropertyComponent.h \
+  _deps/juce-src/modules/juce_gui_basics/properties/juce_ChoicePropertyComponent.h \
+  _deps/juce-src/modules/juce_gui_basics/properties/juce_MultiChoicePropertyComponent.h \
+  _deps/juce-src/modules/juce_gui_basics/properties/juce_PropertyComponent.h \
+  _deps/juce-src/modules/juce_gui_basics/properties/juce_PropertyPanel.h \
+  _deps/juce-src/modules/juce_gui_basics/properties/juce_SliderPropertyComponent.h \
+  _deps/juce-src/modules/juce_gui_basics/properties/juce_TextPropertyComponent.h \
+  _deps/juce-src/modules/juce_gui_basics/widgets/juce_ComboBox.h \
+  _deps/juce-src/modules/juce_gui_basics/widgets/juce_ImageComponent.h \
+  _deps/juce-src/modules/juce_gui_basics/widgets/juce_Label.h \
+  _deps/juce-src/modules/juce_gui_basics/widgets/juce_ListBox.h \
+  _deps/juce-src/modules/juce_gui_basics/widgets/juce_ProgressBar.h \
+  _deps/juce-src/modules/juce_gui_basics/widgets/juce_Slider.h \
+  _deps/juce-src/modules/juce_gui_basics/widgets/juce_TableHeaderComponent.h \
+  _deps/juce-src/modules/juce_gui_basics/widgets/juce_TableListBox.h \
+  _deps/juce-src/modules/juce_gui_basics/widgets/juce_TextEditor.h \
+  _deps/juce-src/modules/juce_gui_basics/widgets/juce_Toolbar.h \
+  _deps/juce-src/modules/juce_gui_basics/widgets/juce_ToolbarItemComponent.h \
+  _deps/juce-src/modules/juce_gui_basics/widgets/juce_ToolbarItemFactory.h \
+  _deps/juce-src/modules/juce_gui_basics/widgets/juce_ToolbarItemPalette.h \
+  _deps/juce-src/modules/juce_gui_basics/widgets/juce_TreeView.h \
+  _deps/juce-src/modules/juce_gui_basics/windows/juce_AlertWindow.h \
+  _deps/juce-src/modules/juce_gui_basics/windows/juce_CallOutBox.h \
+  _deps/juce-src/modules/juce_gui_basics/windows/juce_ComponentPeer.h \
+  _deps/juce-src/modules/juce_gui_basics/windows/juce_DialogWindow.h \
+  _deps/juce-src/modules/juce_gui_basics/windows/juce_DocumentWindow.h \
+  _deps/juce-src/modules/juce_gui_basics/windows/juce_MessageBoxOptions.h \
+  _deps/juce-src/modules/juce_gui_basics/windows/juce_NativeMessageBox.h \
+  _deps/juce-src/modules/juce_gui_basics/windows/juce_ResizableWindow.h \
+  _deps/juce-src/modules/juce_gui_basics/windows/juce_ScopedMessageBox.h \
+  _deps/juce-src/modules/juce_gui_basics/windows/juce_ThreadWithProgressWindow.h \
+  _deps/juce-src/modules/juce_gui_basics/windows/juce_TooltipWindow.h \
+  _deps/juce-src/modules/juce_gui_basics/windows/juce_TopLevelWindow.h \
+  _deps/juce-src/modules/juce_gui_basics/windows/juce_VBlankAttachment.h \
+  _deps/juce-src/modules/juce_gui_basics/windows/juce_WindowUtils.h
 
-_deps/juce-src/modules/juce_audio_plugin_client/juce_audio_plugin_client_VST2.mm:
 
-_deps/juce-src/modules/juce_audio_plugin_client/juce_audio_plugin_client_Unity.cpp:
+_deps/juce-src/modules/juce_gui_basics/windows/juce_VBlankAttachment.h:
 
-_deps/juce-src/modules/juce_audio_plugin_client/juce_audio_plugin_client_LV2.cpp:
+_deps/juce-src/modules/juce_gui_basics/windows/juce_TopLevelWindow.h:
 
-_deps/juce-src/modules/juce_audio_plugin_client/juce_audio_plugin_client_VST2.cpp:
+_deps/juce-src/modules/juce_gui_basics/windows/juce_ResizableWindow.h:
 
-_deps/juce-src/modules/juce_audio_plugin_client/juce_audio_plugin_client_AUv3.mm:
+_deps/juce-src/modules/juce_gui_basics/windows/juce_NativeMessageBox.h:
 
-_deps/juce-src/modules/juce_core/system/juce_CompilerWarnings.h:
+_deps/juce-src/modules/juce_gui_basics/windows/juce_MessageBoxOptions.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/Availability.h:
+_deps/juce-src/modules/juce_gui_basics/windows/juce_DocumentWindow.h:
+
+_deps/juce-src/modules/juce_gui_basics/windows/juce_DialogWindow.h:
+
+_deps/juce-src/modules/juce_gui_basics/windows/juce_CallOutBox.h:
+
+_deps/juce-src/modules/juce_gui_basics/widgets/juce_TreeView.h:
+
+_deps/juce-src/modules/juce_gui_basics/widgets/juce_ToolbarItemFactory.h:
+
+_deps/juce-src/modules/juce_gui_basics/widgets/juce_TableListBox.h:
+
+_deps/juce-src/modules/juce_gui_basics/widgets/juce_Slider.h:
+
+_deps/juce-src/modules/juce_gui_basics/widgets/juce_ProgressBar.h:
+
+_deps/juce-src/modules/juce_gui_basics/widgets/juce_Label.h:
+
+_deps/juce-src/modules/juce_gui_basics/widgets/juce_ComboBox.h:
+
+_deps/juce-src/modules/juce_gui_basics/properties/juce_SliderPropertyComponent.h:
+
+_deps/juce-src/modules/juce_gui_basics/properties/juce_MultiChoicePropertyComponent.h:
+
+_deps/juce-src/modules/juce_gui_basics/properties/juce_ButtonPropertyComponent.h:
+
+_deps/juce-src/modules/juce_gui_basics/positioning/juce_RelativePointPath.h:
+
+_deps/juce-src/modules/juce_gui_basics/native/juce_WindowsHooks_windows.h:
+
+_deps/juce-src/modules/juce_gui_basics/native/juce_ScopedDPIAwarenessDisabler.h:
+
+_deps/juce-src/modules/juce_gui_basics/mouse/juce_TooltipClient.h:
+
+_deps/juce-src/modules/juce_gui_basics/mouse/juce_TextDragAndDropTarget.h:
+
+_deps/juce-src/modules/juce_gui_basics/mouse/juce_MouseListener.h:
+
+_deps/juce-src/modules/juce_gui_basics/mouse/juce_LassoComponent.h:
+
+_deps/juce-src/modules/juce_gui_basics/mouse/juce_FileDragAndDropTarget.h:
+
+_deps/juce-src/modules/juce_gui_basics/mouse/juce_DragAndDropTarget.h:
+
+_deps/juce-src/modules/juce_gui_basics/mouse/juce_DragAndDropContainer.h:
+
+_deps/juce-src/modules/juce_gui_basics/mouse/juce_ComponentDragger.h:
+
+_deps/juce-src/modules/juce_gui_basics/misc/juce_FocusOutline.h:
+
+_deps/juce-src/modules/juce_gui_basics/misc/juce_DropShadower.h:
+
+_deps/juce-src/modules/juce_gui_basics/misc/juce_BubbleComponent.h:
+
+_deps/juce-src/modules/juce_gui_basics/menus/juce_MenuBarModel.h:
+
+_deps/juce-src/modules/juce_gui_basics/menus/juce_MenuBarComponent.h:
+
+_deps/juce-src/modules/juce_gui_basics/menus/juce_BurgerMenuComponent.h:
+
+_deps/juce-src/modules/juce_gui_basics/lookandfeel/juce_LookAndFeel_V4.h:
+
+_deps/juce-src/modules/juce_gui_basics/lookandfeel/juce_LookAndFeel_V3.h:
+
+_deps/juce-src/modules/juce_gui_basics/lookandfeel/juce_LookAndFeel_V1.h:
+
+_deps/juce-src/modules/juce_gui_basics/layout/juce_Viewport.h:
+
+_deps/juce-src/modules/juce_gui_basics/layout/juce_TabbedComponent.h:
+
+_deps/juce-src/modules/juce_gui_basics/layout/juce_TabbedButtonBar.h:
+
+_deps/juce-src/modules/juce_gui_basics/layout/juce_StretchableObjectResizer.h:
+
+_deps/juce-src/modules/juce_gui_basics/layout/juce_ScrollBar.h:
+
+_deps/juce-src/modules/juce_gui_basics/layout/juce_ResizableCornerComponent.h:
+
+_deps/juce-src/modules/juce_gui_basics/layout/juce_MultiDocumentPanel.h:
+
+_deps/juce-src/modules/juce_gui_basics/layout/juce_Grid.h:
+
+_deps/juce-src/modules/juce_gui_basics/layout/juce_FlexBox.h:
+
+_deps/juce-src/modules/juce_gui_basics/layout/juce_ComponentMovementWatcher.h:
+
+_deps/juce-src/modules/juce_gui_basics/layout/juce_BorderedComponentBoundsConstrainer.h:
+
+_deps/juce-src/modules/juce_gui_basics/layout/juce_AnimatedPositionBehaviours.h:
+
+_deps/juce-src/modules/juce_gui_basics/keyboard/juce_TextInputTarget.h:
+
+_deps/juce-src/modules/juce_gui_basics/keyboard/juce_TextEditorKeyMapper.h:
+
+_deps/juce-src/modules/juce_gui_basics/keyboard/juce_ModifierKeys.h:
+
+_deps/juce-src/modules/juce_gui_basics/keyboard/juce_KeyboardFocusTraverser.h:
+
+_deps/juce-src/modules/juce_gui_basics/keyboard/juce_KeyPress.h:
+
+_deps/juce-src/modules/juce_gui_basics/keyboard/juce_CaretComponent.h:
+
+_deps/juce-src/modules/juce_gui_basics/layout/juce_ComponentBuilder.h:
+
+_deps/juce-src/modules/juce_gui_basics/filebrowser/juce_FileTreeComponent.h:
+
+_deps/juce-src/modules/juce_gui_basics/filebrowser/juce_FileSearchPathListComponent.h:
+
+_deps/juce-src/modules/juce_gui_basics/filebrowser/juce_FileChooser.h:
+
+_deps/juce-src/modules/juce_gui_basics/filebrowser/juce_FileBrowserListener.h:
+
+_deps/juce-src/modules/juce_gui_basics/filebrowser/juce_FileBrowserComponent.h:
+
+_deps/juce-src/modules/juce_gui_basics/filebrowser/juce_DirectoryContentsList.h:
+
+_deps/juce-src/modules/juce_gui_basics/filebrowser/juce_DirectoryContentsDisplayComponent.h:
+
+_deps/juce-src/modules/juce_gui_basics/drawables/juce_DrawableShape.h:
+
+_deps/juce-src/modules/juce_gui_basics/drawables/juce_DrawableImage.h:
+
+_deps/juce-src/modules/juce_gui_basics/drawables/juce_Drawable.h:
+
+_deps/juce-src/modules/juce_gui_basics/components/juce_ModalComponentManager.h:
+
+_deps/juce-src/modules/juce_gui_basics/components/juce_Component.h:
+
+_deps/juce-src/modules/juce_gui_basics/commands/juce_KeyPressMappingSet.h:
+
+_deps/juce-src/modules/juce_gui_basics/commands/juce_ApplicationCommandTarget.h:
+
+_deps/juce-src/modules/juce_gui_basics/commands/juce_ApplicationCommandManager.h:
+
+_deps/juce-src/modules/juce_gui_basics/commands/juce_ApplicationCommandID.h:
+
+_deps/juce-src/modules/juce_gui_basics/buttons/juce_ToolbarButton.h:
+
+_deps/juce-src/modules/juce_gui_basics/buttons/juce_TextButton.h:
+
+_deps/juce-src/modules/juce_gui_basics/buttons/juce_ImageButton.h:
+
+_deps/juce-src/modules/juce_gui_basics/buttons/juce_HyperlinkButton.h:
+
+_deps/juce-src/modules/juce_gui_basics/buttons/juce_DrawableButton.h:
+
+_deps/juce-src/modules/juce_gui_basics/buttons/juce_ArrowButton.h:
+
+_deps/juce-src/modules/juce_gui_basics/application/juce_Application.h:
+
+_deps/juce-src/modules/juce_gui_basics/accessibility/interfaces/juce_AccessibilityValueInterface.h:
+
+_deps/juce-src/modules/juce_gui_basics/misc/juce_JUCESplashScreen.h:
+
+_deps/juce-src/modules/juce_gui_basics/accessibility/interfaces/juce_AccessibilityTableInterface.h:
+
+_deps/juce-src/modules/juce_gui_basics/accessibility/interfaces/juce_AccessibilityCellInterface.h:
+
+_deps/juce-src/modules/juce_graphics/placement/juce_Justification.h:
+
+_deps/juce-src/modules/juce_graphics/native/juce_RenderingHelpers.h:
+
+_deps/juce-src/modules/juce_gui_basics/keyboard/juce_KeyListener.h:
+
+_deps/juce-src/modules/juce_graphics/images/juce_ScaledImage.h:
+
+_deps/juce-src/modules/juce_graphics/images/juce_ImageFileFormat.h:
+
+_deps/juce-src/modules/juce_graphics/images/juce_ImageCache.h:
+
+_deps/juce-src/modules/juce_graphics/images/juce_Image.h:
+
+_deps/juce-src/modules/juce_graphics/geometry/juce_PathStrokeType.h:
+
+_deps/juce-src/modules/juce_graphics/geometry/juce_Path.h:
+
+_deps/juce-src/modules/juce_graphics/geometry/juce_Line.h:
+
+_deps/juce-src/modules/juce_graphics/geometry/juce_EdgeTable.h:
+
+_deps/juce-src/modules/juce_graphics/geometry/juce_BorderSize.h:
+
+_deps/juce-src/modules/juce_graphics/geometry/juce_AffineTransform.h:
+
+_deps/juce-src/modules/juce_graphics/fonts/juce_Typeface.h:
+
+_deps/juce-src/modules/juce_graphics/fonts/juce_TextLayout.h:
+
+_deps/juce-src/modules/juce_graphics/fonts/juce_Font.h:
+
+_deps/juce-src/modules/juce_graphics/effects/juce_ImageEffectFilter.h:
+
+_deps/juce-src/modules/juce_graphics/effects/juce_GlowEffect.h:
+
+_deps/juce-src/modules/juce_graphics/effects/juce_DropShadowEffect.h:
+
+_deps/juce-src/modules/juce_graphics/contexts/juce_LowLevelGraphicsSoftwareRenderer.h:
+
+_deps/juce-src/modules/juce_graphics/contexts/juce_LowLevelGraphicsContext.h:
+
+_deps/juce-src/modules/juce_graphics/contexts/juce_GraphicsContext.h:
+
+_deps/juce-src/modules/juce_graphics/colour/juce_FillType.h:
+
+_deps/juce-src/modules/juce_graphics/colour/juce_ColourGradient.h:
+
+_deps/juce-src/modules/juce_graphics/colour/juce_Colour.h:
+
+_deps/juce-src/modules/juce_events/timers/juce_Timer.h:
+
+_deps/juce-src/modules/juce_events/messages/juce_NotificationType.h:
+
+_deps/juce-src/modules/juce_events/messages/juce_MessageListener.h:
+
+_deps/juce-src/modules/juce_events/messages/juce_Message.h:
+
+_deps/juce-src/modules/juce_events/messages/juce_Initialisation.h:
+
+_deps/juce-src/modules/juce_events/messages/juce_CallbackMessage.h:
+
+_deps/juce-src/modules/juce_events/messages/juce_MountedVolumeListChangeDetector.h:
+
+_deps/juce-src/modules/juce_events/messages/juce_ApplicationBase.h:
+
+_deps/juce-src/modules/juce_events/interprocess/juce_InterprocessConnectionServer.h:
+
+_deps/juce-src/modules/juce_gui_basics/layout/juce_GridItem.h:
+
+_deps/juce-src/modules/juce_events/interprocess/juce_ConnectedChildProcess.h:
+
+_deps/juce-src/modules/juce_events/broadcasters/juce_LockingAsyncUpdater.h:
+
+_deps/juce-src/modules/juce_events/broadcasters/juce_AsyncUpdater.h:
+
+_deps/juce-src/modules/juce_data_structures/values/juce_ValueTreeSynchroniser.h:
+
+_deps/juce-src/modules/juce_data_structures/values/juce_Value.h:
+
+_deps/juce-src/modules/juce_data_structures/values/juce_CachedValue.h:
+
+_deps/juce-src/modules/juce_data_structures/undomanager/juce_UndoManager.h:
+
+_deps/juce-src/modules/juce_data_structures/juce_data_structures.h:
+
+_deps/juce-src/modules/juce_data_structures/app_properties/juce_PropertiesFile.h:
+
+_deps/juce-src/modules/juce_data_structures/app_properties/juce_ApplicationProperties.h:
+
+_deps/juce-src/modules/juce_core/zip/juce_ZipFile.h:
+
+_deps/juce-src/modules/juce_core/zip/juce_GZIPDecompressorInputStream.h:
+
+_deps/juce-src/modules/juce_core/zip/juce_GZIPCompressorOutputStream.h:
+
+_deps/juce-src/modules/juce_gui_basics/accessibility/enums/juce_AccessibilityEvent.h:
+
+_deps/juce-src/modules/juce_core/unit_tests/juce_UnitTest.h:
+
+_deps/juce-src/modules/juce_core/time/juce_RelativeTime.h:
+
+_deps/juce-src/modules/juce_core/time/juce_PerformanceCounter.h:
+
+_deps/juce-src/modules/juce_core/threads/juce_WaitableEvent.h:
+
+_deps/juce-src/modules/juce_core/threads/juce_Thread.h:
+
+_deps/juce-src/modules/juce_core/threads/juce_SpinLock.h:
+
+_deps/juce-src/modules/juce_events/messages/juce_MessageManager.h:
+
+_deps/juce-src/modules/juce_core/threads/juce_ScopedWriteLock.h:
+
+_deps/juce-src/modules/juce_core/threads/juce_ScopedReadLock.h:
+
+_deps/juce-src/modules/juce_core/threads/juce_ScopedLock.h:
+
+_deps/juce-src/modules/juce_core/threads/juce_ReadWriteLock.h:
+
+_deps/juce-src/modules/juce_core/threads/juce_HighResolutionTimer.h:
+
+_deps/juce-src/modules/juce_gui_basics/widgets/juce_ToolbarItemPalette.h:
+
+_deps/juce-src/modules/juce_core/threads/juce_DynamicLibrary.h:
+
+_deps/juce-src/modules/juce_core/text/juce_TextDiff.h:
+
+_deps/juce-src/modules/juce_core/text/juce_StringRef.h:
+
+_deps/juce-src/modules/juce_core/text/juce_StringPairArray.h:
+
+_deps/juce-src/modules/juce_core/text/juce_String.h:
+
+_deps/juce-src/modules/juce_gui_basics/lookandfeel/juce_LookAndFeel_V2.h:
+
+_deps/juce-src/modules/juce_gui_basics/accessibility/enums/juce_AccessibilityRole.h:
+
+_deps/juce-src/modules/juce_core/text/juce_CharacterFunctions.h:
+
+_deps/juce-src/modules/juce_gui_basics/layout/juce_ConcertinaPanel.h:
+
+_deps/juce-src/modules/juce_core/text/juce_CharPointer_UTF8.h:
+
+_deps/juce-src/modules/juce_core/text/juce_CharPointer_UTF16.h:
+
+_deps/juce-src/modules/juce_core/text/juce_Base64.h:
+
+_deps/juce-src/modules/juce_core/system/juce_StandardHeader.h:
+
+_deps/juce-src/modules/juce_core/system/juce_PlatformDefs.h:
+
+_deps/juce-src/modules/juce_core/streams/juce_URLInputSource.h:
+
+_deps/juce-src/modules/juce_core/streams/juce_SubregionStream.h:
+
+_deps/juce-src/modules/juce_core/streams/juce_OutputStream.h:
+
+_deps/juce-src/modules/juce_core/streams/juce_MemoryOutputStream.h:
+
+_deps/juce-src/modules/juce_core/streams/juce_InputSource.h:
+
+_deps/juce-src/modules/juce_core/streams/juce_BufferedInputStream.h:
+
+_deps/juce-src/modules/juce_core/serialisation/juce_Serialisation.h:
+
+_deps/juce-src/modules/juce_core/network/juce_WebInputStream.h:
+
+_deps/juce-src/modules/juce_core/network/juce_URL.h:
+
+_deps/juce-src/modules/juce_core/network/juce_Socket.h:
+
+_deps/juce-src/modules/juce_gui_basics/positioning/juce_RelativePoint.h:
+
+_deps/juce-src/modules/juce_core/network/juce_MACAddress.h:
+
+_deps/juce-src/modules/juce_core/network/juce_IPAddress.h:
+
+_deps/juce-src/modules/juce_core/native/juce_CFHelpers_mac.h:
+
+_deps/juce-src/modules/juce_core/misc/juce_WindowsRegistry.h:
+
+_deps/juce-src/modules/juce_core/misc/juce_Result.h:
+
+_deps/juce-src/modules/juce_core/misc/juce_EnumHelpers.h:
+
+_deps/juce-src/modules/juce_core/memory/juce_Singleton.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/dispatch/data.h:
+
+_deps/juce-src/modules/juce_core/memory/juce_OptionalScopedPointer.h:
+
+_deps/juce-src/modules/juce_core/memory/juce_Memory.h:
+
+_deps/juce-src/modules/juce_core/memory/juce_HeapBlock.h:
+
+_deps/juce-src/modules/juce_core/memory/juce_ContainerDeletePolicy.h:
+
+_deps/juce-src/modules/juce_core/memory/juce_AllocationHooks.h:
+
+_deps/juce-src/modules/juce_core/maths/juce_NormalisableRange.h:
+
+_deps/juce-src/modules/juce_core/maths/juce_MathsFunctions.h:
+
+_deps/juce-src/modules/juce_events/broadcasters/juce_ActionBroadcaster.h:
+
+_deps/juce-src/modules/juce_core/maths/juce_Expression.h:
+
+_deps/juce-src/modules/juce_core/files/juce_WildcardFileFilter.h:
+
+_deps/juce-src/modules/juce_gui_basics/positioning/juce_RelativeRectangle.h:
+
+_deps/juce-src/modules/juce_core/files/juce_FileFilter.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSFontAssetRequest.h:
+
+_deps/juce-src/modules/juce_audio_basics/utilities/juce_SmoothedValue.h:
+
+_deps/juce-src/modules/juce_core/containers/juce_ArrayAllocationBase.h:
+
+_deps/juce-src/modules/juce_core/files/juce_File.h:
+
+_deps/juce-src/modules/juce_core/files/juce_AndroidDocument.h:
+
+_deps/juce-src/modules/juce_gui_basics/filebrowser/juce_FileChooserDialogBox.h:
+
+_deps/juce-src/modules/juce_core/containers/juce_Variant.h:
+
+_deps/juce-src/modules/juce_gui_basics/properties/juce_PropertyPanel.h:
+
+_deps/juce-src/modules/juce_core/containers/juce_SparseSet.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/cwchar:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/base/source/fbuffer.cpp:
+
+_deps/juce-src/modules/juce_audio_processors/utilities/juce_AudioParameterFloat.h:
+
+_deps/juce-src/modules/juce_core/containers/juce_Span.h:
+
+_deps/juce-src/modules/juce_core/containers/juce_SingleThreadedAbstractFifo.h:
+
+_deps/juce-src/modules/juce_gui_basics/menus/juce_PopupMenu.h:
+
+_deps/juce-src/modules/juce_core/containers/juce_ScopedValueSetter.h:
+
+_deps/juce-src/modules/juce_graphics/fonts/juce_GlyphArrangement.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSMenuToolbarItem.h:
+
+_deps/juce-src/modules/juce_core/containers/juce_ReferenceCountedArray.h:
+
+_deps/juce-src/modules/juce_core/containers/juce_OwnedArray.h:
+
+_deps/juce-src/modules/juce_core/containers/juce_Enumerate.h:
+
+_deps/juce-src/modules/juce_gui_basics/juce_gui_basics.h:
+
+_deps/juce-src/modules/juce_core/containers/juce_ElementComparator.h:
+
+_deps/juce-src/modules/juce_core/containers/juce_ArrayBase.h:
+
+_deps/juce-src/modules/juce_audio_processors/utilities/juce_RangedAudioParameter.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSMenuItemCell.h:
+
+_deps/juce-src/modules/juce_audio_processors/utilities/juce_PluginHostType.h:
+
+_deps/juce-src/modules/juce_audio_processors/utilities/juce_ParameterAttachments.h:
+
+_deps/juce-src/modules/juce_audio_processors/utilities/juce_AudioParameterChoice.h:
+
+_deps/juce-src/modules/juce_audio_processors/utilities/juce_AudioParameterBool.h:
+
+_deps/juce-src/modules/juce_audio_processors/utilities/juce_AAXClientExtensions.h:
+
+_deps/juce-src/modules/juce_audio_processors/utilities/ARA/juce_ARA_utils.h:
+
+_deps/juce-src/modules/juce_audio_processors/scanning/juce_PluginListComponent.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/UTCUtils.h:
+
+_deps/juce-src/modules/juce_audio_processors/scanning/juce_KnownPluginList.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreVideo.framework/Headers/CVHostTime.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ctime:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstmidicontrollers.h:
+
+_deps/juce-src/modules/juce_core/memory/juce_WeakReference.h:
+
+_deps/juce-src/modules/juce_audio_processors/processors/juce_HostedAudioProcessorParameter.h:
+
+_deps/juce-src/modules/juce_audio_processors/processors/juce_AudioProcessorParameterGroup.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/i386/vm_param.h:
+
+_deps/juce-src/modules/juce_audio_processors/processors/juce_AudioProcessorParameter.h:
+
+_deps/juce-src/modules/juce_audio_processors/processors/juce_AudioProcessorEditor.h:
+
+_deps/juce-src/modules/juce_core/text/juce_Identifier.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstnoteexpression.h:
+
+_deps/juce-src/modules/juce_audio_processors/processors/juce_AudioProcessor.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/juce_VST3Headers.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/ATS.framework/Headers/ATS.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/juce_LegacyAudioParameter.cpp:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types.h:
+
+_deps/juce-src/modules/juce_audio_processors/utilities/juce_AudioProcessorValueTreeState.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/juce_LV2PluginFormat.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecReadTransform.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/juce_AudioUnitPluginFormat.h:
 
 _deps/juce-src/modules/juce_audio_plugin_client/juce_audio_plugin_client_AAX_utils.cpp:
 
-_deps/juce-src/modules/juce_audio_plugin_client/juce_audio_plugin_client_AAX.mm:
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/AE.framework/Headers/AERegistry.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/AvailabilityInternal.h:
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/HIServices.framework/Headers/AXUIElement.h:
 
-_deps/juce-src/modules/juce_core/system/juce_TargetPlatform.h:
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/vstparameters.cpp:
 
-_deps/juce-src/modules/juce_audio_plugin_client/juce_audio_plugin_client_AAX.cpp:
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/vsteditcontroller.h:
 
-_deps/juce-src/modules/juce_audio_plugin_client/juce_audio_plugin_client_LV2.mm:
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/vstcomponentbase.h:
 
-_deps/juce-src/modules/juce_audio_plugin_client/juce_audio_plugin_client_AU_2.mm:
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/vstcomponent.h:
 
-_deps/juce-src/modules/juce_audio_plugin_client/detail/juce_CheckSettingMacros.h:
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ostream:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/vstcomponent.cpp:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/utility/uid.h:
+
+_deps/juce-src/modules/juce_gui_basics/windows/juce_ThreadWithProgressWindow.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/PEFBinaryFormat.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/SearchKit.framework/Headers/SKIndex.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/utility/stringconvert.cpp:
+
+_deps/juce-src/modules/juce_core/containers/juce_DynamicObject.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/moduleinfo/moduleinfoparser.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/hosting/hostclasses.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPersistentDocument.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/common/memorystream.cpp:
+
+_deps/juce-src/modules/juce_gui_basics/accessibility/enums/juce_AccessibilityActions.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/vsttypes.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/iplugincompatibility.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstunits.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstprocesscontext.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstplugview.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstpluginterfacesupport.h:
+
+_deps/juce-src/modules/juce_core/javascript/juce_JSONSerialisation.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/vsteditcontroller.cpp:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstphysicalui.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstparameterchanges.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/conststringtable.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstmidilearn.h:
+
+_deps/juce-src/modules/juce_core/files/juce_TemporaryFile.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/gui/iplugview.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/ustring.cpp:
+
+_deps/juce-src/modules/juce_core/memory/juce_ReferenceCountedObject.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFDate.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/iupdatehandler.h:
+
+_deps/juce-src/modules/juce_data_structures/undomanager/juce_UndoableAction.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/istringresult.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/icloneable.h:
+
+_deps/juce-src/modules/juce_graphics/geometry/juce_Rectangle.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/fvariant.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/futils.h:
+
+_deps/juce-src/modules/juce_core/memory/juce_Reservoir.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/funknown.h:
+
+_deps/juce-src/modules/juce_gui_basics/accessibility/interfaces/juce_AccessibilityTextInterface.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/fstrdefs.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecProtocolObject.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/falignpush.h:
+
+_deps/juce-src/modules/juce_gui_basics/desktop/juce_Desktop.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/coreiids.cpp:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/base/source/fstring.cpp:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFBase.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/base/source/fstreamer.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/base/source/fobject.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/base/source/fobject.cpp:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/base/source/fdebug.cpp:
+
+_deps/juce-src/modules/juce_core/system/juce_SystemStats.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/base/source/classfactoryhelpers.h:
+
+_deps/juce-src/modules/juce_audio_plugin_client/juce_audio_plugin_client_VST3.cpp:
+
+_deps/juce-src/modules/juce_audio_plugin_client/detail/juce_PluginUtilities.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPanGestureRecognizer.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/complex:
+
+_deps/juce-src/modules/juce_audio_plugin_client/detail/juce_IncludeSystemHeaders.h:
+
+_deps/juce-src/modules/juce_audio_plugin_client/detail/juce_CreatePluginFilter.h:
+
+_deps/juce-src/modules/juce_audio_basics/utilities/juce_IIRFilter.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGPDFOperatorTable.h:
+
+_deps/juce-src/modules/juce_core/containers/juce_HashMap.h:
+
+_deps/juce-src/modules/juce_audio_basics/utilities/juce_GenericInterpolator.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSDrawer.h:
+
+_deps/juce-src/modules/juce_audio_basics/utilities/juce_ADSR.h:
+
+_deps/juce-src/modules/juce_audio_basics/sources/juce_ToneGeneratorAudioSource.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGDirectDisplayMetal.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/vm.h:
+
+_deps/juce-src/modules/juce_audio_basics/sources/juce_ReverbAudioSource.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/OSServices.framework/Headers/WSProtocolHandler.h:
+
+_deps/juce-src/modules/juce_audio_basics/sources/juce_ChannelRemappingAudioSource.h:
+
+_deps/juce-src/modules/juce_graphics/geometry/juce_PathIterator.h:
+
+_deps/juce-src/modules/juce_audio_basics/sources/juce_AudioSource.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/Quickdraw.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/ustring.h:
+
+_deps/juce-src/modules/juce_audio_basics/mpe/juce_MPEZoneLayout.h:
+
+_deps/juce-src/modules/juce_audio_basics/mpe/juce_MPESynthesiserBase.h:
+
+_deps/juce-src/modules/juce_audio_basics/mpe/juce_MPEMessages.h:
+
+_deps/juce-src/modules/juce_audio_basics/mpe/juce_MPEInstrument.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSStoryboard.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/pslextensions/ipslviewembedding.h:
+
+_deps/juce-src/modules/juce_gui_basics/mouse/juce_SelectedItemSet.h:
+
+_deps/juce-src/modules/juce_audio_basics/midi/ump/juce_UMPDeviceInfo.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecTrust.h:
+
+_deps/juce-src/modules/juce_audio_basics/midi/ump/juce_UMPBytesOnGroup.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/xpc/debug.h:
+
+_deps/juce-src/modules/juce_audio_basics/midi/juce_MidiRPN.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/wchar.h:
+
+_deps/juce-src/modules/juce_audio_basics/midi/juce_MidiMessageSequence.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/x509defs.h:
+
+_deps/juce-src/modules/juce_audio_processors/utilities/juce_ExtensionsVisitor.h:
+
+_deps/juce-src/modules/juce_audio_basics/midi/juce_MidiFile.h:
+
+_deps/juce-src/modules/juce_audio_basics/buffers/juce_FloatVectorOperations.h:
+
+_deps/juce-src/modules/juce_audio_basics/buffers/juce_AudioSampleBuffer.h:
+
+_deps/juce-src/modules/juce_core/files/juce_RangedDirectoryIterator.h:
+
+_deps/juce-src/modules/juce_audio_basics/buffers/juce_AudioDataConverters.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGColorConversionInfo.h:
+
+_deps/juce-src/modules/juce_audio_basics/audio_play_head/juce_AudioPlayHead.h:
+
+/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include/stdbool.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSImage.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/fcntl.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/hosting/pluginterfacesupport.h:
+
+/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include/stdatomic.h:
+
+/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include/mm_malloc.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/Fonts.h:
+
+/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include/limits.h:
+
+/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include/float.h:
+
+/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include/__stddef_max_align_t.h:
+
+_deps/juce-src/modules/juce_gui_basics/components/juce_FocusTraverser.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSInputManager.h:
+
+_deps/juce-src/modules/juce_core/maths/juce_Random.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/machine/types.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/wctype.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/pthread_impl.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/wchar.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPopoverTouchBarItem.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSScriptStandardSuiteCommands.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/vector:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/utility:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/thread:
+
+_deps/juce-src/modules/juce_gui_basics/layout/juce_ComponentAnimator.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/system_error:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/string.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/stdint.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/streambuf:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/iterator:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/stdexcept:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/xlocale/_wchar.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/__functional_base:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/sstream:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/setjmp.h:
+
+/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include/emmintrin.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSScriptCoercionHandler.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/set:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstautomationstate.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/falignpop.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/new:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/Components.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSEnergyFormatter.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/base/source/updatehandler.cpp:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/mutex:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/memory:
+
+_deps/juce-src/modules/juce_core/threads/juce_ThreadPool.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/fplatform.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/math.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/list:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/limits.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/istream:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/iosfwd:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/inttypes.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/future:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/exception:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSavePanel.h:
+
+_deps/juce-src/modules/juce_audio_basics/mpe/juce_MPEUtils.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/cwctype:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ctype.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/cstring:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/climits:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/SpeechSynthesis.framework/Headers/SpeechSynthesis.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSPersistentStore.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/cctype:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/bitset:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/array:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/algorithm:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/__string:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSMeasurementFormatter.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/__split_buffer:
+
+_deps/juce-src/modules/juce_gui_basics/mouse/juce_MouseCursor.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/__nullptr:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/__node_handle:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/__mutex_base:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/__locale:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/__debug:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/__config:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_fd_zero.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/vstinitiids.cpp:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/wait.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/xpc/activity.h:
+
+_deps/juce-src/modules/juce_core/memory/juce_HeavyweightLeakedObjectDetector.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/xpc/endpoint.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/xlocale/_string.h:
+
+_deps/juce-src/modules/juce_core/threads/juce_CriticalSection.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSCoder.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach_debug/hash_info.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/xlocale/_stdlib.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/vstbus.h:
+
+_deps/juce-src/modules/juce_audio_plugin_client/juce_audio_plugin_client_LV2.cpp:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/policy.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/xlocale/_stdio.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/xlocale/__wctype.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/xlocale.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/stdlib.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/wctype.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGPDFStream.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/uuid/uuid.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/unistd.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/unistd.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/numeric:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/qos.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/ucred.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/types.h:
+
+_deps/juce-src/modules/juce_audio_basics/mpe/juce_MPESynthesiserVoice.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/dispatch/queue.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/time.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/HIServices.framework/Headers/InternetConfig.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_s_ifmt.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/sysctl.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSPersistentCloudKitContainerOptions.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_pthread/_pthread_mutex_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/signal.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/resource.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSRegularExpression.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/xpc/xpc.h:
+
+_deps/juce-src/modules/juce_graphics/fonts/juce_AttributedString.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFNumberFormatter.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/vstpresetfile.cpp:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstchannelcontextinfo.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/MacMemory.h:
+
+_deps/juce-src/modules/juce_audio_basics/synthesisers/juce_Synthesiser.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/i386/thread_status.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/event.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/cdefs.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/appleapiopts.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_wint_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_va_list.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_useconds_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/ATSUI.framework/Headers/ATSUnicode.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_uintptr_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/OSServices.framework/Headers/WSTypes.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_uid_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSControl.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_u_int8_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSTextCheckingResult.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_u_int32_t.h:
+
+_deps/juce-src/modules/juce_audio_processors/juce_audio_processors.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_u_int16_t.h:
+
+_deps/juce-src/modules/juce_gui_basics/layout/juce_ResizableBorderComponent.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_u_char.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/dispatch/block.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_timeval64.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_timeval.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTableColumn.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_suseconds_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_ssize_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_sigset_t.h:
+
+_deps/juce-src/modules/juce_audio_processors/processors/juce_AudioProcessorEditorHostContext.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_seek_set.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTextContainer.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/utility/optional.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_rsize_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_nlink_t.h:
+
+_deps/juce-src/modules/juce_audio_plugin_client/detail/juce_IncludeModuleHeaders.h:
+
+_deps/juce-src/modules/juce_audio_processors/processors/juce_AudioProcessorGraph.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/libkern/OSAtomicDeprecated.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_mbstate_t.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/condition_variable:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_timespec.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_mach_port_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_intptr_t.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ratio:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTokenFieldCell.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_int8_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_int64_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSGlyphInfo.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/__bit_reference:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_int16_t.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/queue:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_ino_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CIVector.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_in_addr_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSAtomicStore.h:
+
+_deps/juce-src/modules/juce_core/files/juce_FileOutputStream.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_id_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_guid_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_o_sync.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/dispatch/once.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_fsfilcnt_t.h:
+
+_deps/juce-src/modules/juce_core/xml/juce_XmlDocument.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_fsblkcnt_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/i386/endian.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/vstparameters.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_filesec_t.h:
+
+_deps/juce-src/modules/juce_gui_basics/keyboard/juce_SystemClipboard.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_fd_isset.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstrepresentation.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/proc.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_fd_def.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/AuthSession.h:
+
+_deps/juce-src/modules/juce_audio_processors/utilities/juce_NativeScaleFactorNotifier.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_errno_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSManagedObjectID.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_clock_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_blkcnt_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_symbol_aliasing.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_pthread/_pthread_rwlockattr_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/ATSUI.framework/Headers/ATSUnicodeGlyphs.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/base/source/fstreamer.cpp:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_pthread/_pthread_once_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_pthread/_pthread_mutexattr_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/string.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_os_inline.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/signal.h:
+
+_deps/juce-src/modules/juce_audio_processors/utilities/juce_VST3ClientExtensions.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/setjmp.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sched.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURLProtocol.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/runetype.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/unordered_map:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSplitViewController.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/pthread/sched.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/pthread/qos.h:
+
+_deps/juce-src/modules/juce_audio_processors/processors/juce_PluginDescription.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/pthread.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/os/object.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/hosting/pluginterfacesupport.cpp:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_ucontext.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/os/base.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/objc/objc-api.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/__hash_table:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/nl_types.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/math.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/machine/endian.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/machine/_mcontext.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSTimeZone.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach_debug/vm_info.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach_debug/page_info.h:
+
+_deps/juce-src/modules/juce_core/memory/juce_MemoryBlock.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/IOKit.framework/Headers/IOKitKeys.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecCodeHost.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach_debug/mach_debug_types.h:
+
+_deps/juce-src/modules/juce_gui_basics/mouse/juce_MouseEvent.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach_debug/lockgroup_info.h:
+
+_deps/juce-src/modules/juce_core/maths/juce_BigInteger.h:
+
+_deps/juce-src/modules/juce_audio_basics/sources/juce_ResamplingAudioSource.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSSortDescriptor.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_pthread/_pthread_attr_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach_debug/ipc_info.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/vm_types.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/vm_sync.h:
+
+/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include/stdarg.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/vm_region.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/string:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/vm_prot.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/vm_map.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/vm_inherit.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/vstspeaker.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/vm_attributes.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/time_value.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSBezierPath.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/thread_switch.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/thread_status.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/AssertMacros.h:
+
+_deps/juce-src/modules/juce_audio_plugin_client/detail/juce_VSTWindowUtilities.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/thread_policy.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/thread_act.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTableRowView.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/task_inspect.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/task_special_ports.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/task.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/sync_policy.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/std_types.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/semaphore.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/rpc.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/processor_info.h:
+
+_deps/juce-src/modules/juce_core/text/juce_LocalisedStrings.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/processor.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSPointerArray.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/gui/iplugviewcontentscalesupport.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/port.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/notify.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/mig_errors.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPasteboard.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/mig.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFStream.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/memory_object_types.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/machine/vm_types.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSXMLDTDNode.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach_debug/zone_info.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/machine/vm_param.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/hfs/hfs_unistr.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/machine/thread_status.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/machine/rpc.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTextAlternatives.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSButtonTouchBarItem.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/mach_voucher_types.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_fsid_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/mach_types.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/mach_traps.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/mach_interface.h:
+
+_deps/juce-src/modules/juce_core/system/juce_CompilerSupport.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/select.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSStatusBarButton.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/mach_init.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/machine/param.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSUserActivity.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSDecimalNumber.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/mach_host.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGPDFContentStream.h:
+
+_deps/juce-src/modules/juce_core/memory/juce_LeakedObjectDetector.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/bit:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/mach_error.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/lock_set.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/i386/vm_types.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/ipersistent.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/i386/thread_state.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/i386/processor_info.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/i386/kern_return.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/i386/exception.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/OSServices.framework/Headers/SecurityCore.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/i386/_structs.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/time.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/host_special_ports.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/host_priv.h:
+
+_deps/juce-src/modules/juce_gui_basics/windows/juce_TooltipWindow.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/IntlResources.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/task_policy.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/host_notify.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/exception_types.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/error.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/dyld_kernel.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstinterappaudio.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/message.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecKeychainItem.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/clock_types.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CFNetwork.framework/Headers/CFNetworkErrors.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/locale.h:
+
+_deps/juce-src/modules/juce_graphics/colour/juce_PixelFormats.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURLProtectionSpace.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFDictionary.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/cstdarg:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/codecvt:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/limits.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/libkern/i386/_OSByteOrder.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/libkern/_OSByteOrder.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSSpellServer.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/AuthorizationDB.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/libkern/OSTypes.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/libkern/OSByteOrder.h:
+
+_deps/juce-src/modules/juce_gui_basics/properties/juce_ChoicePropertyComponent.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/libkern/OSAtomic.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/launch.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/inttypes.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGEventTypes.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/i386/types.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSAppleEventDescriptor.h:
+
+_deps/juce-src/modules/juce_core/files/juce_FileSearchPath.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/locale:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/_wctype.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/i386/signal.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPressGestureRecognizer.h:
+
+_deps/juce-src/modules/juce_audio_plugin_client/detail/juce_LinuxMessageThread.h:
+
+_deps/juce-src/modules/juce_gui_basics/properties/juce_TextPropertyComponent.h:
+
+_deps/juce-src/modules/juce_core/javascript/juce_JSONUtils.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/i386/limits.h:
+
+_deps/juce-src/modules/juce_audio_plugin_client/juce_audio_plugin_client_ARA.cpp:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSScriptKeyValueCoding.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/juce_LADSPAPluginFormat.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_o_dsync.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/i386/_types.h:
+
+_deps/juce-src/modules/juce_audio_basics/sources/juce_IIRFilterAudioSource.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/i386/_param.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/base/source/baseiids.cpp:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/moduleinfo/jsoncxx.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/i386/_limits.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/gethostuuid.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/vm_behavior.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/float.h:
+
+_deps/juce-src/modules/juce_gui_basics/positioning/juce_RelativeParallelogram.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFURLEnumerator.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/fenv.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/moduleinfo/moduleinfoparser.cpp:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/HIServices.framework/Headers/AXTextAttributedString.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/map:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/errno.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/dispatch/workloop.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/dispatch/semaphore.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_pthread/_pthread_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/i386/_mcontext.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/dispatch/group.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/dispatch/dispatch.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/common/pluginview.cpp:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_pthread/_pthread_key_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_off_t.h:
+
+_deps/juce-src/modules/juce_audio_processors/utilities/juce_FlagCache.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/dispatch/base.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/device/device_types.h:
+
+_deps/juce-src/modules/juce_gui_basics/filebrowser/juce_FilenameComponent.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/ctype.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSScriptExecutionContext.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/base/source/updatehandler.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/bsm/audit.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/objc/runtime.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/assert.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/_types/_wctrans_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/_types/_uintmax_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSDecimal.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/_types/_uint8_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/_types/_uint16_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Headers/UTType.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/_types.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/cstdint:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSDistributedLock.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/__tree:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/_stdio.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/_ctype.h:
+
+/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include/stddef.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/ConditionalMacros.h:
+
+_deps/juce-src/modules/juce_gui_basics/accessibility/juce_AccessibilityHandler.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/mig_strncpy_zerofill_support.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/i386/param.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/oidscert.h:
+
+_deps/juce-src/modules/juce_gui_basics/layout/juce_GroupComponent.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/common/memorystream.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/oidsattr.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/oids.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSOrthography.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/mds_schema.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/mds.h:
+
+_deps/juce-src/modules/juce_gui_basics/drawables/juce_DrawableRectangle.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/emmtype.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/cssmtype.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/cssmtpi.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/cssmspi.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_fd_clr.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/cssmkrapi.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/cssmerr.h:
+
+_deps/juce-src/modules/juce_gui_basics/components/juce_ComponentTraverser.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/IOKit.framework/Headers/hidsystem/IOHIDTypes.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/cssmconfig.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/utility/stringconvert.h:
+
+_deps/juce-src/modules/juce_audio_basics/sources/juce_MixerAudioSource.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/pthread/pthread_impl.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/cssmapi.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/MacLocales.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/cssm.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/Security.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecureTransport.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/xpc/availability.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecTrustSettings.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/__undef_macros:
+
+_deps/juce-src/modules/juce_audio_basics/juce_audio_basics.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecTransform.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecTask.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/smartpointer.h:
+
+_deps/juce-src/modules/juce_audio_basics/midi/juce_MidiMessage.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecSignVerifyTransform.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFArray.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecSharedCredential.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFXMLParser.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/atomic:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/mach_port.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecRequirement.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CTFontCollection.h:
+
+_deps/juce-src/modules/juce_core/misc/juce_ConsoleApplication.h:
+
+_deps/juce-src/modules/juce_core/maths/juce_StatisticsAccumulator.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecRandom.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecProtocolTypes.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecPolicySearch.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/vstbus.cpp:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecPolicy.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSAlignmentFeedbackFilter.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstcomponent.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecKeychainSearch.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecItem.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSMagnificationGestureRecognizer.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/cssmcspi.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSScriptSuiteRegistry.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/certextensions.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSMassFormatter.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecStaticCode.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecIdentity.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFSocket.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecEncryptTransform.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPasteboardItem.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/tuple:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecKeychain.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecEncodeTransform.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecDecodeTransform.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecCode.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecCertificateOIDs.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSDatePicker.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecCertificate.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/AE.framework/Headers/AEMach.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecAccess.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/CSCommon.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSAccessibilityCustomAction.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_size_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/CMSEncoder.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSTimer.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstprefetchablesupport.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/AuthorizationTags.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/Folders.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/Authorization.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/typeindex:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSAutoreleasePool.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/CAOpenGLLayer.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/CarbonCore.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/ATSUI.framework/Headers/ATSUnicodeDirectAccess.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/IOSurface.framework/Headers/IOSurfaceAPI.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/machine/exception.h:
+
+_deps/juce-src/modules/juce_gui_basics/layout/juce_StretchableLayoutManager.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/CALayer.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSMatrix.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/CABase.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gltypes.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework/Headers/OpenGLAvailability.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_pthread/_pthread_condattr_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework/Headers/OpenGL.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework/Headers/CGLTypes.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CFNetwork.framework/Headers/CFNetworkDefs.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework/Headers/CGLRenderers.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework/Headers/CGLIOSurface.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework/Headers/CGLDevice.h:
+
+_deps/juce-src/modules/juce_core/text/juce_NewLine.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTextStorageScripting.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSDockTile.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_fd_copy.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/libkern/i386/OSByteOrder.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ImageIO.framework/Headers/ImageIOBase.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_pid_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ImageIO.framework/Headers/ImageIO.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ImageIO.framework/Headers/CGImageProperties.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ImageIO.framework/Headers/CGImageAnimation.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFBitVector.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/IOSurface.framework/Headers/IOSurfaceTypes.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/IOSurface.framework/Headers/IOSurfaceRef.h:
+
+_deps/juce-src/modules/juce_audio_processors/scanning/juce_PluginDirectoryScanner.h:
+
+_deps/juce-src/modules/juce_gui_basics/filebrowser/juce_ContentSharer.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/xlocale/_ctype.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_pthread/_pthread_types.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSDistantObject.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/IOKit.framework/Headers/graphics/IOGraphicsTypes.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/CoreData.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/IOKit.framework/Headers/OSMessageNotification.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTextTable.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/IOKit.framework/Headers/IOSharedLock.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSound.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/IOKit.framework/Headers/IOKitLib.h:
+
+_deps/juce-src/modules/juce_gui_basics/widgets/juce_ListBox.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSZone.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSXPCConnection.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/juce_ARACommon.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/OSServices.framework/Headers/CSIdentity.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/OSServices.framework/Headers/WSMethodInvocation.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSXMLNodeOptions.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSXMLElement.h:
+
+_deps/juce-src/modules/juce_audio_basics/utilities/juce_Reverb.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSUserScriptTask.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/base/source/fdebug.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/machine/_structs.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSUserDefaults.h:
+
+_deps/juce-src/modules/juce_gui_basics/positioning/juce_RelativeCoordinate.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstmessage.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSLock.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSUserActivity.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSXMLDTD.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSDatePickerCell.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGColor.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSHTTPCookieStorage.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURLSession.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSCollectionViewFlowLayout.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURLCache.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/cssmdli.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURLAuthenticationChallenge.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURL.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/ios:
+
+_deps/juce-src/modules/juce_audio_processors/format/juce_AudioPluginFormat.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGDataProvider.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/PrintCore.framework/Headers/PMPrintSettingsKeys.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSStream.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/cstddef:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/queue.h:
+
+_deps/juce-src/modules/juce_audio_processors/processors/juce_GenericAudioProcessorEditor.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/errno.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSScriptCommandDescription.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSScriptClassDescription.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSScreen.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/syslimits.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_ct_rune_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/i386/rpc.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSScanner.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSFetchRequestExpression.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSliderTouchBarItem.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSRange.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSPersistentStoreRequest.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSToolbarItem.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSProtocolChecker.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/OSServices.framework/Headers/IconStorage.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSCustomImageRep.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSPropertyList.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSProgress.h:
+
+_deps/juce-src/modules/juce_core/files/juce_MemoryMappedFile.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/deque:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreVideo.framework/Headers/CVMetalTexture.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSPathUtilities.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSProcessInfo.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/AVLTree.h:
+
+_deps/juce-src/modules/juce_gui_basics/desktop/juce_Displays.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSPortMessage.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/base/source/fstring.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/oidsalg.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSPort.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSPersonNameComponents.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/OSServices.framework/Headers/CSIdentityBase.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSOrderedCollectionChange.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSObjectScripting.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSNumberFormatter.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPanel.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSNull.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSLinguisticTagger.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSLengthFormatter.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSNotificationQueue.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSMeasurement.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTextStorage.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURLDownload.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSImageCell.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSIndexSet.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSSet.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFTree.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSIndexPath.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/stdlib.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSISO8601DateFormatter.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSStepperTouchBarItem.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSFormatter.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSEntityMapping.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/thread_info.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Headers/CoreServices.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSFileWrapper.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecACL.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSFileVersion.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSFontDescriptor.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFAvailability.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/i386/eflags.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSMapTable.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSKeyValueObserving.h:
+
+_deps/juce-src/modules/juce_audio_processors/processors/juce_AudioPluginInstance.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSFilePresenter.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/oidsbase.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ColorSync.framework/Headers/ColorSync.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSDragging.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSFileManager.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/AE.framework/Headers/AE.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/Multiprocessing.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSFileHandle.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/cssmcli.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSFileCoordinator.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSExtensionContext.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFUUID.h:
+
+_deps/juce-src/modules/juce_core/streams/juce_MemoryInputStream.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFUserNotification.h:
+
+_deps/juce-src/modules/juce_core/threads/juce_Process.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFCharacterSet.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CFNetwork.framework/Headers/CFProxySupport.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSError.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSDraggingItem.h:
+
+_deps/juce-src/modules/juce_core/files/juce_DirectoryIterator.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/string_view:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/DictionaryServices.framework/Headers/DictionaryServices.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGEvent.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSDictionary.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/common/pluginview.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/xlocale/_wctype.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFStringEncodingExt.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSDateInterval.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSKeyedArchiver.h:
 
 _deps/juce-src/modules/juce_audio_plugin_client/juce_audio_plugin_client_Standalone.cpp:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/AvailabilityMacros.h:
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSMenu.h:
 
-_deps/juce-src/modules/juce_audio_plugin_client/juce_audio_plugin_client_AU_1.mm:
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/stdio.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/vm_purgable.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/_types/_uint32_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSConnection.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSCompoundPredicate.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFXMLNode.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/moduleinfo/json.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/CoreDataErrors.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSCharacterSet.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSCalendarDate.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/malloc/_malloc.h:
+
+_deps/juce-src/modules/juce_core/threads/juce_ThreadLocalValue.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSMenuItem.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/HIServices.framework/Headers/Processes.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTextField.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSByteOrder.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/base/thread/include/flock.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSStringDrawing.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSDateIntervalFormatter.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSBundle.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSWindowController.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/_types/_nl_item.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/juce_VST3PluginFormat.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSAttributedString.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/conststringtable.cpp:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSArchiver.h:
+
+_deps/juce-src/modules/juce_gui_basics/filebrowser/juce_FileListComponent.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSQueryGenerationToken.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSAppleEventManager.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSHashTable.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CTDefines.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecKey.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/FoundationLegacySwiftCompatibility.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/DiskArbitration.framework/Headers/DASession.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreVideo.framework/Headers/CoreVideo.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/objc/NSObject.h:
+
+_deps/juce-src/modules/juce_gui_basics/windows/juce_ScopedMessageBox.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSCursor.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSPredicate.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/ipluginbase.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/objc/objc.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/oidscrl.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreVideo.framework/Headers/CVPixelFormatDescription.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreVideo.framework/Headers/CVPixelBufferIOSurface.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/cerrno:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreVideo.framework/Headers/CVOpenGLTextureCache.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/HIServices.framework/Headers/AXAttributeConstants.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreVideo.framework/Headers/CVBase.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreVideo.framework/Headers/CVOpenGLTexture.h:
+
+_deps/juce-src/modules/juce_audio_basics/mpe/juce_MPENote.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/MacTypes.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreVideo.framework/Headers/CVOpenGLBuffer.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreVideo.framework/Headers/CVMetalTextureCache.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSString.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSStatusItem.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreVideo.framework/Headers/CVImageBuffer.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGShading.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSExpression.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreVideo.framework/Headers/CVDisplayLink.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/stddef.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreVideo.framework/Headers/CVBuffer.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/SearchKit.framework/Headers/SearchKit.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSThread.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/AE.framework/Headers/AEObjects.h:
+
+_deps/juce-src/modules/juce_audio_basics/buffers/juce_AudioChannelSet.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/Block.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Metal.framework/Headers/MTLDefines.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSHTTPCookie.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/SFNTTypes.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstaudioprocessor.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CTTypesetter.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/functional:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/lock.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSegmentedControl.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CTStringAttributes.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGDirectDisplay.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CTRunDelegate.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecAsn1Types.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CTRun.h:
+
+_deps/juce-src/modules/juce_core/logging/juce_FileLogger.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CTParagraphStyle.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/juce_VSTPluginFormat.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CTLine.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecImportExport.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CTFramesetter.h:
+
+_deps/juce-src/modules/juce_audio_basics/mpe/juce_MPESynthesiser.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecDigestTransform.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSException.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CTFontManager.h:
+
+_deps/juce-src/modules/juce_gui_basics/layout/juce_FlexItem.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFFileDescriptor.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSJSONSerialization.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/fenv.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSVisualEffectView.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CTFontDescriptor.h:
+
+_deps/juce-src/modules/juce_audio_processors/processors/juce_AudioProcessorListener.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/__tuple:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/os/lock.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/HFSVolumes.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CTFont.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/__cxx_version:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/SharedFileList.framework/Headers/SharedFileList.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/MultiprocessingInfo.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/stdio.h:
+
+_deps/juce-src/modules/juce_core/text/juce_StringPool.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSOrderedSet.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSUUID.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/OSServices.framework/Headers/OSServices.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSScriptObjectSpecifiers.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/dispatch/source.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSXMLNode.h:
+
+_deps/juce-src/modules/juce_audio_plugin_client/juce_audio_plugin_client.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPDFInfo.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/machine/_types.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSRunLoop.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSInterfaceStyle.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSResponder.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/OSServices.framework/Headers/CSIdentityAuthority.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_in_port_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Headers/MDSchema.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSLayoutGuide.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CTTextTab.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSLevelIndicator.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Headers/UTCoreTypes.h:
+
+_deps/juce-src/modules/juce_gui_basics/components/juce_CachedComponentImage.h:
+
+_deps/juce-src/modules/juce_events/broadcasters/juce_ChangeBroadcaster.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/initializer_list:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Headers/LaunchServices.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/machine/boolean.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSCell.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Headers/LSQuarantine.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/iostream:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSManagedObjectModel.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/DateTimeUtils.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Headers/LSOpenDeprecated.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/NumberFormatting.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Headers/LSOpen.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSItemProvider.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ColorSync.framework/Headers/ColorSyncTransform.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSLayoutAnchor.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/OSServices.framework/Headers/KeychainCore.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Headers/IconsCore.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSFontManager.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/fp.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Headers/LSInfo.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/chrono:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/CipherSuite.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/UnicodeConverter.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/ToolUtils.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSPersonNameComponentsFormatter.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSShadow.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/Timer.h:
+
+_deps/juce-src/modules/juce_gui_basics/commands/juce_ApplicationCommandInfo.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSUserInterfaceItemIdentification.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/TextUtils.h:
+
+_deps/juce-src/modules/juce_core/text/juce_StringArray.h:
+
+_deps/juce-src/modules/juce_core/containers/juce_PropertySet.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/TextEncodingPlugin.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSDocument.h:
+
+_deps/juce-src/modules/juce_core/memory/juce_Atomic.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/TextEncodingConverter.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/PLStringFuncs.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/stdbool.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSScriptWhoseTests.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/Resources.h:
+
+_deps/juce-src/modules/juce_core/containers/juce_Array.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFUtilities.h:
+
+_deps/juce-src/modules/juce_events/messages/juce_DeletedAtShutdown.h:
+
+_deps/juce-src/modules/juce_core/misc/juce_ScopeGuard.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/ibstream.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/__errc:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSObject.h:
+
+_deps/juce-src/modules/juce_gui_basics/widgets/juce_Toolbar.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSCollectionViewGridLayout.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/MixedMode.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSNib.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSCalendar.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/kauth.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/Math64.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSApplicationScripting.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/MachineExceptions.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSLayoutManager.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/MacErrors.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CIColor.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSPointerFunctions.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/Gestalt.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_u_int.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/HIServices.framework/Headers/AXError.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/FixMath.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/machine/processor_info.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/Finder.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSKeyValueCoding.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/Files.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstcontextmenu.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/DiskArbitration.framework/Headers/DADisk.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSScroller.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSColorPicking.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/IOSurface.framework/Headers/IOSurfaceBase.h:
+
+_deps/juce-src/modules/juce_gui_basics/layout/juce_ComponentBoundsConstrainer.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/Endian.h:
+
+_deps/juce-src/modules/juce_core/threads/juce_ChildProcess.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/machine/limits.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_wchar_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPathComponentCell.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSUndoManager.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/Debugging.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/ATS.framework/Headers/ATSLayoutTypes.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/cstdlib:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/HIServices.framework/Headers/AXNotificationConstants.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPickerTouchBarItem.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/HIServices.framework/Headers/Pasteboard.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/Collections.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/AIFF.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSpellProtocol.h:
+
+_deps/juce-src/modules/juce_gui_basics/positioning/juce_RelativeCoordinatePositioner.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/AE.framework/Headers/AppleEvents.h:
+
+_deps/juce-src/modules/juce_audio_basics/mpe/juce_MPEValue.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/cmath:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CFNetwork.framework/Headers/CFNetServices.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/AE.framework/Headers/AEUserTermTypes.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/SFNTLayoutTypes.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSlider.h:
+
+_deps/juce-src/modules/juce_core/system/juce_CompilerWarnings.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImageDefines.h:
+
+_deps/juce-src/modules/juce_core/maths/juce_Range.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/IOKit.framework/Headers/hidsystem/IOLLEvent.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Headers/Metadata.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPopUpButton.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/cassert:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSPersistentContainer.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGWindowLevel.h:
+
+_deps/juce-src/modules/juce_core/files/juce_FileInputStream.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/cstdio:
+
+_deps/juce-src/modules/juce_core/streams/juce_InputStream.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSInvocation.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGWindow.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGRemoteOperation.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSCollectionView.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivsteditcontroller.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSAccessibility.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGPattern.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGPSConverter.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGPDFString.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSOrderedCollectionDifference.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CTGlyphInfo.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSColor.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSCachedImageRep.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGPDFPage.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSDate.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGPDFObject.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/juce_ARAHosting.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGPDFContext.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreVideo.framework/Headers/CVReturn.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/hosting/hostclasses.cpp:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/strings.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSRelationshipDescription.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/DiskSpaceRecovery.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGPDFArray.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGLayer.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/clock_priv.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGImage.h:
+
+_deps/juce-src/modules/juce_gui_basics/filebrowser/juce_ImagePreviewComponent.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSWindowTabGroup.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURLError.h:
+
+/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include/inttypes.h:
+
+_deps/juce-src/modules/juce_core/containers/juce_SortedSet.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/SharedFileList.framework/Headers/LSSharedFileList.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Headers/MDLabel.h:
+
+_deps/juce-src/modules/juce_core/memory/juce_ScopedPointer.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGDataConsumer.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGGradient.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSharingService.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSValue.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSStepperCell.h:
+
+_deps/juce-src/modules/juce_events/native/juce_ScopedLowPowerModeDisabler.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGEventSource.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGFont.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGDisplayStream.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSXMLParser.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/Script.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSMethodSignature.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGDisplayFade.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSHFSFileTypes.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSDistributedNotificationCenter.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGDisplayConfiguration.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSOpenGLView.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSScriptCommand.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSArray.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSNibDeclarations.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSOpenGLLayer.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecProtocolMetadata.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/__bsd_locale_defaults.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGColorSpace.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSText.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSCache.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSwitch.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGBase.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSByteCountFormatter.h:
+
+_deps/juce-src/modules/juce_audio_basics/sources/juce_BufferingAudioSource.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/host_info.h:
+
+_deps/juce-src/modules/juce_audio_basics/utilities/juce_Interpolators.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFURLAccess.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/vm_statistics.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFURL.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/HIServices.framework/Headers/AXValue.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTextAttachment.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Headers/MDItem.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFString.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFRunLoop.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSImageRep.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/IOSurface.framework/Headers/IOSurface.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/unordered_set:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/DriverServices.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFPlugIn.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFNumber.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFMessagePort.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSUserNotification.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURLResponse.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTableCellView.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFMachPort.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFFileSecurity.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSharingServicePickerTouchBarItem.h:
+
+_deps/juce-src/modules/juce_audio_plugin_client/juce_audio_plugin_client_AAX.cpp:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFError.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/ATS.framework/Headers/ATSDefines.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGError.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFCalendar.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSBatchUpdateRequest.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSExtensionItem.h:
+
+_deps/juce-src/modules/juce_core/containers/juce_NamedValueSet.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/charconv:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSToolbarItemGroup.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSView.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSDateComponentsFormatter.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/type_traits:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFBinaryHeap.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSOpenPanel.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSearchField.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSButtonCell.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSSaveChangesRequest.h:
+
+_deps/juce-src/modules/juce_audio_processors/utilities/juce_AudioProcessorParameterWithID.h:
+
+_deps/juce-src/modules/juce_audio_basics/utilities/juce_Decibels.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSForm.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSToolbar.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSPropertyDescription.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSPersistentStoreDescription.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_pthread/_pthread_cond_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/thread_special_ports.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSApplication.h:
+
+_deps/juce-src/modules/juce_audio_processors/utilities/juce_VST2ClientExtensions.h:
+
+_deps/juce-src/modules/juce_audio_processors/utilities/juce_AudioParameterInt.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSData.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPathControl.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSClickGestureRecognizer.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTextView.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSPersistentHistoryTransaction.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSPersistentHistoryChangeRequest.h:
+
+_deps/juce-src/modules/juce_gui_basics/buttons/juce_Button.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSPersistentStoreCoordinator.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_caddr_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSItemProvider.h:
+
+_deps/juce-src/modules/juce_events/interprocess/juce_InterprocessConnection.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/UnicodeUtilities.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/fcntl.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSMappingModel.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTouchBarItem.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/Threads.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_fsobj_id_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/HIServices.framework/Headers/AXRoleConstants.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_fd_set.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSManagedObjectContext.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSAccessibilityElement.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSManagedObject.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSIncrementalStoreNode.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/_xlocale.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSDerivedAttributeDescription.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSIncrementalStore.h:
+
+_deps/juce-src/modules/juce_gui_basics/layout/juce_ResizableEdgeComponent.h:
+
+_deps/juce-src/modules/juce_audio_basics/sources/juce_MemoryAudioSource.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/hfs/hfs_format.h:
+
+_deps/juce-src/modules/juce_gui_basics/layout/juce_StretchableLayoutResizerBar.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSStepper.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/machine/thread_state.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSOutlineView.h:
+
+_deps/juce-src/modules/juce_core/threads/juce_TimeSliceThread.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSFetchedResultsController.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSFetchedPropertyDescription.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSPortCoder.h:
+
+_deps/juce-src/modules/juce_core/javascript/juce_Javascript.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSFetchIndexElementDescription.h:
+
+_deps/juce-src/modules/juce_core/containers/juce_Optional.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSEntityMigrationPolicy.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSRuleEditor.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/typesizecheck.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSharingServicePickerToolbarItem.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSStatusBar.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/__threading_support:
+
+_deps/juce-src/modules/juce_events/timers/juce_MultiTimer.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSBatchInsertRequest.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSUserInterfaceCompression.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSBatchDeleteRequest.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSNetServices.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSParagraphStyle.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSAttributeDescription.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSAffineTransform.h:
+
+_deps/juce-src/modules/juce_graphics/contexts/juce_LowLevelGraphicsPostScriptRenderer.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGSession.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSUserInterfaceValidation.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSAtomicStoreCacheNode.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ColorSync.framework/Headers/ColorSyncProfile.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSMigrationManager.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSBrowserCell.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ColorSync.framework/Headers/ColorSyncCMM.h:
+
+_deps/juce-src/modules/juce_gui_basics/filebrowser/juce_FilePreviewComponent.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSFontPanel.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Cocoa.framework/Headers/Cocoa.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSLayoutConstraint.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/TargetConditionals.h:
 
-_deps/juce-src/modules/juce_audio_plugin_client/juce_audio_plugin_client_ARA.cpp:
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSAppleScriptExtensions.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CFNetwork.framework/Headers/CFSocketStream.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CFNetwork.framework/Headers/CFNetwork.h:
+
+_deps/juce-src/modules/juce_core/system/juce_TargetPlatform.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/vstcomponentbase.cpp:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFNotificationCenter.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CFNetwork.framework/Headers/CFHTTPStream.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CFNetwork.framework/Headers/CFHTTPMessage.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_sigaltstack.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CFNetwork.framework/Headers/CFHTTPAuthentication.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/__wctype.h:
+
+_deps/juce-src/modules/juce_gui_basics/properties/juce_BooleanPropertyComponent.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSCollectionViewLayout.h:
+
+_deps/juce-src/modules/juce_gui_basics/mouse/juce_MouseInactivityDetector.h:
+
+_deps/juce-src/modules/juce_core/containers/juce_LinkedListPointer.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/_types/_wctype_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPICTImageRep.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSClipView.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CFNetwork.framework/Headers/CFFTPStream.h:
+
+_deps/juce-src/modules/juce_gui_basics/buttons/juce_ShapeButton.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSPersistentHistoryToken.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/objc/message.h:
+
+_deps/juce-src/modules/juce_graphics/placement/juce_RectanglePlacement.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURLHandle.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecTrustedApplication.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSBox.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstparameterfunctionname.h:
+
+_deps/juce-src/modules/juce_audio_processors/utilities/ARA/juce_ARADebug.h:
+
+_deps/juce-src/modules/juce_gui_basics/widgets/juce_ImageComponent.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGBitmapContext.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/QD.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/AE.framework/Headers/AEDataModel.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/HIServices.framework/Headers/AXConstants.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/ColorSyncDeprecated.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSColorPanel.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/QD.framework/Headers/ATSUnicode.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/PrintCore.framework/Headers/PrintCore.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/TextCommon.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/xlocale/_inttypes.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework/Headers/CGLCurrent.h:
+
+_deps/juce-src/modules/juce_audio_plugin_client/juce_audio_plugin_client_VST2.mm:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/Aliases.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/PrintCore.framework/Headers/PMErrors.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_pthread/_pthread_rwlock_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CFNetwork.framework/Headers/CFNetDiagnostics.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/PrintCore.framework/Headers/PMDefinitions.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSScrubberLayout.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_blksize_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/LangAnalysis.framework/Headers/LanguageAnalysis.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/LangAnalysis.framework/Headers/LangAnalysis.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/typeinfo:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/stdint.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/HIServices.framework/Headers/UniversalAccess.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSCoreDataCoreSpotlightDelegate.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CFNetwork.framework/Headers/CFHost.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/cssmapple.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/AE.framework/Headers/AEPackObject.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/HIServices.framework/Headers/TranslationServices.h:
+
+_deps/juce-src/modules/juce_events/broadcasters/juce_ActionListener.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/objc/NSObjCRuntime.h:
+
+_deps/juce-src/modules/juce_gui_basics/widgets/juce_TextEditor.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSliderAccessory.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSRelativeDateTimeFormatter.h:
+
+_deps/juce-src/modules/juce_graphics/images/juce_ImageConvolutionKernel.h:
+
+_deps/juce-src/modules/juce_core/threads/juce_InterProcessLock.h:
+
+_deps/juce-src/modules/juce_audio_basics/midi/juce_MidiBuffer.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/AppKit.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CoreFoundation.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/base/thread/source/flock.cpp:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/HIServices.framework/Headers/Icons.h:
+
+_deps/juce-src/modules/juce_gui_basics/accessibility/juce_AccessibilityState.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/float.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURLCredential.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/HIServices.framework/Headers/AXValueConstants.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSMergePolicy.h:
+
+_deps/juce-src/modules/juce_core/logging/juce_Logger.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSDateFormatter.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/ATSUI.framework/Headers/ATSUnicodeFlattening.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/OSServices.framework/Headers/CSIdentityQuery.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSHost.h:
+
+_deps/juce-src/modules/juce_core/memory/juce_SharedResourcePointer.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/task_info.h:
+
+_deps/juce-src/modules/juce_gui_basics/windows/juce_AlertWindow.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/vm_page_size.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPopover.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/ATS.framework/Headers/SFNTTypes.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/ATS.framework/Headers/ATSTypes.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/Availability.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGPDFScanner.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSWindowScripting.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSplitView.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSObjCRuntime.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/SearchKit.framework/Headers/SKSummary.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_select.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSUnit.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/iomanip:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_mode_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Headers/MDImporter.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSFetchIndexDescription.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Headers/MDQuery.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecIdentitySearch.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSUserDefaultsController.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/juce_VSTMidiEventList.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTypesetter.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTreeNode.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstevents.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSUserInterfaceLayout.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSGestureRecognizer.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTreeController.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTextInputContext.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPathControlItem.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSGarbageCollector.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/ATS.framework/Headers/SFNTLayoutTypes.h:
+
+_deps/juce-src/modules/juce_graphics/colour/juce_Colours.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSAccessibilityCustomRotor.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSLocale.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/HIServices.framework/Headers/HIServices.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Headers/LSInfoDeprecated.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTouch.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/FoundationErrors.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFDateFormatter.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPageLayout.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/cssmaci.h:
+
+_deps/juce-src/modules/juce_graphics/geometry/juce_RectangleList.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/OSServices.framework/Headers/Power.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Metal.framework/Headers/MTLPixelFormat.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSActionCell.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSPropertyMapping.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_u_short.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/ATS.framework/Headers/ATSFont.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSGradient.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTokenField.h:
+
+_deps/juce-src/modules/juce_core/misc/juce_Uuid.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSExpressionDescription.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/IOKit.framework/Headers/IOTypes.h:
+
+_deps/juce-src/modules/juce_audio_basics/buffers/juce_AudioProcessLoadMeasurer.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTrackingArea.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_endian.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSOperation.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/CMSDecoder.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTextList.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTextInputClient.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSPersistentCloudKitContainer.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSWindow.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSMetadata.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/LangAnalysis.framework/Headers/Dictionary.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSComparisonPredicate.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_uuid_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/SearchKit.framework/Headers/SKSearch.h:
+
+_deps/juce-src/modules/juce_audio_basics/midi/juce_MidiKeyboardState.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTextCheckingClient.h:
+
+_deps/juce-src/modules/juce_core/containers/juce_AbstractFifo.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/CATransform3D.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_ino64_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTableViewRowAction.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/xpc/base.h:
+
+_deps/juce-src/modules/juce_audio_basics/sources/juce_PositionableAudioSource.h:
+
+_deps/juce-src/modules/juce_gui_basics/buttons/juce_ToggleButton.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ImageIO.framework/Headers/CGImageMetadata.h:
+
+_deps/juce-src/modules/juce_core/time/juce_Time.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSMediaLibraryBrowserController.h:
+
+_deps/juce-src/modules/juce_graphics/juce_graphics.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSEntityDescription.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/BackupCore.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/errno.h:
+
+_deps/juce-src/modules/juce_audio_plugin_client/juce_audio_plugin_client_VST2.cpp:
+
+_deps/juce-src/modules/juce_audio_processors/format/juce_AudioPluginFormatManager.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTableHeaderCell.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/AE.framework/Headers/AEHelpers.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSWindowTab.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTabViewController.h:
+
+_deps/juce-src/modules/juce_events/interprocess/juce_NetworkServiceDiscovery.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPathCell.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTabView.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPrintOperation.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSPersistentHistoryChange.h:
+
+_deps/juce-src/modules/juce_events/broadcasters/juce_ChangeListener.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/AvailabilityMacros.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecCustomTransform.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSStoryboardSegue.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFByteOrder.h:
+
+_deps/juce-src/modules/juce_gui_basics/layout/juce_AnimatedPosition.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSColorWell.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/CoreDataDefines.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ColorSync.framework/Headers/ColorSyncBase.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_gid_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ImageIO.framework/Headers/CGImageDestination.h:
+
+_deps/juce-src/modules/juce_core/containers/juce_FixedSizeFunction.h:
+
+_deps/juce-src/modules/juce_audio_basics/utilities/juce_AudioWorkgroup.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/stdio.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/FSEvents.framework/Headers/FSEvents.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSplitViewItem.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/emmspi.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPressureConfiguration.h:
+
+_deps/juce-src/modules/juce_data_structures/values/juce_ValueTree.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSFormCell.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/HIServices.framework/Headers/Accessibility.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTitlebarAccessoryViewController.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreVideo.framework/Headers/CVOpenGLBufferPool.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSpellChecker.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/locale.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/cssmkrspi.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSpeechSynthesizer.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/kmod.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSDocumentController.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSTask.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSRulerMarker.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSpeechRecognizer.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSliderCell.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTextFieldCell.h:
+
+_deps/juce-src/modules/juce_gui_basics/components/juce_ComponentListener.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/IOKit.framework/Headers/IOReturn.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/dispatch/time.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreVideo.framework/Headers/CVPixelBufferPool.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSAppleScript.h:
+
+_deps/juce-src/modules/juce_core/streams/juce_FileInputSource.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/vstpresetfile.h:
+
+/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include/xmmintrin.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSController.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSDraggingSession.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSCandidateListTouchBarItem.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSegmentedCell.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSClassDescription.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFBundle.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_rune_t.h:
+
+_deps/juce-src/modules/juce_core/text/juce_CharPointer_ASCII.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSecureTextField.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFTimeZone.h:
+
+_deps/juce-src/modules/juce_core/misc/juce_RuntimePermissions.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSFileWrapperExtensions.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSearchFieldCell.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSScrollView.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSGraphics.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSFetchRequest.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_int32_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSColorList.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_posix_availability.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_u_int64_t.h:
+
+_deps/juce-src/modules/juce_events/juce_events.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURLRequest.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSMetadataAttributes.h:
+
+_deps/juce-src/modules/juce_graphics/fonts/juce_CustomTypeface.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSValueTransformer.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSUserInterfaceItemSearching.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSProgressIndicator.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSErrors.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSRotationGestureRecognizer.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/acl.h:
+
+_deps/juce-src/modules/juce_core/network/juce_NamedPipe.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSColorPicker.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSRunningApplication.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSXMLDocument.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFLocale.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPrintInfo.h:
+
+_deps/juce-src/modules/juce_audio_plugin_client/juce_audio_plugin_client_VST3.mm:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSNotification.h:
+
+_deps/juce-src/modules/juce_gui_basics/widgets/juce_TableHeaderComponent.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSHapticFeedback.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/_ctermid.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/PrintCore.framework/Headers/PMCore.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPDFPanel.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CTFrame.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/LowMem.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPageController.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTouchBar.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/CodeFragments.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecTransformReadTransform.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSProxy.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSBrowser.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSNibLoading.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTableView.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSMovie.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSBackgroundActivityScheduler.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFPreferences.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/i386/fp_reg.h:
+
+_deps/juce-src/modules/juce_audio_plugin_client/detail/juce_CheckSettingMacros.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/optional:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPrinter.h:
+
+_deps/juce-src/modules/juce_gui_basics/widgets/juce_ToolbarItemComponent.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_fd_setsize.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTabViewItem.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFBag.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/PrintCore.framework/Headers/PMPrintAETypes.h:
+
+_deps/juce-src/modules/juce_gui_basics/windows/juce_WindowUtils.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPrintPanel.h:
+
+_deps/juce-src/modules/juce_core/xml/juce_XmlElement.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_key_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/i386/boolean.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURLCredentialStorage.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/machine/kern_return.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/libkern/OSSpinLockDeprecated.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/_types/_intmax_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSKeyValueBinding.h:
+
+_deps/juce-src/modules/juce_core/containers/juce_ListenerList.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/param.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSColorSpace.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/boolean.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/dispatch/io.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSListFormatter.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGPDFDictionary.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSExtensionRequestHandling.h:
+
+/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include/mmintrin.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_null.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/machine.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSGroupTouchBarItem.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGFunction.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivsthostapplication.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_posix_vdisable.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSInputServer.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSRulerView.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSArrayController.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFData.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSBitmapImageRep.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSScrubber.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/SearchKit.framework/Headers/SKAnalysis.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSFontCollection.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSGraphicsContext.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSWorkspace.h:
+
+_deps/juce-src/modules/juce_gui_basics/drawables/juce_DrawableComposite.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSButton.h:
+
+_deps/juce-src/modules/juce_audio_plugin_client/juce_audio_plugin_client_LV2.mm:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/mman.h:
+
+_deps/juce-src/modules/juce_gui_basics/windows/juce_ComponentPeer.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSViewController.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/variant:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFSet.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/HIServices.framework/Headers/AXActionConstants.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSColorPickerTouchBarItem.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSCollectionViewTransitionLayout.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPDFImageRep.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/_locale.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSLevelIndicatorCell.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSOpenGL.h:
+
+_deps/juce-src/modules/juce_graphics/geometry/juce_Parallelogram.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/_types/_uint64_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSAppearance.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURLConnection.h:
+
+_deps/juce-src/modules/juce_audio_plugin_client/juce_audio_plugin_client_AUv3.mm:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/host_security.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSAffineTransform.h:
+
+_deps/juce-src/modules/juce_gui_basics/drawables/juce_DrawablePath.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPredicateEditorRowTemplate.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework/Headers/NSPersistentStoreResult.h:
+
+_deps/juce-src/modules/juce_core/misc/juce_Functional.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSDocumentScripting.h:
+
+_deps/juce-src/modules/juce_gui_basics/drawables/juce_DrawableText.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSFilePromiseReceiver.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CTFontTraits.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstattributes.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/public.sdk/source/vst/moduleinfo/moduleinfo.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSDiffableDataSource.h:
+
+_deps/juce-src/modules/juce_core/javascript/juce_JSON.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGAffineTransform.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSHelpManager.h:
+
+_deps/juce-src/modules/juce_graphics/geometry/juce_Point.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSImageView.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSAccessibilityConstants.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSEnumerator.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/OSUtils.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecAccessControl.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CIImage.h:
+
+_deps/juce-src/modules/juce_audio_plugin_client/juce_audio_plugin_client_AU_2.mm:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSDictionaryController.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSWindowRestoration.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CTRubyAnnotation.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFAttributedString.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSAccessibilityProtocols.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSComboBox.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/kern_return.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSColorSampler.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSCIImageRep.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSScrubberItemView.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/alloca.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/HIServices.framework/Headers/HIShape.h:
+
+_deps/juce-src/modules/juce_gui_basics/properties/juce_PropertyComponent.h:
+
+_deps/juce-src/modules/juce_audio_plugin_client/juce_audio_plugin_client_AU_1.mm:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSDataAsset.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTableHeaderView.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPredicateEditor.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ImageIO.framework/Headers/CGImageSource.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSEvent.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSObjectController.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreVideo.framework/Headers/CVPixelBuffer.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/AppKitErrors.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/dispatch/object.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/machine/signal.h:
+
+_deps/juce-src/modules/juce_core/text/juce_CharPointer_UTF32.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/mach.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSEPSImageRep.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSCollectionViewCompositionalLayout.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/xlocale/_time.h:
+
+_deps/juce-src/modules/juce_core/memory/juce_ByteOrder.h:
+
+_deps/juce-src/modules/juce_gui_basics/positioning/juce_MarkerList.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFStringTokenizer.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/ATSUI.framework/Headers/ATSUnicodeTypes.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGPDFDocument.h:
+
+_deps/juce-src/modules/juce_core/streams/juce_AndroidDocumentInputSource.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSGlyphGenerator.h:
+
+_deps/juce-src/modules/juce_audio_plugin_client/juce_audio_plugin_client_AAX.mm:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivsttestplugprovider.h:
+
+/Library/Developer/CommandLineTools/usr/include/c++/v1/limits:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/processor_set.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTextCheckingController.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSFilePromiseProvider.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/base/source/fbuffer.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSGridView.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/libkern/OSAtomicQueue.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/AppKitDefines.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/ftypes.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSAttributedString.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CTFontManagerErrors.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecProtocolOptions.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSATSTypesetter.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/mach/ndr.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/AvailabilityInternal.h:
+
+_deps/juce-src/modules/juce_gui_basics/layout/juce_SidePanel.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/DriverSynchronization.h:
+
+_deps/juce-src/modules/juce_gui_basics/mouse/juce_MouseInputSource.h:
+
+_deps/juce-src/modules/juce_gui_basics/lookandfeel/juce_LookAndFeel.h:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/funknown.cpp:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTextFinder.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSAlert.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSCustomTouchBarItem.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSAnimationContext.h:
+
+_deps/juce-src/modules/juce_audio_plugin_client/juce_audio_plugin_client_Unity.cpp:
+
+_deps/juce-src/modules/juce_audio_processors/format_types/juce_VST3Common.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSFont.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSPortNameServer.h:
+
+_deps/juce-src/modules/juce_data_structures/values/juce_ValueTreePropertyWithDefault.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGPath.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSAnimation.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/StringCompare.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFPropertyList.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_dev_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSStackView.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/SearchKit.framework/Headers/SKDocument.h:
+
+_deps/juce-src/modules/juce_core/juce_core.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGDirectPalette.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSComboBoxCell.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/sys/_types/_time_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ColorSync.framework/Headers/ColorSyncDevice.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/os/availability.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSUbiquitousKeyValueStore.h:
+
+/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include/stdint.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/xpc/connection.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSPopUpButtonCell.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/SecBase.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/CAMediaTiming.h:
