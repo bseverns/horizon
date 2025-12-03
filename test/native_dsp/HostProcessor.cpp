@@ -18,6 +18,7 @@
 namespace {
 
 constexpr float kInv32768 = 1.0f / 32768.0f;
+constexpr float kInv8388608 = 1.0f / 8388608.0f; // 24-bit signed max
 
 struct WavHeader {
   char riffId[4];
@@ -44,6 +45,16 @@ uint32_t readLE32(std::istream &in) {
   uint8_t bytes[4] = {0};
   in.read(reinterpret_cast<char *>(bytes), 4);
   return static_cast<uint32_t>(bytes[0] | (bytes[1] << 8) | (bytes[2] << 16) | (bytes[3] << 24));
+}
+
+int32_t readLE24(std::istream &in) {
+  uint8_t bytes[3] = {0};
+  in.read(reinterpret_cast<char *>(bytes), 3);
+  int32_t value = static_cast<int32_t>(bytes[0] | (bytes[1] << 8) | (bytes[2] << 16));
+  if (value & 0x00800000) {
+    value |= 0xFF000000; // sign-extend negative values
+  }
+  return value;
 }
 
 void writeLE16(std::ostream &out, int16_t v) {
@@ -226,7 +237,8 @@ StereoBuffer loadStereoWav(const std::filesystem::path &path) {
     }
   }
 
-  if (fmt.audioFormat != 1 || fmt.numChannels != 2 || fmt.bitsPerSample != 16 || dataSize == 0) {
+  const bool supportedDepth = (fmt.bitsPerSample == 16 || fmt.bitsPerSample == 24);
+  if (fmt.audioFormat != 1 || fmt.numChannels != 2 || !supportedDepth || dataSize == 0) {
     std::cerr << "Unsupported WAV format in: " << path << "\n";
     return buffer;
   }
@@ -236,11 +248,20 @@ StereoBuffer loadStereoWav(const std::filesystem::path &path) {
   buffer.left.resize(samples);
   buffer.right.resize(samples);
 
-  for (size_t i = 0; i < samples; ++i) {
-    int16_t l = readLE16(in);
-    int16_t r = readLE16(in);
-    buffer.left[i] = static_cast<float>(l) * kInv32768;
-    buffer.right[i] = static_cast<float>(r) * kInv32768;
+  if (fmt.bitsPerSample == 16) {
+    for (size_t i = 0; i < samples; ++i) {
+      int16_t l = readLE16(in);
+      int16_t r = readLE16(in);
+      buffer.left[i] = static_cast<float>(l) * kInv32768;
+      buffer.right[i] = static_cast<float>(r) * kInv32768;
+    }
+  } else {
+    for (size_t i = 0; i < samples; ++i) {
+      int32_t l = readLE24(in);
+      int32_t r = readLE24(in);
+      buffer.left[i] = static_cast<float>(l) * kInv8388608;
+      buffer.right[i] = static_cast<float>(r) * kInv8388608;
+    }
   }
 
   return buffer;
