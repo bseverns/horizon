@@ -64,7 +64,15 @@ void HostHorizonProcessor::prepareToPlay(double sampleRate, int blockSize) {
 }
 
 float HostHorizonProcessor::clampf(float x, float lo, float hi) const {
-  return std::max(lo, std::min(x, hi));
+  // Avoid std::min/max here to dodge Arduino-style macros that shadow them in
+  // some host builds. Keep the clamp branchy-but-straightforward.
+  if (x < lo) {
+    return lo;
+  }
+  if (x > hi) {
+    return hi;
+  }
+  return x;
 }
 
 void HostHorizonProcessor::updateForSampleRate(double sampleRate,
