@@ -1,4 +1,5 @@
 #include <unity.h>
+#include <algorithm>
 #include <cmath>
 #include <cstdio>
 
@@ -7,6 +8,7 @@
 #include "DynWidth.h"
 #include "LimiterLookahead.h"
 #include "HostProcessor.h"
+#include "HostHorizonProcessor.h"
 
 #include <cstdlib>
 #include <filesystem>
@@ -32,6 +34,16 @@ StereoBuffer makeDemoBuffer(int sampleRate = 44100, float seconds = 1.0f) {
     }
 
     return buffer;
+}
+
+float maxAbsDiff(const StereoBuffer &a, const StereoBuffer &b) {
+    const size_t total = std::min(std::min(a.left.size(), b.left.size()), std::min(a.right.size(), b.right.size()));
+    float maxDiff = 0.0f;
+    for (size_t i = 0; i < total; ++i) {
+        maxDiff = fmaxf(maxDiff, fabsf(a.left[i] - b.left[i]));
+        maxDiff = fmaxf(maxDiff, fabsf(a.right[i] - b.right[i]));
+    }
+    return maxDiff;
 }
 
 std::filesystem::path findAssetsBaseDir() {
@@ -198,6 +210,14 @@ void test_host_processor_renders_variants() {
         const fs::path outPath = artifactDir / ("sample_" + render.flavor + ".wav");
         writeStereoWav(outPath, out);
 
+        const fs::path baselinePath = baseDir / ("sample_" + render.flavor + ".wav");
+        StereoBuffer baseline = loadStereoWav(baselinePath);
+        TEST_ASSERT_FALSE_MESSAGE(baseline.left.empty() || baseline.right.empty(),
+                                  ("missing baseline render: " + baselinePath.string()).c_str());
+        TEST_ASSERT_EQUAL_MESSAGE(baseline.sampleRate, out.sampleRate, "baseline sample rate mismatch");
+        TEST_ASSERT_EQUAL_UINT32_MESSAGE(baseline.left.size(), out.left.size(), "baseline left length mismatch");
+        TEST_ASSERT_EQUAL_UINT32_MESSAGE(baseline.right.size(), out.right.size(), "baseline right length mismatch");
+
         const char *linkMode = (render.params.limiterLink == LimiterLookahead::LinkMode::MidSide) ? "Mid/Side" : "Linked";
         printf("[render] flavor=%s -> %s | width=%.2f dyn=%.2f sens=%.2f tilt=%.2f air=%.1fHz/+%.1fdB dirt=%.2f ceiling=%.1fdB rel=%.1fms look=%.1fms detTilt=%.1fdB/oct mix=%.2f link=%s trim=%.1fdB\n",
                render.flavor.c_str(),
@@ -220,9 +240,59 @@ void test_host_processor_renders_variants() {
         TEST_ASSERT_EQUAL(input.sampleRate, out.sampleRate);
         TEST_ASSERT_EQUAL_UINT32(input.left.size(), out.left.size());
         TEST_ASSERT_EQUAL_UINT32(input.right.size(), out.right.size());
+
+        float maxDiff = maxAbsDiff(out, baseline);
+        TEST_ASSERT_LESS_OR_EQUAL_FLOAT_MESSAGE(1e-3f, maxDiff, "render diverges from baseline WAV");
     }
 
     TEST_ASSERT_TRUE_MESSAGE(wavLoaded, "WAV fixture missing or unsupported; ran with fallback buffer");
+}
+
+void test_host_horizon_processor_smoke() {
+    HostHorizonProcessor pluginProcessor;
+    pluginProcessor.prepareToPlay(48000.0, 256);
+    pluginProcessor.setWidth(0.8f);
+    pluginProcessor.setDynWidth(0.2f);
+    pluginProcessor.setTransientSens(0.6f);
+    pluginProcessor.setMidTilt(0.5f);
+    pluginProcessor.setSideAir(12000.0f, 3.0f);
+    pluginProcessor.setLowAnchor(130.0f);
+    pluginProcessor.setDirt(0.25f);
+    pluginProcessor.setCeiling(-3.0f);
+    pluginProcessor.setLimiterReleaseMs(90.0f);
+    pluginProcessor.setLimiterLookaheadMs(6.5f);
+    pluginProcessor.setLimiterDetectorTilt(1.5f);
+    pluginProcessor.setLimiterLinkMode(LimiterLookahead::LinkMode::MidSide);
+    pluginProcessor.setLimiterMix(0.9f);
+    pluginProcessor.setLimiterBypass(false);
+    pluginProcessor.setMix(1.0f);
+    pluginProcessor.setOutputTrim(-1.0f);
+
+    constexpr int kFrames = 256;
+    std::vector<float> silence(kFrames, 0.0f);
+    std::vector<float> impulse(kFrames, 0.0f);
+    impulse[0] = 1.0f;
+
+    std::vector<float> outL(kFrames, 0.0f);
+    std::vector<float> outR(kFrames, 0.0f);
+
+    pluginProcessor.processBlock(silence.data(), silence.data(), outL.data(), outR.data(), kFrames, 48000.0);
+    for (int i = 0; i < kFrames; ++i) {
+        TEST_ASSERT_TRUE_MESSAGE(std::isfinite(outL[i]) && std::isfinite(outR[i]), "silence render produced non-finite samples");
+        TEST_ASSERT_FLOAT_WITHIN(1e-6f, 0.0f, outL[i]);
+        TEST_ASSERT_FLOAT_WITHIN(1e-6f, 0.0f, outR[i]);
+    }
+
+    std::fill(outL.begin(), outL.end(), 0.0f);
+    std::fill(outR.begin(), outR.end(), 0.0f);
+
+    pluginProcessor.processBlock(impulse.data(), impulse.data(), outL.data(), outR.data(), kFrames, 48000.0);
+    bool anyOutput = false;
+    for (int i = 0; i < kFrames; ++i) {
+        TEST_ASSERT_TRUE_MESSAGE(std::isfinite(outL[i]) && std::isfinite(outR[i]), "impulse render produced non-finite samples");
+        anyOutput = anyOutput || fabsf(outL[i]) > 1e-5f || fabsf(outR[i]) > 1e-5f;
+    }
+    TEST_ASSERT_TRUE_MESSAGE(anyOutput, "impulse render was entirely silent");
 }
 
 int main(int, char**) {
@@ -234,5 +304,6 @@ int main(int, char**) {
     RUN_TEST(test_limiter_caps_hot_signal);
     RUN_TEST(test_led_mapping_matches_thresholds);
     RUN_TEST(test_host_processor_renders_variants);
+    RUN_TEST(test_host_horizon_processor_smoke);
     return UNITY_END();
 }
