@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <fstream>
 #include <iostream>
+#include <vector>
 
 #include "Audio.h"
 #include "AirEQ.h"
@@ -27,12 +28,16 @@ struct WavHeader {
 };
 
 struct FmtChunk {
-  uint16_t audioFormat;
-  uint16_t numChannels;
-  uint32_t sampleRate;
-  uint32_t byteRate;
-  uint16_t blockAlign;
-  uint16_t bitsPerSample;
+  uint16_t audioFormat = 0;
+  uint16_t numChannels = 0;
+  uint32_t sampleRate = 0;
+  uint32_t byteRate = 0;
+  uint16_t blockAlign = 0;
+  uint16_t bitsPerSample = 0;
+  uint16_t cbSize = 0;
+  uint16_t validBitsPerSample = 0;
+  uint32_t channelMask = 0;
+  uint32_t subFormatData1 = 0; // first 32 bits of GUID; 0x00000001 == PCM
 };
 
 int16_t readLE16(std::istream &in) {
@@ -220,14 +225,35 @@ StereoBuffer loadStereoWav(const std::filesystem::path &path) {
     uint32_t chunkSize = readLE32(in);
     std::string id(chunkId, 4);
     if (id == "fmt ") {
-      fmt.audioFormat = readLE16(in);
-      fmt.numChannels = readLE16(in);
-      fmt.sampleRate = readLE32(in);
-      fmt.byteRate = readLE32(in);
-      fmt.blockAlign = readLE16(in);
-      fmt.bitsPerSample = readLE16(in);
-      if (chunkSize > 16) {
-        in.seekg(chunkSize - 16, std::ios::cur);
+      std::vector<uint8_t> fmtData(chunkSize);
+      in.read(reinterpret_cast<char *>(fmtData.data()), chunkSize);
+
+      auto readLE16buf = [&fmtData](size_t offset) {
+        return static_cast<uint16_t>(fmtData[offset] | (fmtData[offset + 1] << 8));
+      };
+      auto readLE32buf = [&fmtData](size_t offset) {
+        return static_cast<uint32_t>(fmtData[offset] | (fmtData[offset + 1] << 8) | (fmtData[offset + 2] << 16) |
+                                     (fmtData[offset + 3] << 24));
+      };
+
+      if (chunkSize >= 16) {
+        fmt.audioFormat = readLE16buf(0);
+        fmt.numChannels = readLE16buf(2);
+        fmt.sampleRate = readLE32buf(4);
+        fmt.byteRate = readLE32buf(8);
+        fmt.blockAlign = readLE16buf(12);
+        fmt.bitsPerSample = readLE16buf(14);
+      }
+
+      if (chunkSize >= 18) {
+        fmt.cbSize = readLE16buf(16);
+      }
+
+      const bool isExtensible = (fmt.audioFormat == 0xFFFE);
+      if (isExtensible && chunkSize >= 40) {
+        fmt.validBitsPerSample = readLE16buf(18);
+        fmt.channelMask = readLE32buf(20);
+        fmt.subFormatData1 = readLE32buf(24);
       }
     } else if (id == "data") {
       dataSize = chunkSize;
@@ -237,18 +263,21 @@ StereoBuffer loadStereoWav(const std::filesystem::path &path) {
     }
   }
 
-  const bool supportedDepth = (fmt.bitsPerSample == 16 || fmt.bitsPerSample == 24);
-  if (fmt.audioFormat != 1 || fmt.numChannels != 2 || !supportedDepth || dataSize == 0) {
+  const uint16_t bitDepth = fmt.validBitsPerSample ? fmt.validBitsPerSample : fmt.bitsPerSample;
+  const bool pcmFormat = (fmt.audioFormat == 1) || (fmt.audioFormat == 0xFFFE && fmt.subFormatData1 == 0x00000001);
+  const bool supportedDepth = (bitDepth == 16 || bitDepth == 24);
+  if (!pcmFormat || fmt.numChannels != 2 || !supportedDepth || dataSize == 0) {
     std::cerr << "Unsupported WAV format in: " << path << "\n";
     return buffer;
   }
 
   buffer.sampleRate = static_cast<int>(fmt.sampleRate);
-  const size_t samples = dataSize / (fmt.numChannels * (fmt.bitsPerSample / 8));
+  const uint16_t bytesPerSample = static_cast<uint16_t>(fmt.bitsPerSample / 8);
+  const size_t samples = dataSize / (fmt.numChannels * bytesPerSample);
   buffer.left.resize(samples);
   buffer.right.resize(samples);
 
-  if (fmt.bitsPerSample == 16) {
+  if (bitDepth == 16) {
     for (size_t i = 0; i < samples; ++i) {
       int16_t l = readLE16(in);
       int16_t r = readLE16(in);
