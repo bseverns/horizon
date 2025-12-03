@@ -5,3 +5,4 @@
 test/native_dsp/.DS_Store
 test/native_dsp/assets/.DS_Store
 plugins/build/HorizonJuce_artefacts/VST3/.DS_Store
+/plugins/build
