@@ -17,6 +17,11 @@ standalone app. If your system already ships JUCE, feel free to swap the
 `FetchContent` block for your local install — this file stays intentionally
 minimal so you can riff on it.
 
+> VST2 SDK missing? Same. The CMake target explicitly flips
+> `JUCE_VST3_CAN_REPLACE_VST2` off so JUCE won't go hunting for Steinberg's
+> retired headers. You still get a clean VST3 + standalone build without
+> spelunking old SDK archives.
+
 ### Quick note on CMake warnings
 
 CMake 3.28+ ships policy **CMP0175**, which complains about
