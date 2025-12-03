@@ -44,3 +44,10 @@ jobs:
 
       - name: Run host DSP tests
         run: pio test -e native_dsp
+
+      - name: Upload native DSP render artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: native-dsp-renders
+          path: test/native_dsp/artifacts/*.wav
+          if-no-files-found: ignore
