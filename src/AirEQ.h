@@ -1,6 +1,8 @@
 #pragma once
 #include <cstddef>
 
+// See docs/block_notes.md for musician-facing notes on this block.
+
 class AirEQ {
 public:
   AirEQ();
