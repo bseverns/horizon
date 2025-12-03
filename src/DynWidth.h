@@ -1,5 +1,7 @@
 #pragma once
 
+// See docs/block_notes.md for musician-facing notes on this block.
+
 class DynWidth {
 public:
   DynWidth();

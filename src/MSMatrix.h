@@ -1,5 +1,7 @@
 #pragma once
 
+// See docs/block_notes.md for musician-facing notes on this block.
+
 class MSMatrix {
 public:
   inline void encode(float l, float r, float& m, float& s) const {

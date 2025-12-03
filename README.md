@@ -12,6 +12,8 @@ Makes dense mixes breathe (tails wider, hits focused). Drop it after any instrum
           → SoftSat (mild post safety) → Output trim → [I2S Out]
 ```
 
+Block-by-block intent + clamp/smoothing cheats live in [`docs/block_notes.md`](docs/block_notes.md).
+
 The limiter runs its own delay line so dry/wet and bypass crossfades stay phase-honest. Detector tilt is detector-only.
 
 ## Platform
