@@ -203,17 +203,18 @@ void test_host_processor_renders_variants() {
     const fs::path assetPath = baseDir / "assets" / "sample.wav";
     const fs::path baselineLight = baseDir / "sample_light.wav";
 
-    // When the baseline renders are present, seed the test with the exact synthetic buffer they
-    // were born from. That keeps the comparison deterministic instead of depending on the contents
-    // of an external WAV fixture.
-    StereoBuffer baselineProbe = loadStereoWav(baselineLight);
-    StereoBuffer input;
-    if (!baselineProbe.left.empty() && baselineProbe.sampleRate > 0) {
-        const float seconds = static_cast<float>(baselineProbe.left.size()) /
-                              static_cast<float>(baselineProbe.sampleRate);
-        input = makeDemoBuffer(baselineProbe.sampleRate, seconds);
-    } else {
-        input = loadStereoWav(assetPath);
+    // Default to the real-world fixture WAV so we exercise the same program material the baselines
+    // were printed from. Fall back to the synthetic demo buffer when assets go missing so the test
+    // still provides signal coverage in lean environments.
+    StereoBuffer input = loadStereoWav(assetPath);
+
+    if (input.left.empty() || input.right.empty()) {
+        StereoBuffer baselineProbe = loadStereoWav(baselineLight);
+        if (!baselineProbe.left.empty() && baselineProbe.sampleRate > 0) {
+            const float seconds = static_cast<float>(baselineProbe.left.size()) /
+                                  static_cast<float>(baselineProbe.sampleRate);
+            input = makeDemoBuffer(baselineProbe.sampleRate, seconds);
+        }
     }
 
     if (input.left.empty() || input.right.empty()) {
