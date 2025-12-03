@@ -217,13 +217,17 @@ StereoBuffer loadStereoWav(const std::filesystem::path &path) {
   }
 
   FmtChunk fmt{};
+  bool sawFmt = false;
   uint32_t dataSize = 0;
+  std::streampos dataPos = std::streampos(-1);
   while (in.good()) {
     char chunkId[4] = {0};
     in.read(chunkId, 4);
     if (!in.good()) break;
     uint32_t chunkSize = readLE32(in);
     std::string id(chunkId, 4);
+    const bool isDataChunk = (id == "data");
+
     if (id == "fmt ") {
       std::vector<uint8_t> fmtData(chunkSize);
       in.read(reinterpret_cast<char *>(fmtData.data()), chunkSize);
@@ -255,21 +259,41 @@ StereoBuffer loadStereoWav(const std::filesystem::path &path) {
         fmt.channelMask = readLE32buf(20);
         fmt.subFormatData1 = readLE32buf(24);
       }
-    } else if (id == "data") {
+
+      if (chunkSize % 2 == 1) {
+        in.seekg(1, std::ios::cur);
+      }
+
+      sawFmt = true;
+    } else if (isDataChunk) {
       dataSize = chunkSize;
-      break;
+      dataPos = in.tellg();
+      if (sawFmt) {
+        break; // We have both fmt + data; go decode samples.
+      }
+
+      // Keep scanning for fmt, but hop over the data payload first.
+      in.seekg(chunkSize, std::ios::cur);
+      if (chunkSize % 2 == 1) {
+        in.seekg(1, std::ios::cur);
+      }
     } else {
       in.seekg(chunkSize, std::ios::cur);
+      if (chunkSize % 2 == 1) {
+        in.seekg(1, std::ios::cur);
+      }
     }
   }
 
   const uint16_t bitDepth = fmt.validBitsPerSample ? fmt.validBitsPerSample : fmt.bitsPerSample;
   const bool pcmFormat = (fmt.audioFormat == 1) || (fmt.audioFormat == 0xFFFE && fmt.subFormatData1 == 0x00000001);
   const bool supportedDepth = (bitDepth == 16 || bitDepth == 24);
-  if (!pcmFormat || fmt.numChannels != 2 || !supportedDepth || dataSize == 0) {
+  if (!pcmFormat || fmt.numChannels != 2 || !supportedDepth || dataSize == 0 || dataPos == std::streampos(-1) || !sawFmt) {
     std::cerr << "Unsupported WAV format in: " << path << "\n";
     return buffer;
   }
+
+  in.seekg(dataPos);
 
   buffer.sampleRate = static_cast<int>(fmt.sampleRate);
   const uint16_t bytesPerSample = static_cast<uint16_t>(fmt.bitsPerSample / 8);
