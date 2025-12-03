@@ -63,6 +63,10 @@ target_compile_definitions(HorizonJuce
     JUCE_USE_CURL=0
     JUCE_DISPLAY_SPLASH_SCREEN=0
     JUCE_REPORT_APP_USAGE=0
+    # Skip JUCE's VST2-to-VST3 migration glue when the VST2 SDK isn't around.
+    # This keeps the build portable on fresh macOS/Xcode setups while still
+    # spitting out a VST3 and standalone app.
+    JUCE_VST3_CAN_REPLACE_VST2=0
 )
 
 target_link_libraries(HorizonJuce PRIVATE juce::juce_audio_utils juce::juce_dsp)
