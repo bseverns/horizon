@@ -35,6 +35,14 @@ ships a `horizon_wav_driver` you can wrap with your own `main` or by toggling
 single-entry-point while still giving you a command-line renderer when you need
 one.
 
+## Where the renders land
+- Every Unity run explodes a fresh `artifacts/` folder next to this README.
+  Inside you get one WAV per render flavor (the same ones piped through the
+  assertions), ready for listening sessions or to drag into a DAW and nerd out
+  on the waveforms.
+- CI scoops up that folder as a build artifact so you can audition the math
+  straight from the workflow run—even if you don't have a Teensy handy.
+
 ## Why bother?
 - Fast iteration: catch logic regressions without hunting for a spare Teensy.
 - Education: students can trace the DSP math in a debugger that isn't juggling

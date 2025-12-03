@@ -111,6 +111,9 @@ void test_led_mapping_matches_thresholds() {
 void test_host_processor_renders_variants() {
     namespace fs = std::filesystem;
     const fs::path baseDir = fs::weakly_canonical(fs::path(__FILE__).parent_path());
+    const fs::path artifactDir = baseDir / "artifacts";
+    fs::remove_all(artifactDir);
+    fs::create_directories(artifactDir);
 
     StereoBuffer input = makeDemoBuffer();
     TEST_ASSERT_FALSE_MESSAGE(input.left.empty() || input.right.empty(), "host processor demo buffer is empty");
@@ -123,7 +126,7 @@ void test_host_processor_renders_variants() {
         processor.setParameters(render.params);
         StereoBuffer out = processor.process(render.audio);
 
-        const fs::path outPath = baseDir / ("sample_" + render.flavor + ".wav");
+        const fs::path outPath = artifactDir / ("sample_" + render.flavor + ".wav");
         writeStereoWav(outPath, out);
 
         const char *linkMode = (render.params.limiterLink == LimiterLookahead::LinkMode::MidSide) ? "Mid/Side" : "Linked";
