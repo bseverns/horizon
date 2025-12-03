@@ -1,0 +1,12 @@
+{
+  "name": "Bus Glue",
+  "width": 0.72,
+  "dyn_width": 0.32,
+  "mid_tilt_db_per_oct": 0.35,
+  "air_freq": 9000,
+  "air_gain_db": 1.0,
+  "low_anchor": 140,
+  "dirt": 0.1,
+  "ceiling_db": -1.2,
+  "mix": 0.85
+}
