@@ -3,3 +3,4 @@
 .vscode/launch.json
 .vscode/ipch
 test/native_dsp/.DS_Store
+test/native_dsp/assets/.DS_Store
