@@ -17,6 +17,13 @@ standalone app. If your system already ships JUCE, feel free to swap the
 `FetchContent` block for your local install — this file stays intentionally
 minimal so you can riff on it.
 
+### Quick note on CMake warnings
+
+CMake 3.28+ ships policy **CMP0175**, which complains about
+`add_custom_command(TARGET ... DEPENDS)`. JUCE still uses that pattern inside
+its own helpers, so this project pins the policy to `OLD` to keep the configure
+log from filling up with noise while we focus on the DSP experiments.
+
 ## What lives here
 
 - **`Source/`**: A JUCE `AudioProcessor` and editor that forward every control to
