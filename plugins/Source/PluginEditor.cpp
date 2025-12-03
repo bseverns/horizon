@@ -24,6 +24,11 @@ SliderWithLabel::SliderWithLabel(const juce::String& labelText, juce::Slider::Sl
   addAndMakeVisible(label);
 }
 
+void SliderWithLabel::setDescription(const juce::String& description) {
+  slider.setTooltip(description);
+  label.setTooltip(description);
+}
+
 void SliderWithLabel::resized() {
   auto bounds = getLocalBounds();
   auto labelArea = bounds.removeFromTop(18);
@@ -56,6 +61,28 @@ HorizonAudioProcessorEditor::HorizonAudioProcessorEditor(HorizonAudioProcessor& 
   _limitMix.slider.setSliderStyle(rotary);
   _mix.slider.setSliderStyle(rotary);
 
+  auto describe = [](SliderWithLabel& control, const juce::String& text) {
+    control.setDescription(text);
+  };
+
+  describe(_width, "Width → setWidth(): static stereo spread (0 = mono, 1 = full stage).");
+  describe(_dynWidth,
+           "Dyn Width → setDynWidth(): how far transients pull the sides in before tails bloom.");
+  describe(_transient,
+           "Transient → setTransientSens(): detector sensitivity that steers dyn width + limiter release.");
+  describe(_tilt, "Tilt → setMidTilt(): mid-channel tilt EQ in dB per octave around ~1 kHz.");
+  describe(_airFreq, "Air Freq → setSideAir(freq): shelf/bell pivot for side air band (Hz).");
+  describe(_airGain, "Air Gain → setSideAir(gain): boost/cut for side air shelf (dB).");
+  describe(_lowAnchor, "Low Anchor → setLowAnchor(): mono fold point for bass (Hz).");
+  describe(_dirt, "Dirt → setDirt(): pre-limiter soft clip drive (unitless 0..1).");
+  describe(_limitCeiling, "Ceiling → setCeiling(): limiter output ceiling (dBFS).");
+  describe(_limitRelease, "Release → setLimiterReleaseMs(): base release time before transient steering (ms).");
+  describe(_limitLookahead, "Lookahead → setLimiterLookaheadMs(): detector lead/latency window (ms).");
+  describe(_limitTilt, "Detector Tilt → setLimiterDetectorTilt(): HF bias for limiter detector (dB/oct).");
+  describe(_limitMix, "Limit Mix → setLimiterMix(): limiter wet/dry; 0 = bypassed, 1 = all clamp.");
+  describe(_mix, "Mix → setMix(): global wet/dry for the whole Horizon chain.");
+  describe(_outTrim, "Out Trim → setOutputTrim(): post-limiter trim to land on your meter target (dB).");
+
   auto& s = _state;
   _widthAttachment = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(s, "width", _width.slider);
   _dynWidthAttachment = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(s, "dynWidth", _dynWidth.slider);
@@ -77,6 +104,8 @@ HorizonAudioProcessorEditor::HorizonAudioProcessorEditor(HorizonAudioProcessor& 
   _limitLink.addItem("Mid/Side", 2);
   _limitLinkLabel.setText("Link", juce::dontSendNotification);
   _limitLinkLabel.setJustificationType(juce::Justification::centred);
+  _limitLink.setTooltip("Limit Link → setLimiterLinkMode(): choose Linked or Mid/Side detection.");
+  _limitLinkLabel.setTooltip(_limitLink.getTooltip());
   _limitLinkAttachment = std::make_unique<juce::AudioProcessorValueTreeState::ComboBoxAttachment>(s, "limitLink", _limitLink);
 
   addAndMakeVisible(_width);
