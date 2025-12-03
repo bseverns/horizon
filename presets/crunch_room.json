@@ -1,0 +1,13 @@
+{
+  "name": "Crunch Room",
+  "width": 0.95,
+  "dyn_width": 0.55,
+  "transient_sens": 0.55,
+  "mid_tilt_db_per_oct": -0.15,
+  "air_freq": 11000,
+  "air_gain_db": 2.5,
+  "low_anchor": 110,
+  "dirt": 0.28,
+  "ceiling_db": -1.8,
+  "mix": 0.9
+}
