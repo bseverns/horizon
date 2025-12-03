@@ -14,9 +14,13 @@ SliderWithLabel::SliderWithLabel(const juce::String& labelText, juce::Slider::Sl
   : slider(), label(labelText) {
   slider.setSliderStyle(style);
   slider.setTextBoxStyle(juce::Slider::TextBoxBelow, true, 60, 18);
+  slider.setName(labelText);
+  slider.setTooltip(labelText);
   addAndMakeVisible(slider);
 
   label.setJustificationType(juce::Justification::centred);
+  label.setText(labelText, juce::dontSendNotification);
+  label.setTooltip(labelText);
   addAndMakeVisible(label);
 }
 
