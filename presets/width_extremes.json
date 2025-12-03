@@ -1,0 +1,13 @@
+{
+  "name": "Anchor Smasher",
+  "width": 1.35,
+  "dyn_width": 0.88,
+  "transient_sens": 0.75,
+  "mid_tilt_db_per_oct": -0.1,
+  "air_freq": 10500,
+  "air_gain_db": 2.0,
+  "low_anchor": 185,
+  "dirt": 0.2,
+  "ceiling_db": -2.5,
+  "mix": 0.85
+}
