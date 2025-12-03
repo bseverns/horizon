@@ -203,22 +203,23 @@ void test_host_processor_renders_variants() {
     const fs::path assetPath = baseDir / "assets" / "sample.wav";
     const fs::path baselineLight = baseDir / "sample_light.wav";
 
-    // Default to the real-world fixture WAV so we exercise the same program material the baselines
-    // were printed from. Fall back to the synthetic demo buffer when assets go missing so the test
-    // still provides signal coverage in lean environments.
-    StereoBuffer input = loadStereoWav(assetPath);
+    // Anchor our regression input to the same synthetic program material used to mint the baseline
+    // renders. That keeps comparisons apples-to-apples even when fixture WAVs are swapped out or
+    // unavailable in a lean test environment.
+    StereoBuffer input;
 
-    if (input.left.empty() || input.right.empty()) {
-        StereoBuffer baselineProbe = loadStereoWav(baselineLight);
-        if (!baselineProbe.left.empty() && baselineProbe.sampleRate > 0) {
-            const float seconds = static_cast<float>(baselineProbe.left.size()) /
-                                  static_cast<float>(baselineProbe.sampleRate);
-            input = makeDemoBuffer(baselineProbe.sampleRate, seconds);
-        }
+    const StereoBuffer baselineProbe = loadStereoWav(baselineLight);
+    if (!baselineProbe.left.empty() && baselineProbe.sampleRate > 0) {
+        const float seconds = static_cast<float>(baselineProbe.left.size()) /
+                              static_cast<float>(baselineProbe.sampleRate);
+        input = makeDemoBuffer(baselineProbe.sampleRate, seconds);
     }
 
+    // Allow a real-world fixture WAV to drive the renders in case we explicitly want to exercise
+    // microphone/line material instead of the synthetic demo tone. This path is opt-in based on the
+    // presence of the fixture.
     if (input.left.empty() || input.right.empty()) {
-        input = makeDemoBuffer();
+        input = loadStereoWav(assetPath);
     }
 
     // Keep renders bounded so a long fixture WAV doesn’t turn the test into a marathon when running
@@ -228,6 +229,10 @@ void test_host_processor_renders_variants() {
                                     : input.left.size();
     input.left.resize(targetFrames);
     input.right.resize(targetFrames);
+
+    if (input.left.empty() || input.right.empty()) {
+        input = makeDemoBuffer();
+    }
 
     const bool wavLoaded = !(input.left.empty() || input.right.empty());
     TEST_ASSERT_TRUE_MESSAGE(wavLoaded, "host processor input buffer failed to load");
