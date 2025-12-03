@@ -29,6 +29,12 @@ inheritance—so PlatformIO never nags you for hardware hints. CI runs this
 target on every push, right next to full Teensy builds, so regressions have
 nowhere to hide.
 
+During the run we now compare each rendered WAV flavor against the committed
+baseline in `artifacts/` with a strict `maxDiff <= 1e-3` gate. The logger
+prints the per-flavor deltas so you can see exactly which mix drifts when a
+DSP tweak lands. If you intentionally change the sound, re-bounce the
+snapshots offline and keep the binaries out of version control.
+
 Want to bounce a WAV instead of running the Unity suite? `process_wav.cpp`
 ships a `horizon_wav_driver` you can wrap with your own `main` or by toggling
 `HORIZON_WAV_STANDALONE` in the build. That keeps the default test run
