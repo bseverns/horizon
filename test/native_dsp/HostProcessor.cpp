@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <fstream>
 #include <iostream>
+#include <vector>
 
 #include "Audio.h"
 #include "AirEQ.h"
@@ -18,6 +19,7 @@
 namespace {
 
 constexpr float kInv32768 = 1.0f / 32768.0f;
+constexpr float kInv8388608 = 1.0f / 8388608.0f; // 24-bit signed max
 
 struct WavHeader {
   char riffId[4];
@@ -26,12 +28,16 @@ struct WavHeader {
 };
 
 struct FmtChunk {
-  uint16_t audioFormat;
-  uint16_t numChannels;
-  uint32_t sampleRate;
-  uint32_t byteRate;
-  uint16_t blockAlign;
-  uint16_t bitsPerSample;
+  uint16_t audioFormat = 0;
+  uint16_t numChannels = 0;
+  uint32_t sampleRate = 0;
+  uint32_t byteRate = 0;
+  uint16_t blockAlign = 0;
+  uint16_t bitsPerSample = 0;
+  uint16_t cbSize = 0;
+  uint16_t validBitsPerSample = 0;
+  uint32_t channelMask = 0;
+  uint32_t subFormatData1 = 0; // first 32 bits of GUID; 0x00000001 == PCM
 };
 
 int16_t readLE16(std::istream &in) {
@@ -44,6 +50,16 @@ uint32_t readLE32(std::istream &in) {
   uint8_t bytes[4] = {0};
   in.read(reinterpret_cast<char *>(bytes), 4);
   return static_cast<uint32_t>(bytes[0] | (bytes[1] << 8) | (bytes[2] << 16) | (bytes[3] << 24));
+}
+
+int32_t readLE24(std::istream &in) {
+  uint8_t bytes[3] = {0};
+  in.read(reinterpret_cast<char *>(bytes), 3);
+  int32_t value = static_cast<int32_t>(bytes[0] | (bytes[1] << 8) | (bytes[2] << 16));
+  if (value & 0x00800000) {
+    value |= 0xFF000000; // sign-extend negative values
+  }
+  return value;
 }
 
 void writeLE16(std::ostream &out, int16_t v) {
@@ -201,46 +217,104 @@ StereoBuffer loadStereoWav(const std::filesystem::path &path) {
   }
 
   FmtChunk fmt{};
+  bool sawFmt = false;
   uint32_t dataSize = 0;
+  std::streampos dataPos = std::streampos(-1);
   while (in.good()) {
     char chunkId[4] = {0};
     in.read(chunkId, 4);
     if (!in.good()) break;
     uint32_t chunkSize = readLE32(in);
     std::string id(chunkId, 4);
+    const bool isDataChunk = (id == "data");
+
     if (id == "fmt ") {
-      fmt.audioFormat = readLE16(in);
-      fmt.numChannels = readLE16(in);
-      fmt.sampleRate = readLE32(in);
-      fmt.byteRate = readLE32(in);
-      fmt.blockAlign = readLE16(in);
-      fmt.bitsPerSample = readLE16(in);
-      if (chunkSize > 16) {
-        in.seekg(chunkSize - 16, std::ios::cur);
+      std::vector<uint8_t> fmtData(chunkSize);
+      in.read(reinterpret_cast<char *>(fmtData.data()), chunkSize);
+
+      auto readLE16buf = [&fmtData](size_t offset) {
+        return static_cast<uint16_t>(fmtData[offset] | (fmtData[offset + 1] << 8));
+      };
+      auto readLE32buf = [&fmtData](size_t offset) {
+        return static_cast<uint32_t>(fmtData[offset] | (fmtData[offset + 1] << 8) | (fmtData[offset + 2] << 16) |
+                                     (fmtData[offset + 3] << 24));
+      };
+
+      if (chunkSize >= 16) {
+        fmt.audioFormat = readLE16buf(0);
+        fmt.numChannels = readLE16buf(2);
+        fmt.sampleRate = readLE32buf(4);
+        fmt.byteRate = readLE32buf(8);
+        fmt.blockAlign = readLE16buf(12);
+        fmt.bitsPerSample = readLE16buf(14);
       }
-    } else if (id == "data") {
+
+      if (chunkSize >= 18) {
+        fmt.cbSize = readLE16buf(16);
+      }
+
+      const bool isExtensible = (fmt.audioFormat == 0xFFFE);
+      if (isExtensible && chunkSize >= 40) {
+        fmt.validBitsPerSample = readLE16buf(18);
+        fmt.channelMask = readLE32buf(20);
+        fmt.subFormatData1 = readLE32buf(24);
+      }
+
+      if (chunkSize % 2 == 1) {
+        in.seekg(1, std::ios::cur);
+      }
+
+      sawFmt = true;
+    } else if (isDataChunk) {
       dataSize = chunkSize;
-      break;
+      dataPos = in.tellg();
+      if (sawFmt) {
+        break; // We have both fmt + data; go decode samples.
+      }
+
+      // Keep scanning for fmt, but hop over the data payload first.
+      in.seekg(chunkSize, std::ios::cur);
+      if (chunkSize % 2 == 1) {
+        in.seekg(1, std::ios::cur);
+      }
     } else {
       in.seekg(chunkSize, std::ios::cur);
+      if (chunkSize % 2 == 1) {
+        in.seekg(1, std::ios::cur);
+      }
     }
   }
 
-  if (fmt.audioFormat != 1 || fmt.numChannels != 2 || fmt.bitsPerSample != 16 || dataSize == 0) {
+  const uint16_t bitDepth = fmt.validBitsPerSample ? fmt.validBitsPerSample : fmt.bitsPerSample;
+  const bool pcmFormat = (fmt.audioFormat == 1) || (fmt.audioFormat == 0xFFFE && fmt.subFormatData1 == 0x00000001);
+  const bool supportedDepth = (bitDepth == 16 || bitDepth == 24);
+  if (!pcmFormat || fmt.numChannels != 2 || !supportedDepth || dataSize == 0 || dataPos == std::streampos(-1) || !sawFmt) {
     std::cerr << "Unsupported WAV format in: " << path << "\n";
     return buffer;
   }
 
+  in.seekg(dataPos);
+
   buffer.sampleRate = static_cast<int>(fmt.sampleRate);
-  const size_t samples = dataSize / (fmt.numChannels * (fmt.bitsPerSample / 8));
+  const uint16_t bytesPerSample = static_cast<uint16_t>(fmt.bitsPerSample / 8);
+  const size_t samples = dataSize / (fmt.numChannels * bytesPerSample);
   buffer.left.resize(samples);
   buffer.right.resize(samples);
 
-  for (size_t i = 0; i < samples; ++i) {
-    int16_t l = readLE16(in);
-    int16_t r = readLE16(in);
-    buffer.left[i] = static_cast<float>(l) * kInv32768;
-    buffer.right[i] = static_cast<float>(r) * kInv32768;
+  if (bitDepth == 16) {
+    for (size_t i = 0; i < samples; ++i) {
+      int16_t l = readLE16(in);
+      int16_t r = readLE16(in);
+      buffer.left[i] = static_cast<float>(l) * kInv32768;
+      buffer.right[i] = static_cast<float>(r) * kInv32768;
+    }
+  } else {
+    for (size_t i = 0; i < samples; ++i) {
+      int32_t l = readLE24(in);
+      int32_t r = readLE24(in);
+      buffer.left[i] = static_cast<float>(l) * kInv8388608;
+      buffer.right[i] = static_cast<float>(r) * kInv8388608;
+    }
   }
 
   return buffer;

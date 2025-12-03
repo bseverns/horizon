@@ -8,7 +8,9 @@
 #include "LimiterLookahead.h"
 #include "HostProcessor.h"
 
+#include <cstdlib>
 #include <filesystem>
+#include <system_error>
 #include <vector>
 
 namespace {
@@ -30,6 +32,67 @@ StereoBuffer makeDemoBuffer(int sampleRate = 44100, float seconds = 1.0f) {
     }
 
     return buffer;
+}
+
+std::filesystem::path findAssetsBaseDir() {
+    namespace fs = std::filesystem;
+    const fs::path relativeSuiteDir = fs::path("test") / "native_dsp";
+    const fs::path fixture = fs::path("assets") / "sample.wav";
+
+    // Allow CI or dev shells to hard-pin the search root when the working
+    // directory is surprising (e.g. PlatformIO spawning the test runner from
+    // a temp folder).
+    if (const char *env = std::getenv("HORIZON_NATIVE_DSP_ASSETS")) {
+        fs::path override = fs::path(env);
+        if (fs::exists(override / fixture)) {
+            return fs::weakly_canonical(override);
+        }
+    }
+
+    const fs::path sourceDir = fs::path(__FILE__).parent_path();
+    const fs::path cwd = fs::current_path();
+
+    const fs::path executable = [] {
+        std::error_code ec;
+        auto exe = std::filesystem::read_symlink("/proc/self/exe", ec);
+        return ec ? std::filesystem::path{} : exe.parent_path();
+    }();
+
+    const fs::path directCandidates[] = {
+        sourceDir,
+        cwd,
+        executable,
+        cwd / relativeSuiteDir,
+        executable / relativeSuiteDir,
+    };
+
+    for (const auto &root : directCandidates) {
+        if (fs::exists(root / fixture)) {
+            return fs::weakly_canonical(root);
+        }
+    }
+
+    auto walkForFixture = [&](fs::path cursor) -> fs::path {
+        while (!cursor.empty()) {
+            if (fs::exists(cursor / relativeSuiteDir / fixture)) {
+                return fs::weakly_canonical(cursor / relativeSuiteDir);
+            }
+            if (cursor == cursor.root_path()) {
+                break;
+            }
+            cursor = cursor.parent_path();
+        }
+        return fs::path{};
+    };
+
+    if (auto fromCwd = walkForFixture(cwd); !fromCwd.empty()) {
+        return fromCwd;
+    }
+    if (auto fromExe = walkForFixture(executable); !fromExe.empty()) {
+        return fromExe;
+    }
+
+    return fs::weakly_canonical(relativeSuiteDir);
 }
 
 } // namespace
@@ -110,13 +173,19 @@ void test_led_mapping_matches_thresholds() {
 
 void test_host_processor_renders_variants() {
     namespace fs = std::filesystem;
-    const fs::path baseDir = fs::weakly_canonical(fs::path(__FILE__).parent_path());
+    const fs::path baseDir = findAssetsBaseDir();
     const fs::path artifactDir = baseDir / "artifacts";
     fs::remove_all(artifactDir);
     fs::create_directories(artifactDir);
 
-    StereoBuffer input = makeDemoBuffer();
-    TEST_ASSERT_FALSE_MESSAGE(input.left.empty() || input.right.empty(), "host processor demo buffer is empty");
+    const fs::path assetPath = baseDir / "assets" / "sample.wav";
+    StereoBuffer input = loadStereoWav(assetPath);
+    const bool wavLoaded = !(input.left.empty() || input.right.empty());
+    if (!wavLoaded) {
+        printf("[warn] could not load %s; falling back to synthetic demo buffer\n", assetPath.string().c_str());
+        input = makeDemoBuffer();
+    }
+    TEST_ASSERT_FALSE_MESSAGE(input.left.empty() || input.right.empty(), "host processor input buffer is empty");
 
     auto renders = buildDemoRenders(input);
     HostProcessor processor;
@@ -152,6 +221,8 @@ void test_host_processor_renders_variants() {
         TEST_ASSERT_EQUAL_UINT32(input.left.size(), out.left.size());
         TEST_ASSERT_EQUAL_UINT32(input.right.size(), out.right.size());
     }
+
+    TEST_ASSERT_TRUE_MESSAGE(wavLoaded, "WAV fixture missing or unsupported; ran with fallback buffer");
 }
 
 int main(int, char**) {
