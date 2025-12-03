@@ -1,4 +1,12 @@
 cmake_minimum_required(VERSION 3.15)
+
+# CMake 3.28+ yells about add_custom_command(TARGET ... DEPENDS) via CMP0175.
+# JUCE still leans on that pattern, and we're not here to rewrite upstream.
+# Pinning the policy to OLD keeps configure output focused on the fun parts
+# (the DSP) instead of scolding us about someone else's arguments.
+if(POLICY CMP0175)
+  cmake_policy(SET CMP0175 OLD)
+endif()
 project(HorizonPlugin VERSION 0.1.0)
 
 set(CMAKE_CXX_STANDARD 17)
