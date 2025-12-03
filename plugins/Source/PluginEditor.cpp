@@ -113,8 +113,8 @@ void HorizonAudioProcessorEditor::resized() {
   auto bounds = getLocalBounds().reduced(8);
 
   juce::Grid grid;
-  grid.rowGap = 6_px;
-  grid.columnGap = 6_px;
+  grid.rowGap = juce::Grid::Px(6);
+  grid.columnGap = juce::Grid::Px(6);
   grid.templateRows = { juce::Grid::TrackInfo(juce::Grid::Fr(1)),
                         juce::Grid::TrackInfo(juce::Grid::Fr(1)),
                         juce::Grid::TrackInfo(juce::Grid::Fr(1)) };
