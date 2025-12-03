@@ -115,8 +115,14 @@ void test_host_processor_renders_variants() {
     fs::remove_all(artifactDir);
     fs::create_directories(artifactDir);
 
-    StereoBuffer input = makeDemoBuffer();
-    TEST_ASSERT_FALSE_MESSAGE(input.left.empty() || input.right.empty(), "host processor demo buffer is empty");
+    const fs::path assetPath = baseDir / "assets" / "sample.wav";
+    StereoBuffer input = loadStereoWav(assetPath);
+    const bool wavLoaded = !(input.left.empty() || input.right.empty());
+    if (!wavLoaded) {
+        printf("[warn] could not load %s; falling back to synthetic demo buffer\n", assetPath.string().c_str());
+        input = makeDemoBuffer();
+    }
+    TEST_ASSERT_FALSE_MESSAGE(input.left.empty() || input.right.empty(), "host processor input buffer is empty");
 
     auto renders = buildDemoRenders(input);
     HostProcessor processor;
@@ -152,6 +158,8 @@ void test_host_processor_renders_variants() {
         TEST_ASSERT_EQUAL_UINT32(input.left.size(), out.left.size());
         TEST_ASSERT_EQUAL_UINT32(input.right.size(), out.right.size());
     }
+
+    TEST_ASSERT_TRUE_MESSAGE(wavLoaded, "WAV fixture missing or unsupported; ran with fallback buffer");
 }
 
 int main(int, char**) {
