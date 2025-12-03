@@ -1,14 +1,12 @@
 #include "PluginEditor.h"
 
 namespace {
-juce::Label makeMeterLabel(const juce::String& title) {
-  juce::Label label;
+void makeMeterLabel(juce::Label& label, const juce::String& title) {
   label.setJustificationType(juce::Justification::centred);
   label.setText(title, juce::dontSendNotification);
   label.setColour(juce::Label::backgroundColourId, juce::Colours::black.withAlpha(0.2f));
   label.setColour(juce::Label::textColourId, juce::Colours::white);
   label.setFont(juce::Font(14.0f, juce::Font::bold));
-  return label;
 }
 }
 
@@ -95,9 +93,9 @@ HorizonAudioProcessorEditor::HorizonAudioProcessorEditor(HorizonAudioProcessor& 
   addAndMakeVisible(_limitLink);
   addAndMakeVisible(_limitLinkLabel);
 
-  _meterWidth = makeMeterLabel("Width 0.00");
-  _meterTransient = makeMeterLabel("Transient 0.00");
-  _meterLimiter = makeMeterLabel("Limiter 0.0 dB");
+  makeMeterLabel(_meterWidth, "Width 0.00");
+  makeMeterLabel(_meterTransient, "Transient 0.00");
+  makeMeterLabel(_meterLimiter, "Limiter 0.0 dB");
   addAndMakeVisible(_meterWidth);
   addAndMakeVisible(_meterTransient);
   addAndMakeVisible(_meterLimiter);
