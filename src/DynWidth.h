@@ -15,6 +15,8 @@ public:
   // Low anchor frequency in Hz (roughly 40..200).
   void setLowAnchorHz(float hz);
 
+  void setSampleRate(float sampleRate);
+
   // mid and side are in-place; transientActivity 0..1.
   void processSample(float& mid, float& side, float transientActivity);
 
@@ -26,6 +28,8 @@ private:
   float _lowAnchorHz;
   float _lowSideState;
   float _lowAlpha;
+
+  float _sampleRate;
 
   float _lastWidth;
 };

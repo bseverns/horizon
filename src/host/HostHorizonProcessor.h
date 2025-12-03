@@ -14,7 +14,9 @@
 
 class HostHorizonProcessor {
 public:
-  HostHorizonProcessor();
+  HostHorizonProcessor(double sampleRate = 44100.0, int blockSize = 128);
+
+  void prepareToPlay(double sampleRate, int blockSize);
 
   void setWidth(float w);
   void setDynWidth(float a);
@@ -49,6 +51,9 @@ public:
 
 private:
   float clampf(float x, float lo, float hi) const;
+  void updateForSampleRate(double sampleRate, int blockSize, bool resetState);
+  void refreshSmoothers();
+  void resetSmoothersToTargets();
 
   // Parameter targets
   float _widthTarget;
@@ -100,4 +105,7 @@ private:
   float _telemetryTransient;
   float _telemetryLimiterGain;
   LimiterLookahead::Telemetry _limiterTelemetry;
+
+  double _sampleRate;
+  int _blockSize;
 };

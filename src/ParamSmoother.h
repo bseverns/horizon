@@ -7,6 +7,11 @@ public:
 
   void setSmoothing(float alpha);
 
+  // Set a time constant in milliseconds, recomputing alpha for a given
+  // sample/update interval. `samplesPerUpdate` is how often `process` will be
+  // called (e.g. host block size if smoothing per-block).
+  void setTimeConstantMs(float ms, double sampleRate, int samplesPerUpdate);
+
   void reset(float v);
 
   float process(float target);

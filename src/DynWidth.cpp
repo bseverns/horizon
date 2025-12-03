@@ -9,7 +9,6 @@ static inline float clampf_dw(float x, float lo, float hi) {
   return (x < lo) ? lo : (x > hi ? hi : x);
 }
 
-static constexpr float kFsDW = 44100.0f;
 static constexpr float kTwoPiDW = 6.28318530717958647692f;
 
 DynWidth::DynWidth()
@@ -18,6 +17,7 @@ DynWidth::DynWidth()
     _lowAnchorHz(100.0f),
     _lowSideState(0.0f),
     _lowAlpha(0.0f),
+    _sampleRate(44100.0f),
     _lastWidth(0.6f) {
   setLowAnchorHz(_lowAnchorHz);
 }
@@ -38,8 +38,16 @@ void DynWidth::setDynAmount(float a) {
 
 void DynWidth::setLowAnchorHz(float hz) {
   _lowAnchorHz = clampf_dw(hz, 40.0f, 250.0f);
-  float omega = kTwoPiDW * _lowAnchorHz / kFsDW;
+  float omega = kTwoPiDW * _lowAnchorHz / _sampleRate;
   _lowAlpha = 1.0f - expf(-omega);
+}
+
+void DynWidth::setSampleRate(float sampleRate) {
+  if (sampleRate <= 0.0f) {
+    return;
+  }
+  _sampleRate = sampleRate;
+  setLowAnchorHz(_lowAnchorHz);
 }
 
 void DynWidth::processSample(float& mid, float& side, float transientActivity) {
