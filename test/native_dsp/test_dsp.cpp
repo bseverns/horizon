@@ -8,7 +8,9 @@
 #include "LimiterLookahead.h"
 #include "HostProcessor.h"
 
+#include <cstdlib>
 #include <filesystem>
+#include <system_error>
 #include <vector>
 
 namespace {
@@ -37,13 +39,31 @@ std::filesystem::path findAssetsBaseDir() {
     const fs::path relativeSuiteDir = fs::path("test") / "native_dsp";
     const fs::path fixture = fs::path("assets") / "sample.wav";
 
+    // Allow CI or dev shells to hard-pin the search root when the working
+    // directory is surprising (e.g. PlatformIO spawning the test runner from
+    // a temp folder).
+    if (const char *env = std::getenv("HORIZON_NATIVE_DSP_ASSETS")) {
+        fs::path override = fs::path(env);
+        if (fs::exists(override / fixture)) {
+            return fs::weakly_canonical(override);
+        }
+    }
+
     const fs::path sourceDir = fs::path(__FILE__).parent_path();
     const fs::path cwd = fs::current_path();
+
+    const fs::path executable = [] {
+        std::error_code ec;
+        auto exe = std::filesystem::read_symlink("/proc/self/exe", ec);
+        return ec ? std::filesystem::path{} : exe.parent_path();
+    }();
 
     const fs::path directCandidates[] = {
         sourceDir,
         cwd,
+        executable,
         cwd / relativeSuiteDir,
+        executable / relativeSuiteDir,
     };
 
     for (const auto &root : directCandidates) {
@@ -52,18 +72,27 @@ std::filesystem::path findAssetsBaseDir() {
         }
     }
 
-    fs::path cursor = cwd;
-    while (true) {
-        if (fs::exists(cursor / relativeSuiteDir / fixture)) {
-            return fs::weakly_canonical(cursor / relativeSuiteDir);
+    auto walkForFixture = [&](fs::path cursor) -> fs::path {
+        while (!cursor.empty()) {
+            if (fs::exists(cursor / relativeSuiteDir / fixture)) {
+                return fs::weakly_canonical(cursor / relativeSuiteDir);
+            }
+            if (cursor == cursor.root_path()) {
+                break;
+            }
+            cursor = cursor.parent_path();
         }
-        if (cursor == cursor.root_path()) {
-            break;
-        }
-        cursor = cursor.parent_path();
+        return fs::path{};
+    };
+
+    if (auto fromCwd = walkForFixture(cwd); !fromCwd.empty()) {
+        return fromCwd;
+    }
+    if (auto fromExe = walkForFixture(executable); !fromExe.empty()) {
+        return fromExe;
     }
 
-    return fs::weakly_canonical(sourceDir);
+    return fs::weakly_canonical(relativeSuiteDir);
 }
 
 } // namespace
