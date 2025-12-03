@@ -8,7 +8,7 @@
 #include "DynWidth.h"
 #include "LimiterLookahead.h"
 #include "HostProcessor.h"
-#include "HostHorizonProcessor.h"
+#include "host/HostHorizonProcessor.h"
 
 #include <cstdlib>
 #include <filesystem>
