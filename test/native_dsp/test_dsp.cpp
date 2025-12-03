@@ -201,34 +201,34 @@ void test_host_processor_renders_variants() {
     printf("[assets] base dir: %s\n", baseDir.string().c_str());
 
     const fs::path assetPath = baseDir / "assets" / "sample.wav";
-    const fs::path baselineLight = baseDir / "sample_light.wav";
+    const fs::path baselineLightPath = baseDir / "sample_light.wav";
 
-    // Anchor our regression input to the same synthetic program material used to mint the baseline
-    // renders. That keeps comparisons apples-to-apples even when fixture WAVs are swapped out or
-    // unavailable in a lean test environment.
-    StereoBuffer input;
+    StereoBuffer baselineLight = loadStereoWav(baselineLightPath);
 
-    const StereoBuffer baselineProbe = loadStereoWav(baselineLight);
-    if (!baselineProbe.left.empty() && baselineProbe.sampleRate > 0) {
-        const float seconds = static_cast<float>(baselineProbe.left.size()) /
-                              static_cast<float>(baselineProbe.sampleRate);
-        input = makeDemoBuffer(baselineProbe.sampleRate, seconds);
+    // Anchor regression input to the same material that minted the baselines. Prefer the fixture
+    // WAV so we exercise realistic program material; only drop to the synthetic demo tone if the
+    // asset is missing or fails to parse in the current environment.
+    StereoBuffer input = loadStereoWav(assetPath);
+
+    if (!baselineLight.left.empty() && baselineLight.sampleRate > 0) {
+        const size_t frames = baselineLight.left.size();
+        const size_t inputFrames = input.left.size();
+
+        if (!input.left.empty() && input.sampleRate == baselineLight.sampleRate) {
+            // Trim or pad to match the baseline length so comparisons are one-to-one.
+            input.left.resize(frames);
+            input.right.resize(frames);
+
+            if (inputFrames < frames) {
+                // Pad tails with silence when the fixture is shorter than the baseline reference.
+                std::fill(input.left.begin() + inputFrames, input.left.end(), 0.0f);
+                std::fill(input.right.begin() + inputFrames, input.right.end(), 0.0f);
+            }
+        } else {
+            const float seconds = static_cast<float>(frames) / static_cast<float>(baselineLight.sampleRate);
+            input = makeDemoBuffer(baselineLight.sampleRate, seconds);
+        }
     }
-
-    // Allow a real-world fixture WAV to drive the renders in case we explicitly want to exercise
-    // microphone/line material instead of the synthetic demo tone. This path is opt-in based on the
-    // presence of the fixture.
-    if (input.left.empty() || input.right.empty()) {
-        input = loadStereoWav(assetPath);
-    }
-
-    // Keep renders bounded so a long fixture WAV doesn’t turn the test into a marathon when running
-    // in constrained CI sandboxes.
-    const size_t targetFrames = (input.sampleRate > 0)
-                                    ? std::min(input.left.size(), static_cast<size_t>(input.sampleRate))
-                                    : input.left.size();
-    input.left.resize(targetFrames);
-    input.right.resize(targetFrames);
 
     if (input.left.empty() || input.right.empty()) {
         input = makeDemoBuffer();
