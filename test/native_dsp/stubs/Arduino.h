@@ -1,22 +1,29 @@
 #pragma once
 
 // Lightweight host-only Arduino shim so DSP blocks compile under PlatformIO's
-// native runner. Keep it tiny: just the pieces needed by the DSP code.
+// native runner. Keep it tiny: just the pieces needed by the DSP code, without
+// macro landmines that step on the STL.
 
-#include <cstdint>
-#include <cstddef>
+#include <algorithm>
 #include <cmath>
+#include <cstddef>
+#include <cstdint>
 
 inline unsigned long millis() { return 0; }
 inline unsigned long micros() { return 0; }
 
-// Common helpers found in Arduino.h
-#ifndef min
-#define min(a,b) ((a) < (b) ? (a) : (b))
-#endif
-#ifndef max
-#define max(a,b) ((a) > (b) ? (a) : (b))
-#endif
+// Arduino normally injects min/max macros, but those collide with <chrono> and
+// other STL headers when building the host bench. Stick to inline helpers so
+// unqualified calls still work without redefining language keywords.
+template <typename T>
+inline constexpr const T& min(const T& a, const T& b) {
+    return (a < b) ? a : b;
+}
+
+template <typename T>
+inline constexpr const T& max(const T& a, const T& b) {
+    return (a > b) ? a : b;
+}
 
 #ifndef constrain
 template <typename T>
