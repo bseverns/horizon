@@ -26,23 +26,33 @@ Teensy 4.x + SGTL5000 (Teensy Audio Library), 44.1 kHz / 128‑sample blocks.
 - Feeling adventurous? Jump straight to `examples/preset_morph/preset_morph.ino`
   to hear slow-motion morphs between a cinema-wide wash and a gentle bus chain.
 
-## Environments & how to ride them
+## PlatformIO, CI, and host tricks
 All builds live in `platformio.ini`, and CI compiles every single one so the party stays honest.
 
+### Environments
 - `main_teensy40` / `main_teensy41` — stage-ready firmware: audio in/out, no Serial spam.
 - `scope_teensy40` / `scope_teensy41` — adds `HORIZON_BUILD_SCOPE` so you can watch width/transient/limiter telemetry scroll by on Serial like an ASCII VU wall.
 - `native_dsp` — host-only test bench that stubs the Teensy runtime so you can beat on the math with `pio test` while your hardware naps in a drawer; it rides the PlatformIO `native` toolchain straight, no Arduino/board baggage, and the project sets `test_dir = test/native_dsp` so PIO always has something to chew even when firmware sources are filtered out.
 
-### PlatformIO loops
-- Build/upload a hardware target:
-  - `pio run -e main_teensy41 -t upload` (swap env for 40/41, scope/main as needed).
-- Compile + scope watch:
-  - `pio run -e scope_teensy41 -t upload` then open Serial at 115200 for the block meters.
-- Host-side tests (no Teensy):
-  - `pio test -e native_dsp`
+### Everyday commands
+- Build/upload a hardware target: `pio run -e main_teensy41 -t upload` (swap env for 40/41, scope/main as needed).
+- Scope watch: `pio run -e scope_teensy41 -t upload` then open Serial at 115200 for the block meters.
+- Host-side tests (no Teensy): `pio test -e native_dsp`.
 
 ### CI expectations
-The repo ships with a GitHub Actions workflow that installs PlatformIO, compiles all Teensy envs, and runs the `native_dsp` tests. If your change breaks a build flag or sneaks in a platform-specific include, CI will call you on it.
+The GitHub Actions workflow installs PlatformIO, compiles all Teensy envs, and runs the `native_dsp` tests. If your change breaks a build flag or sneaks in a platform-specific include, CI will call you on it.
+
+### Native DSP test bench (no hardware required)
+- Want to bash on the DSP math without a Teensy plugged in? Run `pio test -e native_dsp` to spin up a host-only build that links tiny Arduino/Audio stubs and exercises the limiter, smoother, and width logic.
+- The env doesn’t inherit any Teensy/Arduino scaffolding, so the native toolchain stays lean and never nags for a board definition—perfect for CI runners and students poking around on a laptop.
+- The project-level `test_dir = test/native_dsp` forces PlatformIO to scoop up the host bench directly, and `test_build_src = yes` keeps the DSP implementation compiled alongside the tests even when firmware entry points are filtered out. Great for CI, teaching, or proving a refactor didn’t sandbag the groove.
+- There’s also a tiny WAV harness (`test/native_dsp/process_wav.cpp`) with a callable `horizon_wav_driver` so you can bounce audio through Horizon on the host. The default `native_dsp` run sticks to the Unity test main to avoid dueling entry points, but you can flip on `HORIZON_WAV_STANDALONE` if you want a quick command-line renderer instead of tests.
+
+### Host-side IntelliSense / clangd cheat codes
+- Linting your editor without dragging in the whole Teensy core? The `patches/cores/teensy4/lint_stubs.h` shim is opt-in so firmware builds always pull `F_CPU_ACTUAL`, `NVIC_SET_PENDING`, etc. from the real PJRC headers. Flip `HORIZON_LINT_STUBS=1` when generating editor metadata and the shim injects no-op definitions for the usual suspects (`__disable_irq`, `Serial`, ...), keeping clangd/IntelliSense chill even if the PlatformIO download cache is missing.
+- Preferred compile database: `HORIZON_LINT_STUBS=1 pio run -e main_teensy41 -t compiledb` (drops `.pio/build/main_teensy41/compile_commands.json`).
+- Offline/editor-only fallback: `python tools/gen_compile_commands.py` (writes `compile_commands.json` at the repo root with the same `-I patches/cores/teensy4` + `-include patches/cores/teensy4/lint_stubs.h` flags baked in).
+- Point your editor at that database (VS Code already ships a `.vscode/c_cpp_properties.json` that hooks `compile_commands.json` and forces the lint shim include path) and re-index so host-side scanning stops flagging `F_CPU_ACTUAL`, `IRQ_SOFTWARE`, and `NVIC_SET_PENDING` as undefined.
 
 ## Control ranges (cheat sheet)
 - Width lives in **0.0..1.0**. Static width is clamped there, and the dynamic width block
@@ -58,60 +68,6 @@ The repo ships with a GitHub Actions workflow that installs PlatformIO, compiles
 
 ## License
 MIT — see `LICENSE`.
-
-## PlatformIO
-
-- Use the provided `platformio.ini` at the repo root.
-- `src/main.cpp` is the control-surface firmware with optional scope mode.
-- Envs:
-  - `main_teensy40` / `main_teensy41` — performance builds (no Serial scope).
-  - `scope_teensy40` / `scope_teensy41` — enable `HORIZON_BUILD_SCOPE` and print width/transient/limiter bars over Serial.
-- Build and upload, e.g.:
-  - `pio run -e main_teensy41 -t upload`
-  - `pio run -e scope_teensy41 -t upload`
-- Linting your editor without dragging in the whole Teensy core? The
-  `patches/cores/teensy4/lint_stubs.h` shim is now **opt-in** so firmware
-  builds always pull `F_CPU_ACTUAL`, `NVIC_SET_PENDING`, etc. from the real
-  PJRC headers. Flip `HORIZON_LINT_STUBS=1` when generating editor metadata
-  and the shim injects no-op definitions for the usual suspects (`__disable_irq`,
-  `Serial`, ...), keeping clangd/IntelliSense chill even if the PlatformIO
-  download cache is missing.
-
-### Native DSP test bench (no hardware required)
-
-- Want to bash on the DSP math without a Teensy plugged in? Run
-  `pio test -e native_dsp` to spin up a host-only build that links tiny
-  Arduino/Audio stubs and exercises the limiter, smoother, and width logic.
-- The env doesn’t inherit any Teensy/Arduino scaffolding, so the native toolchain
-  stays lean and never nags for a board definition—perfect for CI runners and
-  students poking around on a laptop.
-- The project-level `test_dir = test/native_dsp` forces PlatformIO to scoop up
-  the host bench directly, and `test_build_src = yes` keeps the DSP
-  implementation compiled alongside the tests even when firmware entry points
-  are filtered out. Great for CI, teaching, or proving a refactor didn’t
-  sandbag the groove.
-- There’s also a tiny WAV harness (`test/native_dsp/process_wav.cpp`) with a
-  callable `horizon_wav_driver` so you can bounce audio through Horizon on the
-  host. The default `native_dsp` run sticks to the Unity test main to avoid
-  dueling entry points, but you can flip on `HORIZON_WAV_STANDALONE` if you
-  want a quick command-line renderer instead of tests.
-
-### Host-side IntelliSense / clangd cheat codes
-
-- Generate a compile database so clangd inherits the Teensy include + forced
-  lint stubs:
-  - Preferred: `HORIZON_LINT_STUBS=1 pio run -e main_teensy41 -t compiledb`
-    (drops `.pio/build/main_teensy41/compile_commands.json`).
-  - Offline/editor-only fallback: `python tools/gen_compile_commands.py`
-    (writes `compile_commands.json` at the repo root with the same
-    `-I patches/cores/teensy4` + `-include patches/cores/teensy4/lint_stubs.h`
-    flags baked in).
-- Point your editor at that database (VS Code already ships a
-  `.vscode/c_cpp_properties.json` that hooks `compile_commands.json` and forces
-  the lint shim include path).
-- Re-index the workspace. Host-side scanning should stop flagging
-  `F_CPU_ACTUAL`, `IRQ_SOFTWARE`, and `NVIC_SET_PENDING` as undefined because
-  `lint_stubs.h` is now always forced in for non-Teensy toolchains.
 
 ## Examples
 
