@@ -38,3 +38,39 @@ log from filling up with noise while we focus on the DSP experiments.
 
 Feel free to extend the UI or add your own meter doodles. Just keep the intent
 visible: Horizon is a teaching tool first, a sonic scalpel second.
+
+## VST + standalone control map (what every slider actually pokes)
+
+The editor uses JUCE sliders everywhere, so both the VST3 and the standalone
+app expose the exact same controls. Hover a knob to see which DSP setter you’re
+tickling; here’s the cheat sheet so you don’t have to guess:
+
+- **Width** → `setWidth()` – static stereo spread. 0 = mono, 1 = max width.
+- **Dyn Width** → `setDynWidth()` – how hard transients tug the sides inward
+  before the tail reopens.
+- **Transient** → `setTransientSens()` – detector sensitivity that feeds width
+  motion and limiter release tweaks.
+- **Tilt** → `setMidTilt()` – mid channel tilt EQ, ±6 dB/oct around ~1 kHz.
+- **Air Freq** → `setSideAir(freq)` – pivot for the side shelf/bell (Hz).
+- **Air Gain** → `setSideAir(gain)` – boost/cut for that side shelf (dB).
+- **Low Anchor** → `setLowAnchor()` – mono fold point for bass (Hz).
+- **Dirt** → `setDirt()` – gentle pre-limiter soft clip drive.
+- **Ceiling** → `setCeiling()` – limiter output ceiling (dBFS). This and the
+  mix/tilt controls let you steer how surgical or squishy the limiter feels.
+- **Release** → `setLimiterReleaseMs()` – base release time (ms); transients
+  can force it faster.
+- **Lookahead** → `setLimiterLookaheadMs()` – detector lead time (ms) so the
+  clamp lands before audio escapes.
+- **Detector Tilt** → `setLimiterDetectorTilt()` – HF bias for the limiter
+  detector (dB/oct) to tame splashy cymbals.
+- **Limit Mix** → `setLimiterMix()` – limiter wet/dry. 0 = dry, 1 = all clamp.
+- **Mix** → `setMix()` – global wet/dry for the whole Horizon chain.
+- **Out Trim** → `setOutputTrim()` – post-limiter trim to nail the meter.
+- **Limit Link (combo box)** → `setLimiterLinkMode()` – choose Linked or Mid/Side
+  detection. Handy when width and limiter feel like they’re fighting.
+
+Width and limiter are the headline moves here: start with Width around 0.6 for a
+stable stereo bed, then ride Dyn Width and Transient until hits tuck in. On the
+limiter, shape the feel with Ceiling + Release + Lookahead; Detector Tilt keeps
+the HF clamp musical, and Limit Mix gives you a quick “is this vibe worth it?”
+test without re-patching.

@@ -7,6 +7,8 @@ class SliderWithLabel : public juce::Component {
 public:
   SliderWithLabel(const juce::String& labelText, juce::Slider::SliderStyle style = juce::Slider::RotaryHorizontalVerticalDrag);
 
+  void setDescription(const juce::String& description);
+
   void resized() override;
 
   juce::Slider slider;
