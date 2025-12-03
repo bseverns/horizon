@@ -28,6 +28,7 @@ public:
   void setLinkMode(LinkMode mode);
   void setMix(float mix01);                // 0..1, 0=dry, 1=wet
   void setBypass(bool on);                 // smooth 5 ms crossfade
+  void setSampleRate(float sampleRate);
 
   void reset();
 
@@ -45,6 +46,7 @@ private:
 
   static float dbToLin(float dB);
   void updateReleaseCoeff();
+  void updateLookaheadSamples();
   void updateXfade();
   void finalizeBlock();
   void primeDelayLine();
@@ -53,6 +55,7 @@ private:
   float _bufferR[kBufferSize];
   int _writeIdx;
   int _lookaheadSamples;
+  float _lookaheadMs;
   float _mix;
 
   float _ceilingDb;
@@ -60,6 +63,8 @@ private:
   float _releaseMs;
   float _releaseCoeff;
   float _env;
+
+  float _sampleRate;
 
   TiltEQ _detectorTiltL;
   TiltEQ _detectorTiltR;
