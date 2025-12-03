@@ -11,6 +11,10 @@
 #include "LimiterLookahead.h"
 #include "ParamSmoother.h"
 
+// Studio note: wrapper that keeps the whole chain coherent—exposes a handful of
+// musical controls, smooths them, then marches audio through the blocks in a way
+// that stays Teensy-safe and scope-friendly.
+
 class AudioHorizon : public AudioStream {
 public:
   AudioHorizon();
