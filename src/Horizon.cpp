@@ -1,3 +1,7 @@
+// Studio note: the glue layer that wires every block into a single AudioStream.
+// AudioHorizon smooths the learner-facing controls, hands them to the DSP chain
+// (mid/side → tilt/air → transient-aware width → limiter → soft sat), and keeps
+// telemetry warm for scope/debug builds without ever stalling the audio thread.
 #include "Horizon.h"
 #include <math.h>
 
