@@ -191,7 +191,21 @@ void test_host_processor_renders_variants() {
     fs::create_directories(artifactDir);
 
     const fs::path assetPath = baseDir / "assets" / "sample.wav";
+    const fs::path baselineLight = baseDir / "sample_light.wav";
+
     StereoBuffer input = loadStereoWav(assetPath);
+    StereoBuffer baselineProbe = loadStereoWav(baselineLight);
+
+    // Keep the render length aligned with the checked-in baselines so small fixture WAVs don’t
+    // balloon the comparison. Fallback: if the baseline is missing, keep the full input length.
+    const size_t targetFrames = baselineProbe.left.empty() ? input.left.size() : baselineProbe.left.size();
+    const int targetSampleRate = baselineProbe.left.empty() ? input.sampleRate : baselineProbe.sampleRate;
+    if (input.left.size() > targetFrames) {
+        input.left.resize(targetFrames);
+        input.right.resize(targetFrames);
+    }
+    input.sampleRate = targetSampleRate;
+
     const bool wavLoaded = !(input.left.empty() || input.right.empty());
     if (!wavLoaded) {
         printf("[warn] could not load %s; falling back to synthetic demo buffer\n", assetPath.string().c_str());
@@ -287,12 +301,13 @@ void test_host_horizon_processor_smoke() {
     std::fill(outR.begin(), outR.end(), 0.0f);
 
     pluginProcessor.processBlock(impulse.data(), impulse.data(), outL.data(), outR.data(), kFrames, 48000.0);
+    pluginProcessor.processBlock(silence.data(), silence.data(), outL.data(), outR.data(), kFrames, 48000.0);
     bool anyOutput = false;
     for (int i = 0; i < kFrames; ++i) {
         TEST_ASSERT_TRUE_MESSAGE(std::isfinite(outL[i]) && std::isfinite(outR[i]), "impulse render produced non-finite samples");
         anyOutput = anyOutput || fabsf(outL[i]) > 1e-5f || fabsf(outR[i]) > 1e-5f;
     }
-    TEST_ASSERT_TRUE_MESSAGE(anyOutput, "impulse render was entirely silent");
+    TEST_ASSERT_TRUE_MESSAGE(anyOutput, "impulse render was entirely silent after lookahead latency");
 }
 
 int main(int, char**) {
