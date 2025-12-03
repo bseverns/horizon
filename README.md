@@ -36,20 +36,21 @@ Teensy 4.x + SGTL5000 (Teensy Audio Library), 44.1 kHz / 128‑sample blocks.
   to hear slow-motion morphs between a cinema-wide wash and a gentle bus chain.
 
 ## PlatformIO, CI, and host tricks
-All builds live in `platformio.ini`, and CI compiles every single one so the party stays honest.
+Quick map (details live in the sections below):
 
-### Environments
-- `main_teensy40` / `main_teensy41` — stage-ready firmware: audio in/out, no Serial spam.
-- `scope_teensy40` / `scope_teensy41` — adds `HORIZON_BUILD_SCOPE` so you can watch width/transient/limiter telemetry scroll by on Serial like an ASCII VU wall.
-- `native_dsp` — host-only test bench that stubs the Teensy runtime so you can beat on the math with `pio test` while your hardware naps in a drawer; it rides the PlatformIO `native` toolchain straight, no Arduino/board baggage, and the project sets `test_dir = test/native_dsp` so PIO always has something to chew even when firmware sources are filtered out.
+- **Environments**
+  - `main_teensy40` / `main_teensy41` — stage-ready firmware; flash with `pio run -e main_teensy41 -t upload`.
+  - `scope_teensy40` / `scope_teensy41` — telemetry-on-Serial builds for block meters; upload then watch at 115200.
+  - `native_dsp` — host-only math bench; run `pio test -e native_dsp` (see [Native DSP test bench](#native-dsp-test-bench-no-hardware-required)).
 
-### Everyday commands
-- Build/upload a hardware target: `pio run -e main_teensy41 -t upload` (swap env for 40/41, scope/main as needed).
-- Scope watch: `pio run -e scope_teensy41 -t upload` then open Serial at 115200 for the block meters.
-- Host-side tests (no Teensy): `pio test -e native_dsp`.
+- **Core commands**
+  - Build/upload: `pio run -e main_teensy41 -t upload` (swap envs as needed).
+  - Serial scope: `pio run -e scope_teensy41 -t upload` then crack open a terminal at 115200.
+  - Tests (no hardware): `pio test -e native_dsp`.
+  - Lint/compile DB: `HORIZON_LINT_STUBS=1 pio run -e main_teensy41 -t compiledb` (see [Host-side IntelliSense / clangd cheat codes](#host-side-intellisense--clangd-cheat-codes)).
 
-### CI expectations
-The GitHub Actions workflow installs PlatformIO, compiles all Teensy envs, and runs the `native_dsp` tests. If your change breaks a build flag or sneaks in a platform-specific include, CI will call you on it.
+- **CI coverage**
+  - GitHub Actions installs PlatformIO, builds every Teensy env, and runs `native_dsp` tests so broken flags or platform-only includes get caught early.
 
 ### Native DSP test bench (no hardware required)
 - Want to bash on the DSP math without a Teensy plugged in? Run `pio test -e native_dsp` to spin up a host-only build that links tiny Arduino/Audio stubs and exercises the limiter, smoother, and width logic.
