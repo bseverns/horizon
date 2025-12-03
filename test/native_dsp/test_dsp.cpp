@@ -32,6 +32,40 @@ StereoBuffer makeDemoBuffer(int sampleRate = 44100, float seconds = 1.0f) {
     return buffer;
 }
 
+std::filesystem::path findAssetsBaseDir() {
+    namespace fs = std::filesystem;
+    const fs::path relativeSuiteDir = fs::path("test") / "native_dsp";
+    const fs::path fixture = fs::path("assets") / "sample.wav";
+
+    const fs::path sourceDir = fs::path(__FILE__).parent_path();
+    const fs::path cwd = fs::current_path();
+
+    const fs::path directCandidates[] = {
+        sourceDir,
+        cwd,
+        cwd / relativeSuiteDir,
+    };
+
+    for (const auto &root : directCandidates) {
+        if (fs::exists(root / fixture)) {
+            return fs::weakly_canonical(root);
+        }
+    }
+
+    fs::path cursor = cwd;
+    while (true) {
+        if (fs::exists(cursor / relativeSuiteDir / fixture)) {
+            return fs::weakly_canonical(cursor / relativeSuiteDir);
+        }
+        if (cursor == cursor.root_path()) {
+            break;
+        }
+        cursor = cursor.parent_path();
+    }
+
+    return fs::weakly_canonical(sourceDir);
+}
+
 } // namespace
 
 void test_soft_saturation_pass_through_when_dry() {
@@ -110,7 +144,7 @@ void test_led_mapping_matches_thresholds() {
 
 void test_host_processor_renders_variants() {
     namespace fs = std::filesystem;
-    const fs::path baseDir = fs::weakly_canonical(fs::path(__FILE__).parent_path());
+    const fs::path baseDir = findAssetsBaseDir();
     const fs::path artifactDir = baseDir / "artifacts";
     fs::remove_all(artifactDir);
     fs::create_directories(artifactDir);
