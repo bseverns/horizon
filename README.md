@@ -12,6 +12,15 @@ Makes dense mixes breathe (tails wider, hits focused). Drop it after any instrum
           → SoftSat (mild post safety) → Output trim → [I2S Out]
 ```
 
+### Why these moves
+
+- [Mid/side matrix](docs/block_notes.md#msmatrix) — adds/subtracts only to pivot between L/R and M/S without touching gain so the downstream moves stay honest.
+- [Tilt](docs/block_notes.md#tilteq) — one-pole slant around ~1 kHz for quick warm/bright nudges; clamped to a sensible ±6 dB/oct so you can ride it like a tone knob.
+- [Air shelf](docs/block_notes.md#aireq) — single split shelf that opens cymbals without phase weirdness; the pole itself keeps the top end smooth even when you twist fast.
+- [Dyn width](docs/block_notes.md#dynwidth) — narrows hits, blooms tails, and low-anchors the sides so subs stay glued while the stage breathes.
+- [Limiter](docs/block_notes.md#limiterlookahead) — short-delay clamp with a tilted detector and adaptive release so bright hits get caught early and sustain floats; wet/dry/bypass all ride the same delay for phase-honest mix moves.
+- [Soft sat](docs/block_notes.md#softsaturation) — tanh grit mapped to ~1–10× drive with auto-normalization, meant as polite tape-ish hair rather than a splatter box.
+
 Block-by-block intent + clamp/smoothing cheats live in [`docs/block_notes.md`](docs/block_notes.md).
 
 The limiter runs its own delay line so dry/wet and bypass crossfades stay phase-honest. Detector tilt is detector-only.
