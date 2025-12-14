@@ -1,0 +1,81 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 20,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "base",
+      "displayName": "Default Release (Ninja)",
+      "description": "Release-ish settings with compile_commands and PIC for host builds.",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/cmake-out/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+        "CMAKE_POSITION_INDEPENDENT_CODE": "ON"
+      }
+    },
+    {
+      "name": "linux-clang",
+      "displayName": "Linux (GCC first)",
+      "description": "Linux desktop build; pins to GCC so CI images without clang still light up.",
+      "inherits": "base",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "/usr/bin/gcc",
+        "CMAKE_CXX_COMPILER": "/usr/bin/g++"
+      }
+    },
+    {
+      "name": "macos-universal-release",
+      "displayName": "macOS Universal (arm64+x86_64)",
+      "description": "Universal 2 build for Apple Silicon + Intel Macs.",
+      "inherits": "base",
+      "cacheVariables": {
+        "CMAKE_OSX_ARCHITECTURES": "arm64;x86_64"
+      }
+    },
+    {
+      "name": "windows-msvc-release",
+      "displayName": "Windows 11 (MSVC, Ninja)",
+      "description": "MSVC + Ninja pairing tuned for Windows 11 hosts.",
+      "inherits": "base",
+      "architecture": {
+        "value": "x64",
+        "strategy": "external"
+      },
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "cl",
+        "CMAKE_CXX_COMPILER": "cl"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "linux-clang",
+      "configurePreset": "linux-clang",
+      "description": "Build the DSP library on Linux/clang.",
+      "targets": [
+        "horizon_dsp"
+      ]
+    },
+    {
+      "name": "macos-universal-release",
+      "configurePreset": "macos-universal-release",
+      "description": "Build the Universal 2 DSP binary for macOS.",
+      "targets": [
+        "horizon_dsp"
+      ]
+    },
+    {
+      "name": "windows-msvc-release",
+      "configurePreset": "windows-msvc-release",
+      "description": "Build the DSP library with MSVC + Ninja.",
+      "targets": [
+        "horizon_dsp"
+      ]
+    }
+  ]
+}
