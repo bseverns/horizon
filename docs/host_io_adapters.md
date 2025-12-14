@@ -24,6 +24,10 @@ Presets mirror the JSON files in `presets/` (bus_glue, crunch_room,
 width_extremes). If libsndfile is missing, CMake will skip the target and tell
 you to install it (`libsndfile-dev` on Debian-ish machines).
 
+Want the Teensy serial scope vibe on the host? Pass `--scope` to log the live
+dynamic width pulse, transient meter, and limiter gain reduction every few
+blocks while the render runs.
+
 ## Plugins: JUCE wrapper
 
 `plugins/` already builds a VST3 and a standalone app via JUCE 7. It leans on

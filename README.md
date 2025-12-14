@@ -4,33 +4,36 @@ A mastering‑style “space shaper”: mid/side encode → tone shaping → **d
 Makes dense mixes breathe (tails wider, hits focused). Drop it after any instrument.
 
 ## Signal flow (ASCII cheat sheet)
-
 ```
 [I2S In] → MS encode
           → Mid tilt (pivot ~1 kHz) → Side air shelf → DynWidth (transient-following)
           → MS decode → Lookahead limiter (tilted detector, adaptive release)
           → SoftSat (mild post safety) → Output trim → [I2S Out]
 ```
+- Block-by-block intent + clamp/smoothing cheats live in [`docs/block_notes.md`](docs/block_notes.md).
+- The limiter runs its own delay line so dry/wet and bypass crossfades stay phase-honest. Detector tilt is detector-only.
 
-### Why these moves
+## How to navigate this notebook
+- **Instant context** → start with a platform quick start (Teensy or laptop) to hear the chain.
+- **Deep dive** → skim the “Why it sounds this way” notebook chunks near the bottom, then hop into `docs/block_notes.md`.
+- **Host curious** → the desktop quick start below mirrors the Teensy flow so you can keep the embedded mindset while in DAW land.
 
-- [Mid/side matrix](docs/block_notes.md#msmatrix) — adds/subtracts only to pivot between L/R and M/S without touching gain so the downstream moves stay honest.
-- [Tilt](docs/block_notes.md#tilteq) — one-pole slant around ~1 kHz for quick warm/bright nudges; clamped to a sensible ±6 dB/oct so you can ride it like a tone knob.
-- [Air shelf](docs/block_notes.md#aireq) — single split shelf that opens cymbals without phase weirdness; the pole itself keeps the top end smooth even when you twist fast.
-- [Dyn width](docs/block_notes.md#dynwidth) — narrows hits, blooms tails, and low-anchors the sides so subs stay glued while the stage breathes.
-- [Limiter](docs/block_notes.md#limiterlookahead) — short-delay clamp with a tilted detector and adaptive release so bright hits get caught early and sustain floats; wet/dry/bypass all ride the same delay for phase-honest mix moves.
-- [Soft sat](docs/block_notes.md#softsaturation) — tanh grit mapped to ~1–10× drive with auto-normalization, meant as polite tape-ish hair rather than a splatter box.
+## Where to start
+- **Teensy / hardware:** flash the minimal sketch, twist pots, watch the serial scope breathe.
+- **Desktop / host:** build the CMake preset, render a file through `horizon-cli`, then open the plugin to see every knob → setter map.
 
-Block-by-block intent + clamp/smoothing cheats live in [`docs/block_notes.md`](docs/block_notes.md).
+## Teensy quick start (hardware-first)
+- Open `examples/minimal/minimal.ino` in Arduino + TeensyDuino.
+- Select Teensy 4.0/4.1 and upload.
+- Feed stereo program and try presets (see CSV + JSON).
+- Feeling adventurous? Jump straight to `examples/preset_morph/preset_morph.ino` to hear slow-motion morphs between a cinema-wide wash and a gentle bus chain.
+- Need visuals? Flash `examples/horizon_scope/horizon_scope.ino` and watch width/transient/GR scroll by at 115200 baud.
 
-The limiter runs its own delay line so dry/wet and bypass crossfades stay phase-honest. Detector tilt is detector-only.
+## Desktop quick start (CLI + presets + plugin map)
+This is the laptop twin of the Teensy quick start—same smoothing and guardrails, just wrapped for CMake instead of Arduino. Treat it like a studio notebook page that shows how the embedded discipline survives on the host.
 
-## Platform
-Teensy 4.x + SGTL5000 (Teensy Audio Library), 44.1 kHz / 128‑sample blocks.
-
-### Host/desktop build (Mac/Win/Linux)
-- Need the DSP core without the Arduino harness? There’s now a tiny CMake target, `horizon_dsp`, that bundles every block plus the host-friendly `HostHorizonProcessor` glue.
-- Presets are baked into `CMakePresets.json` so you can go straight to a host build without hunting flags:
+1) **Build the host preset**
+- CMake presets bake in sane defaults so you can configure + build without spelunking flags:
   ```bash
   cmake --preset linux-clang
   cmake --build --preset linux-clang
@@ -38,16 +41,40 @@ Teensy 4.x + SGTL5000 (Teensy Audio Library), 44.1 kHz / 128‑sample blocks.
   ```
   - macOS Universal 2: `cmake --preset macos-universal-release` → `cmake --build --preset macos-universal-release`
   - Windows 11 + MSVC: `cmake --preset windows-msvc-release` → `cmake --build --preset windows-msvc-release`
-- Prefer raw CMake? The classic `cmake -S . -B cmake-build -DCMAKE_BUILD_TYPE=Release` flow still works.
-- `sync_compile_commands` is an always-on helper target to mirror the PlatformIO lint shim: `cmake --build --preset linux-clang --target sync_compile_commands` drops a fresh `compile_commands.json` at the repo root for your editor.
-- See [`docs/host_portable.md`](docs/host_portable.md) for the core library story, and [`docs/host_io_adapters.md`](docs/host_io_adapters.md) for the “how do I hear it?” trio: a libsndfile-powered CLI renderer, the JUCE plugin, and a PortAudio live loop.
+- Prefer raw CMake? `cmake -S . -B cmake-build -DCMAKE_BUILD_TYPE=Release` still works. `sync_compile_commands` rides along as an always-on helper target for clangd/IntelliSense vibes.
 
-## Quick Start
-- Open `examples/minimal/minimal.ino` in Arduino + TeensyDuino.
-- Select Teensy 4.0/4.1 and upload.
-- Feed stereo program and try presets (see CSV + JSON).
-- Feeling adventurous? Jump straight to `examples/preset_morph/preset_morph.ino`
-  to hear slow-motion morphs between a cinema-wide wash and a gentle bus chain.
+2) **Run the CLI like you would a Teensy preset**
+- Render a file with a preset baked in:
+  ```bash
+  ./cmake-out/linux-clang/horizon_cli input.wav output.flac --preset bus_glue
+  ./cmake-out/linux-clang/horizon_cli --list-presets
+  ```
+- Want the serial-scope feel while you bounce? Add `--scope` to log the block-level width, transient pulse, and limiter GR. Example line:
+  ```
+  [scope] f0 | W 0.64 [=============....] | T 0.21 [++........] | GR -2.3 dB [#####.......]
+  ```
+  Same telemetry as the Teensy serial scope, just breathing through stdio instead of USB.
+
+3) **Map the plugin knobs (DAW view)**
+- Build the JUCE target (VST3 + standalone):
+  ```bash
+  cmake -S plugins -B plugins/build
+  cmake --build plugins/build
+  ```
+- Every control in the editor forwards directly to a `HostHorizonProcessor` setter:
+  - Width → `setWidth` (0 = mono, 1 = max)
+  - Dyn Width → `setDynWidth` (transients tug sides in before tails reopen)
+  - Transient → `setTransientSens`
+  - Tilt → `setMidTilt`
+  - Air Freq/Gain → `setSideAir(freq, gain)`
+  - Low Anchor → `setLowAnchor`
+  - Dirt → `setDirt`
+  - Ceiling / Release / Lookahead / Detector Tilt / Limit Mix / Link → limiter setters (`setCeiling`, `setLimiterReleaseMs`, `setLimiterLookaheadMs`, `setLimiterDetectorTilt`, `setLimiterMix`, `setLimiterLinkMode`)
+  - Mix → `setMix`, Out Trim → `setOutputTrim`
+- Hover text in the plugin matches these names so students can trace knob → setter → mix move without mystery glue. Full map + build quirks live in [`plugins/README.md`](plugins/README.md).
+
+## Platform
+Teensy 4.x + SGTL5000 (Teensy Audio Library), 44.1 kHz / 128‑sample blocks. Host builds reuse the exact DSP core via `HostHorizonProcessor` so demos, CI, and DAWs all share the same brain.
 
 ## PlatformIO, CI, and host tricks
 Quick map (details live in the sections below):
@@ -79,9 +106,7 @@ Quick map (details live in the sections below):
 - Point your editor at that database (VS Code already ships a `.vscode/c_cpp_properties.json` that hooks `compile_commands.json` and forces the lint shim include path) and re-index so host-side scanning stops flagging `F_CPU_ACTUAL`, `IRQ_SOFTWARE`, and `NVIC_SET_PENDING` as undefined.
 
 ## Control ranges (cheat sheet)
-- Width lives in **0.0..1.0**. Static width is clamped there, and the dynamic width block
-  only breathes inside that window so pots/encoders don’t promise "1.5x" magic that
-  never actually happens.
+- Width lives in **0.0..1.0**. Static width is clamped there, and the dynamic width block only breathes inside that window so pots/encoders don’t promise "1.5x" magic that never actually happens.
 - Limiter: ceiling clamps to **-12..-0.1 dBFS** across code, CSV, and this cheat sheet (no fake "0 dB" promises—leave a whisper of headroom), release 20..200 ms (adapts shorter on transient hits), lookahead 1..8 ms, detector tilt -3..+3 dB/oct, mix 0..1, link mode = Linked or Mid/Side, bypass is a 5 ms crossfade.
 
 ## Folders
@@ -94,30 +119,24 @@ Quick map (details live in the sections below):
 MIT — see `LICENSE`.
 
 ## Examples
-
 - `examples/minimal/minimal.ino` — bare wiring: I2S in → Horizon → I2S out.
 - `examples/horizon_scope/horizon_scope.ino` — ASCII "scope" showing block width, transient activity and limiter gain.
-- `examples/preset_morph/preset_morph.ino` — hands-free tour of two contrasting presets:
-  a slow morph to cartoonishly wide stages, then a pillow-soft mastering chain.
+- `examples/preset_morph/preset_morph.ino` — hands-free tour of two contrasting presets: a slow morph to cartoonishly wide stages, then a pillow-soft mastering chain.
 
 ## Limiter telemetry + LED ladder
-
 - Gain reduction (dB) maps to an 8-step ladder at: **−1, −2, −3, −4, −6, −8, −10, −12 dB** (higher index = deeper clamp).
 - Telemetry from `LimiterLookahead::Telemetry` gives per-block peak in/out plus GR dB via `getLimiterGRdB()` for quick logging or UI.
 - Example serial line (0.5 s cadence): `GR(dB): -2.3 | Pin: 0.89 Pout: 0.79 | LEDs: 4 | Clip: no`
 
 ## Latency notes
-
 - Audio path latency = **lookahead delay + I2S buffer**. Default ~5–6 ms lookahead keeps the limiter transparent; parallel mix and bypass are already delay-compensated inside the limiter.
 
 ### Making the limiter actually look ahead
-
 - **Prime the delay**: call `LimiterLookahead::setup()` once at boot so the circular buffer is zeroed and the crossfade math is warmed up instead of spewing whatever was on the stack.
 - **Pick a lead time**: set `setLookaheadMs(1..8)` to taste (5–6 ms is the sweet “clairvoyant fader ride” default). The setter converts ms → samples and clamps so we never outrun the buffer.
 - **Stay on the delayed rails**: process audio through `processStereo`, which writes the live sample to the buffer, reads the delayed copy for output, and drives the detector off the undelayed feed so gain reduction lands before the delayed program hits your ears. Wet/dry and bypass already ride the same delay so phase stays honest.
 
 ## Why it sounds this way (studio notebook addenda)
-
 - **Limiter lookahead math** — The limiter runs a short delay line for the program path but drives its envelope from a tilted detector so bright stuff pops the gain computer faster. Lookahead is set in milliseconds and turned into samples for a circular buffer; the detector uses linked peaks (or mid/side maxima) and a smoothed gain request that can only clamp faster than it releases. Release adapts: a transient average steers the time constant between a 10 ms-ish fast lane and a slower base release so cymbal sustains float while snares snap back. Wet/dry stays phase-aligned because both paths ride the same delay. Safety clipping sits after gain to catch rogue peaks but never replaces the envelope.
-- **Transient activity curve** — The transient meter is a two-time-constant envelope follower (2 ms attack, 80 ms release) with a sliding threshold. Sensitivity 0..1 moves that threshold from about 0.05 to 0.5 of full-scale, and anything above it maps linearly to a 0..1 “activity” pulse. That pulse feeds dynamic width and limiter release decisions, meaning the harder the stick hit, the quicker the release rebounds and the more the stage narrows before blooming back out. 
+- **Transient activity curve** — The transient meter is a two-time-constant envelope follower (2 ms attack, 80 ms release) with a sliding threshold. Sensitivity 0..1 moves that threshold from about 0.05 to 0.5 of full-scale, and anything above it maps linearly to a 0..1 “activity” pulse. That pulse feeds dynamic width and limiter release decisions, meaning the harder the stick hit, the quicker the release rebounds and the more the stage narrows before blooming back out.
 - **Width-to-mid/side mapping** — Dynamic width isn’t a random chorus trick: the side channel is split by a gentle low-pass anchored around 40–250 Hz so sub energy stays centered. Transient activity crossfades between two static widths: a narrowed-on-hit value and a widened tail. High band uses the chosen width directly; lows get an extra mono pull (25% of the chosen width) to keep kick/bass glued. Mid passes through untouched here, but the width fader swings are logged per sample so you can meter how the stage breathes.
