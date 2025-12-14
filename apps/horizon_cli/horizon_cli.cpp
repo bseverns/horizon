@@ -50,6 +50,13 @@ std::string to_lower(std::string s) {
   return s;
 }
 
+std::string make_bar(float normalized, int width, char fill = '#') {
+  normalized        = std::max(0.0f, std::min(1.0f, normalized));
+  const int filled  = static_cast<int>(std::round(normalized * static_cast<float>(width)));
+  const int hollow  = std::max(0, width - filled);
+  return std::string(filled, fill) + std::string(hollow, '.');
+}
+
 bool load_audio(const std::string& path, AudioFile& out) {
   SF_INFO info{};
   SNDFILE* file = sf_open(path.c_str(), SFM_READ, &info);
@@ -147,7 +154,22 @@ void apply_preset(HostHorizonProcessor& proc, const Preset& p) {
   proc.setMix(p.mix);
 }
 
-AudioFile render_with_horizon(const AudioFile& input, const Preset& preset, int blockSize) {
+void print_scope_line(size_t frameOffset, const HostHorizonProcessor& horizon) {
+  // Match the embedded serial scope vibe: narrow text HUD with width and limiter GR.
+  const float width      = horizon.getBlockWidth();
+  const float transient  = horizon.getBlockTransient();
+  const float grDb       = horizon.getLimiterGRdB();
+  const float grDepthNrm = std::min(1.0f, std::fabs(grDb) / 12.0f);  // assume -12 dB is “full grip”.
+
+  std::cout << "[scope] f" << frameOffset << " | W " << width << " [" << make_bar(width, 18, '=')
+            << "] | T " << transient << " [" << make_bar(transient, 10, '+')
+            << "] | GR " << grDb << " dB [" << make_bar(grDepthNrm, 12, '#') << "]\n";
+}
+
+AudioFile render_with_horizon(const AudioFile& input,
+                              const Preset& preset,
+                              int blockSize,
+                              bool scopeMode) {
   AudioFile out;
   out.channels   = 2;
   out.sampleRate = input.sampleRate;
@@ -161,7 +183,10 @@ AudioFile render_with_horizon(const AudioFile& input, const Preset& preset, int 
   std::vector<float> outL(blockSize, 0.0f);
   std::vector<float> outR(blockSize, 0.0f);
 
-  const size_t totalFrames = input.samples.size() / 2;
+  const size_t totalFrames  = input.samples.size() / 2;
+  const size_t scopeStride  = 8;  // don’t spam the terminal; peek every few blocks.
+  size_t       blockCounter = 0;
+
   for (size_t frame = 0; frame < totalFrames; frame += static_cast<size_t>(blockSize)) {
     const size_t framesThisBlock = std::min(static_cast<size_t>(blockSize), totalFrames - frame);
     std::fill(inL.begin(), inL.end(), 0.0f);
@@ -179,15 +204,21 @@ AudioFile render_with_horizon(const AudioFile& input, const Preset& preset, int 
       out.samples[2 * (frame + i) + 0] = outL[i];
       out.samples[2 * (frame + i) + 1] = outR[i];
     }
+
+    if (scopeMode && (blockCounter % scopeStride == 0)) {
+      print_scope_line(frame, horizon);
+    }
+    ++blockCounter;
   }
 
   return out;
 }
 
 void print_usage(const char* argv0) {
-  std::cout << "horizon-cli <input.(wav|aiff|flac)> <output.(wav|aiff|flac)> [--preset name] [--block N]\n";
+  std::cout << "horizon-cli <input.(wav|aiff|flac)> <output.(wav|aiff|flac)> [--preset name] [--block N] [--scope]\n";
   std::cout << "  --preset name   One of: bus_glue, crunch_room, width_extremes (defaults to bus_glue)\n";
   std::cout << "  --block N       Override block size (default 512).\n";
+  std::cout << "  --scope         Print a serial-scope-style log of width + limiter GR while rendering.\n";
   std::cout << "  --list-presets  Print the preset menu and exit.\n";
 }
 
@@ -203,6 +234,7 @@ int main(int argc, char** argv) {
   std::string outputPath = "horizon_out.wav";
   std::string presetName = "bus_glue";
   int blockSize          = 512;
+  bool scopeMode         = false;
 
   inputPath = argv[1];
   if (argc >= 3) {
@@ -215,6 +247,8 @@ int main(int argc, char** argv) {
       presetName = argv[++i];
     } else if (arg == "--block" && i + 1 < argc) {
       blockSize = std::max(16, std::atoi(argv[++i]));
+    } else if (arg == "--scope") {
+      scopeMode = true;
     } else if (arg == "--list-presets") {
       print_presets();
       return 0;
@@ -235,7 +269,7 @@ int main(int argc, char** argv) {
     return 1;
   }
 
-  AudioFile output = render_with_horizon(input, preset, blockSize);
+  AudioFile output = render_with_horizon(input, preset, blockSize, scopeMode);
   if (!write_audio(outputPath, output)) {
     return 1;
   }
