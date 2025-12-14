@@ -28,6 +28,20 @@ The limiter runs its own delay line so dry/wet and bypass crossfades stay phase-
 ## Platform
 Teensy 4.x + SGTL5000 (Teensy Audio Library), 44.1 kHz / 128‑sample blocks.
 
+### Host/desktop build (Mac/Win/Linux)
+- Need the DSP core without the Arduino harness? There’s now a tiny CMake target, `horizon_dsp`, that bundles every block plus the host-friendly `HostHorizonProcessor` glue.
+- Presets are baked into `CMakePresets.json` so you can go straight to a host build without hunting flags:
+  ```bash
+  cmake --preset linux-clang
+  cmake --build --preset linux-clang
+  cmake --install cmake-out/linux-clang --prefix /where/you/want/it
+  ```
+  - macOS Universal 2: `cmake --preset macos-universal-release` → `cmake --build --preset macos-universal-release`
+  - Windows 11 + MSVC: `cmake --preset windows-msvc-release` → `cmake --build --preset windows-msvc-release`
+- Prefer raw CMake? The classic `cmake -S . -B cmake-build -DCMAKE_BUILD_TYPE=Release` flow still works.
+- `sync_compile_commands` is an always-on helper target to mirror the PlatformIO lint shim: `cmake --build --preset linux-clang --target sync_compile_commands` drops a fresh `compile_commands.json` at the repo root for your editor.
+- See [`docs/host_portable.md`](docs/host_portable.md) for the core library story, and [`docs/host_io_adapters.md`](docs/host_io_adapters.md) for the “how do I hear it?” trio: a libsndfile-powered CLI renderer, the JUCE plugin, and a PortAudio live loop.
+
 ## Quick Start
 - Open `examples/minimal/minimal.ino` in Arduino + TeensyDuino.
 - Select Teensy 4.0/4.1 and upload.

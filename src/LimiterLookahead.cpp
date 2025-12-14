@@ -3,8 +3,12 @@
 // coming, pre-emphasize the detector so bright hits register, modulate release
 // based on transient activity, and crossfade bypass moves so nothing clicks.
 #include "LimiterLookahead.h"
+
+#if __has_include(<Audio.h>)
 #include <Audio.h>
-#include <math.h>
+#endif
+
+#include <cmath>
 
 static inline float clampf_lim(float x, float lo, float hi) {
   return (x < lo) ? lo : (x > hi ? hi : x);
