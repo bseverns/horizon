@@ -1,8 +1,23 @@
 #pragma once
-#include <Arduino.h>
+#include <cstdint>
+
+#if __has_include(<Audio.h>)
+#include <Audio.h>
+#endif
+
 #include "TiltEQ.h"
 #include "TransientDetector.h"
 #include "SoftSaturation.h"
+
+// Host-friendly defaults so this header builds cleanly without Arduino/Teensy
+// toolchains. Teensy builds still pull the real constants from Audio.h.
+#ifndef AUDIO_SAMPLE_RATE_EXACT
+#define AUDIO_SAMPLE_RATE_EXACT 44100.0f
+#endif
+
+#ifndef AUDIO_BLOCK_SAMPLES
+#define AUDIO_BLOCK_SAMPLES 128
+#endif
 
 // See docs/block_notes.md for musician-facing notes on this block.
 
