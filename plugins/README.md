@@ -29,6 +29,20 @@ CMake 3.28+ ships policy **CMP0175**, which complains about
 its own helpers, so this project pins the policy to `OLD` to keep the configure
 log from filling up with noise while we focus on the DSP experiments.
 
+## CI builds (because testing on three OSes is cheaper than booking studio time)
+
+GitHub Actions runs the same two-step CMake dance as above —
+
+```bash
+cmake -S plugins -B plugins/build
+cmake --build plugins/build
+```
+
+— on Windows, macOS, and Linux to spit out the JUCE VST3 and standalone targets.
+Artifacts from each run live in the GitHub Actions tab for the repo, so you can
+grab a fresh build without touching your compiler. VST2 stays intentionally
+disabled; we’re not spelunking retired SDKs just to hear the limiter breathe.
+
 ## What lives here
 
 - **`Source/`**: A JUCE `AudioProcessor` and editor that forward every control to
