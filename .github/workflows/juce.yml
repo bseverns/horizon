@@ -11,7 +11,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        # macOS 15+ removes APIs JUCE still leans on; pin to macos-13 for a
+        # friendlier SDK while upstream sorts it out.
+        os: [ubuntu-latest, macos-13, windows-latest]
 
     steps:
       - name: Checkout repository
@@ -45,21 +47,21 @@ jobs:
             libxinerama-dev \
             libxrandr-dev
 
-      - name: Prep toolchain (macOS)
-        if: matrix.os == 'macos-latest'
-        shell: bash
-        run: |
-          # macOS runners install Xcode 15.4 at /Applications/Xcode_15.4.app,
-          # but the image occasionally ships without that version. Pick it when
-          # present, otherwise stay on the pre-selected toolchain instead of
-          # face-planting.
-          if [ -d /Applications/Xcode_15.4.app/Contents/Developer ]; then
-            sudo xcode-select -s /Applications/Xcode_15.4.app/Contents/Developer
-          else
-            echo "Xcode 15.4 missing; keeping default $(xcode-select -p)"
-          fi
-          export HOMEBREW_NO_AUTO_UPDATE=1
-          brew install ninja cmake
+        - name: Prep toolchain (macOS)
+          if: matrix.os == 'macos-13'
+          shell: bash
+          run: |
+            # macOS runners install Xcode 15.4 at /Applications/Xcode_15.4.app,
+            # but the image occasionally ships without that version. Pick it when
+            # present, otherwise stay on the pre-selected toolchain instead of
+            # face-planting.
+            if [ -d /Applications/Xcode_15.4.app/Contents/Developer ]; then
+              sudo xcode-select -s /Applications/Xcode_15.4.app/Contents/Developer
+            else
+              echo "Xcode 15.4 missing; keeping default $(xcode-select -p)"
+            fi
+            export HOMEBREW_NO_AUTO_UPDATE=1
+            brew install ninja cmake
 
       - name: Prep toolchain (Windows)
         if: matrix.os == 'windows-latest'
