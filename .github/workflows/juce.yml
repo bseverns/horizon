@@ -100,6 +100,11 @@ jobs:
               # gets a munged "-arch x86_64 -arch arm64" string and bails).
               cmake_args+=("-DCMAKE_OSX_ARCHITECTURES=x86_64;arm64")
               cmake_args+=("-DCMAKE_OSX_SYSROOT=${MACOSX_SDK}")
+              # Target a pre-15 macOS so JUCE keeps using the older windowing
+              # APIs that Apple yanked in the 15.* SDK. Deployment target must
+              # be separate from the SDK path or clang treats the removed
+              # symbols (e.g. CGWindowListCreateImage) as hard errors.
+              cmake_args+=("-DCMAKE_OSX_DEPLOYMENT_TARGET=12.0")
             fi
 
             echo "Configuring with: ${cmake_args[*]}"
