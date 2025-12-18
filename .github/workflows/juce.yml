@@ -11,9 +11,10 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # macOS 15+ removes APIs JUCE still leans on; pin to macos-13 for a
-        # friendlier SDK while upstream sorts it out.
-        os: [ubuntu-latest, macos-13, windows-latest]
+        # macOS-13 images are headed for retirement; swing to macos-15-intel so
+        # JUCE still finds the legacy SDK bits it wants while we track upstream
+        # fixes for newer APIs.
+        os: [ubuntu-latest, macos-15-intel, windows-latest]
 
     steps:
       - name: Checkout repository
@@ -48,7 +49,7 @@ jobs:
             libxrandr-dev
 
       - name: Prep toolchain (macOS)
-        if: matrix.os == 'macos-13'
+        if: matrix.os == 'macos-15-intel'
         shell: bash
         run: |
           # macOS runners install Xcode 15.4 at /Applications/Xcode_15.4.app,
@@ -98,7 +99,7 @@ jobs:
       # - Windows: plugins/build/juce-windows-bundle.zip wraps HorizonJuce_artefacts\Release
       #            VST3/Horizon.vst3 + Standalone/Horizon.exe
       - name: Package JUCE outputs (macOS)
-        if: matrix.os == 'macos-13'
+        if: matrix.os == 'macos-15-intel'
         shell: bash
         run: |
           set -euo pipefail
@@ -120,7 +121,7 @@ jobs:
             "${artefact_root}/VST3/Horizon.vst3 and ${artefact_root}/Standalone/Horizon.app"
 
       - name: Upload JUCE artifacts (macOS)
-        if: matrix.os == 'macos-13'
+        if: matrix.os == 'macos-15-intel'
         uses: actions/upload-artifact@v4
         with:
           name: juce-macos-artefacts
