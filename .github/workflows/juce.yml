@@ -11,11 +11,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # macOS-13 images are headed for retirement; target macos-14 (Apple
-        # silicon) where Xcode 15.x and the macOS 14 SDK remain available. We
-        # still aim for a universal Mac build (arm64 + x86_64) so Intel users
-        # aren't left out.
-        os: [ubuntu-latest, macos-14, windows-latest]
+        # macOS-13 images are headed for retirement; target macos-15 (Apple
+        # silicon) and pin a modern Xcode 16 so we stop fighting vanishing SDK
+        # paths while still shipping a universal build (arm64 + x86_64) for
+        # Intel holdouts.
+        os: [ubuntu-latest, macos-15, windows-latest]
 
     steps:
       - name: Checkout repository
@@ -25,13 +25,13 @@ jobs:
         shell: bash
         run: cmake -E rm -rf plugins/build
 
-      # macOS runners ship multiple Xcodes. Force a 15.x toolchain (with a
-      # macOS 14 SDK tucked inside) before we start sniffing for the SDK.
+      # macOS runners ship multiple Xcodes. Force Xcode 16 so we get a recent
+      # SDK without the broken Xcode 15.* paths that have been biting us.
       - name: Pin Xcode (macOS)
-        if: matrix.os == 'macos-14'
+        if: matrix.os == 'macos-15'
         uses: maxim-lobanov/setup-xcode@v1
         with:
-          xcode-version: "15.4"
+          xcode-version: "16.4"
 
       - name: Prep toolchain (Ubuntu)
         if: matrix.os == 'ubuntu-latest'
@@ -58,25 +58,15 @@ jobs:
             libxrandr-dev
 
       - name: Prep toolchain (macOS)
-        if: matrix.os == 'macos-14'
+        if: matrix.os == 'macos-15'
         shell: bash
         run: |
           set -euo pipefail
 
-          # Find a macOS 14 SDK (any minor version) so JUCE can keep using
-          # APIs removed from the macOS 15 SDK. Prefer an Xcode bundle that
-          # ships it and pivot Xcode-select accordingly.
-          macosx14_sdk=$(ls -d /Applications/Xcode_*/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14*.sdk 2>/dev/null | head -n 1 || true)
-
-          if [[ -n "${macosx14_sdk}" ]]; then
-            macosx14_dev="$(dirname "$(dirname "${macosx14_sdk}")")"
-            echo "Switching to Xcode at ${macosx14_dev} to reach ${macosx14_sdk}"
-            sudo xcode-select -s "${macosx14_dev}"
-            echo "MACOSX14_SDK=${macosx14_sdk}" >> "$GITHUB_ENV"
-          else
-            echo "macOS 14 SDK not found even after pinning Xcode 15.4; bail so we don't chew cycles on an impossible build" >&2
-            exit 1
-          fi
+          sdk_path=$(xcrun --sdk macosx --show-sdk-path)
+          dev_dir=$(xcode-select --print-path)
+          echo "Rolling with Xcode at ${dev_dir} using SDK ${sdk_path} (expecting Xcode 16.x)"
+          echo "MACOSX_SDK=${sdk_path}" >> "$GITHUB_ENV"
 
           export HOMEBREW_NO_AUTO_UPDATE=1
           brew install ninja cmake
@@ -103,19 +93,13 @@ jobs:
               -DJUCE_VST3_CAN_REPLACE_VST2=0
             )
 
-            if [[ "${{ matrix.os }}" == "macos-14" ]]; then
-              # Universal (arm64 + x86_64) and pinned to the macOS 14 SDK so
-              # JUCE can still reference APIs removed from the 15 SDK.
-              # Use an array so the semicolon survives shell parsing and CMake
-              # receives a true list (otherwise clang gets a munged
-              # "-arch x86_64 -arch arm64" string and bails).
+            if [[ "${{ matrix.os }}" == "macos-15" ]]; then
+              # Universal (arm64 + x86_64) and pinned to the default SDK that
+              # ships with Xcode 16. Use an array so the semicolon survives
+              # shell parsing and CMake receives a true list (otherwise clang
+              # gets a munged "-arch x86_64 -arch arm64" string and bails).
               cmake_args+=("-DCMAKE_OSX_ARCHITECTURES=x86_64;arm64")
-
-              if [[ -n "${MACOSX14_SDK:-}" ]]; then
-                cmake_args+=("-DCMAKE_OSX_SYSROOT=${MACOSX14_SDK}")
-              else
-                echo "No macOS 14 SDK detected; using default sysroot and expecting JUCE to honor older APIs" >&2
-              fi
+              cmake_args+=("-DCMAKE_OSX_SYSROOT=${MACOSX_SDK}")
             fi
 
             echo "Configuring with: ${cmake_args[*]}"
@@ -138,7 +122,7 @@ jobs:
       # - Windows: plugins/build/juce-windows-bundle.zip wraps HorizonJuce_artefacts\Release
       #            VST3/Horizon.vst3 + Standalone/Horizon.exe
       - name: Package JUCE outputs (macOS)
-        if: matrix.os == 'macos-14'
+        if: matrix.os == 'macos-15'
         shell: bash
         run: |
           set -euo pipefail
@@ -160,7 +144,7 @@ jobs:
             "${artefact_root}/VST3/Horizon.vst3 and ${artefact_root}/Standalone/Horizon.app"
 
       - name: Upload JUCE artifacts (macOS)
-        if: matrix.os == 'macos-14'
+        if: matrix.os == 'macos-15'
         uses: actions/upload-artifact@v4
         with:
           name: juce-macos-artefacts
