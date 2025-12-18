@@ -73,6 +73,11 @@ This is the laptop twin of the Teensy quick start—same smoothing and guardrail
   - Mix → `setMix`, Out Trim → `setOutputTrim`
 - Hover text in the plugin matches these names so students can trace knob → setter → mix move without mystery glue. Full map + build quirks live in [`plugins/README.md`](plugins/README.md).
 
+### Where builds land (so you can find the bits you just compiled)
+- **CMake presets** drop CLI + library binaries under `cmake-out/<preset>/` (e.g. `cmake-out/linux-clang/`).
+- **Raw `cmake -B cmake-build`** keeps everything in the `cmake-build/` tree if you’d rather skip presets.
+- **JUCE plugin builds** live in `plugins/build`, with JUCE’s defaults giving you `plugins/build/VST3/` and `plugins/build/Standalone/` drop points. Need deeper path spelunking? Peek at [`plugins/README.md`](plugins/README.md) for the nitty-gritty.
+
 ## Platform
 Teensy 4.x + SGTL5000 (Teensy Audio Library), 44.1 kHz / 128‑sample blocks. Host builds reuse the exact DSP core via `HostHorizonProcessor` so demos, CI, and DAWs all share the same brain.
 
