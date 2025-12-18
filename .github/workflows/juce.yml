@@ -17,6 +17,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Clear any pre-checked-in build cache
+        shell: bash
+        run: cmake -E rm -rf plugins/build
+
       - name: Prep toolchain (Ubuntu)
         if: matrix.os == 'ubuntu-latest'
         shell: bash
