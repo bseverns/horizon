@@ -25,6 +25,14 @@ jobs:
         shell: bash
         run: cmake -E rm -rf plugins/build
 
+      # macOS runners ship multiple Xcodes. Force a 15.x toolchain (with a
+      # macOS 14 SDK tucked inside) before we start sniffing for the SDK.
+      - name: Pin Xcode (macOS)
+        if: matrix.os == 'macos-15-intel'
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: "15.4"
+
       - name: Prep toolchain (Ubuntu)
         if: matrix.os == 'ubuntu-latest'
         shell: bash
@@ -66,7 +74,8 @@ jobs:
             sudo xcode-select -s "${macosx14_dev}"
             echo "MACOSX14_SDK=${macosx14_sdk}" >> "$GITHUB_ENV"
           else
-            echo "macOS 14 SDK not found on runner; staying on $(xcode-select -p) and hoping JUCE avoids macOS 15 SDK removals" >&2
+            echo "macOS 14 SDK not found even after pinning Xcode 15.4; bail so we don't chew cycles on an impossible build" >&2
+            exit 1
           fi
 
           export HOMEBREW_NO_AUTO_UPDATE=1
