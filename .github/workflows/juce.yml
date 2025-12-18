@@ -1,0 +1,67 @@
+name: JUCE CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    name: JUCE build on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Prep toolchain (Ubuntu)
+        if: matrix.os == 'ubuntu-latest'
+        shell: bash
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential ninja-build cmake pkg-config
+
+      - name: Prep toolchain (macOS)
+        if: matrix.os == 'macos-latest'
+        shell: bash
+        run: |
+          brew update
+          brew install ninja cmake
+
+      - name: Prep toolchain (Windows)
+        if: matrix.os == 'windows-latest'
+        shell: powershell
+        run: |
+          choco install -y ninja cmake
+
+      - name: Configure CMake (Ninja on *nix, Visual Studio on Windows)
+        shell: bash
+        run: |
+          if [[ "${{ matrix.os }}" == "windows-latest" ]]; then
+            cmake -S plugins -B plugins/build -G "Visual Studio 17 2022" -A x64 \
+              -DCMAKE_BUILD_TYPE=Release \
+              -DJUCE_VST3_CAN_REPLACE_VST2=0
+          else
+            cmake -S plugins -B plugins/build -G Ninja \
+              -DCMAKE_BUILD_TYPE=Release \
+              -DJUCE_VST3_CAN_REPLACE_VST2=0
+          fi
+        env:
+          # Punk-rock note: VST2 stays disabled; VST3 can NOT replace it.
+          JUCE_VST3_CAN_REPLACE_VST2: "0"
+
+      - name: Build
+        shell: bash
+        run: |
+          cmake --build plugins/build --config Release
+
+      - name: Upload JUCE artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: juce-${{ matrix.os }}
+          path: |
+            plugins/build
+          if-no-files-found: warn
