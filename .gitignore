@@ -15,5 +15,4 @@ CMakeCache.txt
 CMakeUserPresets.json
 install_manifest.txt
 compile_commands.json
-plugins/build/CMakeFiles
-plugins/build/_deps
+plugins/build
