@@ -1,0 +1,99 @@
+name: JUCE CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    name: JUCE build on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        # macOS 15+ removes APIs JUCE still leans on; pin to macos-13 for a
+        # friendlier SDK while upstream sorts it out.
+        os: [ubuntu-latest, macos-13, windows-latest]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Clear any pre-checked-in build cache
+        shell: bash
+        run: cmake -E rm -rf plugins/build
+
+      - name: Prep toolchain (Ubuntu)
+        if: matrix.os == 'ubuntu-latest'
+        shell: bash
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            build-essential \
+            ninja-build \
+            cmake \
+            pkg-config \
+            libasound2-dev \
+            libcurl4-openssl-dev \
+            libfreetype6-dev \
+            libgl1-mesa-dev \
+            libglu1-mesa-dev \
+            libgtk-3-dev \
+            libwebkit2gtk-4.1-dev \
+            libx11-dev \
+            libxcomposite-dev \
+            libxcursor-dev \
+            libxext-dev \
+            libxinerama-dev \
+            libxrandr-dev
+
+        - name: Prep toolchain (macOS)
+          if: matrix.os == 'macos-13'
+          shell: bash
+          run: |
+            # macOS runners install Xcode 15.4 at /Applications/Xcode_15.4.app,
+            # but the image occasionally ships without that version. Pick it when
+            # present, otherwise stay on the pre-selected toolchain instead of
+            # face-planting.
+            if [ -d /Applications/Xcode_15.4.app/Contents/Developer ]; then
+              sudo xcode-select -s /Applications/Xcode_15.4.app/Contents/Developer
+            else
+              echo "Xcode 15.4 missing; keeping default $(xcode-select -p)"
+            fi
+            export HOMEBREW_NO_AUTO_UPDATE=1
+            brew install ninja cmake
+
+      - name: Prep toolchain (Windows)
+        if: matrix.os == 'windows-latest'
+        shell: powershell
+        run: |
+          choco install -y ninja cmake
+
+      - name: Configure CMake (Ninja on *nix, Visual Studio on Windows)
+        shell: bash
+        run: |
+          if [[ "${{ matrix.os }}" == "windows-latest" ]]; then
+            cmake -S plugins -B plugins/build -G "Visual Studio 17 2022" -A x64 \
+              -DCMAKE_BUILD_TYPE=Release \
+              -DJUCE_VST3_CAN_REPLACE_VST2=0
+          else
+            cmake -S plugins -B plugins/build -G Ninja \
+              -DCMAKE_BUILD_TYPE=Release \
+              -DJUCE_VST3_CAN_REPLACE_VST2=0
+          fi
+        env:
+          # Punk-rock note: VST2 stays disabled; VST3 can NOT replace it.
+          JUCE_VST3_CAN_REPLACE_VST2: "0"
+
+      - name: Build
+        shell: bash
+        run: |
+          cmake --build plugins/build --config Release
+
+      - name: Upload JUCE artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: juce-${{ matrix.os }}
+          path: |
+            plugins/build
+          if-no-files-found: warn
