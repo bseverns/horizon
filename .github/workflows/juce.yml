@@ -49,10 +49,15 @@ jobs:
         if: matrix.os == 'macos-latest'
         shell: bash
         run: |
-          # macOS runners install Xcode 15.4 at this path with the toolchains
-          # under Contents/Developer. Point xcode-select there so the SDK is
-          # discoverable before we brew anything.
-          sudo xcode-select -s /Applications/Xcode_15.4.app/Contents/Developer
+          # macOS runners install Xcode 15.4 at /Applications/Xcode_15.4.app,
+          # but the image occasionally ships without that version. Pick it when
+          # present, otherwise stay on the pre-selected toolchain instead of
+          # face-planting.
+          if [ -d /Applications/Xcode_15.4.app/Contents/Developer ]; then
+            sudo xcode-select -s /Applications/Xcode_15.4.app/Contents/Developer
+          else
+            echo "Xcode 15.4 missing; keeping default $(xcode-select -p)"
+          fi
           export HOMEBREW_NO_AUTO_UPDATE=1
           brew install ninja cmake
 
