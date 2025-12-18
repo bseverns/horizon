@@ -1,3 +1,0 @@
-# Hashes of file build rules.
-897d18315232c07ff519e3cc34d11370 HorizonJuce_artefacts/JuceLibraryCode/HorizonJuce_Standalone/PkgInfo
-bbb04196638959b60ec7d30dbf8c7bdf HorizonJuce_artefacts/JuceLibraryCode/HorizonJuce_VST3/PkgInfo

@@ -1,7 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"/Users/bseverns/Documents/GitHub/horizon/plugins/build/_deps/juce-subbuild/cmake_install.cmake"
-	],
-	"Parallel" : false
-}
