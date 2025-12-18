@@ -87,21 +87,31 @@ jobs:
               -DCMAKE_BUILD_TYPE=Release \
               -DJUCE_VST3_CAN_REPLACE_VST2=0
           else
-            cmake_extra=""
+            cmake_args=(
+              -S plugins
+              -B plugins/build
+              -G Ninja
+              -DCMAKE_BUILD_TYPE=Release
+              -DJUCE_VST3_CAN_REPLACE_VST2=0
+            )
+
             if [[ "${{ matrix.os }}" == "macos-15-intel" ]]; then
               # Universal (arm64 + x86_64) and pinned to the macOS 14 SDK so
               # JUCE can still reference APIs removed from the 15 SDK.
               macos_sysroot=$(xcrun --sdk macosx14 --show-sdk-path 2>/dev/null || true)
-              cmake_extra="-DCMAKE_OSX_ARCHITECTURES=\"x86_64;arm64\""
+
+              # Use an array so the semicolon survives shell parsing and CMake
+              # receives a true list (otherwise clang gets a munged
+              # "-arch x86_64 -arch arm64" string and bails).
+              cmake_args+=("-DCMAKE_OSX_ARCHITECTURES=x86_64;arm64")
+
               if [[ -n "${macos_sysroot}" ]]; then
-                cmake_extra="${cmake_extra} -DCMAKE_OSX_SYSROOT=${macos_sysroot}"
+                cmake_args+=("-DCMAKE_OSX_SYSROOT=${macos_sysroot}")
               fi
             fi
 
-            cmake -S plugins -B plugins/build -G Ninja \
-              -DCMAKE_BUILD_TYPE=Release \
-              -DJUCE_VST3_CAN_REPLACE_VST2=0 \
-              ${cmake_extra}
+            echo "Configuring with: ${cmake_args[*]}"
+            cmake "${cmake_args[@]}"
           fi
         env:
           # Punk-rock note: VST2 stays disabled; VST3 can NOT replace it.
