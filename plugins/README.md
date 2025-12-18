@@ -22,6 +22,14 @@ minimal so you can riff on it.
 > retired headers. You still get a clean VST3 + standalone build without
 > spelunking old SDK archives.
 
+### CI guardrails (Mac, Windows, Linux)
+
+GitHub Actions now runs the same configure + build steps on macOS, Windows, and
+Linux. It’s a portable smoke test: if the bot can spit out a VST3 and a
+standalone app on all three OSes, you can probably keep riffing without hunting
+for missing system libs. Linux runners install the usual X11/ALSA deps; macOS
+and Windows lean on their stock toolchains.
+
 ### Quick note on CMake warnings
 
 CMake 3.28+ ships policy **CMP0175**, which complains about
