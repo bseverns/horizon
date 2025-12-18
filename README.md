@@ -42,6 +42,7 @@ This is the laptop twin of the Teensy quick start—same smoothing and guardrail
   - macOS Universal 2: `cmake --preset macos-universal-release` → `cmake --build --preset macos-universal-release`
   - Windows 11 + MSVC: `cmake --preset windows-msvc-release` → `cmake --build --preset windows-msvc-release`
 - Prefer raw CMake? `cmake -S . -B cmake-build -DCMAKE_BUILD_TYPE=Release` still works. `sync_compile_commands` rides along as an always-on helper target for clangd/IntelliSense vibes.
+- Build trees stay out of the repo on purpose: `cmake-out/` and any `cmake-build*/` scratch pads are ignored alongside the usual `CMakeFiles/`, `CMakeCache.txt`, `CMakeUserPresets.json`, installer manifests, and generated `compile_commands.json`. Toss them at will; the tracked presets remain the source of truth.
 
 2) **Run the CLI like you would a Teensy preset**
 - Render a file with a preset baked in:
