@@ -53,23 +53,22 @@ jobs:
         if: matrix.os == 'macos-15-intel'
         shell: bash
         run: |
-          # macOS runners install Xcode 15.4 at /Applications/Xcode_15.4.app,
-          # but the image occasionally ships without that version. Pick it when
-          # present, otherwise stay on the pre-selected toolchain instead of
-          # face-planting.
-          if [ -d /Applications/Xcode_15.4.app/Contents/Developer ]; then
-            sudo xcode-select -s /Applications/Xcode_15.4.app/Contents/Developer
+          set -euo pipefail
+
+          # Find a macOS 14 SDK (any minor version) so JUCE can keep using
+          # APIs removed from the macOS 15 SDK. Prefer an Xcode bundle that
+          # ships it and pivot Xcode-select accordingly.
+          macosx14_sdk=$(ls -d /Applications/Xcode_*/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14*.sdk 2>/dev/null | head -n 1 || true)
+
+          if [[ -n "${macosx14_sdk}" ]]; then
+            macosx14_dev="${macosx14_sdk%%/Platforms/*}/Contents/Developer"
+            echo "Switching to Xcode at ${macosx14_dev} to reach ${macosx14_sdk}"
+            sudo xcode-select -s "${macosx14_dev}"
+            echo "MACOSX14_SDK=${macosx14_sdk}" >> "$GITHUB_ENV"
           else
-            echo "Xcode 15.4 missing; keeping default $(xcode-select -p)"
+            echo "macOS 14 SDK not found on runner; staying on $(xcode-select -p) and hoping JUCE avoids macOS 15 SDK removals" >&2
           fi
 
-          # Force the macOS 14 SDK if available so JUCE steers clear of
-          # APIs yanked from the macOS 15 SDK (CGWindowListCreateImage, etc.).
-          if xcrun --sdk macosx14 --show-sdk-path >/dev/null 2>&1; then
-            echo "Using macOS 14 SDK via CMAKE_OSX_SYSROOT"
-          else
-            echo "macOS 14 SDK unavailable; the build may trip on macOS 15 SDK removals" >&2
-          fi
           export HOMEBREW_NO_AUTO_UPDATE=1
           brew install ninja cmake
 
@@ -98,15 +97,15 @@ jobs:
             if [[ "${{ matrix.os }}" == "macos-15-intel" ]]; then
               # Universal (arm64 + x86_64) and pinned to the macOS 14 SDK so
               # JUCE can still reference APIs removed from the 15 SDK.
-              macos_sysroot=$(xcrun --sdk macosx14 --show-sdk-path 2>/dev/null || true)
-
               # Use an array so the semicolon survives shell parsing and CMake
               # receives a true list (otherwise clang gets a munged
               # "-arch x86_64 -arch arm64" string and bails).
               cmake_args+=("-DCMAKE_OSX_ARCHITECTURES=x86_64;arm64")
 
-              if [[ -n "${macos_sysroot}" ]]; then
-                cmake_args+=("-DCMAKE_OSX_SYSROOT=${macos_sysroot}")
+              if [[ -n "${MACOSX14_SDK:-}" ]]; then
+                cmake_args+=("-DCMAKE_OSX_SYSROOT=${MACOSX14_SDK}")
+              else
+                echo "No macOS 14 SDK detected; using default sysroot and expecting JUCE to honor older APIs" >&2
               fi
             fi
 
