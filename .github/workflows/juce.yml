@@ -11,9 +11,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # macOS 15+ removes APIs JUCE still leans on; pin to macos-13 for a
-        # friendlier SDK while upstream sorts it out.
-        os: [ubuntu-latest, macos-13, windows-latest]
+        # We build "current" macOS (arm64) here; true legacy Macs stay on internal machines.
+        os: [ubuntu-latest, windows-latest, macos-14]
 
     steps:
       - name: Checkout repository
@@ -47,27 +46,21 @@ jobs:
             libxinerama-dev \
             libxrandr-dev
 
-        - name: Prep toolchain (macOS)
-          if: matrix.os == 'macos-13'
-          shell: bash
-          run: |
-            # macOS runners install Xcode 15.4 at /Applications/Xcode_15.4.app,
-            # but the image occasionally ships without that version. Pick it when
-            # present, otherwise stay on the pre-selected toolchain instead of
-            # face-planting.
-            if [ -d /Applications/Xcode_15.4.app/Contents/Developer ]; then
-              sudo xcode-select -s /Applications/Xcode_15.4.app/Contents/Developer
-            else
-              echo "Xcode 15.4 missing; keeping default $(xcode-select -p)"
-            fi
-            export HOMEBREW_NO_AUTO_UPDATE=1
-            brew install ninja cmake
-
       - name: Prep toolchain (Windows)
         if: matrix.os == 'windows-latest'
         shell: powershell
         run: |
           choco install -y ninja cmake
+
+      - name: Prep toolchain (macOS)
+        if: matrix.os == 'macos-14'
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Xcode + Ninja + CMake already live on the runner; tighten up paths for clarity.
+          xcode-select -p
+          cmake --version
+          ninja --version
 
       - name: Configure CMake (Ninja on *nix, Visual Studio on Windows)
         shell: bash
@@ -76,10 +69,29 @@ jobs:
             cmake -S plugins -B plugins/build -G "Visual Studio 17 2022" -A x64 \
               -DCMAKE_BUILD_TYPE=Release \
               -DJUCE_VST3_CAN_REPLACE_VST2=0
-          else
-            cmake -S plugins -B plugins/build -G Ninja \
-              -DCMAKE_BUILD_TYPE=Release \
+          elif [[ "${{ matrix.os }}" == "macos-14" ]]; then
+            cmake_args=(
+              -S plugins
+              -B plugins/build
+              -G Ninja
+              -DCMAKE_BUILD_TYPE=Release
               -DJUCE_VST3_CAN_REPLACE_VST2=0
+              -DCMAKE_OSX_ARCHITECTURES=arm64
+            )
+
+            echo "Configuring macOS build with: ${cmake_args[*]}"
+            cmake "${cmake_args[@]}"
+          else
+            cmake_args=(
+              -S plugins
+              -B plugins/build
+              -G Ninja
+              -DCMAKE_BUILD_TYPE=Release
+              -DJUCE_VST3_CAN_REPLACE_VST2=0
+            )
+
+            echo "Configuring with: ${cmake_args[*]}"
+            cmake "${cmake_args[@]}"
           fi
         env:
           # Punk-rock note: VST2 stays disabled; VST3 can NOT replace it.
@@ -90,10 +102,93 @@ jobs:
         run: |
           cmake --build plugins/build --config Release
 
-      - name: Upload JUCE artifacts
+      # Artifact map (so future debuggers know where the bits live):
+      # - Linux: plugins/build/juce-linux-bundle.tar.gz wraps HorizonJuce_artefacts[/Release]
+      #          VST3/Horizon.vst3 + Standalone/Horizon
+      # - Windows: plugins/build/juce-windows-bundle.zip wraps HorizonJuce_artefacts\Release
+      #            VST3/Horizon.vst3 + Standalone/Horizon.exe
+      # - macOS: plugins/build/juce-macos-bundle.tar.gz wraps HorizonJuce_artefacts[/Release]
+      #          VST3/Horizon.vst3 + Standalone/Horizon.app
+
+      - name: Package JUCE outputs (Linux)
+        if: matrix.os == 'ubuntu-latest'
+        shell: bash
+        run: |
+          set -euo pipefail
+          artefact_root="plugins/build/HorizonJuce_artefacts"
+          if [ -d "${artefact_root}/Release" ]; then
+            artefact_root="${artefact_root}/Release"
+          fi
+
+          echo "Bundling Linux JUCE outputs from ${artefact_root}" \
+            "(VST3 folder + standalone binary)."
+          tar -czf plugins/build/juce-linux-bundle.tar.gz \
+            -C "${artefact_root}" \
+            VST3/Horizon.vst3 \
+            Standalone/Horizon
+
+          echo "juce-linux-bundle.tar.gz holds:" \
+            "${artefact_root}/VST3/Horizon.vst3 and ${artefact_root}/Standalone/Horizon"
+
+      - name: Upload JUCE artifacts (Linux)
+        if: matrix.os == 'ubuntu-latest'
         uses: actions/upload-artifact@v4
         with:
-          name: juce-${{ matrix.os }}
-          path: |
-            plugins/build
+          name: juce-linux-artefacts
+          path: plugins/build/juce-linux-bundle.tar.gz
+          if-no-files-found: warn
+
+      - name: Package JUCE outputs (Windows)
+        if: matrix.os == 'windows-latest'
+        shell: powershell
+        run: |
+          $artefactRoot = "plugins/build/HorizonJuce_artefacts"
+          if (Test-Path "$artefactRoot/Release") {
+            $artefactRoot = "$artefactRoot/Release"
+          }
+
+          Write-Host "Zip VST3 + standalone .exe from $artefactRoot"
+          $pathsToZip = @(
+            "$artefactRoot/VST3/Horizon.vst3",
+            "$artefactRoot/Standalone/Horizon.exe"
+          )
+          Compress-Archive -Path $pathsToZip -DestinationPath "plugins/build/juce-windows-bundle.zip"
+
+          Write-Host "juce-windows-bundle.zip holds:" `
+            "$artefactRoot/VST3/Horizon.vst3 and $artefactRoot/Standalone/Horizon.exe"
+
+      - name: Upload JUCE artifacts (Windows)
+        if: matrix.os == 'windows-latest'
+        uses: actions/upload-artifact@v4
+        with:
+          name: juce-windows-artefacts
+          path: plugins/build/juce-windows-bundle.zip
+          if-no-files-found: warn
+
+      - name: Package JUCE outputs (macOS)
+        if: matrix.os == 'macos-14'
+        shell: bash
+        run: |
+          set -euo pipefail
+          artefact_root="plugins/build/HorizonJuce_artefacts"
+          if [ -d "${artefact_root}/Release" ]; then
+            artefact_root="${artefact_root}/Release"
+          fi
+
+          echo "Bundling macOS JUCE outputs from ${artefact_root}" \
+            "(VST3 bundle + standalone .app)."
+          tar -czf plugins/build/juce-macos-bundle.tar.gz \
+            -C "${artefact_root}" \
+            VST3/Horizon.vst3 \
+            Standalone/Horizon.app
+
+          echo "juce-macos-bundle.tar.gz holds:" \
+            "${artefact_root}/VST3/Horizon.vst3 and ${artefact_root}/Standalone/Horizon.app"
+
+      - name: Upload JUCE artifacts (macOS)
+        if: matrix.os == 'macos-14'
+        uses: actions/upload-artifact@v4
+        with:
+          name: juce-macos-artefacts
+          path: plugins/build/juce-macos-bundle.tar.gz
           if-no-files-found: warn
