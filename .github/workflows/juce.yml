@@ -11,11 +11,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # macOS-13 images are headed for retirement; target macos-15 (Apple
-        # silicon) and pin a modern Xcode 16 so we stop fighting vanishing SDK
-        # paths while still shipping a universal build (arm64 + x86_64) for
-        # Intel holdouts.
-        os: [ubuntu-latest, macos-15, windows-latest]
+        # Skip legacy macOS builds here; those live on internal machines now.
+        os: [ubuntu-latest, windows-latest]
 
     steps:
       - name: Checkout repository
@@ -24,14 +21,6 @@ jobs:
       - name: Clear any pre-checked-in build cache
         shell: bash
         run: cmake -E rm -rf plugins/build
-
-      # macOS runners ship multiple Xcodes. Force Xcode 16 so we get a recent
-      # SDK without the broken Xcode 15.* paths that have been biting us.
-      - name: Pin Xcode (macOS)
-        if: matrix.os == 'macos-15'
-        uses: maxim-lobanov/setup-xcode@v1
-        with:
-          xcode-version: "16.4"
 
       - name: Prep toolchain (Ubuntu)
         if: matrix.os == 'ubuntu-latest'
@@ -57,20 +46,6 @@ jobs:
             libxinerama-dev \
             libxrandr-dev
 
-      - name: Prep toolchain (macOS)
-        if: matrix.os == 'macos-15'
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          sdk_path=$(xcrun --sdk macosx --show-sdk-path)
-          dev_dir=$(xcode-select --print-path)
-          echo "Rolling with Xcode at ${dev_dir} using SDK ${sdk_path} (expecting Xcode 16.x)"
-          echo "MACOSX_SDK=${sdk_path}" >> "$GITHUB_ENV"
-
-          export HOMEBREW_NO_AUTO_UPDATE=1
-          brew install ninja cmake
-
       - name: Prep toolchain (Windows)
         if: matrix.os == 'windows-latest'
         shell: powershell
@@ -93,20 +68,6 @@ jobs:
               -DJUCE_VST3_CAN_REPLACE_VST2=0
             )
 
-            if [[ "${{ matrix.os }}" == "macos-15" ]]; then
-              # Universal (arm64 + x86_64) and pinned to the default SDK that
-              # ships with Xcode 16. Use an array so the semicolon survives
-              # shell parsing and CMake receives a true list (otherwise clang
-              # gets a munged "-arch x86_64 -arch arm64" string and bails).
-              cmake_args+=("-DCMAKE_OSX_ARCHITECTURES=x86_64;arm64")
-              cmake_args+=("-DCMAKE_OSX_SYSROOT=${MACOSX_SDK}")
-              # Target a pre-15 macOS so JUCE keeps using the older windowing
-              # APIs that Apple yanked in the 15.* SDK. Deployment target must
-              # be separate from the SDK path or clang treats the removed
-              # symbols (e.g. CGWindowListCreateImage) as hard errors.
-              cmake_args+=("-DCMAKE_OSX_DEPLOYMENT_TARGET=12.0")
-            fi
-
             echo "Configuring with: ${cmake_args[*]}"
             cmake "${cmake_args[@]}"
           fi
@@ -120,41 +81,10 @@ jobs:
           cmake --build plugins/build --config Release
 
       # Artifact map (so future debuggers know where the bits live):
-      # - macOS: plugins/build/juce-macos-bundle.tar.gz wraps HorizonJuce_artefacts[/Release]
-      #           VST3/Horizon.vst3 + Standalone/Horizon.app
       # - Linux: plugins/build/juce-linux-bundle.tar.gz wraps HorizonJuce_artefacts[/Release]
       #          VST3/Horizon.vst3 + Standalone/Horizon
       # - Windows: plugins/build/juce-windows-bundle.zip wraps HorizonJuce_artefacts\Release
       #            VST3/Horizon.vst3 + Standalone/Horizon.exe
-      - name: Package JUCE outputs (macOS)
-        if: matrix.os == 'macos-15'
-        shell: bash
-        run: |
-          set -euo pipefail
-          artefact_root="plugins/build/HorizonJuce_artefacts"
-          # Visual Studio-style builds tuck results under Release/; grab the
-          # same path here in case the mac runner ever inherits that layout.
-          if [ -d "${artefact_root}/Release" ]; then
-            artefact_root="${artefact_root}/Release"
-          fi
-
-          echo "Packing macOS JUCE outputs from ${artefact_root}" \
-            "(VST3 + standalone .app)."
-          tar -czf plugins/build/juce-macos-bundle.tar.gz \
-            -C "${artefact_root}" \
-            VST3/Horizon.vst3 \
-            Standalone/Horizon.app
-
-          echo "juce-macos-bundle.tar.gz holds:" \
-            "${artefact_root}/VST3/Horizon.vst3 and ${artefact_root}/Standalone/Horizon.app"
-
-      - name: Upload JUCE artifacts (macOS)
-        if: matrix.os == 'macos-15'
-        uses: actions/upload-artifact@v4
-        with:
-          name: juce-macos-artefacts
-          path: plugins/build/juce-macos-bundle.tar.gz
-          if-no-files-found: warn
 
       - name: Package JUCE outputs (Linux)
         if: matrix.os == 'ubuntu-latest'
