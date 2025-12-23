@@ -1,0 +1,90 @@
+[
+  {
+    "name": "Bus Glue (story-driven)",
+    "intent": "Start like clean mix glue and slowly drift into cinematic wash so students can see when each block jumps in.",
+    "waypoints": [
+      {
+        "label": "Anchored intro",
+        "width": 0.55,
+        "dyn_width": 0.2,
+        "mid_tilt_db_per_oct": 0.25,
+        "air_freq": 9500,
+        "air_gain_db": 0.5,
+        "low_anchor": 140,
+        "dirt": 0.08,
+        "ceiling_db": -1.5,
+        "mix": 0.7,
+        "telemetry": ["block_width", "limiter_gain"],
+        "why": "Show the dry bus plus a polite width bloom; limiter barely working so you can hear the tilt and air shifts first."
+      },
+      {
+        "label": "Bus glue mid-game",
+        "width": 0.68,
+        "dyn_width": 0.35,
+        "mid_tilt_db_per_oct": 0.4,
+        "air_freq": 10500,
+        "air_gain_db": 1.5,
+        "low_anchor": 120,
+        "dirt": 0.12,
+        "ceiling_db": -1.2,
+        "mix": 0.82,
+        "telemetry": ["block_width", "block_transient", "limiter_gain"],
+        "why": "Punch a little harder—watch transient sensor narrow the sides on hits while limiter catches cymbal spikes." 
+      },
+      {
+        "label": "Cinematic wash",
+        "width": 0.95,
+        "dyn_width": 0.55,
+        "mid_tilt_db_per_oct": -0.1,
+        "air_freq": 13500,
+        "air_gain_db": 3.0,
+        "low_anchor": 95,
+        "dirt": 0.2,
+        "ceiling_db": -2.0,
+        "mix": 0.95,
+        "telemetry": ["block_width", "block_transient", "limiter_gain"],
+        "why": "Sides and air bloom; limiter link flipped to Mid/Side in-class so students can hear the difference in how the tail breathes."
+      }
+    ]
+  },
+  {
+    "name": "Limiter link lab",
+    "intent": "Rapid toggle between Linked and Mid/Side detection while watching limiter telemetry to teach how stereo coupling feels.",
+    "waypoints": [
+      {
+        "label": "Linked safety",
+        "width": 0.6,
+        "dyn_width": 0.25,
+        "air_freq": 9000,
+        "air_gain_db": 1.0,
+        "low_anchor": 130,
+        "dirt": 0.1,
+        "ceiling_db": -1.0,
+        "limiter_release_ms": 80,
+        "limiter_lookahead_ms": 5.5,
+        "limiter_link": "Linked",
+        "limiter_mix": 1.0,
+        "mix": 0.9,
+        "telemetry": ["limiter_gain"],
+        "why": "Both channels take the same hit—shows students the safest, mono-loyal guardrail before they start biasing the detector."
+      },
+      {
+        "label": "Mid/Side breath",
+        "width": 0.78,
+        "dyn_width": 0.45,
+        "air_freq": 12000,
+        "air_gain_db": 2.5,
+        "low_anchor": 110,
+        "dirt": 0.16,
+        "ceiling_db": -2.0,
+        "limiter_release_ms": 70,
+        "limiter_lookahead_ms": 6.0,
+        "limiter_link": "MidSide",
+        "limiter_mix": 0.85,
+        "mix": 0.95,
+        "telemetry": ["limiter_gain", "block_transient"],
+        "why": "Flip to Mid/Side and listen for side tails breathing while the center stays pinned; perfect for talking about coupling philosophy." 
+      }
+    ]
+  }
+]
