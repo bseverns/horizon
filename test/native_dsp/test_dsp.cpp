@@ -7,6 +7,7 @@
 #include "DynWidth.h"
 #include "LimiterLookahead.h"
 #include "HostProcessor.h"
+#include "AirEQ.h"
 
 #include <cstdlib>
 #include <filesystem>
