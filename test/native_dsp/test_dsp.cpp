@@ -7,6 +7,7 @@
 #include "DynWidth.h"
 #include "LimiterLookahead.h"
 #include "HostProcessor.h"
+#include "AirEQ.h"
 
 #include <cstdlib>
 #include <filesystem>
@@ -163,6 +164,32 @@ void test_dynwidth_tracks_transient_activity() {
     TEST_ASSERT_FLOAT_WITHIN(0.02f, 1.0f, dw.getLastWidth());
 }
 
+void test_tilt_and_air_extremes_hold_bounds() {
+    TiltEQ tilt;
+    tilt.setTiltDbPerOct(12.0f); // exceeds clamp intentionally
+
+    float last = 0.0f;
+    for (int i = 0; i < 256; ++i) {
+        last = tilt.processSample(1.0f);
+        TEST_ASSERT_TRUE_MESSAGE(std::isfinite(last), "tilt output blew up");
+        TEST_ASSERT_LESS_OR_EQUAL_FLOAT(2.5f, fabsf(last));
+    }
+
+    AirEQ air;
+    air.setFreqAndGain(48000.0f, 12.0f); // clamp both freq and gain
+    float maxAir = 0.0f;
+    for (int i = 0; i < 256; ++i) {
+        float x = (i % 2 == 0) ? 1.0f : -1.0f; // excite both halves of the split
+        float y = air.processSample(x);
+        TEST_ASSERT_TRUE_MESSAGE(std::isfinite(y), "air output blew up");
+        maxAir = fmaxf(maxAir, fabsf(y));
+    }
+
+    // Tilt clamps to ±6 dB/oct; Air clamps to 16 kHz / ±6 dB, so neither should explode past ~2×.
+    TEST_ASSERT_LESS_OR_EQUAL_FLOAT(2.1f, fabsf(last));
+    TEST_ASSERT_LESS_OR_EQUAL_FLOAT(2.1f, maxAir);
+}
+
 void test_limiter_caps_hot_signal() {
     LimiterLookahead lim;
     lim.setup();
@@ -181,6 +208,44 @@ void test_limiter_caps_hot_signal() {
     // With -6 dB ceiling (~0.5 linear) the limiter should settle close to that.
     TEST_ASSERT_LESS_OR_EQUAL_FLOAT(0.6f, maxOut);
     TEST_ASSERT_FLOAT_WITHIN(0.1f, 0.5f, lim.getGain());
+}
+
+void test_limiter_link_modes_hold_guardrails() {
+    LimiterLookahead linked;
+    LimiterLookahead midSide;
+    linked.setup();
+    midSide.setup();
+
+    linked.setCeilingDb(-3.0f);
+    linked.setLookaheadMs(5.5f);
+    linked.setReleaseMs(90.0f);
+    linked.setMix(1.0f);
+    linked.setLinkMode(LimiterLookahead::LinkMode::Linked);
+
+    midSide.setCeilingDb(-3.0f);
+    midSide.setLookaheadMs(5.5f);
+    midSide.setReleaseMs(90.0f);
+    midSide.setMix(1.0f);
+    midSide.setLinkMode(LimiterLookahead::LinkMode::MidSide);
+
+    float maxLinked = 0.0f;
+    float maxMidSide = 0.0f;
+
+    for (int i = 0; i < 256; ++i) {
+        float l = (i % 3 == 0) ? 1.0f : 0.5f;
+        float r = (i % 5 == 0) ? 0.25f : 1.0f;
+
+        linked.processStereo(l, r);
+        midSide.processStereo(l, r);
+
+        maxLinked = fmaxf(maxLinked, fmaxf(fabsf(l), fabsf(r)));
+        maxMidSide = fmaxf(maxMidSide, fmaxf(fabsf(l), fabsf(r)));
+    }
+
+    TEST_ASSERT_LESS_OR_EQUAL_FLOAT(1.0f, maxLinked);
+    TEST_ASSERT_LESS_OR_EQUAL_FLOAT(1.0f, maxMidSide);
+    // Mid/Side detector should usually let the quiet channel breathe more.
+    TEST_ASSERT_TRUE_MESSAGE(midSide.getGain() >= linked.getGain(), "Mid/Side link clamped harder than Linked mode");
 }
 
 void test_led_mapping_matches_thresholds() {
@@ -294,7 +359,9 @@ int main(int, char**) {
     RUN_TEST(test_soft_saturation_stays_below_unity);
     RUN_TEST(test_param_smoother_seeds_and_glides);
     RUN_TEST(test_dynwidth_tracks_transient_activity);
+    RUN_TEST(test_tilt_and_air_extremes_hold_bounds);
     RUN_TEST(test_limiter_caps_hot_signal);
+    RUN_TEST(test_limiter_link_modes_hold_guardrails);
     RUN_TEST(test_led_mapping_matches_thresholds);
     RUN_TEST(test_host_processor_renders_variants);
     return UNITY_END();

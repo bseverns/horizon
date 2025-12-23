@@ -12,7 +12,9 @@ you can poke it without a Teensy on the desk.
 - Unity-based smoke tests that push the limiter, smoother, tilt/air/dirt blocks
   and make sure nothing explodes when fed real signal ranges. The host-processor
   test even synthesizes its own mid/side-rich buffer so you don't need to haul
-  any WAV fixtures around.
+  any WAV fixtures around. New cases hit **tilt/air extremes** and flip **Limiter
+  Link** between Linked and Mid/Side to prove guardrails match what the Teensy
+  build enforces.
 - A repeatable CI-friendly way to say "the math still holds" before you flash
   hardware.
 
