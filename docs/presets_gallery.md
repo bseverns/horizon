@@ -1,4 +1,4 @@
-# Preset gallery: bus moves in 12 sketches
+# Preset gallery: bus moves in 12 sketches (plus guided morphs)
 
 Treat this like a studio notebook: each preset is a one-line intent, a “feed me this” input hint, and a reminder to capture before/after WAVs so you can hear what actually changed. Tweak the numbers to taste—these are stage directions, not commandments.
 
@@ -6,6 +6,11 @@ Treat this like a studio notebook: each preset is a one-line intent, a “feed m
 1. Route a loop through Horizon on a stereo track.
 2. Bounce 4–8 bars *dry* and *with the preset*, labeling them `presetname_before.wav` / `presetname_after.wav` in `docs/audio/` (or next to your DAW session). Level-match so you’re hearing tone, not loudness hype.
 3. If something magical happens, jot settings in the comments section of your DAW or tack a note onto this file.
+
+### Guided morphs (story + telemetry)
+- New in `presets/story_morphs.json`: small scripts that move through **waypoints**, with each stop labeled by the *why* and which telemetry readouts to watch (`block_width`, `block_transient`, `limiter_gain`).
+- Try “Bus Glue (story-driven)” to walk from polite glue into a cinematic wash; flip through the waypoints while a scope build prints telemetry so students see *which block* is driving the feel.
+- “Limiter link lab” exists purely to A/B **Linked** vs **Mid/Side** detector coupling; the story text tells you when to watch the gain meter hug the center or let the sides breathe.
 
 ## Presets at a glance
 
