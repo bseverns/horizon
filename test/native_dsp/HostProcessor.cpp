@@ -437,6 +437,44 @@ std::vector<WavRender> buildDemoRenders(const StereoBuffer &input) {
                       .outputTrimDb = 1.0f},
                      input});
 
+  renders.push_back({"tilt_air_extremes",
+                     {.width = 0.7f,
+                      .dynWidth = 0.35f,
+                      .transientSens = 0.45f,
+                      .midTiltDbPerOct = 6.0f,
+                      .sideAirFreqHz = 16000.0f,
+                      .sideAirGainDb = 5.5f,
+                      .lowAnchorHz = 115.0f,
+                      .dirtAmount = 0.12f,
+                      .ceilingDb = -3.0f,
+                      .limiterReleaseMs = 80.0f,
+                      .limiterLookaheadMs = 5.0f,
+                      .limiterTiltDbPerOct = 1.0f,
+                      .limiterLink = LimiterLookahead::LinkMode::Linked,
+                      .limiterMix = 0.9f,
+                      .limiterBypass = false,
+                      .outputTrimDb = -0.5f},
+                     input});
+
+  renders.push_back({"link_toggle_scope",
+                     {.width = 0.82f,
+                      .dynWidth = 0.5f,
+                      .transientSens = 0.55f,
+                      .midTiltDbPerOct = 0.25f,
+                      .sideAirFreqHz = 12500.0f,
+                      .sideAirGainDb = 2.5f,
+                      .lowAnchorHz = 105.0f,
+                      .dirtAmount = 0.2f,
+                      .ceilingDb = -2.0f,
+                      .limiterReleaseMs = 85.0f,
+                      .limiterLookaheadMs = 6.5f,
+                      .limiterTiltDbPerOct = 0.5f,
+                      .limiterLink = LimiterLookahead::LinkMode::MidSide,
+                      .limiterMix = 0.8f,
+                      .limiterBypass = false,
+                      .outputTrimDb = 0.0f},
+                     input});
+
   return renders;
 }
 
