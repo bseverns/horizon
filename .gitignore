@@ -16,3 +16,7 @@ CMakeUserPresets.json
 install_manifest.txt
 compile_commands.json
 plugins/build
+.DS_Store
+apps/.DS_Store
+examples/.DS_Store
+plugins/.DS_Store
