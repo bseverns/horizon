@@ -14,7 +14,9 @@ jobs:
         # We build macOS twice (arm64 + x86_64) so the artifacts stay explicit.
         os: [ubuntu-latest, windows-latest]
         include:
-          - os: macos-14
+          # macOS 12 is the last runner that lines up with 10.15-era deployment targets
+          # while still giving us native Apple Silicon build tools.
+          - os: macos-12
             mac_arch: arm64
           - os: macos-14
             mac_arch: x86_64
