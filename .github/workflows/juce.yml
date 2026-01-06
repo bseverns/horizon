@@ -6,13 +6,18 @@ on:
 
 jobs:
   build:
-    name: JUCE build on ${{ matrix.os }}
+    name: JUCE build on ${{ matrix.os }}${{ matrix.mac_arch && format(' ({0})', matrix.mac_arch) || '' }}
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
-        # We build "current" macOS (arm64) here; true legacy Macs stay on internal machines.
-        os: [ubuntu-latest, windows-latest, macos-14]
+        # We build macOS twice (arm64 + x86_64) so the artifacts stay explicit.
+        os: [ubuntu-latest, windows-latest]
+        include:
+          - os: macos-14
+            mac_arch: arm64
+          - os: macos-14
+            mac_arch: x86_64
 
     steps:
       - name: Checkout repository
@@ -76,7 +81,7 @@ jobs:
               -G Ninja
               -DCMAKE_BUILD_TYPE=Release
               -DJUCE_VST3_CAN_REPLACE_VST2=0
-              -DCMAKE_OSX_ARCHITECTURES=arm64
+              -DCMAKE_OSX_ARCHITECTURES=${{ matrix.mac_arch }}
             )
 
             echo "Configuring macOS build with: ${cmake_args[*]}"
@@ -107,7 +112,8 @@ jobs:
       #          VST3/Horizon.vst3 + Standalone/Horizon
       # - Windows: plugins/build/juce-windows-bundle.zip wraps HorizonJuce_artefacts\Release
       #            VST3/Horizon.vst3 + Standalone/Horizon.exe
-      # - macOS: plugins/build/juce-macos-bundle.tar.gz wraps HorizonJuce_artefacts[/Release]
+      # - macOS: plugins/build/juce-macos-(arm64|x86_64)-bundle.tar.gz
+      #          wraps HorizonJuce_artefacts[/Release]
       #          VST3/Horizon.vst3 + Standalone/Horizon.app
 
       - name: Package JUCE outputs (Linux)
@@ -178,18 +184,18 @@ jobs:
 
           echo "Bundling macOS JUCE outputs from ${artefact_root}" \
             "(VST3 bundle + standalone .app)."
-          tar -czf plugins/build/juce-macos-bundle.tar.gz \
+          tar -czf "plugins/build/juce-macos-${{ matrix.mac_arch }}-bundle.tar.gz" \
             -C "${artefact_root}" \
             VST3/Horizon.vst3 \
             Standalone/Horizon.app
 
-          echo "juce-macos-bundle.tar.gz holds:" \
+          echo "juce-macos-${{ matrix.mac_arch }}-bundle.tar.gz holds:" \
             "${artefact_root}/VST3/Horizon.vst3 and ${artefact_root}/Standalone/Horizon.app"
 
       - name: Upload JUCE artifacts (macOS)
         if: matrix.os == 'macos-14'
         uses: actions/upload-artifact@v4
         with:
-          name: juce-macos-artefacts
-          path: plugins/build/juce-macos-bundle.tar.gz
+          name: juce-macos-${{ matrix.mac_arch }}-artefacts
+          path: plugins/build/juce-macos-${{ matrix.mac_arch }}-bundle.tar.gz
           if-no-files-found: error
