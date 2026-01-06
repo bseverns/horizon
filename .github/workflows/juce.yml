@@ -136,7 +136,7 @@ jobs:
         with:
           name: juce-linux-artefacts
           path: plugins/build/juce-linux-bundle.tar.gz
-          if-no-files-found: warn
+          if-no-files-found: error
 
       - name: Package JUCE outputs (Windows)
         if: matrix.os == 'windows-latest'
@@ -163,7 +163,7 @@ jobs:
         with:
           name: juce-windows-artefacts
           path: plugins/build/juce-windows-bundle.zip
-          if-no-files-found: warn
+          if-no-files-found: error
 
       - name: Package JUCE outputs (macOS)
         if: matrix.os == 'macos-14'
@@ -191,4 +191,4 @@ jobs:
         with:
           name: juce-macos-artefacts
           path: plugins/build/juce-macos-bundle.tar.gz
-          if-no-files-found: warn
+          if-no-files-found: error
