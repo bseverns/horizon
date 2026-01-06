@@ -147,12 +147,13 @@ jobs:
             $artefactRoot = "$artefactRoot/Release"
           }
 
+          $bundlePath = Join-Path $env:GITHUB_WORKSPACE "plugins/build/juce-windows-bundle.zip"
           Write-Host "Zip VST3 + standalone .exe from $artefactRoot"
-          $pathsToZip = @(
-            "$artefactRoot/VST3/Horizon.vst3",
-            "$artefactRoot/Standalone/Horizon.exe"
-          )
-          Compress-Archive -Path $pathsToZip -DestinationPath "plugins/build/juce-windows-bundle.zip"
+          Push-Location $artefactRoot
+          Compress-Archive `
+            -Path @("VST3/Horizon.vst3","Standalone/Horizon.exe") `
+            -DestinationPath $bundlePath
+          Pop-Location
 
           Write-Host "juce-windows-bundle.zip holds:" `
             "$artefactRoot/VST3/Horizon.vst3 and $artefactRoot/Standalone/Horizon.exe"
