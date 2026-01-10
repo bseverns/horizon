@@ -10,6 +10,7 @@
             "includePath": [
                 "/Users/bseverns/Documents/GitHub/horizon/src",
                 "/Users/bseverns/Documents/GitHub/horizon/test/native_dsp/stubs",
+                "/Users/bseverns/Documents/GitHub/horizon/.pio/libdeps/native_dsp/Unity/src",
                 ""
             ],
             "browse": {
@@ -17,11 +18,12 @@
                 "path": [
                     "/Users/bseverns/Documents/GitHub/horizon/src",
                     "/Users/bseverns/Documents/GitHub/horizon/test/native_dsp/stubs",
+                    "/Users/bseverns/Documents/GitHub/horizon/.pio/libdeps/native_dsp/Unity/src",
                     ""
                 ]
             },
             "defines": [
-                "PLATFORMIO=60119",
+                "PLATFORMIO=60118",
                 ""
             ],
             "cppStandard": "c++17",

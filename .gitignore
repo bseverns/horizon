@@ -20,3 +20,4 @@ plugins/build
 apps/.DS_Store
 examples/.DS_Store
 plugins/.DS_Store
+.vscode/c_cpp_properties.json
