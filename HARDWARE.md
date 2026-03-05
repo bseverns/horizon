@@ -15,6 +15,30 @@ looks like a Teensy 4.x from the toolchain’s point of view.
 
 ---
 
+## 0. Quick-start BOM + wiring map (novice path)
+
+If you just want sound quickly, this is the minimum hardware stack:
+
+| Item | Qty | Notes |
+|------|-----|-------|
+| Teensy 4.0 or 4.1 | 1 | 4.1 gives more I/O headroom; both are supported. |
+| PJRC Audio Shield (SGTL5000) | 1 | Rev D or later recommended. |
+| 10k linear potentiometers | 5 | Width, Dyn Width, Transient, Dirt, Mix. |
+| Momentary buttons | 2 | Bypass + Safe. |
+| LED + resistor | 1 each | 330 ohm to 1k ohm series resistor. |
+| 3.5 mm TRS cables / line I/O adapters | as needed | Stereo source in + stereo out to monitors/interface. |
+| Breadboard + jumper wires | 1 set | For fast bring-up before custom PCB. |
+| USB cable + 5V supply path | 1 | USB powers Teensy during development. |
+
+Wiring references:
+- Control and signal pin table: sections 3 and 4 below.
+- Custom board schematic: [`horizon_hw/horizon_hw.kicad_sch`](horizon_hw/horizon_hw.kicad_sch).
+- Custom board PCB layout: [`horizon_hw/horizon_hw.kicad_pcb`](horizon_hw/horizon_hw.kicad_pcb).
+
+If you are using Teensy + Audio Shield first, complete section 7 (Bring-Up Checklist) in order.
+
+---
+
 ## 1. System Overview
 
 Horizon expects three main hardware blocks:

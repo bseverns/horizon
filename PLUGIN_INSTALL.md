@@ -2,6 +2,20 @@
 
 This is the quick-and-dirty field sheet for dropping the Horizon plugins where your DAW can see them, force-rescanning when the host gets grumpy, and debugging the usual “why is nothing coming out?” questions. Keep it handy on sessions.
 
+## No-compile path (grab prebuilt binaries)
+
+If you do not want to build C++ locally:
+- Open the repo's GitHub Actions tab and run/download artifacts from `JUCE CI`.
+- Pick the bundle for your OS/CPU (for example `juce-macos-arm64-artefacts`).
+- Extract it, then install `Horizon.vst3` with:
+  ```bash
+  tools/install_vst3.sh /path/to/Horizon.vst3
+  ```
+- System-wide install (admin path):
+  ```bash
+  tools/install_vst3.sh /path/to/Horizon.vst3 --system
+  ```
+
 ## Where to drop the binaries
 
 - **macOS**

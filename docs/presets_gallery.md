@@ -3,6 +3,11 @@
 Treat this like a studio notebook: each preset is a one-line intent, a “feed me this” input hint, and a reminder to capture before/after WAVs so you can hear what actually changed. Tweak the numbers to taste—these are stage directions, not commandments.
 
 ## How to audition quickly
+Optional fast path (auto-export every preset):
+```bash
+tools/render_preset_gallery.sh input.wav docs/audio ./cmake-out/linux-clang/horizon_cli
+```
+This writes `*_before` and `*_after` files for each CLI preset so students can A/B without manual bouncing.
 1. Route a loop through Horizon on a stereo track.
 2. Bounce 4–8 bars *dry* and *with the preset*, labeling them `presetname_before.wav` / `presetname_after.wav` in `docs/audio/` (or next to your DAW session). Level-match so you’re hearing tone, not loudness hype.
 3. If something magical happens, jot settings in the comments section of your DAW or tack a note onto this file.

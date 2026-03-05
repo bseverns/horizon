@@ -1,4 +1,5 @@
 #include <unity.h>
+#include <algorithm>
 #include <cmath>
 #include <cstdio>
 
@@ -8,6 +9,7 @@
 #include "LimiterLookahead.h"
 #include "HostProcessor.h"
 #include "AirEQ.h"
+#include "TiltEQ.h"
 
 #include <cstdlib>
 #include <filesystem>
@@ -40,6 +42,52 @@ struct DiffResult {
     float maxDiff = 0.0f;
     size_t frames = 0;
 };
+
+float measureTiltToneRms(float freqHz, float tiltDbPerOct) {
+    constexpr int sampleRate = 44100;
+    constexpr int warmup = 2048;
+    constexpr int measured = 4096;
+    constexpr float twoPi = 6.28318530717958647692f;
+
+    TiltEQ tilt;
+    tilt.setTiltDbPerOct(tiltDbPerOct);
+    tilt.reset();
+
+    float sumSq = 0.0f;
+    for (int i = 0; i < warmup + measured; ++i) {
+        const float t = static_cast<float>(i) / static_cast<float>(sampleRate);
+        const float x = sinf(twoPi * freqHz * t);
+        const float y = tilt.processSample(x);
+        if (i >= warmup) {
+            sumSq += y * y;
+        }
+    }
+
+    return sqrtf(sumSq / static_cast<float>(measured));
+}
+
+float measureAirToneRms(float freqHz, float airFreqHz, float gainDb) {
+    constexpr int sampleRate = 44100;
+    constexpr int warmup = 2048;
+    constexpr int measured = 4096;
+    constexpr float twoPi = 6.28318530717958647692f;
+
+    AirEQ air;
+    air.setFreqAndGain(airFreqHz, gainDb);
+    air.reset();
+
+    float sumSq = 0.0f;
+    for (int i = 0; i < warmup + measured; ++i) {
+        const float t = static_cast<float>(i) / static_cast<float>(sampleRate);
+        const float x = sinf(twoPi * freqHz * t);
+        const float y = air.processSample(x);
+        if (i >= warmup) {
+            sumSq += y * y;
+        }
+    }
+
+    return sqrtf(sumSq / static_cast<float>(measured));
+}
 
 DiffResult measureMaxDiff(const StereoBuffer &expected, const StereoBuffer &actual) {
     const size_t frames = std::min(expected.left.size(), actual.left.size());
@@ -135,6 +183,16 @@ void test_soft_saturation_stays_below_unity() {
     TEST_ASSERT_LESS_OR_EQUAL_FLOAT(1.0f, fabsf(y));
 }
 
+void test_soft_saturation_clamps_amount() {
+    SoftSaturation sat;
+    sat.setAmount(-2.0f);
+    TEST_ASSERT_FLOAT_WITHIN(1e-6f, 0.75f, sat.processSample(0.75f));
+
+    sat.setAmount(2.0f);
+    const float y = sat.processSample(2.0f);
+    TEST_ASSERT_LESS_OR_EQUAL_FLOAT(1.0f, fabsf(y));
+}
+
 void test_param_smoother_seeds_and_glides() {
     ParamSmoother sm(0.25f);
     // First call seeds to target.
@@ -164,6 +222,25 @@ void test_dynwidth_tracks_transient_activity() {
     TEST_ASSERT_FLOAT_WITHIN(0.02f, 1.0f, dw.getLastWidth());
 }
 
+void test_dynwidth_clamps_controls() {
+    DynWidth dw;
+    dw.setBaseWidth(2.0f);
+    dw.setDynAmount(2.0f);
+    dw.setLowAnchorHz(500.0f);
+
+    float mid = 0.0f;
+    float side = 1.0f;
+    dw.processSample(mid, side, 0.0f);
+    TEST_ASSERT_FLOAT_WITHIN(1e-4f, 1.0f, dw.getLastWidth());
+
+    dw.setBaseWidth(-1.0f);
+    dw.setDynAmount(1.0f);
+    side = 1.0f;
+    dw.processSample(mid, side, 1.0f);
+    TEST_ASSERT_FLOAT_WITHIN(1e-4f, 0.0f, dw.getLastWidth());
+    TEST_ASSERT_FLOAT_WITHIN(1e-4f, 0.0f, side);
+}
+
 void test_tilt_and_air_extremes_hold_bounds() {
     TiltEQ tilt;
     tilt.setTiltDbPerOct(12.0f); // exceeds clamp intentionally
@@ -190,6 +267,20 @@ void test_tilt_and_air_extremes_hold_bounds() {
     TEST_ASSERT_LESS_OR_EQUAL_FLOAT(2.1f, maxAir);
 }
 
+void test_tilt_and_air_shape_spectral_balance() {
+    const float tiltLow = measureTiltToneRms(200.0f, 6.0f);
+    const float tiltHigh = measureTiltToneRms(5000.0f, 6.0f);
+    TEST_ASSERT_TRUE_MESSAGE(tiltHigh > tiltLow * 1.2f, "positive tilt did not favor high band");
+
+    const float airLowDry = measureAirToneRms(500.0f, 10000.0f, 0.0f);
+    const float airLowBoost = measureAirToneRms(500.0f, 10000.0f, 6.0f);
+    const float airHighDry = measureAirToneRms(12000.0f, 10000.0f, 0.0f);
+    const float airHighBoost = measureAirToneRms(12000.0f, 10000.0f, 6.0f);
+
+    TEST_ASSERT_FLOAT_WITHIN(0.05f, airLowDry, airLowBoost);
+    TEST_ASSERT_TRUE_MESSAGE(airHighBoost > airHighDry * 1.15f, "air boost did not lift top band enough");
+}
+
 void test_limiter_caps_hot_signal() {
     LimiterLookahead lim;
     lim.setup();
@@ -208,6 +299,41 @@ void test_limiter_caps_hot_signal() {
     // With -6 dB ceiling (~0.5 linear) the limiter should settle close to that.
     TEST_ASSERT_LESS_OR_EQUAL_FLOAT(0.6f, maxOut);
     TEST_ASSERT_FLOAT_WITHIN(0.1f, 0.5f, lim.getGain());
+}
+
+void test_limiter_clamps_ceiling_range() {
+    LimiterLookahead lowCeiling;
+    lowCeiling.setup();
+    lowCeiling.setLookaheadMs(1.0f);
+    lowCeiling.setCeilingDb(-100.0f); // should clamp to -12 dBFS
+
+    float lowMax = 0.0f;
+    for (int i = 0; i < 700; ++i) {
+        float l = 1.0f;
+        float r = 1.0f;
+        lowCeiling.processStereo(l, r);
+        if (i > 300) {
+            lowMax = fmaxf(lowMax, fmaxf(fabsf(l), fabsf(r)));
+        }
+    }
+    TEST_ASSERT_LESS_OR_EQUAL_FLOAT(0.3f, lowMax);
+
+    LimiterLookahead highCeiling;
+    highCeiling.setup();
+    highCeiling.setLookaheadMs(1.0f);
+    highCeiling.setCeilingDb(6.0f); // should clamp to -0.1 dBFS
+
+    float highMax = 0.0f;
+    for (int i = 0; i < 700; ++i) {
+        float l = 1.0f;
+        float r = 1.0f;
+        highCeiling.processStereo(l, r);
+        if (i > 300) {
+            highMax = fmaxf(highMax, fmaxf(fabsf(l), fabsf(r)));
+        }
+    }
+    TEST_ASSERT_LESS_OR_EQUAL_FLOAT(1.0f, highMax);
+    TEST_ASSERT_TRUE(highMax > 0.85f);
 }
 
 void test_limiter_link_modes_hold_guardrails() {
@@ -357,10 +483,14 @@ int main(int, char**) {
     UNITY_BEGIN();
     RUN_TEST(test_soft_saturation_pass_through_when_dry);
     RUN_TEST(test_soft_saturation_stays_below_unity);
+    RUN_TEST(test_soft_saturation_clamps_amount);
     RUN_TEST(test_param_smoother_seeds_and_glides);
     RUN_TEST(test_dynwidth_tracks_transient_activity);
+    RUN_TEST(test_dynwidth_clamps_controls);
     RUN_TEST(test_tilt_and_air_extremes_hold_bounds);
+    RUN_TEST(test_tilt_and_air_shape_spectral_balance);
     RUN_TEST(test_limiter_caps_hot_signal);
+    RUN_TEST(test_limiter_clamps_ceiling_range);
     RUN_TEST(test_limiter_link_modes_hold_guardrails);
     RUN_TEST(test_led_mapping_matches_thresholds);
     RUN_TEST(test_host_processor_renders_variants);

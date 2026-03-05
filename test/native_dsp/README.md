@@ -14,7 +14,14 @@ you can poke it without a Teensy on the desk.
   test even synthesizes its own mid/side-rich buffer so you don't need to haul
   any WAV fixtures around. New cases hit **tilt/air extremes** and flip **Limiter
   Link** between Linked and Mid/Side to prove guardrails match what the Teensy
-  build enforces.
+  build enforces. Coverage now explicitly includes:
+  - Soft saturation dry passthrough and amount clamp guardrails.
+  - Param smoother seeding and glide math.
+  - DynWidth transient behavior plus width/anchor clamp behavior.
+  - Tilt/Air finite-output checks at extreme settings.
+  - Tilt/Air spectral-direction sanity checks (high boost actually lifts highs).
+  - Limiter ceiling clamp behavior, link mode behavior, and LED mapping thresholds.
+  - Host render regression snapshots against committed WAV baselines.
 - A repeatable CI-friendly way to say "the math still holds" before you flash
   hardware.
 
@@ -57,4 +64,3 @@ one.
   USB audio.
 - Confidence: when you refactor a saturator or tilt EQ, a native test can prove
   you didn't break the groove.
-

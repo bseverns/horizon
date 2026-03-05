@@ -1,6 +1,7 @@
 # Core block notes
 
 Each block here is a musician-facing cheat sheet: what the stage move is, what the knobs really do, and how we keep them from biting you (clamps, smoothing, and other guardrails).
+For the equation-level version of the same blocks, see [`docs/dsp_math.md`](dsp_math.md).
 
 ## MSMatrix
 Mid/side encoder/decoder that never touches gain—just adds and subtracts to pivot the mix between M/S and L/R. There are no parameters to smooth or clamp; the class exists to keep the math legible and reusable.

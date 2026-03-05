@@ -11,11 +11,12 @@ Makes dense mixes breathe (tails wider, hits focused). Drop it after any instrum
           → SoftSat (mild post safety) → Output trim → [I2S Out]
 ```
 - Block-by-block intent + clamp/smoothing cheats live in [`docs/block_notes.md`](docs/block_notes.md).
+- Equation-level derivations (coefficients, envelope math, lookahead indexing) live in [`docs/dsp_math.md`](docs/dsp_math.md).
 - The limiter runs its own delay line so dry/wet and bypass crossfades stay phase-honest. Detector tilt is detector-only.
 
 ## How to navigate this notebook
 - **Instant context** → start with a platform quick start (Teensy or laptop) to hear the chain.
-- **Deep dive** → skim the “Why it sounds this way” notebook chunks near the bottom, then hop into `docs/block_notes.md`.
+- **Deep dive** → skim the “Why it sounds this way” notebook chunks near the bottom, then hop into [`docs/block_notes.md`](docs/block_notes.md) and [`docs/dsp_math.md`](docs/dsp_math.md).
 - **Host curious** → the desktop quick start below mirrors the Teensy flow so you can keep the embedded mindset while in DAW land.
 
 ## Where to start
@@ -25,6 +26,8 @@ Makes dense mixes breathe (tails wider, hits focused). Drop it after any instrum
 ## Teensy quick start (hardware-first)
 - Open `examples/minimal/minimal.ino` in Arduino + TeensyDuino.
 - Select Teensy 4.0/4.1 and upload.
+- If this is your first Teensy build, read the assembly guide in [`HARDWARE.md`](HARDWARE.md) first (pin map + bring-up checklist).
+- Need schematic context? Open [`horizon_hw/horizon_hw.kicad_sch`](horizon_hw/horizon_hw.kicad_sch) (custom board reference) or follow the Teensy Audio Shield wiring table in `HARDWARE.md`.
 - Feed stereo program and try presets (see CSV + JSON).
 - Feeling adventurous? Jump straight to `examples/preset_morph/preset_morph.ino` to hear slow-motion morphs between a cinema-wide wash and a gentle bus chain.
 - Need visuals? Flash `examples/horizon_scope/horizon_scope.ino` and watch width/transient/GR scroll by at 115200 baud.
@@ -49,6 +52,10 @@ This is the laptop twin of the Teensy quick start—same smoothing and guardrail
   ```bash
   ./cmake-out/linux-clang/horizon_cli input.wav output.flac --preset bus_glue
   ./cmake-out/linux-clang/horizon_cli --list-presets
+  ```
+- Batch-generate "before/after" files for every preset:
+  ```bash
+  tools/render_preset_gallery.sh input.wav docs/audio ./cmake-out/linux-clang/horizon_cli
   ```
 - Want the serial-scope feel while you bounce? Add `--scope` to log the block-level width, transient pulse, and limiter GR. Example line:
   ```
@@ -78,6 +85,7 @@ This is the laptop twin of the Teensy quick start—same smoothing and guardrail
 - **CMake presets** drop CLI + library binaries under `cmake-out/<preset>/` (e.g. `cmake-out/linux-clang/`).
 - **Raw `cmake -B cmake-build`** keeps everything in the `cmake-build/` tree if you’d rather skip presets.
 - **JUCE plugin builds** live in `plugins/build`, with JUCE’s defaults giving you `plugins/build/VST3/` and `plugins/build/Standalone/` drop points. Need deeper path spelunking? Peek at [`plugins/README.md`](plugins/README.md) for the nitty-gritty.
+- **No-compile path for musicians/teachers**: grab packaged plugin artifacts from GitHub Actions (`JUCE CI` workflow), extract, then follow [`PLUGIN_INSTALL.md`](PLUGIN_INSTALL.md).
 
 ## Platform
 Teensy 4.x + SGTL5000 (Teensy Audio Library), 44.1 kHz / 128‑sample blocks. Host builds reuse the exact DSP core via `HostHorizonProcessor` so demos, CI, and DAWs all share the same brain.
@@ -98,12 +106,20 @@ Quick map (details live in the sections below):
 
 - **CI coverage**
   - GitHub Actions installs PlatformIO, builds every Teensy env, and runs `native_dsp` tests so broken flags or platform-only includes get caught early.
+  - GitHub Actions also builds JUCE VST3/standalone bundles for macOS, Windows, and Linux so non-C++ users can test without local toolchain setup.
 
 ### Native DSP test bench (no hardware required)
 - Want to bash on the DSP math without a Teensy plugged in? Run `pio test -e native_dsp` to spin up a host-only build that links tiny Arduino/Audio stubs and exercises the limiter, smoother, and width logic.
 - The env doesn’t inherit any Teensy/Arduino scaffolding, so the native toolchain stays lean and never nags for a board definition—perfect for CI runners and students poking around on a laptop.
 - The project-level `test_dir = test/native_dsp` forces PlatformIO to scoop up the host bench directly, and `test_build_src = yes` keeps the DSP implementation compiled alongside the tests even when firmware entry points are filtered out. Great for CI, teaching, or proving a refactor didn’t sandbag the groove.
 - There’s also a tiny WAV harness (`test/native_dsp/process_wav.cpp`) with a callable `horizon_wav_driver` so you can bounce audio through Horizon on the host. The default `native_dsp` run sticks to the Unity test main to avoid dueling entry points, but you can flip on `HORIZON_WAV_STANDALONE` if you want a quick command-line renderer instead of tests.
+- Coverage currently includes:
+  - Saturator passthrough/headroom guardrails.
+  - Param smoother seeding/glide behavior.
+  - DynWidth transient response and clamp bounds.
+  - Tilt/Air extreme settings and finite-output checks.
+  - Limiter ceiling enforcement, link-mode guardrails, and LED mapping thresholds.
+  - Host render regression checks vs committed WAV baselines.
 
 ### Host-side IntelliSense / clangd cheat codes
 - Linting your editor without dragging in the whole Teensy core? The `patches/cores/teensy4/lint_stubs.h` shim is opt-in so firmware builds always pull `F_CPU_ACTUAL`, `NVIC_SET_PENDING`, etc. from the real PJRC headers. Flip `HORIZON_LINT_STUBS=1` when generating editor metadata and the shim injects no-op definitions for the usual suspects (`__disable_irq`, `Serial`, ...), keeping clangd/IntelliSense chill even if the PlatformIO download cache is missing.
