@@ -230,6 +230,13 @@ int main(int argc, char** argv) {
     return 1;
   }
 
+  for (int i = 1; i < argc; ++i) {
+    if (std::string(argv[i]) == "--list-presets") {
+      print_presets();
+      return 0;
+    }
+  }
+
   std::string inputPath;
   std::string outputPath = "horizon_out.wav";
   std::string presetName = "bus_glue";
