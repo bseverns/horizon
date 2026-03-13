@@ -12,10 +12,16 @@ cmake -S plugins -B plugins/build
 cmake --build plugins/build
 ```
 
-The CMake target fetches JUCE 7 at configure time and builds both a VST3 and a
+The CMake target fetches JUCE at configure time and builds both a VST3 and a
 standalone app. If your system already ships JUCE, feel free to swap the
 `FetchContent` block for your local install — this file stays intentionally
 minimal so you can riff on it.
+
+On macOS, the project defaults its deployment target to `11.0` on Apple Silicon
+and `10.15` on Intel unless you override `CMAKE_OSX_DEPLOYMENT_TARGET`
+yourself. The setting is also exported to JUCE's `juceaide` helper-tool
+bootstrap, which keeps newer Xcode/macOS 15 SDK builds from wandering into
+windowing APIs Apple now marks unavailable at deployment target `15.0`.
 
 > VST2 SDK missing? Same. The CMake target explicitly flips
 > `JUCE_VST3_CAN_REPLACE_VST2` off so JUCE won't go hunting for Steinberg's

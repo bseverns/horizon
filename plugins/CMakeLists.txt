@@ -7,6 +7,22 @@ cmake_minimum_required(VERSION 3.15)
 if(POLICY CMP0175)
   cmake_policy(SET CMP0175 OLD)
 endif()
+if(APPLE)
+  set(_horizon_macos_target "${CMAKE_OSX_DEPLOYMENT_TARGET}")
+  if(NOT _horizon_macos_target)
+    # Keep the default target below macOS 15 so JUCE's helper-tool bootstrap
+    # avoids APIs Apple has now marked unavailable there.
+    set(_horizon_macos_target "11.0")
+    if(CMAKE_OSX_ARCHITECTURES MATCHES "x86_64" OR CMAKE_HOST_SYSTEM_PROCESSOR STREQUAL "x86_64")
+      set(_horizon_macos_target "10.15")
+    endif()
+  endif()
+
+  set(CMAKE_OSX_DEPLOYMENT_TARGET "${_horizon_macos_target}" CACHE STRING
+      "Minimum macOS version for Horizon JUCE desktop builds" FORCE)
+  set(ENV{MACOSX_DEPLOYMENT_TARGET} "${_horizon_macos_target}")
+endif()
+
 project(HorizonPlugin VERSION 0.1.0)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -16,7 +32,7 @@ include(FetchContent)
 FetchContent_Declare(
   juce
   GIT_REPOSITORY https://github.com/juce-framework/JUCE.git
-  GIT_TAG 7.0.9
+  GIT_TAG 8.0.0
 )
 FetchContent_MakeAvailable(juce)
 

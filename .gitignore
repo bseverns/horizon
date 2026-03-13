@@ -1,13 +1,19 @@
-.pio
+.pio/
+
+# Editor / workstation-local state
 .vscode/.browse.c_cpp.db*
+.vscode/c_cpp_properties.json
+.vscode/ipch/
 .vscode/launch.json
-.vscode/ipch
-test/native_dsp/.DS_Store
-test/native_dsp/assets/.DS_Store
-plugins/build/HorizonJuce_artefacts/VST3/.DS_Store
-/plugins/build
+.idea/
+*.swp
+*.swo
+*.tmp
+*.temp
+*.orig
 
 # Host builds / CMake byproducts
+/plugins/build/
 cmake-out/
 cmake-build*/
 CMakeFiles/
@@ -15,9 +21,32 @@ CMakeCache.txt
 CMakeUserPresets.json
 install_manifest.txt
 compile_commands.json
-plugins/build
+
+# JUCE / desktop plugin outputs
+*.app
+*.component
+*.dSYM/
+*.pkg
+*.vst3
+*.lv2/
+
+# Local signing, provisioning, and secret-shaped files
+.env
+.env.*
+*.local
+*.key
+*.pem
+*.p12
+*.p8
+*.cer
+*.crt
+*.csr
+*.mobileprovision
+*.provisionprofile
+
+# Hardware CAD local state / backups
+*.kicad_prl
+horizon_hw/horizon_hw-backups/
+
+# OS noise
 .DS_Store
-apps/.DS_Store
-examples/.DS_Store
-plugins/.DS_Store
-.vscode/c_cpp_properties.json
