@@ -37,7 +37,7 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(juce)
 
 juce_add_plugin(HorizonJuce
-  COMPANY_NAME "Horizon"
+  COMPANY_NAME "BSSoundStudio"
   IS_SYNTH FALSE
   NEEDS_MIDI_INPUT FALSE
   NEEDS_MIDI_OUTPUT FALSE
