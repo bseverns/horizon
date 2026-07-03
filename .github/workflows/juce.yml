@@ -60,6 +60,12 @@ jobs:
         run: |
           choco install -y ninja cmake
 
+      - name: Prep MSVC environment (Windows)
+        if: matrix.os == 'windows-latest'
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: x64
+
       - name: Prep toolchain (macOS)
         if: matrix.os == 'macos-14'
         shell: bash
@@ -70,12 +76,14 @@ jobs:
           cmake --version
           ninja --version
 
-      - name: Configure CMake (Ninja on *nix, Visual Studio on Windows)
+      - name: Configure CMake (Ninja)
         shell: bash
         run: |
           if [[ "${{ matrix.os }}" == "windows-latest" ]]; then
-            cmake -S plugins -B plugins/build -G "Visual Studio 17 2022" -A x64 \
+            cmake -S plugins -B plugins/build -G Ninja \
               -DCMAKE_BUILD_TYPE=Release \
+              -DCMAKE_C_COMPILER=cl \
+              -DCMAKE_CXX_COMPILER=cl \
               -DJUCE_VST3_CAN_REPLACE_VST2=0
           elif [[ "${{ matrix.os }}" == "macos-14" ]]; then
             cmake_args=(
