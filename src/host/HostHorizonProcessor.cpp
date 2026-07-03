@@ -31,6 +31,7 @@ HostHorizonProcessor::HostHorizonProcessor(double sampleRate, int blockSize)
     _limiterBypassTarget(false),
     _mixTarget(0.6f),
     _outTrimDbTarget(0.0f),
+    _hasProcessed(false),
     _telemetryWidth(_widthTarget),
     _telemetryTransient(0.0f),
     _telemetryLimiterGain(1.0f),
@@ -61,6 +62,7 @@ HostHorizonProcessor::HostHorizonProcessor(double sampleRate, int blockSize)
 
 void HostHorizonProcessor::prepareToPlay(double sampleRate, int blockSize) {
   updateForSampleRate(sampleRate, blockSize, true);
+  _hasProcessed = false;
 }
 
 float HostHorizonProcessor::clampf(float x, float lo, float hi) const {
@@ -209,7 +211,9 @@ void HostHorizonProcessor::setLimiterBypass(bool on) {
 
 void HostHorizonProcessor::setMix(float m) {
   _mixTarget = clampf(m, 0.0f, 1.0f);
-  _limiterMixTarget = _mixTarget;
+  if (!_hasProcessed) {
+    _mixSm.reset(_mixTarget);
+  }
 }
 
 void HostHorizonProcessor::setOutputTrim(float dB) {
@@ -241,6 +245,7 @@ void HostHorizonProcessor::processBlock(float* inL,
   float limLook    = _limiterLookaheadSm.process(_limiterLookaheadTargetMs);
   float limTilt    = _limiterTiltSm.process(_limiterTiltTarget);
   float limMix     = _limiterMixSm.process(_limiterMixTarget);
+  float mix        = _mixSm.process(_mixTarget);
   float outTrimDb  = _outTrimSm.process(_outTrimDbTarget);
   float outTrimLin = std::pow(10.0f, 0.05f * outTrimDb);
 
@@ -260,8 +265,10 @@ void HostHorizonProcessor::processBlock(float* inL,
   _limiter.setBypass(_limiterBypassTarget);
 
   for (int i = 0; i < numFrames; ++i) {
-    float l = inL[i];
-    float r = inR[i];
+    float dryL = inL[i];
+    float dryR = inR[i];
+    float l = dryL;
+    float r = dryR;
 
     float m, s;
     _ms.encode(l, r, m, s);
@@ -287,11 +294,15 @@ void HostHorizonProcessor::processBlock(float* inL,
     wetL *= outTrimLin;
     wetR *= outTrimLin;
 
-    outL[i] = clampf(wetL, -kOutputClamp, kOutputClamp);
-    outR[i] = clampf(wetR, -kOutputClamp, kOutputClamp);
+    float mixedL = dryL + mix * (wetL - dryL);
+    float mixedR = dryR + mix * (wetR - dryR);
+
+    outL[i] = clampf(mixedL, -kOutputClamp, kOutputClamp);
+    outR[i] = clampf(mixedR, -kOutputClamp, kOutputClamp);
   }
 
   _limiterTelemetry = _limiter.getTelemetry();
+  _hasProcessed = true;
 }
 
 float HostHorizonProcessor::getBlockWidth() const {

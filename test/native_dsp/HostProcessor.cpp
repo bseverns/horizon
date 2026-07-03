@@ -62,6 +62,16 @@ int32_t readLE24(std::istream &in) {
   return value;
 }
 
+int32_t readLE24In32(std::istream &in) {
+  uint8_t bytes[4] = {0};
+  in.read(reinterpret_cast<char *>(bytes), 4);
+  int32_t value = static_cast<int32_t>(bytes[0] | (bytes[1] << 8) | (bytes[2] << 16));
+  if (value & 0x00800000) {
+    value |= 0xFF000000; // sign-extend the valid low 24 bits
+  }
+  return value;
+}
+
 void writeLE16(std::ostream &out, int16_t v) {
   char bytes[2];
   bytes[0] = static_cast<char>(v & 0xFF);
@@ -288,7 +298,10 @@ StereoBuffer loadStereoWav(const std::filesystem::path &path) {
   const uint16_t bitDepth = fmt.validBitsPerSample ? fmt.validBitsPerSample : fmt.bitsPerSample;
   const bool pcmFormat = (fmt.audioFormat == 1) || (fmt.audioFormat == 0xFFFE && fmt.subFormatData1 == 0x00000001);
   const bool supportedDepth = (bitDepth == 16 || bitDepth == 24);
-  if (!pcmFormat || fmt.numChannels != 2 || !supportedDepth || dataSize == 0 || dataPos == std::streampos(-1) || !sawFmt) {
+  const bool supportedContainer = (bitDepth == 16 && fmt.bitsPerSample == 16) ||
+                                  (bitDepth == 24 && (fmt.bitsPerSample == 24 || fmt.bitsPerSample == 32));
+  if (!pcmFormat || fmt.numChannels != 2 || !supportedDepth || !supportedContainer || dataSize == 0 ||
+      dataPos == std::streampos(-1) || !sawFmt) {
     std::cerr << "Unsupported WAV format in: " << path << "\n";
     return buffer;
   }
@@ -310,8 +323,8 @@ StereoBuffer loadStereoWav(const std::filesystem::path &path) {
     }
   } else {
     for (size_t i = 0; i < samples; ++i) {
-      int32_t l = readLE24(in);
-      int32_t r = readLE24(in);
+      int32_t l = (bytesPerSample == 4) ? readLE24In32(in) : readLE24(in);
+      int32_t r = (bytesPerSample == 4) ? readLE24In32(in) : readLE24(in);
       buffer.left[i] = static_cast<float>(l) * kInv8388608;
       buffer.right[i] = static_cast<float>(r) * kInv8388608;
     }
@@ -477,4 +490,3 @@ std::vector<WavRender> buildDemoRenders(const StereoBuffer &input) {
 
   return renders;
 }
-

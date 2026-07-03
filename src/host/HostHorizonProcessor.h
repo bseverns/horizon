@@ -73,6 +73,7 @@ private:
   bool _limiterBypassTarget;
   float _mixTarget;
   float _outTrimDbTarget;
+  bool _hasProcessed;
 
   // Smoothers
   ParamSmoother _widthSm;

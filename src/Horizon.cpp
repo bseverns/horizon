@@ -38,6 +38,7 @@ AudioHorizon::AudioHorizon()
     _limiterBypassTarget(false),
     _mixTarget(0.6f),
     _outTrimDbTarget(0.0f),
+    _hasProcessed(false),
     _telemetryWidth(_widthTarget),
     _telemetryTransient(0.0f),
     _telemetryLimiterGain(1.0f),
@@ -133,7 +134,9 @@ void AudioHorizon::setLimiterBypass(bool on) {
 
 void AudioHorizon::setMix(float m) {
   _mixTarget = clampf_hz(m, 0.0f, 1.0f);
-  _limiterMixTarget = _mixTarget;
+  if (!_hasProcessed) {
+    _mixSm.reset(_mixTarget);
+  }
 }
 
 void AudioHorizon::setOutputTrim(float dB) {
@@ -173,6 +176,7 @@ void AudioHorizon::update() {
   float limLook    = _limiterLookaheadSm.process(_limiterLookaheadTargetMs);
   float limTilt    = _limiterTiltSm.process(_limiterTiltTarget);
   float limMix     = _limiterMixSm.process(_limiterMixTarget);
+  float mix        = _mixSm.process(_mixTarget);
   float outTrimDb  = _outTrimSm.process(_outTrimDbTarget);
   float outTrimLin = powf(10.0f, 0.05f * outTrimDb);
 
@@ -192,8 +196,10 @@ void AudioHorizon::update() {
   _limiter.setBypass(_limiterBypassTarget);
 
   for (int i = 0; i < AUDIO_BLOCK_SAMPLES; ++i) {
-    float l = inL->data[i] * kInv32768;
-    float r = inR->data[i] * kInv32768;
+    float dryL = inL->data[i] * kInv32768;
+    float dryR = inR->data[i] * kInv32768;
+    float l = dryL;
+    float r = dryR;
 
     float m, s;
     _ms.encode(l, r, m, s);
@@ -219,8 +225,8 @@ void AudioHorizon::update() {
     wetL *= outTrimLin;
     wetR *= outTrimLin;
 
-    float outLf = wetL;
-    float outRf = wetR;
+    float outLf = dryL + mix * (wetL - dryL);
+    float outRf = dryR + mix * (wetR - dryR);
 
     float scaledL = outLf * 32767.0f;
     float scaledR = outRf * 32767.0f;
@@ -235,6 +241,7 @@ void AudioHorizon::update() {
   }
 
   _limiterTelemetry = _limiter.getTelemetry();
+  _hasProcessed = true;
 
   transmit(outL, 0);
   transmit(outR, 1);

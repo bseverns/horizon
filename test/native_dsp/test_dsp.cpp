@@ -2,11 +2,13 @@
 #include <algorithm>
 #include <cmath>
 #include <cstdio>
+#include <fstream>
 
 #include "SoftSaturation.h"
 #include "ParamSmoother.h"
 #include "DynWidth.h"
 #include "LimiterLookahead.h"
+#include "host/HostHorizonProcessor.h"
 #include "HostProcessor.h"
 #include "AirEQ.h"
 #include "TiltEQ.h"
@@ -100,6 +102,80 @@ DiffResult measureMaxDiff(const StereoBuffer &expected, const StereoBuffer &actu
     }
 
     return diff;
+}
+
+void writeU16(std::ostream &out, uint16_t value) {
+    char bytes[2] = {
+        static_cast<char>(value & 0xFF),
+        static_cast<char>((value >> 8) & 0xFF),
+    };
+    out.write(bytes, 2);
+}
+
+void writeU32(std::ostream &out, uint32_t value) {
+    char bytes[4] = {
+        static_cast<char>(value & 0xFF),
+        static_cast<char>((value >> 8) & 0xFF),
+        static_cast<char>((value >> 16) & 0xFF),
+        static_cast<char>((value >> 24) & 0xFF),
+    };
+    out.write(bytes, 4);
+}
+
+void writeS24In32(std::ostream &out, int32_t value) {
+    char bytes[4] = {
+        static_cast<char>(value & 0xFF),
+        static_cast<char>((value >> 8) & 0xFF),
+        static_cast<char>((value >> 16) & 0xFF),
+        0,
+    };
+    out.write(bytes, 4);
+}
+
+void writeExtensible24In32Fixture(const std::filesystem::path &path) {
+    constexpr uint16_t channels = 2;
+    constexpr uint32_t sampleRate = 44100;
+    constexpr uint16_t containerBits = 32;
+    constexpr uint16_t validBits = 24;
+    constexpr uint16_t bytesPerSample = containerBits / 8;
+    constexpr uint16_t blockAlign = channels * bytesPerSample;
+    constexpr uint32_t dataSize = 2 * blockAlign;
+    constexpr uint32_t fmtSize = 40;
+
+    std::ofstream out(path, std::ios::binary);
+    out.write("RIFF", 4);
+    writeU32(out, 4 + (8 + fmtSize) + (8 + dataSize));
+    out.write("WAVE", 4);
+
+    out.write("fmt ", 4);
+    writeU32(out, fmtSize);
+    writeU16(out, 0xFFFE); // WAVE_FORMAT_EXTENSIBLE
+    writeU16(out, channels);
+    writeU32(out, sampleRate);
+    writeU32(out, sampleRate * blockAlign);
+    writeU16(out, blockAlign);
+    writeU16(out, containerBits);
+    writeU16(out, 22);
+    writeU16(out, validBits);
+    writeU32(out, 0x3); // front left + front right
+    writeU32(out, 0x00000001); // PCM GUID data1
+    writeU16(out, 0x0000);
+    writeU16(out, 0x0010);
+    out.put(static_cast<char>(0x80));
+    out.put(static_cast<char>(0x00));
+    out.put(static_cast<char>(0x00));
+    out.put(static_cast<char>(0xaa));
+    out.put(static_cast<char>(0x00));
+    out.put(static_cast<char>(0x38));
+    out.put(static_cast<char>(0x9b));
+    out.put(static_cast<char>(0x71));
+
+    out.write("data", 4);
+    writeU32(out, dataSize);
+    writeS24In32(out, 0x400000);
+    writeS24In32(out, 0);
+    writeS24In32(out, 0);
+    writeS24In32(out, 0x400000);
 }
 
 std::filesystem::path findAssetsBaseDir() {
@@ -381,6 +457,48 @@ void test_led_mapping_matches_thresholds() {
     TEST_ASSERT_EQUAL_UINT8(8, mapGRtoLeds(-14.0f));
 }
 
+void test_host_horizon_mix_zero_is_dry_input() {
+    constexpr int frames = 512;
+    std::vector<float> inL(frames);
+    std::vector<float> inR(frames);
+    std::vector<float> outL(frames, 0.0f);
+    std::vector<float> outR(frames, 0.0f);
+
+    for (int i = 0; i < frames; ++i) {
+        const float t = static_cast<float>(i);
+        inL[i] = 0.3f * sinf(0.07f * t) + 0.1f * sinf(0.31f * t);
+        inR[i] = -0.2f * sinf(0.11f * t) + 0.05f * sinf(0.23f * t);
+    }
+
+    HostHorizonProcessor processor(44100.0, frames);
+    processor.setLimiterMix(1.0f);
+    processor.setMix(0.0f);
+    processor.setOutputTrim(6.0f);
+    processor.processBlock(inL.data(), inR.data(), outL.data(), outR.data(), frames, 44100.0);
+
+    for (int i = 0; i < frames; ++i) {
+        TEST_ASSERT_FLOAT_WITHIN(1e-6f, inL[i], outL[i]);
+        TEST_ASSERT_FLOAT_WITHIN(1e-6f, inR[i], outR[i]);
+    }
+}
+
+void test_wav_loader_reads_extensible_24_bit_in_32_bit_container() {
+    namespace fs = std::filesystem;
+    const fs::path path = fs::temp_directory_path() / "horizon_extensible_24_in_32.wav";
+    writeExtensible24In32Fixture(path);
+
+    StereoBuffer buffer = loadStereoWav(path);
+    fs::remove(path);
+
+    TEST_ASSERT_EQUAL_INT(44100, buffer.sampleRate);
+    TEST_ASSERT_EQUAL_UINT32(2, static_cast<uint32_t>(buffer.left.size()));
+    TEST_ASSERT_EQUAL_UINT32(2, static_cast<uint32_t>(buffer.right.size()));
+    TEST_ASSERT_FLOAT_WITHIN(1e-6f, 0.5f, buffer.left[0]);
+    TEST_ASSERT_FLOAT_WITHIN(1e-6f, 0.0f, buffer.right[0]);
+    TEST_ASSERT_FLOAT_WITHIN(1e-6f, 0.0f, buffer.left[1]);
+    TEST_ASSERT_FLOAT_WITHIN(1e-6f, 0.5f, buffer.right[1]);
+}
+
 void test_host_processor_renders_variants() {
     namespace fs = std::filesystem;
     const fs::path baseDir = findAssetsBaseDir();
@@ -493,6 +611,8 @@ int main(int, char**) {
     RUN_TEST(test_limiter_clamps_ceiling_range);
     RUN_TEST(test_limiter_link_modes_hold_guardrails);
     RUN_TEST(test_led_mapping_matches_thresholds);
+    RUN_TEST(test_host_horizon_mix_zero_is_dry_input);
+    RUN_TEST(test_wav_loader_reads_extensible_24_bit_in_32_bit_container);
     RUN_TEST(test_host_processor_renders_variants);
     return UNITY_END();
 }
