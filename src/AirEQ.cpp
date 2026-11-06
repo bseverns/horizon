@@ -9,21 +9,35 @@ static inline float clampf_air(float x, float lo, float hi) {
   return (x < lo) ? lo : (x > hi ? hi : x);
 }
 
-static constexpr float kFsAir = 44100.0f;
 static constexpr float kTwoPiAir = 6.28318530717958647692f;
+
+static float onePoleAlpha(float freqHz, float sampleRate) {
+  const float c = cosf(kTwoPiAir * freqHz / sampleRate);
+  const float a = 2.0f - c;
+  return 1.0f - (a - sqrtf(a * a - 1.0f));
+}
 
 float AirEQ::dbToLin(float dB) {
   return powf(10.0f, dB / 20.0f);
 }
 
-AirEQ::AirEQ() : _alpha(0.0f), _low(0.0f), _highGain(1.0f) {
+AirEQ::AirEQ()
+  : _alpha(0.0f), _low(0.0f), _highGain(1.0f), _freqHz(10000.0f),
+    _sampleRate(44100.0f) {
   setFreqAndGain(10000.0f, 0.0f);
+}
+
+void AirEQ::setSampleRate(float sampleRate) {
+  if (sampleRate > 0.0f) {
+    _sampleRate = sampleRate;
+    _alpha = onePoleAlpha(_freqHz, _sampleRate);
+  }
 }
 
 void AirEQ::setFreqAndGain(float freqHz, float gainDb) {
   freqHz = clampf_air(freqHz, 4000.0f, 16000.0f);
-  float omega = kTwoPiAir * freqHz / kFsAir;
-  _alpha = 1.0f - expf(-omega);
+  _freqHz = freqHz;
+  _alpha = onePoleAlpha(_freqHz, _sampleRate);
   _highGain = dbToLin(clampf_air(gainDb, -6.0f, 6.0f));
 }
 

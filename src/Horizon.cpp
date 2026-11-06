@@ -6,6 +6,7 @@
 #include <math.h>
 
 static inline float clampf_hz(float x, float lo, float hi) {
+  if (!isfinite(x)) return lo;
   return (x < lo) ? lo : (x > hi ? hi : x);
 }
 
@@ -196,10 +197,16 @@ void AudioHorizon::update() {
   _limiter.setBypass(_limiterBypassTarget);
 
   for (int i = 0; i < AUDIO_BLOCK_SAMPLES; ++i) {
-    float dryL = inL->data[i] * kInv32768;
-    float dryR = inR->data[i] * kInv32768;
-    float l = dryL;
-    float r = dryR;
+    float l = inL->data[i] * kInv32768;
+    float r = inR->data[i] * kInv32768;
+
+    _dryBufferL[_dryWriteIdx] = l;
+    _dryBufferR[_dryWriteIdx] = r;
+    int dryReadIdx = _dryWriteIdx - _limiter.getLatencySamples();
+    if (dryReadIdx < 0) dryReadIdx += kDryBufferSize;
+    const float dryL = _dryBufferL[dryReadIdx];
+    const float dryR = _dryBufferR[dryReadIdx];
+    _dryWriteIdx = (_dryWriteIdx + 1) % kDryBufferSize;
 
     float m, s;
     _ms.encode(l, r, m, s);

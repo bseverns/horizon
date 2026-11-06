@@ -54,6 +54,7 @@ public:
 
   float getGain() const { return _env; }
   float getGRdB() const;
+  int getLatencySamples() const { return _latencySamples; }
   bool getClipFlagAndClear();
   Telemetry getTelemetry() const { return _lastTelemetry; }
 
@@ -72,6 +73,7 @@ private:
   float _bufferR[kBufferSize];
   int _writeIdx;
   int _lookaheadSamples;
+  int _latencySamples;
   float _lookaheadMs;
   float _mix;
 

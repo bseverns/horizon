@@ -6,6 +6,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+include(GNUInstallDirs)
+
 set(HORIZON_DSP_SOURCES
   src/AirEQ.cpp
   src/DynWidth.cpp
@@ -25,12 +27,11 @@ target_include_directories(horizon_dsp
   PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src/host>
-    $<INSTALL_INTERFACE:include>
+    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/horizon>
 )
 
 target_compile_features(horizon_dsp PUBLIC cxx_std_17)
 
-include(GNUInstallDirs)
 install(TARGETS horizon_dsp
   EXPORT horizon_dspTargets
   ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
@@ -41,6 +42,7 @@ install(TARGETS horizon_dsp
 install(DIRECTORY src/
   DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/horizon
   FILES_MATCHING PATTERN "*.h"
+  PATTERN "Horizon.h" EXCLUDE
 )
 
 install(EXPORT horizon_dspTargets

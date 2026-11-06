@@ -8,6 +8,7 @@ public:
 
   // dBPerOct roughly -6..+6, positive tilts brighten highs.
   void setTiltDbPerOct(float dBPerOct);
+  void setSampleRate(float sampleRate);
 
   void reset();
 
@@ -18,6 +19,7 @@ private:
   float _low;
   float _tiltLowGain;
   float _tiltHighGain;
+  float _sampleRate;
 
   static float dbToLin(float dB);
 };

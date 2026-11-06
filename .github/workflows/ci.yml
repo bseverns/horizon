@@ -51,3 +51,24 @@ jobs:
           name: native-dsp-renders
           path: test/native_dsp/artifacts/*.wav
           if-no-files-found: ignore
+
+  build-examples:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        example: [horizon_scope, minimal, width_extremes, preset_morph_walk, preset_morph]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install PlatformIO
+        run: pip install platformio
+
+      - name: Build ${{ matrix.example }} example
+        run: pio ci examples/${{ matrix.example }} --project-conf platformio.ini --environment main_teensy41 --lib src

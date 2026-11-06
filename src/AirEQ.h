@@ -9,6 +9,7 @@ public:
 
   // freqHz: approx 4k..16k, gainDb: -12..+12 (clamped)
   void setFreqAndGain(float freqHz, float gainDb);
+  void setSampleRate(float sampleRate);
 
   void reset();
 
@@ -18,6 +19,8 @@ private:
   float _alpha;
   float _low;
   float _highGain;
+  float _freqHz;
+  float _sampleRate;
 
   static float dbToLin(float dB);
 };

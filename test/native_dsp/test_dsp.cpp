@@ -12,9 +12,12 @@
 #include "HostProcessor.h"
 #include "AirEQ.h"
 #include "TiltEQ.h"
+#include "TransientDetector.h"
+#include "host/HostHorizonProcessor.h"
 
 #include <cstdlib>
 #include <filesystem>
+#include <limits>
 #include <map>
 #include <system_error>
 #include <vector>
@@ -45,13 +48,13 @@ struct DiffResult {
     size_t frames = 0;
 };
 
-float measureTiltToneRms(float freqHz, float tiltDbPerOct) {
-    constexpr int sampleRate = 44100;
+float measureTiltToneRms(float freqHz, float tiltDbPerOct, int sampleRate = 44100) {
     constexpr int warmup = 2048;
     constexpr int measured = 4096;
     constexpr float twoPi = 6.28318530717958647692f;
 
     TiltEQ tilt;
+    tilt.setSampleRate(static_cast<float>(sampleRate));
     tilt.setTiltDbPerOct(tiltDbPerOct);
     tilt.reset();
 
@@ -68,13 +71,13 @@ float measureTiltToneRms(float freqHz, float tiltDbPerOct) {
     return sqrtf(sumSq / static_cast<float>(measured));
 }
 
-float measureAirToneRms(float freqHz, float airFreqHz, float gainDb) {
-    constexpr int sampleRate = 44100;
+float measureAirToneRms(float freqHz, float airFreqHz, float gainDb, int sampleRate = 44100) {
     constexpr int warmup = 2048;
     constexpr int measured = 4096;
     constexpr float twoPi = 6.28318530717958647692f;
 
     AirEQ air;
+    air.setSampleRate(static_cast<float>(sampleRate));
     air.setFreqAndGain(airFreqHz, gainDb);
     air.reset();
 
@@ -357,6 +360,200 @@ void test_tilt_and_air_shape_spectral_balance() {
     TEST_ASSERT_TRUE_MESSAGE(airHighBoost > airHighDry * 1.15f, "air boost did not lift top band enough");
 }
 
+void test_tilt_and_air_keep_physical_response_across_sample_rates() {
+    const float tilt44 = measureTiltToneRms(1000.0f, 6.0f, 44100) /
+                         measureTiltToneRms(1000.0f, 0.0f, 44100);
+    const float tilt88 = measureTiltToneRms(1000.0f, 6.0f, 88200) /
+                         measureTiltToneRms(1000.0f, 0.0f, 88200);
+    TEST_ASSERT_FLOAT_WITHIN(0.04f, tilt44, tilt88);
+
+    const float air44 = measureAirToneRms(5000.0f, 10000.0f, 6.0f, 44100) /
+                        measureAirToneRms(5000.0f, 10000.0f, 0.0f, 44100);
+    const float air88 = measureAirToneRms(5000.0f, 10000.0f, 6.0f, 88200) /
+                        measureAirToneRms(5000.0f, 10000.0f, 0.0f, 88200);
+    TEST_ASSERT_FLOAT_WITHIN(0.03f, air44, air88);
+}
+
+void test_transient_sensitivity_lowers_threshold() {
+    TransientDetector lowSensitivity;
+    TransientDetector highSensitivity;
+    lowSensitivity.setSensitivity(0.0f);
+    highSensitivity.setSensitivity(1.0f);
+
+    float lowActivity = 0.0f;
+    float highActivity = 0.0f;
+    for (int i = 0; i < 4096; ++i) {
+        lowActivity = lowSensitivity.processSample(0.2f);
+        highActivity = highSensitivity.processSample(0.2f);
+    }
+
+    TEST_ASSERT_TRUE_MESSAGE(highActivity > lowActivity,
+                             "higher sensitivity should detect more activity");
+}
+
+void test_host_nonfinite_audio_does_not_poison_state() {
+    HostHorizonProcessor processor(48000.0, 512);
+    float left[512]{};
+    float right[512]{};
+    left[0] = std::numeric_limits<float>::infinity();
+    right[0] = std::numeric_limits<float>::infinity();
+
+    processor.processBlock(left, right, left, right, 512, 48000.0);
+
+    for (int i = 0; i < 512; ++i) {
+        TEST_ASSERT_TRUE_MESSAGE(std::isfinite(left[i]) && std::isfinite(right[i]),
+                                 "non-finite input poisoned host DSP state");
+    }
+}
+
+void test_host_nonfinite_control_uses_safe_value() {
+    HostHorizonProcessor processor(48000.0, 128);
+    processor.setWidth(std::numeric_limits<float>::quiet_NaN());
+    float left[128];
+    float right[128];
+    std::fill_n(left, 128, 0.2f);
+    std::fill_n(right, 128, -0.2f);
+
+    processor.processBlock(left, right, left, right, 128, 48000.0);
+
+    for (int i = 0; i < 128; ++i) {
+        TEST_ASSERT_TRUE_MESSAGE(std::isfinite(left[i]) && std::isfinite(right[i]),
+                                 "non-finite control poisoned host DSP state");
+    }
+}
+
+void test_prepare_to_play_clears_same_format_state() {
+    HostHorizonProcessor processor(44100.0, 128);
+    float left[128]{};
+    float right[128]{};
+    left[127] = 1.0f;
+    right[127] = 1.0f;
+    processor.processBlock(left, right, left, right, 128, 44100.0);
+
+    processor.prepareToPlay(44100.0, 128);
+    for (int block = 0; block < 3; ++block) {
+        std::fill_n(left, 128, 0.0f);
+        std::fill_n(right, 128, 0.0f);
+        processor.processBlock(left, right, left, right, 128, 44100.0);
+        for (int i = 0; i < 128; ++i) {
+            TEST_ASSERT_FLOAT_WITHIN(1e-6f, 0.0f, left[i]);
+            TEST_ASSERT_FLOAT_WITHIN(1e-6f, 0.0f, right[i]);
+        }
+    }
+}
+
+void test_limiter_uses_fixed_latency_and_looks_ahead() {
+    LimiterLookahead limiter;
+    limiter.setSampleRate(1000.0f);
+    limiter.setup();
+    limiter.setLookaheadMs(1.0f);
+    limiter.setCeilingDb(-6.0f);
+
+    TEST_ASSERT_EQUAL_INT(8, limiter.getLatencySamples());
+
+    float output = 0.0f;
+    for (int i = 0; i <= limiter.getLatencySamples(); ++i) {
+        float l = (i == 0) ? 1.0f : 0.0f;
+        float r = l;
+        limiter.processStereo(l, r);
+        if (i < limiter.getLatencySamples()) {
+            TEST_ASSERT_FLOAT_WITHIN(1e-6f, 0.0f, l);
+        } else {
+            output = l;
+        }
+    }
+    TEST_ASSERT_LESS_OR_EQUAL_FLOAT(0.51f, output);
+    TEST_ASSERT_GREATER_THAN_FLOAT(0.45f, output);
+}
+
+void test_limiter_lookahead_changes_keep_output_timeline_continuous() {
+    LimiterLookahead limiter;
+    limiter.setSampleRate(1000.0f);
+    limiter.setup();
+    limiter.setMix(0.0f);
+    limiter.setLookaheadMs(1.0f);
+
+    const int latency = limiter.getLatencySamples();
+    for (int i = 0; i < 32; ++i) {
+        if (i == 16) {
+            limiter.setLookaheadMs(8.0f);
+        }
+        float l = static_cast<float>(i + 1) / 100.0f;
+        float r = l;
+        limiter.processStereo(l, r);
+        const float expected = (i < latency) ? 0.0f : static_cast<float>(i - latency + 1) / 100.0f;
+        TEST_ASSERT_FLOAT_WITHIN(1e-6f, expected, l);
+        TEST_ASSERT_FLOAT_WITHIN(1e-6f, expected, r);
+    }
+}
+
+void test_extreme_sample_rates_are_bounded_before_latency_conversion() {
+    LimiterLookahead limiter;
+    limiter.setSampleRate(1.0e12f);
+    TEST_ASSERT_EQUAL_INT(3072, limiter.getLatencySamples());
+
+    HostHorizonProcessor host(1.0e12, 128);
+    TEST_ASSERT_EQUAL_INT(3072, host.getLatencySamples());
+}
+
+void test_host_global_mix_is_delayed_dry_and_keeps_limiter_mix_independent() {
+    HostHorizonProcessor dryLimit(1000.0, 32);
+    HostHorizonProcessor wetLimit(1000.0, 32);
+    for (auto* processor : {&dryLimit, &wetLimit}) {
+        processor->setMix(0.0f);
+        processor->setDirt(1.0f);
+        processor->setCeiling(-6.0f);
+    }
+    dryLimit.setLimiterMix(0.0f);
+    wetLimit.setLimiterMix(1.0f);
+    dryLimit.prepareToPlay(1000.0, 32);
+    wetLimit.prepareToPlay(1000.0, 32);
+
+    float inL[32]{};
+    float inR[32]{};
+    float dryOutL[32]{};
+    float dryOutR[32]{};
+    float wetOutL[32]{};
+    float wetOutR[32]{};
+    inL[0] = 0.75f;
+    inR[0] = -0.5f;
+    dryLimit.processBlock(inL, inR, dryOutL, dryOutR, 32, 1000.0);
+    wetLimit.processBlock(inL, inR, wetOutL, wetOutR, 32, 1000.0);
+
+    const int latency = dryLimit.getLatencySamples();
+    TEST_ASSERT_EQUAL_INT(8, latency);
+    TEST_ASSERT_FLOAT_WITHIN(1e-6f, 0.75f, dryOutL[latency]);
+    TEST_ASSERT_FLOAT_WITHIN(1e-6f, -0.5f, dryOutR[latency]);
+    for (int i = 0; i < 32; ++i) {
+        TEST_ASSERT_FLOAT_WITHIN(1e-6f, dryOutL[i], wetOutL[i]);
+        TEST_ASSERT_FLOAT_WITHIN(1e-6f, dryOutR[i], wetOutR[i]);
+    }
+
+    HostHorizonProcessor limiterDry(1000.0, 1);
+    HostHorizonProcessor limiterWet(1000.0, 1);
+    limiterDry.setMix(1.0f);
+    limiterWet.setMix(1.0f);
+    limiterDry.setLimiterMix(0.0f);
+    limiterWet.setLimiterMix(1.0f);
+    limiterDry.setCeiling(-6.0f);
+    limiterWet.setCeiling(-6.0f);
+    float limiterDryOut = 0.0f;
+    float limiterWetOut = 0.0f;
+    for (int i = 0; i < 700; ++i) {
+        float sample = 1.0f;
+        limiterDry.processBlock(&sample, &sample, &limiterDryOut, &limiterDryOut, 1, 1000.0);
+        sample = 1.0f;
+        limiterWet.processBlock(&sample, &sample, &limiterWetOut, &limiterWetOut, 1, 1000.0);
+    }
+    TEST_ASSERT_TRUE_MESSAGE(limiterDryOut > 0.9f,
+                             "dry limiter Mix should preserve the delayed signal");
+    // The default 0.1 dirt stage follows the limiter, so a -6 dB limited sample
+    // settles near 0.775 rather than the limiter's raw 0.501 gain.
+    TEST_ASSERT_FLOAT_WITHIN(0.02f, 0.775f, limiterWetOut);
+    TEST_ASSERT_TRUE_MESSAGE(limiterDryOut > limiterWetOut + 0.2f,
+                             "limiter Mix no longer has an independent audible effect");
+}
+
 void test_limiter_caps_hot_signal() {
     LimiterLookahead lim;
     lim.setup();
@@ -365,7 +562,7 @@ void test_limiter_caps_hot_signal() {
     lim.setMix(1.0f);
 
     float maxOut = 0.0f;
-    for (int i = 0; i < 200; ++i) {
+    for (int i = 0; i < 700; ++i) {
         float l = 1.0f;
         float r = 1.0f;
         lim.processStereo(l, r);
@@ -457,7 +654,7 @@ void test_led_mapping_matches_thresholds() {
     TEST_ASSERT_EQUAL_UINT8(8, mapGRtoLeds(-14.0f));
 }
 
-void test_host_horizon_mix_zero_is_dry_input() {
+void test_host_horizon_mix_zero_is_latency_aligned_dry() {
     constexpr int frames = 512;
     std::vector<float> inL(frames);
     std::vector<float> inR(frames);
@@ -476,9 +673,14 @@ void test_host_horizon_mix_zero_is_dry_input() {
     processor.setOutputTrim(6.0f);
     processor.processBlock(inL.data(), inR.data(), outL.data(), outR.data(), frames, 44100.0);
 
-    for (int i = 0; i < frames; ++i) {
-        TEST_ASSERT_FLOAT_WITHIN(1e-6f, inL[i], outL[i]);
-        TEST_ASSERT_FLOAT_WITHIN(1e-6f, inR[i], outR[i]);
+    const int latency = processor.getLatencySamples();
+    for (int i = 0; i < latency; ++i) {
+        TEST_ASSERT_FLOAT_WITHIN(1e-6f, 0.0f, outL[i]);
+        TEST_ASSERT_FLOAT_WITHIN(1e-6f, 0.0f, outR[i]);
+    }
+    for (int i = latency; i < frames; ++i) {
+        TEST_ASSERT_FLOAT_WITHIN(1e-6f, inL[i - latency], outL[i]);
+        TEST_ASSERT_FLOAT_WITHIN(1e-6f, inR[i - latency], outR[i]);
     }
 }
 
@@ -503,9 +705,11 @@ void test_host_processor_renders_variants() {
     namespace fs = std::filesystem;
     const fs::path baseDir = findAssetsBaseDir();
     const fs::path artifactDir = baseDir / "artifacts";
+    const fs::path actualDir = artifactDir / "actual";
 
     std::map<std::string, StereoBuffer> baselines;
-    for (const char *flavor : {"light", "mid", "heavy", "kitchen_sink"}) {
+    for (const char *flavor : {"light", "mid", "heavy", "kitchen_sink",
+                               "tilt_air_extremes", "link_toggle_scope"}) {
         const fs::path baselinePath = artifactDir / ("sample_" + std::string(flavor) + ".wav");
         if (fs::exists(baselinePath)) {
             baselines.emplace(flavor, loadStereoWav(baselinePath));
@@ -522,8 +726,8 @@ void test_host_processor_renders_variants() {
         {"kitchen_sink", 0.12f},
     };
 
-    fs::remove_all(artifactDir);
-    fs::create_directories(artifactDir);
+    fs::remove_all(actualDir);
+    fs::create_directories(actualDir);
 
     const fs::path assetPath = baseDir / "assets" / "sample.wav";
     StereoBuffer input = loadStereoWav(assetPath);
@@ -542,7 +746,7 @@ void test_host_processor_renders_variants() {
         processor.setParameters(render.params);
         StereoBuffer out = processor.process(render.audio);
 
-        const fs::path outPath = artifactDir / ("sample_" + render.flavor + ".wav");
+        const fs::path outPath = actualDir / ("sample_" + render.flavor + ".wav");
         writeStereoWav(outPath, out);
 
         const char *linkMode = (render.params.limiterLink == LimiterLookahead::LinkMode::MidSide) ? "Mid/Side" : "Linked";
@@ -569,6 +773,9 @@ void test_host_processor_renders_variants() {
         TEST_ASSERT_EQUAL_UINT32(input.right.size(), out.right.size());
 
         auto baselineIt = baselines.find(render.flavor);
+        TEST_ASSERT_TRUE_MESSAGE(
+            baselineIt != baselines.end() && !baselineIt->second.left.empty() && !baselineIt->second.right.empty(),
+            ("required baseline missing for flavor: " + render.flavor).c_str());
         if (baselineIt != baselines.end() && !baselineIt->second.left.empty() && !baselineIt->second.right.empty()) {
             TEST_ASSERT_EQUAL_MESSAGE(
                 baselineIt->second.sampleRate, out.sampleRate,
@@ -589,8 +796,6 @@ void test_host_processor_renders_variants() {
             printf("[diff] flavor=%s maxDiff=%.6f (tol=%.4f) frames=%zu\n", render.flavor.c_str(), diff.maxDiff, tol, diff.frames);
             TEST_ASSERT_LESS_OR_EQUAL_FLOAT_MESSAGE(tol, diff.maxDiff,
                                                     ("render diverges beyond tolerance for flavor: " + render.flavor).c_str());
-        } else {
-            printf("[diff] flavor=%s baseline missing; skipping comparison\n", render.flavor.c_str());
         }
     }
 
@@ -607,11 +812,20 @@ int main(int, char**) {
     RUN_TEST(test_dynwidth_clamps_controls);
     RUN_TEST(test_tilt_and_air_extremes_hold_bounds);
     RUN_TEST(test_tilt_and_air_shape_spectral_balance);
+    RUN_TEST(test_tilt_and_air_keep_physical_response_across_sample_rates);
+    RUN_TEST(test_transient_sensitivity_lowers_threshold);
+    RUN_TEST(test_host_nonfinite_audio_does_not_poison_state);
+    RUN_TEST(test_host_nonfinite_control_uses_safe_value);
+    RUN_TEST(test_prepare_to_play_clears_same_format_state);
+    RUN_TEST(test_limiter_uses_fixed_latency_and_looks_ahead);
+    RUN_TEST(test_limiter_lookahead_changes_keep_output_timeline_continuous);
+    RUN_TEST(test_extreme_sample_rates_are_bounded_before_latency_conversion);
+    RUN_TEST(test_host_global_mix_is_delayed_dry_and_keeps_limiter_mix_independent);
     RUN_TEST(test_limiter_caps_hot_signal);
     RUN_TEST(test_limiter_clamps_ceiling_range);
     RUN_TEST(test_limiter_link_modes_hold_guardrails);
     RUN_TEST(test_led_mapping_matches_thresholds);
-    RUN_TEST(test_host_horizon_mix_zero_is_dry_input);
+    RUN_TEST(test_host_horizon_mix_zero_is_latency_aligned_dry);
     RUN_TEST(test_wav_loader_reads_extensible_24_bit_in_32_bit_container);
     RUN_TEST(test_host_processor_renders_variants);
     return UNITY_END();

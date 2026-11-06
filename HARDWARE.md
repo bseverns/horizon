@@ -130,7 +130,10 @@ Grounding and layout for the codec should be treated as audio-grade:
 
 ## 4. Control Surface
 
-Horizon’s current firmware assumes **5 pots, 2 buttons, and 1 LED** on specific Teensy pins.
+The pin map below is the planned control surface, not current firmware behavior. The current
+firmware processes audio with its configured defaults but does not call `analogRead()`, configure
+buttons, debounce switches, or drive the limiter LED. These controls require a future firmware
+integration pass before the wiring below becomes operational.
 
 ### 4.1 Potentiometers
 
@@ -150,7 +153,7 @@ Each pot is wired:
 | Dirt amount           | A8            | 22             | SoftSaturation    |
 | Wet/dry mix           | A10           | 24             | Horizon mix       |
 
-The firmware reads these via `analogRead()` and maps them into:
+The planned firmware integration will read these via `analogRead()` and map them into:
 
 - `setWidth(0.0 .. 1.0)`
 - `setDynWidth(0.0 .. 1.0)`
@@ -173,7 +176,7 @@ Buttons are simple momentary switches wired:
 | Bypass button | 0          | Toggles wet/dry mix to 0 and back    |
 | Safe button   | 1          | Clamps some parameters to safe range |
 
-Debounce is handled in firmware using edge detection and simple logic.
+Debounce is not yet implemented; the intended implementation uses edge detection and simple logic.
 
 ### 4.3 Limiter LED
 
@@ -185,7 +188,7 @@ The limiter LED indicates when the limiter is actively reducing gain:
 |------------|------------|---------------------------------------------------|
 | LIMIT LED  | 9          | On when limiter gain < ~0.7 (about 3 dB GR)      |
 
-Firmware drives this based on `horizon.getLimiterGain()`.
+The LED driver is not yet implemented; it is intended to use `horizon.getLimiterGain()`.
 
 ---
 

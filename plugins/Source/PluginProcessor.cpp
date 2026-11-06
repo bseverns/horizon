@@ -8,6 +8,7 @@ HorizonAudioProcessor::HorizonAudioProcessor()
 
 void HorizonAudioProcessor::prepareToPlay(double sampleRate, int samplesPerBlock) {
   _processor.prepareToPlay(sampleRate, samplesPerBlock);
+  setLatencySamples(_processor.getLatencySamples());
 }
 
 bool HorizonAudioProcessor::isBusesLayoutSupported(const BusesLayout& layouts) const {

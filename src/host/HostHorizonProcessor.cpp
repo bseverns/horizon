@@ -10,7 +10,15 @@ constexpr float kOutputClamp = 1.0f;
 constexpr float kParamSmoothMs = 35.0f;
 constexpr float kMixSmoothMs = 28.0f;
 constexpr double kDefaultSampleRate = 44100.0;
+constexpr double kMaxSampleRate = 384000.0;
 constexpr int kDefaultBlockSize = 128;
+
+double boundedSampleRate(double sampleRate, double fallback) {
+  if (!std::isfinite(sampleRate) || sampleRate <= 0.0) {
+    return fallback;
+  }
+  return sampleRate > kMaxSampleRate ? kMaxSampleRate : sampleRate;
+}
 }
 
 HostHorizonProcessor::HostHorizonProcessor(double sampleRate, int blockSize)
@@ -36,7 +44,7 @@ HostHorizonProcessor::HostHorizonProcessor(double sampleRate, int blockSize)
     _telemetryTransient(0.0f),
     _telemetryLimiterGain(1.0f),
     _limiterTelemetry{0.0f, 0.0f, 0.0f},
-    _sampleRate(sampleRate > 0.0 ? sampleRate : kDefaultSampleRate),
+    _sampleRate(boundedSampleRate(sampleRate, kDefaultSampleRate)),
     _blockSize(blockSize > 0 ? blockSize : kDefaultBlockSize) {
   refreshSmoothers();
   resetSmoothersToTargets();
@@ -47,7 +55,9 @@ HostHorizonProcessor::HostHorizonProcessor(double sampleRate, int blockSize)
   _dynWidth.setLowAnchorHz(_lowAnchorHzTarget);
   _detector.setSampleRate(static_cast<float>(_sampleRate));
   _detector.setSensitivity(_transientSensTarget);
+  _midTilt.setSampleRate(static_cast<float>(_sampleRate));
   _midTilt.setTiltDbPerOct(_midTiltTarget);
+  _sideAir.setSampleRate(static_cast<float>(_sampleRate));
   _sideAir.setFreqAndGain(_sideAirFreqTarget, _sideAirGainTarget);
   _softSat.setAmount(_dirtTarget);
   _limiter.setSampleRate(static_cast<float>(_sampleRate));
@@ -68,6 +78,9 @@ void HostHorizonProcessor::prepareToPlay(double sampleRate, int blockSize) {
 float HostHorizonProcessor::clampf(float x, float lo, float hi) const {
   // Avoid std::min/max here to dodge Arduino-style macros that shadow them in
   // some host builds. Keep the clamp branchy-but-straightforward.
+  if (!std::isfinite(x)) {
+    return lo;
+  }
   if (x < lo) {
     return lo;
   }
@@ -80,12 +93,12 @@ float HostHorizonProcessor::clampf(float x, float lo, float hi) const {
 void HostHorizonProcessor::updateForSampleRate(double sampleRate,
                                                int blockSize,
                                                bool resetState) {
-  double desiredRate = (sampleRate > 0.0) ? sampleRate : _sampleRate;
+  double desiredRate = boundedSampleRate(sampleRate, _sampleRate);
   int desiredBlockSize = (blockSize > 0) ? blockSize : _blockSize;
 
   bool rateChanged = std::fabs(desiredRate - _sampleRate) > 1e-6;
   bool blockChanged = desiredBlockSize != _blockSize;
-  if (!rateChanged && !blockChanged) {
+  if (!rateChanged && !blockChanged && !resetState) {
     return;
   }
 
@@ -108,11 +121,21 @@ void HostHorizonProcessor::updateForSampleRate(double sampleRate,
     _detector.reset();
   }
 
+  _midTilt.setSampleRate(static_cast<float>(_sampleRate));
+  _sideAir.setSampleRate(static_cast<float>(_sampleRate));
+  if (resetState) {
+    _midTilt.reset();
+    _sideAir.reset();
+  }
+
   _limiter.setSampleRate(static_cast<float>(_sampleRate));
   _limiter.setReleaseMs(_limiterReleaseTargetMs);
   _limiter.setLookaheadMs(_limiterLookaheadTargetMs);
   if (resetState) {
     _limiter.reset();
+    std::fill_n(_dryBufferL, kDryBufferSize, 0.0f);
+    std::fill_n(_dryBufferR, kDryBufferSize, 0.0f);
+    _dryWriteIdx = 0;
   }
 }
 
@@ -265,10 +288,18 @@ void HostHorizonProcessor::processBlock(float* inL,
   _limiter.setBypass(_limiterBypassTarget);
 
   for (int i = 0; i < numFrames; ++i) {
-    float dryL = inL[i];
-    float dryR = inR[i];
-    float l = dryL;
-    float r = dryR;
+    float l = inL[i];
+    float r = inR[i];
+    if (!std::isfinite(l)) l = 0.0f;
+    if (!std::isfinite(r)) r = 0.0f;
+
+    _dryBufferL[_dryWriteIdx] = l;
+    _dryBufferR[_dryWriteIdx] = r;
+    int dryReadIdx = _dryWriteIdx - _limiter.getLatencySamples();
+    if (dryReadIdx < 0) dryReadIdx += kDryBufferSize;
+    const float dryL = _dryBufferL[dryReadIdx];
+    const float dryR = _dryBufferR[dryReadIdx];
+    _dryWriteIdx = (_dryWriteIdx + 1) % kDryBufferSize;
 
     float m, s;
     _ms.encode(l, r, m, s);
@@ -294,11 +325,8 @@ void HostHorizonProcessor::processBlock(float* inL,
     wetL *= outTrimLin;
     wetR *= outTrimLin;
 
-    float mixedL = dryL + mix * (wetL - dryL);
-    float mixedR = dryR + mix * (wetR - dryR);
-
-    outL[i] = clampf(mixedL, -kOutputClamp, kOutputClamp);
-    outR[i] = clampf(mixedR, -kOutputClamp, kOutputClamp);
+    outL[i] = clampf(dryL + mix * (wetL - dryL), -kOutputClamp, kOutputClamp);
+    outR[i] = clampf(dryR + mix * (wetR - dryR), -kOutputClamp, kOutputClamp);
   }
 
   _limiterTelemetry = _limiter.getTelemetry();

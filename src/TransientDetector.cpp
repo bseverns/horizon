@@ -44,7 +44,7 @@ float TransientDetector::processSample(float x) {
   _env += coeff * (ax - _env);
 
   // Map env + sensitivity to a 0..1 transient activity measure.
-  float threshold = 0.05f + _sensitivity * 0.45f; // ~0.05 .. 0.5
+  float threshold = 0.5f - _sensitivity * 0.45f; // ~0.5 .. 0.05
   float activity = 0.0f;
   if (_env > threshold) {
     activity = (_env - threshold) / (1.0f - threshold);

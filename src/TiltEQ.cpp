@@ -9,17 +9,30 @@ static inline float clampf_tilt(float x, float lo, float hi) {
   return (x < lo) ? lo : (x > hi ? hi : x);
 }
 
-static constexpr float kFsTilt = 44100.0f;
 static constexpr float kTwoPiTilt = 6.28318530717958647692f;
 static constexpr float kPivotHzTilt = 1000.0f;
+
+static float onePoleAlpha(float freqHz, float sampleRate) {
+  const float c = cosf(kTwoPiTilt * freqHz / sampleRate);
+  const float a = 2.0f - c;
+  return 1.0f - (a - sqrtf(a * a - 1.0f));
+}
 
 float TiltEQ::dbToLin(float dB) {
   return powf(10.0f, dB / 20.0f);
 }
 
 TiltEQ::TiltEQ()
-  : _alpha(0.0f), _low(0.0f), _tiltLowGain(1.0f), _tiltHighGain(1.0f) {
+  : _alpha(0.0f), _low(0.0f), _tiltLowGain(1.0f), _tiltHighGain(1.0f),
+    _sampleRate(44100.0f) {
   setTiltDbPerOct(0.0f);
+}
+
+void TiltEQ::setSampleRate(float sampleRate) {
+  if (sampleRate > 0.0f) {
+    _sampleRate = sampleRate;
+    _alpha = onePoleAlpha(kPivotHzTilt, _sampleRate);
+  }
 }
 
 void TiltEQ::setTiltDbPerOct(float dBPerOct) {
@@ -31,8 +44,7 @@ void TiltEQ::setTiltDbPerOct(float dBPerOct) {
   _tiltLowGain  = dbToLin(-half);
   _tiltHighGain = dbToLin(+half);
 
-  float omega = kTwoPiTilt * kPivotHzTilt / kFsTilt;
-  _alpha = 1.0f - expf(-omega);
+  _alpha = onePoleAlpha(kPivotHzTilt, _sampleRate);
 }
 
 void TiltEQ::reset() {

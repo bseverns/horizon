@@ -71,6 +71,7 @@ static const PresetScene kScenes[] = {
       1.20f,   // width: stretch
       0.65f,   // dyn width: motion tied to envelope
       0.55f,   // transient sensitivity: still listening, but looser
+      0.0f,    // mid tilt dB/oct: neutral
       11500.0f,// side air freq
       3.5f,    // side air gain dB
       95.0f,   // low anchor Hz: loosen the center a hair

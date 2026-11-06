@@ -94,6 +94,10 @@ private:
   TransientDetector _detector;
   SoftSaturation _softSat;
   LimiterLookahead _limiter;
+  static constexpr int kDryBufferSize = 4096;
+  float _dryBufferL[kDryBufferSize]{};
+  float _dryBufferR[kDryBufferSize]{};
+  int _dryWriteIdx = 0;
 
   // Cached telemetry
   float _telemetryWidth;

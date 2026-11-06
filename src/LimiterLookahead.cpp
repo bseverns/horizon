@@ -15,6 +15,7 @@ static inline float clampf_lim(float x, float lo, float hi) {
 }
 
 static constexpr float kDefaultSampleRate = AUDIO_SAMPLE_RATE_EXACT;
+static constexpr float kMaxSampleRate = 384000.0f;
 static constexpr float kMsToSec = 0.001f;
 
 float LimiterLookahead::dbToLin(float dB) {
@@ -24,6 +25,7 @@ float LimiterLookahead::dbToLin(float dB) {
 LimiterLookahead::LimiterLookahead()
   : _writeIdx(0),
     _lookaheadSamples(256),
+    _latencySamples(353),
     _lookaheadMs(5.0f),
     _mix(1.0f),
     _ceilingDb(-1.0f),
@@ -125,10 +127,10 @@ void LimiterLookahead::setBypass(bool on) {
 }
 
 void LimiterLookahead::setSampleRate(float sampleRate) {
-  if (sampleRate <= 0.0f) {
+  if (!std::isfinite(sampleRate) || sampleRate <= 0.0f) {
     return;
   }
-  _sampleRate = sampleRate;
+  _sampleRate = sampleRate > kMaxSampleRate ? kMaxSampleRate : sampleRate;
   updateLookaheadSamples();
   _xfadeSamples = static_cast<int>(_sampleRate * 0.005f + 0.5f);
   if (_xfadeSamples < 1) _xfadeSamples = 1;
@@ -163,9 +165,14 @@ void LimiterLookahead::updateReleaseCoeff() {
 }
 
 void LimiterLookahead::updateLookaheadSamples() {
+  int latency = static_cast<int>(8.0f * kMsToSec * _sampleRate + 0.5f);
+  if (latency < 1) latency = 1;
+  if (latency >= kBufferSize) latency = kBufferSize - 1;
+  _latencySamples = latency;
+
   int samples = static_cast<int>(_lookaheadMs * kMsToSec * _sampleRate + 0.5f);
   if (samples < 1) samples = 1;
-  if (samples >= kBufferSize) samples = kBufferSize - 1;
+  if (samples > _latencySamples) samples = _latencySamples;
   _lookaheadSamples = samples;
 }
 
@@ -218,9 +225,22 @@ void LimiterLookahead::processStereo(float& l, float& r) {
     updateReleaseCoeff();
   }
 
+  // Keep host latency fixed while moving the detector tap to set lookahead.
+  _bufferL[_writeIdx] = l;
+  _bufferR[_writeIdx] = r;
+  int readIdx = _writeIdx - _latencySamples;
+  if (readIdx < 0) readIdx += kBufferSize;
+  int detectorIdx = _writeIdx - (_latencySamples - _lookaheadSamples);
+  if (detectorIdx < 0) detectorIdx += kBufferSize;
+  const float dryL = _bufferL[readIdx];
+  const float dryR = _bufferR[readIdx];
+  const float detectorL = _bufferL[detectorIdx];
+  const float detectorR = _bufferR[detectorIdx];
+  _writeIdx = (_writeIdx + 1) % kBufferSize;
+
   // Detector feed: tilt, stereo link, transient score
-  float detL = _detectorTiltL.processSample(l);
-  float detR = _detectorTiltR.processSample(r);
+  float detL = _detectorTiltL.processSample(detectorL);
+  float detR = _detectorTiltR.processSample(detectorR);
   float level;
   if (_linkMode == LinkMode::MidSide) {
     float m = 0.5f * (detL + detR);
@@ -238,14 +258,6 @@ void LimiterLookahead::processStereo(float& l, float& r) {
   float transient = _transientDetector.processSample(level);
   _blockTransientSum += transient;
 
-  // Lookahead delay lines for dry + wet alignment
-  _bufferL[_writeIdx] = l;
-  _bufferR[_writeIdx] = r;
-  int readIdx = _writeIdx - _lookaheadSamples;
-  if (readIdx < 0) readIdx += kBufferSize;
-  float dryL = _bufferL[readIdx];
-  float dryR = _bufferR[readIdx];
-  _writeIdx = (_writeIdx + 1) % kBufferSize;
 
   // Required gain and envelope
   float gReq = _ceilingLin / level;
