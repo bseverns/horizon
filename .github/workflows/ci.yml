@@ -71,4 +71,7 @@ jobs:
         run: pip install platformio
 
       - name: Build ${{ matrix.example }} example
-        run: pio ci examples/${{ matrix.example }} --project-conf platformio.ini --environment main_teensy41 --lib src
+        run: |
+          mkdir -p "$RUNNER_TEMP/horizon-ci/tools"
+          cp tools/lint_stubs.py "$RUNNER_TEMP/horizon-ci/tools/"
+          pio ci examples/${{ matrix.example }} --project-conf platformio.ini --environment main_teensy41 --lib src --build-dir "$RUNNER_TEMP/horizon-ci" --keep-build-dir
