@@ -14,12 +14,10 @@ jobs:
         # We build macOS twice (arm64 + x86_64) so the artifacts stay explicit.
         os: [ubuntu-latest, windows-latest]
         include:
-          # Intel builds track 10.15-era targets, so keep them on macOS 12.
-          - os: macos-12
+          # Keep an explicit Intel build; the generic macOS labels are arm64.
+          - os: macos-15-intel
             mac_arch: x86_64
-          # Apple Silicon lives on current macOS (26.2-era), so keep the arm64
-          # build on the newest runner.
-          - os: macos-14
+          - os: macos-15
             mac_arch: arm64
 
     steps:
@@ -67,7 +65,7 @@ jobs:
           arch: x64
 
       - name: Prep toolchain (macOS)
-        if: matrix.os == 'macos-14'
+        if: startsWith(matrix.os, 'macos-')
         shell: bash
         run: |
           set -euo pipefail
@@ -85,7 +83,7 @@ jobs:
               -DCMAKE_C_COMPILER=cl \
               -DCMAKE_CXX_COMPILER=cl \
               -DJUCE_VST3_CAN_REPLACE_VST2=0
-          elif [[ "${{ matrix.os }}" == "macos-14" ]]; then
+          elif [[ -n "${{ matrix.mac_arch }}" ]]; then
             cmake_args=(
               -S plugins
               -B plugins/build
@@ -184,7 +182,7 @@ jobs:
           if-no-files-found: error
 
       - name: Package JUCE outputs (macOS)
-        if: matrix.os == 'macos-14'
+        if: startsWith(matrix.os, 'macos-')
         shell: bash
         run: |
           set -euo pipefail
@@ -204,7 +202,7 @@ jobs:
             "${artefact_root}/VST3/Horizon.vst3 and ${artefact_root}/Standalone/Horizon.app"
 
       - name: Upload JUCE artifacts (macOS)
-        if: matrix.os == 'macos-14'
+        if: startsWith(matrix.os, 'macos-')
         uses: actions/upload-artifact@v4
         with:
           name: juce-macos-${{ matrix.mac_arch }}-artefacts
