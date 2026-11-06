@@ -74,4 +74,5 @@ jobs:
         run: |
           mkdir -p "$RUNNER_TEMP/horizon-ci/tools"
           cp tools/lint_stubs.py "$RUNNER_TEMP/horizon-ci/tools/"
+          cp -R patches "$RUNNER_TEMP/horizon-ci/"
           pio ci examples/${{ matrix.example }} --project-conf platformio.ini --environment main_teensy41 --lib src --build-dir "$RUNNER_TEMP/horizon-ci" --keep-build-dir
